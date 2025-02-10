@@ -1,5 +1,6 @@
 using AutoMapper;
 using GrubPix.Application.DTO;
+using GrubPix.Application.Services.Interfaces;
 using GrubPix.Domain.Interfaces.Repositories;
 using MediatR;
 using System.Threading;
@@ -21,17 +22,18 @@ namespace GrubPix.Application.Features.Menu
     {
         private readonly IMenuRepository _menuRepository;
         private readonly IMapper _mapper;
+        private readonly IMenuService _menuService;
 
-        public GetMenuByIdQueryHandler(IMenuRepository menuRepository, IMapper mapper)
+
+        public GetMenuByIdQueryHandler(IMenuService menuService, IMapper mapper)
         {
-            _menuRepository = menuRepository;
+            _menuService = menuService;
             _mapper = mapper;
         }
 
         public async Task<MenuDto> Handle(GetMenuByIdQuery request, CancellationToken cancellationToken)
         {
-            var menu = await _menuRepository.GetByIdAsync(request.Id);
-            return _mapper.Map<MenuDto>(menu);
+            return await _menuService.GetMenuByIdAsync(request.Id);
         }
     }
 }
