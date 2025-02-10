@@ -1,3 +1,5 @@
+using GrubPix.Domain.Entities;
+
 namespace GrubPix.Application.DTO
 {
     // DTO for retrieving menu details

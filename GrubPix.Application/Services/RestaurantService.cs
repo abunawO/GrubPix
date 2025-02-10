@@ -21,6 +21,7 @@ public class RestaurantService : IRestaurantService
             Id = r.Id,
             Name = r.Name,
             Address = r.Address,
+            ImageUrl = r.ImageUrl,
             Menus = r.Menus.Select(m => new MenuDto
             {
                 Id = m.Id,
@@ -29,14 +30,14 @@ public class RestaurantService : IRestaurantService
                 RestaurantId = m.RestaurantId,
                 Items = m.MenuItems.Select(item =>
                 {
-                    Console.WriteLine($"Item Found: {item.Name}"); // Debug log
                     return new MenuItemDto
                     {
                         Id = item.Id,
                         Name = item.Name,
                         Description = item.Description,
                         Price = item.Price,
-                        MenuId = item.MenuId
+                        MenuId = item.MenuId,
+                        ImageUrl = item.ImageUrl
                     };
                 }).ToList()
             }).ToList()
@@ -54,6 +55,7 @@ public class RestaurantService : IRestaurantService
             Id = restaurant.Id,
             Name = restaurant.Name,
             Address = restaurant.Address,
+            ImageUrl = restaurant.ImageUrl,
             Menus = restaurant.Menus.Select(m => new MenuDto
             {
                 Id = m.Id,
@@ -66,7 +68,8 @@ public class RestaurantService : IRestaurantService
                     Name = item.Name,
                     Description = item.Description,
                     Price = item.Price,
-                    MenuId = item.MenuId
+                    MenuId = item.MenuId,
+                    ImageUrl = item.ImageUrl
                 }).ToList()
             }).ToList()
         };
@@ -79,17 +82,20 @@ public class RestaurantService : IRestaurantService
         var restaurant = new Restaurant
         {
             Name = restaurantDto.Name,
-            Address = restaurantDto.Address
+            Address = restaurantDto.Address,
+            ImageUrl = restaurantDto.ImageUrl // Add ImageUrl during creation
         };
 
         await _restaurantRepository.AddAsync(restaurant);
 
-        // Assign the ID after creation
+        // Assign the ID after creation and include ImageUrl
         return new RestaurantDto
         {
             Id = restaurant.Id,
             Name = restaurant.Name,
-            Address = restaurant.Address
+            Address = restaurant.Address,
+            ImageUrl = restaurant.ImageUrl // Return ImageUrl in the response
         };
     }
+
 }

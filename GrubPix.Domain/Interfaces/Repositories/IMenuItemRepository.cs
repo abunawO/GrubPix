@@ -1,6 +1,5 @@
 using GrubPix.Domain.Entities;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
 
 namespace GrubPix.Domain.Interfaces.Repositories
 {

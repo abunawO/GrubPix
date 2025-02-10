@@ -20,11 +20,13 @@ namespace GrubPix.Application.Features.Restaurant
     public class UpdateRestaurantCommandHandler : IRequestHandler<UpdateRestaurantCommand, RestaurantDto>
     {
         private readonly IRestaurantRepository _restaurantRepository;
+        private readonly IMenuItemRepository _menuItemRepository;
         private readonly IMapper _mapper;
 
-        public UpdateRestaurantCommandHandler(IRestaurantRepository restaurantRepository, IMapper mapper)
+        public UpdateRestaurantCommandHandler(IRestaurantRepository restaurantRepository, IMenuItemRepository menuItemRepository, IMapper mapper)
         {
             _restaurantRepository = restaurantRepository;
+            _menuItemRepository = menuItemRepository;
             _mapper = mapper;
         }
 
@@ -36,6 +38,19 @@ namespace GrubPix.Application.Features.Restaurant
 
             _mapper.Map(request.RestaurantDto, restaurant);
             await _restaurantRepository.UpdateAsync(restaurant);
+
+            foreach (var menu in request.RestaurantDto.Menus)
+            {
+                foreach (var item in menu.Items)
+                {
+                    var menuItem = await _menuItemRepository.GetByIdAsync(item.Id);
+                    if (menuItem != null)
+                    {
+                        _mapper.Map(item, menuItem);
+                        await _menuItemRepository.UpdateAsync(menuItem);
+                    }
+                }
+            }
 
             return _mapper.Map<RestaurantDto>(restaurant);
         }

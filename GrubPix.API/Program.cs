@@ -6,6 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 using GrubPix.Domain.Interfaces.Repositories;
 using GrubPix.Infrastructure.Repositories;
 using GrubPix.Application.Features.Restaurant;
+using GrubPix.Application.Mappings;
+using GrubPix.Application.Services.Interfaces;
+using GrubPix.Application.Services;
+using GrubPix.Application.Features.MenuItem;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -25,8 +29,12 @@ builder.Services.AddDbContext<GrubPixDbContext>(options =>
 
 // Dependency Injection
 builder.Services.AddScoped<IRestaurantRepository, RestaurantRepository>();
+builder.Services.AddScoped<IMenuItemRepository, MenuItemRepository>();
+builder.Services.AddScoped<IMenuItemService, MenuItemService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddMediatR(typeof(GetRestaurantsQueryHandler).Assembly);
+builder.Services.AddMediatR(typeof(GetAllMenuItemsQuery).Assembly);
 builder.Services.AddCoreApplicationServices();
 builder.Services.AddCoreInfrastructureServices();
 
