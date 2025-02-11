@@ -16,15 +16,6 @@ namespace GrubPix.API.Controllers
             _mediator = mediator;
         }
 
-        // Create Menu
-        [HttpPost]
-        public async Task<IActionResult> CreateMenu([FromBody] CreateMenuDto menuDto)
-        {
-            var command = new CreateMenuCommand { MenuDto = menuDto };
-            var result = await _mediator.Send(command);
-            return CreatedAtAction(nameof(GetMenuById), new { id = result.Id }, result);
-        }
-
         // Get All Menus
         [HttpGet]
         public async Task<IActionResult> GetAllMenus()
@@ -32,6 +23,15 @@ namespace GrubPix.API.Controllers
             var query = new GetMenuQuery();
             var result = await _mediator.Send(query);
             return Ok(result);
+        }
+
+        // Create Menu
+        [HttpPost]
+        public async Task<IActionResult> CreateMenu([FromBody] CreateMenuDto menuDto)
+        {
+            var command = new CreateMenuCommand(menuDto);
+            var result = await _mediator.Send(command);
+            return CreatedAtAction(nameof(GetMenuById), new { id = result.Id }, result);
         }
 
         // Get Menu by ID
@@ -50,7 +50,7 @@ namespace GrubPix.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateMenu(int id, [FromBody] CreateMenuDto menuDto)
         {
-            var command = new UpdateMenuCommand { Id = id, MenuDto = menuDto };
+            var command = new UpdateMenuCommand(id, menuDto);
             var result = await _mediator.Send(command);
 
             if (result == null)

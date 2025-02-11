@@ -39,18 +39,19 @@ namespace GrubPix.API.Controllers
 
         // Create Restaurant
         [HttpPost]
-        public async Task<IActionResult> CreateRestaurant([FromBody] CreateRestaurantDto restaurantDto)
+        public async Task<IActionResult> CreateRestaurant([FromForm] CreateRestaurantDto restaurantDto, IFormFile imageFile)
         {
-            var command = new CreateRestaurantCommand(restaurantDto);
+            var command = new CreateRestaurantCommand(restaurantDto, imageFile);
             var result = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetRestaurantById), new { id = result.Id }, result);
         }
 
+
         // Update Restaurant
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateRestaurant(int id, [FromBody] CreateRestaurantDto restaurantDto)
+        public async Task<IActionResult> UpdateRestaurant(int id, [FromForm] CreateRestaurantDto restaurantDto, IFormFile imageFile)
         {
-            var command = new UpdateRestaurantCommand(id, restaurantDto);
+            var command = new UpdateRestaurantCommand(id, restaurantDto, imageFile);
             var result = await _mediator.Send(command);
 
             if (result == null)

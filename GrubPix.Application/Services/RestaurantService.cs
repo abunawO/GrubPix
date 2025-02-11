@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Http;
 public class RestaurantService : IRestaurantService
 {
     private readonly IRestaurantRepository _restaurantRepository;
-    private readonly S3Service _imageStorageService;
+    private readonly IImageStorageService _imageStorageService;
 
-    public RestaurantService(IRestaurantRepository restaurantRepository, S3Service s3Service)
+    public RestaurantService(IRestaurantRepository restaurantRepository, IImageStorageService imageStorageService)
     {
         _restaurantRepository = restaurantRepository;
-        _imageStorageService = s3Service;
+        _imageStorageService = imageStorageService;
     }
 
     public async Task<IEnumerable<RestaurantDto>> GetAllRestaurantsAsync()

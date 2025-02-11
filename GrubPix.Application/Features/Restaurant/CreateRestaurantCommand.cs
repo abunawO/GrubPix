@@ -1,37 +1,34 @@
-using MediatR;
 using GrubPix.Application.DTO;
-using GrubPix.Domain.Interfaces.Repositories;
-using AutoMapper;
-using RestaurantEntity = GrubPix.Domain.Entities.Restaurant;
+using GrubPix.Application.Services.Interfaces;
+using MediatR;
+using Microsoft.AspNetCore.Http;
 
 namespace GrubPix.Application.Features.Restaurant
 {
     public class CreateRestaurantCommand : IRequest<RestaurantDto>
     {
         public CreateRestaurantDto RestaurantDto { get; set; }
+        public IFormFile ImageFile { get; set; }
 
-        public CreateRestaurantCommand(CreateRestaurantDto restaurantDto)
+        public CreateRestaurantCommand(CreateRestaurantDto restaurantDto, IFormFile imageFile)
         {
             RestaurantDto = restaurantDto;
+            ImageFile = imageFile;
         }
     }
 
     public class CreateRestaurantCommandHandler : IRequestHandler<CreateRestaurantCommand, RestaurantDto>
     {
-        private readonly IRestaurantRepository _restaurantRepository;
-        private readonly IMapper _mapper;
+        private readonly IRestaurantService _restaurantService;
 
-        public CreateRestaurantCommandHandler(IRestaurantRepository restaurantRepository, IMapper mapper)
+        public CreateRestaurantCommandHandler(IRestaurantService restaurantService)
         {
-            _restaurantRepository = restaurantRepository;
-            _mapper = mapper;
+            _restaurantService = restaurantService;
         }
 
         public async Task<RestaurantDto> Handle(CreateRestaurantCommand request, CancellationToken cancellationToken)
         {
-            var restaurantEntity = _mapper.Map<RestaurantEntity>(request.RestaurantDto);
-            var createdRestaurant = await _restaurantRepository.AddAsync(restaurantEntity);
-            return _mapper.Map<RestaurantDto>(createdRestaurant);
+            return await _restaurantService.CreateRestaurantAsync(request.RestaurantDto, request.ImageFile);
         }
     }
 }

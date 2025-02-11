@@ -1,40 +1,53 @@
-using Microsoft.Extensions.DependencyInjection;
 using GrubPix.Application.Services;
-using GrubPix.Infrastructure.Persistence;
-using GrubPix.Infrastructure.Repositories;
-using GrubPix.Infrastructure.Services;
 using GrubPix.Application.Services.Interfaces;
 using GrubPix.Domain.Interfaces.Repositories;
+using GrubPix.Infrastructure.Repositories;
+using GrubPix.Infrastructure.Services;
 using GrubPix.Application.Mappings;
+using GrubPix.Infrastructure.Persistence;
+using MediatR;
+using GrubPix.Application.Features.Restaurant;
+using GrubPix.Application.Features.MenuItem;
+using Amazon.S3;
 
 namespace GrubPix.API.Configuration
 {
     public static class DependencyInjection
     {
-        // Application Layer Services
         public static IServiceCollection AddCoreApplicationServices(this IServiceCollection services)
         {
+            // AWS S3 Client Registration
+            services.AddAWSService<IAmazonS3>();
+
+            // Application Services
             services.AddScoped<IMenuService, MenuService>();
             services.AddScoped<IRestaurantService, RestaurantService>();
+            services.AddScoped<IImageStorageService, S3Service>();
+            services.AddScoped<IMenuItemService, MenuItemService>();
 
-            // Register AutoMapper
+            // AutoMapper
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddAutoMapper(typeof(MappingProfile));
+
+            // MediatR Handlers
+            services.AddMediatR(typeof(GetRestaurantsQueryHandler).Assembly);
+            services.AddMediatR(typeof(GetAllMenuItemsQuery).Assembly);
 
             return services;
         }
 
-        // Infrastructure Layer Services
         public static IServiceCollection AddCoreInfrastructureServices(this IServiceCollection services)
         {
-            // Register Infrastructure Services
+            // Infrastructure Services
             services.AddScoped<INotificationService, NotificationService>();
-            services.AddScoped<IImageStorageService, ImageStorageService>();
+            services.AddScoped<IImageStorageService, S3Service>();
 
-            // Register Repositories
+            // Repositories
             services.AddScoped<IMenuRepository, MenuRepository>();
+            services.AddScoped<IMenuItemRepository, MenuItemRepository>();
             services.AddScoped<IRestaurantRepository, RestaurantRepository>();
 
-            // Register DbContext
+            // Database Context
             services.AddScoped<GrubPixDbContext>();
 
             return services;

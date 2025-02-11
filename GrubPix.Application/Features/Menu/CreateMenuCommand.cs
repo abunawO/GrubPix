@@ -3,6 +3,7 @@ using GrubPix.Application.DTO;
 using GrubPix.Domain.Entities;
 using GrubPix.Domain.Interfaces.Repositories;
 using MediatR;
+using GrubPix.Application.Services.Interfaces;
 
 namespace GrubPix.Application.Features.Menu
 {
@@ -10,32 +11,26 @@ namespace GrubPix.Application.Features.Menu
     public class CreateMenuCommand : IRequest<MenuDto>
     {
         public CreateMenuDto MenuDto { get; set; }
+
+        public CreateMenuCommand(CreateMenuDto menuDto)
+        {
+            MenuDto = menuDto;
+        }
     }
 
     // Command Handler to process CreateMenuCommand
     public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, MenuDto>
     {
-        private readonly IMenuRepository _menuRepository;
-        private readonly IMapper _mapper;
+        private readonly IMenuService _menuService;
 
-        public CreateMenuCommandHandler(IMenuRepository menuRepository, IMapper mapper)
+        public CreateMenuCommandHandler(IMenuService menuService)
         {
-            _menuRepository = menuRepository;
-            _mapper = mapper;
+            _menuService = menuService;
         }
 
         public async Task<MenuDto> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
         {
-            // Mapping DTO to Entity
-            var menuEntity = _mapper.Map<GrubPix.Domain.Entities.Menu>(request.MenuDto);
-
-
-
-            // Saving to the repository
-            var createdMenu = await _menuRepository.AddAsync(menuEntity);
-
-            // Mapping back Entity to DTO to return
-            return _mapper.Map<MenuDto>(createdMenu);
+            return await _menuService.CreateMenuAsync(request.MenuDto);
         }
     }
 }

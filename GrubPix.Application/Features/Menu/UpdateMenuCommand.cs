@@ -1,7 +1,5 @@
-using AutoMapper;
 using GrubPix.Application.DTO;
-using GrubPix.Domain.Entities;
-using GrubPix.Domain.Interfaces.Repositories;
+using GrubPix.Application.Services.Interfaces;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,31 +10,26 @@ namespace GrubPix.Application.Features.Menu
     {
         public int Id { get; set; }
         public CreateMenuDto MenuDto { get; set; }
+
+        public UpdateMenuCommand(int id, CreateMenuDto menuDto)
+        {
+            Id = id;
+            MenuDto = menuDto;
+        }
     }
 
     public class UpdateMenuCommandHandler : IRequestHandler<UpdateMenuCommand, MenuDto>
     {
-        private readonly IMenuRepository _menuRepository;
-        private readonly IMapper _mapper;
+        private readonly IMenuService _menuService;
 
-        public UpdateMenuCommandHandler(IMenuRepository menuRepository, IMapper mapper)
+        public UpdateMenuCommandHandler(IMenuService menuService)
         {
-            _menuRepository = menuRepository;
-            _mapper = mapper;
+            _menuService = menuService;
         }
 
         public async Task<MenuDto> Handle(UpdateMenuCommand request, CancellationToken cancellationToken)
         {
-            var menuEntity = await _menuRepository.GetByIdAsync(request.Id);
-
-            if (menuEntity == null)
-                return null;
-
-            _mapper.Map(request.MenuDto, menuEntity);
-
-            await _menuRepository.UpdateAsync(menuEntity);
-
-            return _mapper.Map<MenuDto>(menuEntity);
+            return await _menuService.UpdateMenuAsync(request.Id, request.MenuDto);
         }
     }
 }

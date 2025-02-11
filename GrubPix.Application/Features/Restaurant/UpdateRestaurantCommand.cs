@@ -1,7 +1,9 @@
-using MediatR;
-using GrubPix.Application.DTO;
-using GrubPix.Domain.Interfaces.Repositories;
 using AutoMapper;
+using GrubPix.Domain.Interfaces.Repositories;
+using GrubPix.Application.Services.Interfaces;
+using MediatR;
+using Microsoft.AspNetCore.Http;
+using GrubPix.Application.DTO;
 
 namespace GrubPix.Application.Features.Restaurant
 {
@@ -9,50 +11,28 @@ namespace GrubPix.Application.Features.Restaurant
     {
         public int Id { get; set; }
         public CreateRestaurantDto RestaurantDto { get; set; }
+        public IFormFile ImageFile { get; set; }
 
-        public UpdateRestaurantCommand(int id, CreateRestaurantDto restaurantDto)
+        public UpdateRestaurantCommand(int id, CreateRestaurantDto restaurantDto, IFormFile imageFile)
         {
             Id = id;
             RestaurantDto = restaurantDto;
+            ImageFile = imageFile;
         }
     }
 
     public class UpdateRestaurantCommandHandler : IRequestHandler<UpdateRestaurantCommand, RestaurantDto>
     {
-        private readonly IRestaurantRepository _restaurantRepository;
-        private readonly IMenuItemRepository _menuItemRepository;
-        private readonly IMapper _mapper;
+        private readonly IRestaurantService _restaurantService;
 
-        public UpdateRestaurantCommandHandler(IRestaurantRepository restaurantRepository, IMenuItemRepository menuItemRepository, IMapper mapper)
+        public UpdateRestaurantCommandHandler(IRestaurantService restaurantService)
         {
-            _restaurantRepository = restaurantRepository;
-            _menuItemRepository = menuItemRepository;
-            _mapper = mapper;
+            _restaurantService = restaurantService;
         }
 
         public async Task<RestaurantDto> Handle(UpdateRestaurantCommand request, CancellationToken cancellationToken)
         {
-            var restaurant = await _restaurantRepository.GetByIdAsync(request.Id);
-            if (restaurant == null)
-                return null;
-
-            _mapper.Map(request.RestaurantDto, restaurant);
-            await _restaurantRepository.UpdateAsync(restaurant);
-
-            foreach (var menu in request.RestaurantDto.Menus)
-            {
-                foreach (var item in menu.Items)
-                {
-                    var menuItem = await _menuItemRepository.GetByIdAsync(item.Id);
-                    if (menuItem != null)
-                    {
-                        _mapper.Map(item, menuItem);
-                        await _menuItemRepository.UpdateAsync(menuItem);
-                    }
-                }
-            }
-
-            return _mapper.Map<RestaurantDto>(restaurant);
+            return await _restaurantService.UpdateRestaurantAsync(request.Id, request.RestaurantDto, request.ImageFile);
         }
     }
 }

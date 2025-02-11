@@ -1,5 +1,7 @@
-using GrubPix.Domain.Interfaces.Repositories;
+using GrubPix.Application.Services.Interfaces;
 using MediatR;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace GrubPix.Application.Features.Restaurant
 {
@@ -15,21 +17,16 @@ namespace GrubPix.Application.Features.Restaurant
 
     public class DeleteRestaurantCommandHandler : IRequestHandler<DeleteRestaurantCommand, bool>
     {
-        private readonly IRestaurantRepository _restaurantRepository;
+        private readonly IRestaurantService _restaurantService;
 
-        public DeleteRestaurantCommandHandler(IRestaurantRepository restaurantRepository)
+        public DeleteRestaurantCommandHandler(IRestaurantService restaurantService)
         {
-            _restaurantRepository = restaurantRepository;
+            _restaurantService = restaurantService;
         }
 
         public async Task<bool> Handle(DeleteRestaurantCommand request, CancellationToken cancellationToken)
         {
-            var restaurant = await _restaurantRepository.GetByIdAsync(request.Id);
-            if (restaurant == null)
-                return false;
-
-            await _restaurantRepository.DeleteAsync(restaurant.Id);
-            return true;
+            return await _restaurantService.DeleteRestaurantAsync(request.Id);
         }
     }
 }

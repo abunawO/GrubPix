@@ -93,5 +93,42 @@ namespace GrubPix.Application.Services
                 Items = new List<MenuItemDto>()
             };
         }
+
+        public async Task<MenuDto> UpdateMenuAsync(int id, CreateMenuDto menuDto)
+        {
+            var existingMenu = await _menuRepository.GetByIdAsync(id);
+            if (existingMenu == null) return null;
+
+            existingMenu.Name = menuDto.Name;
+            existingMenu.Description = (string)menuDto.Description;
+
+            await _menuRepository.UpdateAsync(existingMenu);
+
+            return new MenuDto
+            {
+                Id = existingMenu.Id,
+                RestaurantId = existingMenu.RestaurantId,
+                Name = existingMenu.Name,
+                Description = existingMenu.Description,
+                Items = existingMenu.MenuItems.Select(item => new MenuItemDto
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    Description = item.Description,
+                    Price = item.Price,
+                    MenuId = item.MenuId,
+                    ImageUrl = item.ImageUrl
+                }).ToList()
+            };
+        }
+
+        public async Task<bool> DeleteMenuAsync(int id)
+        {
+            var menu = await _menuRepository.GetByIdAsync(id);
+            if (menu == null) return false;
+
+            await _menuRepository.DeleteAsync(menu.Id);
+            return true;
+        }
     }
 }

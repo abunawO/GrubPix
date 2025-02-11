@@ -13,12 +13,12 @@ namespace GrubPix.Application.Services
     public class MenuItemService : IMenuItemService
     {
         private readonly IMenuItemRepository _menuItemRepository;
-        private readonly S3Service _imageStorageService;
+        private readonly IImageStorageService _imageStorageService;
 
-        public MenuItemService(IMenuItemRepository menuItemRepository, S3Service s3Service)
+        public MenuItemService(IMenuItemRepository menuItemRepository, IImageStorageService imageStorageService)
         {
             _menuItemRepository = menuItemRepository;
-            _imageStorageService = s3Service;
+            _imageStorageService = imageStorageService;
         }
 
         public async Task<IEnumerable<MenuItemDto>> GetAllMenuItemsAsync()

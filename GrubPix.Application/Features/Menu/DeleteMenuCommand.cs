@@ -1,7 +1,5 @@
-using GrubPix.Domain.Interfaces.Repositories;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
+using GrubPix.Application.Services.Interfaces;
 
 namespace GrubPix.Application.Features.Menu
 {
@@ -17,21 +15,16 @@ namespace GrubPix.Application.Features.Menu
 
     public class DeleteMenuCommandHandler : IRequestHandler<DeleteMenuCommand, bool>
     {
-        private readonly IMenuRepository _menuRepository;
+        private readonly IMenuService _menuService;
 
-        public DeleteMenuCommandHandler(IMenuRepository menuRepository)
+        public DeleteMenuCommandHandler(IMenuService menuService)
         {
-            _menuRepository = menuRepository;
+            _menuService = menuService;
         }
 
         public async Task<bool> Handle(DeleteMenuCommand request, CancellationToken cancellationToken)
         {
-            var menu = await _menuRepository.GetByIdAsync(request.Id);
-            if (menu == null)
-                return false;
-
-            await _menuRepository.DeleteAsync(menu.Id);
-            return true;
+            return await _menuService.DeleteMenuAsync(request.Id);
         }
     }
 }
