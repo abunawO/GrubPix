@@ -1,15 +1,19 @@
 using GrubPix.Application.DTO;
+using GrubPix.Application.Services;
 using GrubPix.Application.Services.Interfaces;
 using GrubPix.Domain.Entities;
 using GrubPix.Domain.Interfaces.Repositories;
+using Microsoft.AspNetCore.Http;
 
 public class RestaurantService : IRestaurantService
 {
     private readonly IRestaurantRepository _restaurantRepository;
+    private readonly S3Service _imageStorageService;
 
-    public RestaurantService(IRestaurantRepository restaurantRepository)
+    public RestaurantService(IRestaurantRepository restaurantRepository, S3Service s3Service)
     {
         _restaurantRepository = restaurantRepository;
+        _imageStorageService = s3Service;
     }
 
     public async Task<IEnumerable<RestaurantDto>> GetAllRestaurantsAsync()
@@ -77,25 +81,68 @@ public class RestaurantService : IRestaurantService
 
 
 
-    public async Task<RestaurantDto> CreateRestaurantAsync(CreateRestaurantDto restaurantDto)
+    public async Task<RestaurantDto> CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile)
     {
         var restaurant = new Restaurant
         {
             Name = restaurantDto.Name,
-            Address = restaurantDto.Address,
-            ImageUrl = restaurantDto.ImageUrl // Add ImageUrl during creation
+            Address = restaurantDto.Address
         };
+
+        if (imageFile != null)
+        {
+            var imageUrl = await _imageStorageService.UploadImageAsync(imageFile.OpenReadStream());
+            restaurant.ImageUrl = imageUrl;
+        }
 
         await _restaurantRepository.AddAsync(restaurant);
 
-        // Assign the ID after creation and include ImageUrl
         return new RestaurantDto
         {
             Id = restaurant.Id,
             Name = restaurant.Name,
             Address = restaurant.Address,
-            ImageUrl = restaurant.ImageUrl // Return ImageUrl in the response
+            ImageUrl = restaurant.ImageUrl
         };
+    }
+
+    public async Task<RestaurantDto> UpdateRestaurantAsync(int id, CreateRestaurantDto restaurantDto, IFormFile imageFile)
+    {
+        var existingRestaurant = await _restaurantRepository.GetByIdAsync(id);
+        if (existingRestaurant == null) return null;
+
+        existingRestaurant.Name = restaurantDto.Name;
+        existingRestaurant.Address = restaurantDto.Address;
+
+        if (imageFile != null)
+        {
+            var imageUrl = await _imageStorageService.UploadImageAsync(imageFile.OpenReadStream());
+            existingRestaurant.ImageUrl = imageUrl;
+        }
+
+        await _restaurantRepository.UpdateAsync(existingRestaurant);
+
+        return new RestaurantDto
+        {
+            Id = existingRestaurant.Id,
+            Name = existingRestaurant.Name,
+            Address = existingRestaurant.Address,
+            ImageUrl = existingRestaurant.ImageUrl
+        };
+    }
+
+    public async Task<bool> DeleteRestaurantAsync(int id)
+    {
+        var restaurant = await _restaurantRepository.GetByIdAsync(id);
+        if (restaurant == null) return false;
+
+        if (!string.IsNullOrEmpty(restaurant.ImageUrl))
+        {
+            await _imageStorageService.DeleteImageAsync(restaurant.ImageUrl);
+        }
+
+        await _restaurantRepository.DeleteAsync(restaurant.Id);
+        return true;
     }
 
 }

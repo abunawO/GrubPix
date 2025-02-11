@@ -13,12 +13,12 @@ namespace GrubPix.Application.Services
     public class MenuItemService : IMenuItemService
     {
         private readonly IMenuItemRepository _menuItemRepository;
-        private readonly S3Service _s3Service;
+        private readonly S3Service _imageStorageService;
 
         public MenuItemService(IMenuItemRepository menuItemRepository, S3Service s3Service)
         {
             _menuItemRepository = menuItemRepository;
-            _s3Service = s3Service;
+            _imageStorageService = s3Service;
         }
 
         public async Task<IEnumerable<MenuItemDto>> GetAllMenuItemsAsync()
@@ -65,7 +65,7 @@ namespace GrubPix.Application.Services
             {
                 using (var stream = imageFile.OpenReadStream())
                 {
-                    var imageUrl = await _s3Service.UploadImageAsync(stream);
+                    var imageUrl = await _imageStorageService.UploadImageAsync(stream);
                     newItem.ImageUrl = imageUrl;
                 }
             }
@@ -88,7 +88,7 @@ namespace GrubPix.Application.Services
             {
                 using (var stream = imageFile.OpenReadStream())
                 {
-                    var imageUrl = await _s3Service.UploadImageAsync(stream);
+                    var imageUrl = await _imageStorageService.UploadImageAsync(stream);
                     existingItem.ImageUrl = imageUrl;
                 }
             }
@@ -110,7 +110,7 @@ namespace GrubPix.Application.Services
             // Delete the image from S3 if it exists
             if (!string.IsNullOrEmpty(item.ImageUrl))
             {
-                await _s3Service.DeleteImageAsync(item.ImageUrl);
+                await _imageStorageService.DeleteImageAsync(item.ImageUrl);
             }
 
             await _menuItemRepository.DeleteAsync(item.Id);
