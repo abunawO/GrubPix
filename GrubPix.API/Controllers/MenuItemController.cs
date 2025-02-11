@@ -40,18 +40,18 @@ namespace GrubPix.API.Controllers
 
         // POST: api/MenuItem
         [HttpPost]
-        public async Task<IActionResult> CreateMenuItem([FromBody] CreateMenuItemDto menuItemDto)
+        public async Task<IActionResult> CreateMenuItem([FromForm] CreateMenuItemDto menuItemDto, IFormFile imageFile)
         {
-            var command = new CreateMenuItemCommand(menuItemDto);
+            var command = new CreateMenuItemCommand(menuItemDto, imageFile);
             var createdMenuItem = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetMenuItemById), new { id = createdMenuItem.Id }, createdMenuItem);
         }
 
         // PUT: api/MenuItem/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateMenuItem(int id, [FromBody] CreateMenuItemDto menuItemDto)
+        public async Task<IActionResult> UpdateMenuItem(int id, [FromForm] CreateMenuItemDto menuItemDto, IFormFile imageFile)
         {
-            var command = new UpdateMenuItemCommand(id, menuItemDto);
+            var command = new UpdateMenuItemCommand(id, menuItemDto, imageFile);
             var updatedMenuItem = await _mediator.Send(command);
 
             if (updatedMenuItem == null)

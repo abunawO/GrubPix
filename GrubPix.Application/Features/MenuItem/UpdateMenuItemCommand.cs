@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using GrubPix.Application.DTO;
 using GrubPix.Application.Services.Interfaces;
 
@@ -8,11 +9,13 @@ namespace GrubPix.Application.Features.MenuItem
     {
         public int Id { get; }
         public CreateMenuItemDto MenuItemDto { get; }
+        public IFormFile ImageFile { get; }
 
-        public UpdateMenuItemCommand(int id, CreateMenuItemDto menuItemDto)
+        public UpdateMenuItemCommand(int id, CreateMenuItemDto menuItemDto, IFormFile imageFile)
         {
             Id = id;
             MenuItemDto = menuItemDto;
+            ImageFile = imageFile;
         }
     }
 
@@ -27,7 +30,7 @@ namespace GrubPix.Application.Features.MenuItem
 
         public async Task<MenuItemDto> Handle(UpdateMenuItemCommand request, CancellationToken cancellationToken)
         {
-            return await _menuItemService.UpdateMenuItemAsync(request.Id, request.MenuItemDto);
+            return await _menuItemService.UpdateMenuItemAsync(request.Id, request.MenuItemDto, request.ImageFile);
         }
     }
 }
