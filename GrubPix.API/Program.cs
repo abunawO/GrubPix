@@ -32,6 +32,7 @@ builder.Services.AddScoped<IRestaurantRepository, RestaurantRepository>();
 builder.Services.AddScoped<IMenuItemRepository, MenuItemRepository>();
 builder.Services.AddScoped<IMenuItemService, MenuItemService>();
 builder.Services.AddScoped<IMenuService, MenuService>();
+builder.Services.AddScoped<IImageStorageService, S3Service>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddMediatR(typeof(GetRestaurantsQueryHandler).Assembly);
