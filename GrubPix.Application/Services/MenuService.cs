@@ -127,6 +127,12 @@ namespace GrubPix.Application.Services
             var menu = await _menuRepository.GetByIdAsync(id);
             if (menu == null) return false;
 
+            // Delete associated menu items
+            foreach (var menuItem in menu.MenuItems.ToList())
+            {
+                await _menuItemRepository.DeleteAsync(menuItem.Id);
+            }
+
             await _menuRepository.DeleteAsync(menu.Id);
             return true;
         }

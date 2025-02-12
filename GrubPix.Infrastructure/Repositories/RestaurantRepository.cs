@@ -45,12 +45,24 @@ namespace GrubPix.Infrastructure.Repositories
 
         public async Task DeleteAsync(int id)
         {
-            var restaurant = await _context.Restaurants.FindAsync(id);
+            var restaurant = await _context.Restaurants
+                .Include(r => r.Menus)
+                .ThenInclude(m => m.MenuItems)
+                .FirstOrDefaultAsync(r => r.Id == id);
+
             if (restaurant != null)
             {
+                foreach (var menu in restaurant.Menus)
+                {
+                    _context.MenuItems.RemoveRange(menu.MenuItems);
+                }
+
+                _context.Menus.RemoveRange(restaurant.Menus);
                 _context.Restaurants.Remove(restaurant);
+
                 await _context.SaveChangesAsync();
             }
         }
+
     }
 }

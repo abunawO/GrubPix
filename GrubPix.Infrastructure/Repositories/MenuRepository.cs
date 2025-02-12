@@ -40,9 +40,13 @@ namespace GrubPix.Infrastructure.Repositories
 
         public async Task DeleteAsync(int id)
         {
-            var menu = await _context.Menus.FindAsync(id);
+            var menu = await _context.Menus.Include(m => m.MenuItems).FirstOrDefaultAsync(m => m.Id == id);
             if (menu != null)
             {
+                // Remove associated menu items first
+                _context.MenuItems.RemoveRange(menu.MenuItems);
+
+                // Remove the menu
                 _context.Menus.Remove(menu);
                 await _context.SaveChangesAsync();
             }

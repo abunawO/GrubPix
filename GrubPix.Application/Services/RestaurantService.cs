@@ -9,11 +9,15 @@ public class RestaurantService : IRestaurantService
 {
     private readonly IRestaurantRepository _restaurantRepository;
     private readonly IImageStorageService _imageStorageService;
+    private readonly IMenuRepository _menuRepository;
+    private readonly IMenuItemRepository _menuItemRepository;
 
-    public RestaurantService(IRestaurantRepository restaurantRepository, IImageStorageService imageStorageService)
+    public RestaurantService(IRestaurantRepository restaurantRepository, IImageStorageService imageStorageService, IMenuRepository menuRepository, IMenuItemRepository menuItemRepository)
     {
         _restaurantRepository = restaurantRepository;
         _imageStorageService = imageStorageService;
+        _menuRepository = menuRepository;
+        _menuItemRepository = menuItemRepository;
     }
 
     public async Task<IEnumerable<RestaurantDto>> GetAllRestaurantsAsync()
@@ -142,11 +146,25 @@ public class RestaurantService : IRestaurantService
         var restaurant = await _restaurantRepository.GetByIdAsync(id);
         if (restaurant == null) return false;
 
+        // Collect menus and menu items before deletion
+        var menusToDelete = restaurant.Menus.ToList();
+        foreach (var menu in menusToDelete)
+        {
+            var menuItemsToDelete = menu.MenuItems.ToList();
+            foreach (var menuItem in menuItemsToDelete)
+            {
+                await _menuItemRepository.DeleteAsync(menuItem.Id);
+            }
+            await _menuRepository.DeleteAsync(menu.Id);
+        }
+
+        // Delete restaurant image if exists
         if (!string.IsNullOrEmpty(restaurant.ImageUrl))
         {
             await _imageStorageService.DeleteImageAsync(restaurant.ImageUrl);
         }
 
+        // Delete restaurant
         await _restaurantRepository.DeleteAsync(restaurant.Id);
         return true;
     }
