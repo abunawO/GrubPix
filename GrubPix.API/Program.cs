@@ -1,7 +1,8 @@
-using GrubPix.API.Configuration;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
 using GrubPix.Infrastructure.Persistence;
 using Amazon.S3;
+using GrubPix.API.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,14 +12,31 @@ builder.Services.AddAWSService<IAmazonS3>();
 builder.Services.AddCoreApplicationServices();
 builder.Services.AddCoreInfrastructureServices();
 
+// CORS Configuration
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 // Database Configuration with Enhanced Logging
 builder.Services.AddDbContext<GrubPixDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
         b => b.MigrationsAssembly("GrubPix.Infrastructure"))
-           .LogTo(Console.WriteLine, LogLevel.Information) // Enable SQL query logging
-           .EnableSensitiveDataLogging()                  // Logs parameter values for better debugging
-           .EnableDetailedErrors();                       // Provides detailed error information
+        .LogTo(Console.WriteLine, LogLevel.Information)
+        .EnableSensitiveDataLogging()
+        .EnableDetailedErrors();
+});
+
+// Form Options Configuration
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 104857600; // 100 MB
 });
 
 // Controllers & Swagger
@@ -49,9 +67,19 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseCors("AllowAll");
 app.UseAuthorization();
 app.UseHttpLogging();
 
-app.MapControllers();
+app.Use(async (context, next) =>
+{
+    Console.WriteLine($"Incoming request: {context.Request.Method} {context.Request.Path}");
+    await next();
+});
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 app.Run();
