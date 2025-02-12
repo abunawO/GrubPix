@@ -60,6 +60,7 @@ public class RestaurantService : IRestaurantService
             Name = restaurant.Name,
             Address = restaurant.Address,
             ImageUrl = restaurant.ImageUrl,
+            Description = restaurant.Description,
             Menus = restaurant.Menus.Select(m => new MenuDto
             {
                 Id = m.Id,
@@ -86,7 +87,8 @@ public class RestaurantService : IRestaurantService
         var restaurant = new Restaurant
         {
             Name = restaurantDto.Name,
-            Address = restaurantDto.Address
+            Address = restaurantDto.Address,
+            Description = restaurantDto.Description
         };
 
         if (imageFile != null)
@@ -102,7 +104,9 @@ public class RestaurantService : IRestaurantService
             Id = restaurant.Id,
             Name = restaurant.Name,
             Address = restaurant.Address,
-            ImageUrl = restaurant.ImageUrl
+            ImageUrl = restaurant.ImageUrl,
+            Description = restaurant.Description
+
         };
     }
 
@@ -113,6 +117,7 @@ public class RestaurantService : IRestaurantService
 
         existingRestaurant.Name = restaurantDto.Name;
         existingRestaurant.Address = restaurantDto.Address;
+        existingRestaurant.Description = restaurantDto.Description;
 
         if (imageFile != null)
         {
@@ -127,7 +132,8 @@ public class RestaurantService : IRestaurantService
             Id = existingRestaurant.Id,
             Name = existingRestaurant.Name,
             Address = existingRestaurant.Address,
-            ImageUrl = existingRestaurant.ImageUrl
+            ImageUrl = existingRestaurant.ImageUrl,
+            Description = existingRestaurant.Description
         };
     }
 

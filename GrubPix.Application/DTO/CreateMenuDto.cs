@@ -5,6 +5,6 @@ namespace GrubPix.Application.DTO
     {
         public string Name { get; set; } = string.Empty;
         public int RestaurantId { get; set; }
-        public object Description { get; internal set; }
+        public string Description { get; set; } = string.Empty;
     }
 }
