@@ -16,6 +16,12 @@ namespace GrubPix.API.Controllers
             _mediator = mediator;
         }
 
+        [HttpGet("test-exception")]
+        public IActionResult TestException()
+        {
+            throw new Exception("This is a test exception.");
+        }
+
         // Get All Restaurants
         [HttpGet]
         public async Task<IActionResult> GetAllRestaurants()

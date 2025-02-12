@@ -2,9 +2,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GrubPix.Application.DTO;
+using GrubPix.Application.Exceptions;
 using GrubPix.Application.Services.Interfaces;
 using GrubPix.Domain.Entities;
 using GrubPix.Domain.Interfaces.Repositories;
+using Microsoft.Extensions.Logging;
 
 namespace GrubPix.Application.Services
 {
@@ -12,11 +14,13 @@ namespace GrubPix.Application.Services
     {
         private readonly IMenuRepository _menuRepository;
         private readonly IMenuItemRepository _menuItemRepository;
+        private readonly ILogger<MenuService> _logger;
 
-        public MenuService(IMenuRepository menuRepository, IMenuItemRepository menuItemRepository)
+        public MenuService(IMenuRepository menuRepository, IMenuItemRepository menuItemRepository, ILogger<MenuService> logger)
         {
             _menuRepository = menuRepository;
             _menuItemRepository = menuItemRepository;
+            _logger = logger;
         }
 
         public async Task<IEnumerable<MenuDto>> GetMenusAsync()
@@ -48,7 +52,7 @@ namespace GrubPix.Application.Services
         public async Task<MenuDto> GetMenuByIdAsync(int id)
         {
             var menu = await _menuRepository.GetByIdAsync(id);
-            if (menu == null) return null;
+            if (menu == null) throw new NotFoundException($"Menu with ID {id} not found.");
 
             var menuItems = await _menuItemRepository.GetAllAsync();
 
@@ -75,29 +79,37 @@ namespace GrubPix.Application.Services
 
         public async Task<MenuDto> CreateMenuAsync(CreateMenuDto menuDto)
         {
-            var menu = new Menu
+            try
             {
-                RestaurantId = menuDto.RestaurantId,
-                Name = menuDto.Name,
-                Description = (string)menuDto.Description
-            };
+                var menu = new Menu
+                {
+                    RestaurantId = menuDto.RestaurantId,
+                    Name = menuDto.Name,
+                    Description = (string)menuDto.Description
+                };
 
-            await _menuRepository.AddAsync(menu);
+                await _menuRepository.AddAsync(menu);
 
-            return new MenuDto
+                return new MenuDto
+                {
+                    Id = menu.Id,
+                    RestaurantId = menu.RestaurantId,
+                    Name = menu.Name,
+                    Description = menu.Description,
+                    Items = new List<MenuItemDto>()
+                };
+            }
+            catch (Exception ex)
             {
-                Id = menu.Id,
-                RestaurantId = menu.RestaurantId,
-                Name = menu.Name,
-                Description = menu.Description,
-                Items = new List<MenuItemDto>()
-            };
+                _logger.LogError(ex, "An error occurred while creating the menu.");
+                throw new InternalServerErrorException("An error occurred while creating the menu. Please try again later.");
+            }
         }
 
         public async Task<MenuDto> UpdateMenuAsync(int id, CreateMenuDto menuDto)
         {
             var existingMenu = await _menuRepository.GetByIdAsync(id);
-            if (existingMenu == null) return null;
+            if (existingMenu == null) throw new NotFoundException($"Menu with ID {id} not found.");
 
             existingMenu.Name = menuDto.Name;
             existingMenu.Description = (string)menuDto.Description;
@@ -125,7 +137,7 @@ namespace GrubPix.Application.Services
         public async Task<bool> DeleteMenuAsync(int id)
         {
             var menu = await _menuRepository.GetByIdAsync(id);
-            if (menu == null) return false;
+            if (menu == null) throw new NotFoundException($"Menu with ID {id} not found.");
 
             // Delete associated menu items
             foreach (var menuItem in menu.MenuItems.ToList())

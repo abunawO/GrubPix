@@ -1,9 +1,11 @@
 using GrubPix.Application.DTO;
+using GrubPix.Application.Exceptions;
 using GrubPix.Application.Services;
 using GrubPix.Application.Services.Interfaces;
 using GrubPix.Domain.Entities;
 using GrubPix.Domain.Interfaces.Repositories;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 public class RestaurantService : IRestaurantService
 {
@@ -11,13 +13,15 @@ public class RestaurantService : IRestaurantService
     private readonly IImageStorageService _imageStorageService;
     private readonly IMenuRepository _menuRepository;
     private readonly IMenuItemRepository _menuItemRepository;
+    private readonly ILogger<RestaurantService> _logger;
 
-    public RestaurantService(IRestaurantRepository restaurantRepository, IImageStorageService imageStorageService, IMenuRepository menuRepository, IMenuItemRepository menuItemRepository)
+    public RestaurantService(IRestaurantRepository restaurantRepository, IImageStorageService imageStorageService, IMenuRepository menuRepository, IMenuItemRepository menuItemRepository, ILogger<RestaurantService> logger)
     {
         _restaurantRepository = restaurantRepository;
         _imageStorageService = imageStorageService;
         _menuRepository = menuRepository;
         _menuItemRepository = menuItemRepository;
+        _logger = logger;
     }
 
     public async Task<IEnumerable<RestaurantDto>> GetAllRestaurantsAsync()
@@ -56,7 +60,7 @@ public class RestaurantService : IRestaurantService
     public async Task<RestaurantDto> GetRestaurantByIdAsync(int id)
     {
         var restaurant = await _restaurantRepository.GetByIdAsync(id);
-        if (restaurant == null) return null;
+        if (restaurant == null) throw new NotFoundException($"Restaurant with ID {id} not found.");
 
         return new RestaurantDto
         {
@@ -88,36 +92,45 @@ public class RestaurantService : IRestaurantService
 
     public async Task<RestaurantDto> CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile)
     {
-        var restaurant = new Restaurant
+        try
         {
-            Name = restaurantDto.Name,
-            Address = restaurantDto.Address,
-            Description = restaurantDto.Description
-        };
+            var restaurant = new Restaurant
+            {
+                Name = restaurantDto.Name,
+                Address = restaurantDto.Address,
+                Description = restaurantDto.Description
+            };
 
-        if (imageFile != null)
+            if (imageFile != null)
+            {
+                var imageUrl = await _imageStorageService.UploadImageAsync(imageFile.OpenReadStream());
+                restaurant.ImageUrl = imageUrl;
+            }
+
+            await _restaurantRepository.AddAsync(restaurant);
+
+            return new RestaurantDto
+            {
+                Id = restaurant.Id,
+                Name = restaurant.Name,
+                Address = restaurant.Address,
+                ImageUrl = restaurant.ImageUrl,
+                Description = restaurant.Description
+
+            };
+        }
+        catch (Exception ex)
         {
-            var imageUrl = await _imageStorageService.UploadImageAsync(imageFile.OpenReadStream());
-            restaurant.ImageUrl = imageUrl;
+            _logger.LogError(ex, "An error occurred while creating the restaurant.");
+            throw new InternalServerErrorException("An error occurred while creating the restaurant. Please try again later.");
         }
 
-        await _restaurantRepository.AddAsync(restaurant);
-
-        return new RestaurantDto
-        {
-            Id = restaurant.Id,
-            Name = restaurant.Name,
-            Address = restaurant.Address,
-            ImageUrl = restaurant.ImageUrl,
-            Description = restaurant.Description
-
-        };
     }
 
     public async Task<RestaurantDto> UpdateRestaurantAsync(int id, CreateRestaurantDto restaurantDto, IFormFile imageFile)
     {
         var existingRestaurant = await _restaurantRepository.GetByIdAsync(id);
-        if (existingRestaurant == null) return null;
+        if (existingRestaurant == null) throw new NotFoundException($"Restaurant with ID {id} not found.");
 
         existingRestaurant.Name = restaurantDto.Name;
         existingRestaurant.Address = restaurantDto.Address;
@@ -144,7 +157,7 @@ public class RestaurantService : IRestaurantService
     public async Task<bool> DeleteRestaurantAsync(int id)
     {
         var restaurant = await _restaurantRepository.GetByIdAsync(id);
-        if (restaurant == null) return false;
+        if (restaurant == null) throw new NotFoundException($"Restaurant with ID {id} not found.");
 
         // Collect menus and menu items before deletion
         var menusToDelete = restaurant.Menus.ToList();

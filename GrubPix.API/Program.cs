@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using GrubPix.Infrastructure.Persistence;
 using Amazon.S3;
 using GrubPix.API.Configuration;
+using GrubPix.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,6 +55,9 @@ builder.Services.AddHttpLogging(logging =>
 
 var app = builder.Build();
 
+// Add Exception Handling Middleware
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+
 // HTTP Request Pipeline
 if (app.Environment.IsDevelopment())
 {
@@ -66,6 +70,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseRouting();
 app.UseCors("AllowAll");
 app.UseAuthorization();
