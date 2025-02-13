@@ -6,7 +6,23 @@ using MediatR;
 
 namespace GrubPix.Application.Features.Restaurant
 {
-    public class GetRestaurantsQuery : IRequest<List<RestaurantDto>> { }
+    public class GetRestaurantsQuery : IRequest<List<RestaurantDto>>
+    {
+        public string? Name { get; }
+        public string? SortBy { get; }
+        public bool Descending { get; }
+        public int Page { get; }
+        public int PageSize { get; }
+
+        public GetRestaurantsQuery(string? name, string? sortBy, bool descending, int page, int pageSize)
+        {
+            Name = name;
+            SortBy = sortBy;
+            Descending = descending;
+            Page = page;
+            PageSize = pageSize;
+        }
+    }
 
     public class GetRestaurantsQueryHandler : IRequestHandler<GetRestaurantsQuery, List<RestaurantDto>>
     {
@@ -22,7 +38,10 @@ namespace GrubPix.Application.Features.Restaurant
 
         public async Task<List<RestaurantDto>> Handle(GetRestaurantsQuery request, CancellationToken cancellationToken)
         {
-            return (await _restaurantService.GetAllRestaurantsAsync()).ToList();
+            var restaurants = await _restaurantService.GetAllRestaurantsAsync(
+                request.Name, request.SortBy, request.Descending, request.Page, request.PageSize
+            );
+            return restaurants.ToList();
         }
     }
 }

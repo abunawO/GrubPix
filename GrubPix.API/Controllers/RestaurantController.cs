@@ -16,18 +16,17 @@ namespace GrubPix.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("test-exception")]
-        public IActionResult TestException()
-        {
-            throw new Exception("This is a test exception.");
-        }
-
         // Get All Restaurants
         [HttpGet]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client, NoStore = false)]
-        public async Task<IActionResult> GetAllRestaurants()
+        public async Task<IActionResult> GetAllRestaurants(
+            [FromQuery] string? name,
+            [FromQuery] string? sortBy,
+            [FromQuery] bool descending = false,
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 10)
         {
-            var query = new GetRestaurantsQuery();
+            var query = new GetRestaurantsQuery(name, sortBy, descending, page, pageSize);
             var result = await _mediator.Send(query);
             return Ok(result);
         }

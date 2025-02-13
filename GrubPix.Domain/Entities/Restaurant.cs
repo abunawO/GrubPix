@@ -1,5 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace GrubPix.Domain.Entities
 {
+    [Index(nameof(Name))]
     public class Restaurant
     {
         public int Id { get; set; }
