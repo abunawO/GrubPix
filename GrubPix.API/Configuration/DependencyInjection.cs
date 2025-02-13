@@ -46,6 +46,8 @@ namespace GrubPix.API.Configuration
             services.AddScoped<IMenuRepository, MenuRepository>();
             services.AddScoped<IMenuItemRepository, MenuItemRepository>();
             services.AddScoped<IRestaurantRepository, RestaurantRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
 
             // Database Context
             services.AddScoped<GrubPixDbContext>();
