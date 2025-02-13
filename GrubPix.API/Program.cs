@@ -40,10 +40,14 @@ builder.Services.Configure<FormOptions>(options =>
     options.MultipartBodyLengthLimit = 104857600; // 100 MB
 });
 
+
 // Controllers & Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerDocumentation();
+
+//Caching
+builder.Services.AddResponseCaching();
 
 // HTTP Logging
 builder.Services.AddHttpLogging(logging =>
@@ -72,6 +76,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseRouting();
+app.UseResponseCaching();
 app.UseCors("AllowAll");
 app.UseAuthorization();
 app.UseHttpLogging();

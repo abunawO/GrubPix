@@ -18,6 +18,7 @@ namespace GrubPix.API.Controllers
 
         // Get All Menus
         [HttpGet]
+        [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Client, NoStore = false)]
         public async Task<IActionResult> GetAllMenus()
         {
             var query = new GetMenuQuery();
@@ -36,6 +37,7 @@ namespace GrubPix.API.Controllers
 
         // Get Menu by ID
         [HttpGet("{id}")]
+        [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Client, NoStore = false)]
         public async Task<IActionResult> GetMenuById(int id)
         {
             var query = new GetMenuByIdQuery(id);

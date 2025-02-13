@@ -24,6 +24,7 @@ namespace GrubPix.API.Controllers
 
         // Get All Restaurants
         [HttpGet]
+        [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client, NoStore = false)]
         public async Task<IActionResult> GetAllRestaurants()
         {
             var query = new GetRestaurantsQuery();
@@ -33,6 +34,7 @@ namespace GrubPix.API.Controllers
 
         // Get Restaurant by ID
         [HttpGet("{id}")]
+        [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Client, NoStore = false)]
         public async Task<IActionResult> GetRestaurantById(int id)
         {
             var query = new GetRestaurantByIdQuery(id);
