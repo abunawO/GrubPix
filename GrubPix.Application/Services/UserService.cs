@@ -4,6 +4,8 @@ using GrubPix.Application.Exceptions;
 using GrubPix.Application.Services.Interfaces;
 using GrubPix.Domain.Entities;
 using GrubPix.Domain.Interfaces.Repositories;
+using BCrypt.Net;
+using GrubPix.Application.Interfaces.Services;
 
 namespace GrubPix.Application.Services
 {
@@ -11,11 +13,23 @@ namespace GrubPix.Application.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+        private readonly IJwtService _jwtService;
 
-        public UserService(IUserRepository userRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IMapper mapper, IJwtService jwtService)
         {
             _userRepository = userRepository;
             _mapper = mapper;
+            _jwtService = jwtService;
+        }
+
+        public string HashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password);
+        }
+
+        public bool VerifyPassword(string password, string hashedPassword)
+        {
+            return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
         }
 
         public async Task<UserDto?> GetByUsernameAsync(string username)
@@ -50,6 +64,38 @@ namespace GrubPix.Application.Services
         public async Task<bool> DeleteUserAsync(int id)
         {
             return await _userRepository.DeleteAsync(id);
+        }
+
+        public async Task<UserDto?> AuthenticateAsync(LoginDto dto)
+        {
+            var user = await _userRepository.GetByEmailAsync(dto.Email);
+            if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
+                return null;
+
+            var token = _jwtService.GenerateToken(user.Id, user.Username, "User");
+            return new UserDto
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Email = user.Email,
+                Token = token
+            };
+        }
+
+        public async Task<UserDto> RegisterAsync(RegisterDto dto)
+        {
+            if (await _userRepository.GetByEmailAsync(dto.Email) != null)
+                throw new Exception("Email already in use");
+
+            var user = new User
+            {
+                Username = dto.Username,
+                Email = dto.Email,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password)
+            };
+
+            var createdUser = await _userRepository.AddAsync(user);
+            return _mapper.Map<UserDto>(createdUser);
         }
     }
 }
