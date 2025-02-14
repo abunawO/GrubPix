@@ -69,15 +69,22 @@ namespace GrubPix.Application.Services
         public async Task<UserDto?> AuthenticateAsync(LoginDto dto)
         {
             var user = await _userRepository.GetByEmailAsync(dto.Email);
-            if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
-                return null;
 
-            var token = _jwtService.GenerateToken(user.Id, user.Username, "User");
+            // Ensure only RestaurantOwners or Admins can log in
+            if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash) ||
+                (user.Role != "Admin" && user.Role != "RestaurantOwner"))
+            {
+                return null;
+            }
+
+            var token = _jwtService.GenerateToken(user.Id, user.Username, user.Role);
+
             return new UserDto
             {
                 Id = user.Id,
                 Username = user.Username,
                 Email = user.Email,
+                Role = user.Role,
                 Token = token
             };
         }
@@ -91,7 +98,8 @@ namespace GrubPix.Application.Services
             {
                 Username = dto.Username,
                 Email = dto.Email,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password)
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
+                Role = "RestaurantOwner" // Default to Restaurant Owner
             };
 
             var createdUser = await _userRepository.AddAsync(user);

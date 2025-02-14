@@ -2,9 +2,12 @@ using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using GrubPix.Application.Features.Restaurant;
 using GrubPix.Application.DTO;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace GrubPix.API.Controllers
 {
+    [Authorize] // <-- Secure all endpoints in this controller 
     [ApiController]
     [Route("api/restaurants")]
     public class RestaurantController : ControllerBase
@@ -17,6 +20,7 @@ namespace GrubPix.API.Controllers
         }
 
         // Get All Restaurants
+        [AllowAnonymous]
         [HttpGet]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client, NoStore = false)]
         public async Task<IActionResult> GetAllRestaurants(
@@ -32,6 +36,7 @@ namespace GrubPix.API.Controllers
         }
 
         // Get Restaurant by ID
+        [AllowAnonymous]
         [HttpGet("{id}")]
         [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Client, NoStore = false)]
         public async Task<IActionResult> GetRestaurantById(int id)
@@ -45,6 +50,7 @@ namespace GrubPix.API.Controllers
         }
 
         // Create Restaurant
+        [Authorize(Roles = "Admin,RestaurantOwner")]
         [HttpPost]
         public async Task<IActionResult> CreateRestaurant([FromForm] CreateRestaurantDto restaurantDto, IFormFile imageFile)
         {
@@ -55,6 +61,7 @@ namespace GrubPix.API.Controllers
 
 
         // Update Restaurant
+        [Authorize(Roles = "Admin,RestaurantOwner")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateRestaurant(int id, [FromForm] CreateRestaurantDto restaurantDto, IFormFile imageFile)
         {
@@ -68,6 +75,7 @@ namespace GrubPix.API.Controllers
         }
 
         // Delete Restaurant
+        [Authorize(Roles = "Admin,RestaurantOwner")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRestaurant(int id)
         {

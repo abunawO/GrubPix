@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using GrubPix.Application.Services.Interfaces;
 using GrubPix.Application.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GrubPix.API.Controllers
 {
@@ -15,6 +16,7 @@ namespace GrubPix.API.Controllers
             _userService = userService;
         }
 
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto dto)
         {
@@ -29,6 +31,7 @@ namespace GrubPix.API.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto dto)
         {

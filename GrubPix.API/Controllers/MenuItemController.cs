@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using GrubPix.Application.DTO;
 using GrubPix.Application.Features.MenuItem;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GrubPix.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class MenuItemController : ControllerBase
@@ -17,6 +19,7 @@ namespace GrubPix.API.Controllers
         }
 
         // GET: api/MenuItem
+        [AllowAnonymous]
         [HttpGet]
         [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Client, NoStore = false)]
         public async Task<IActionResult> GetAllMenuItems()
@@ -27,6 +30,7 @@ namespace GrubPix.API.Controllers
         }
 
         // GET: api/MenuItem/{id}
+        [AllowAnonymous]
         [HttpGet("{id}")]
         [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Client, NoStore = false)]
         public async Task<IActionResult> GetMenuItemById(int id)
@@ -50,6 +54,7 @@ namespace GrubPix.API.Controllers
         }
 
         // PUT: api/MenuItem/{id}
+        [Authorize(Roles = "Admin,RestaurantOwner")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateMenuItem(int id, [FromForm] CreateMenuItemDto menuItemDto, IFormFile imageFile)
         {
@@ -63,6 +68,7 @@ namespace GrubPix.API.Controllers
         }
 
         // DELETE: api/MenuItem/{id}
+        [Authorize(Roles = "Admin,RestaurantOwner")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMenuItem(int id)
         {
