@@ -4,6 +4,9 @@ using GrubPix.Infrastructure.Persistence;
 using Amazon.S3;
 using GrubPix.API.Configuration;
 using GrubPix.API.Middleware;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,6 +60,27 @@ builder.Services.AddHttpLogging(logging =>
     logging.ResponseBodyLogLimit = 4096;
 });
 
+// JWT Configuration
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+var key = Encoding.UTF8.GetBytes(jwtSettings["Secret"]);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwtSettings["Issuer"],
+            ValidAudience = jwtSettings["Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(key)
+        };
+    });
+
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
 // Add Exception Handling Middleware
@@ -78,6 +102,7 @@ app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseRouting();
 app.UseResponseCaching();
 app.UseCors("AllowAll");
+app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpLogging();
 

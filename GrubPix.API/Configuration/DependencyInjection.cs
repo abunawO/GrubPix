@@ -9,6 +9,7 @@ using MediatR;
 using GrubPix.Application.Features.Restaurant;
 using GrubPix.Application.Features.MenuItem;
 using Amazon.S3;
+using GrubPix.Application.Interfaces.Services;
 
 namespace GrubPix.API.Configuration
 {
@@ -24,6 +25,7 @@ namespace GrubPix.API.Configuration
             services.AddScoped<IRestaurantService, RestaurantService>();
             services.AddScoped<IImageStorageService, S3Service>();
             services.AddScoped<IMenuItemService, MenuItemService>();
+            services.AddScoped<IJwtService, JwtService>();
 
             // AutoMapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
