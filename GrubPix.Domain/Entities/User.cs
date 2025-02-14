@@ -22,6 +22,6 @@ namespace GrubPix.Domain.Entities
         public string PasswordHash { get; set; }  // Hashed password, never store plain text passwords
 
         [Required]
-        public string Role { get; set; } = "User";  // Default role is "User"
+        public string Role { get; set; } = "RestaurantOwner";  // Default role is "User"
     }
 }

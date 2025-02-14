@@ -50,6 +50,9 @@ namespace GrubPix.Application.Mappings
 
             CreateMap<MenuItem, CreateMenuItemDto>()
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl));
+
+            // Mapping for User
+            CreateMap<User, UserDto>();
         }
     }
 }
