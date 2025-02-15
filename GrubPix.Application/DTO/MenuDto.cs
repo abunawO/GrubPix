@@ -9,10 +9,13 @@ namespace GrubPix.Application.DTO
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Menu name is required.")]
-        [StringLength(50, ErrorMessage = "Menu name can't exceed 50 characters.")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Menu name must be between 3 and 100 characters.")]
         public string Name { get; set; } = string.Empty;
         public int RestaurantId { get; set; }
         public List<MenuItemDto> Items { get; set; } = new();
+
+        [Required(ErrorMessage = "Description is required.")]
+        [StringLength(500, ErrorMessage = "Description must be a maximum of 500 characters.")]
         public string Description { get; set; }
     }
 }

@@ -9,17 +9,19 @@ namespace GrubPix.Application.DTO
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Item name is required.")]
-        [StringLength(100, ErrorMessage = "Item name can't exceed 100 characters.")]
-        public string Name { get; set; } = string.Empty;
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Item name must be between 3 and 100 characters.")]
+        public string Name { get; set; }
 
-        [StringLength(300, ErrorMessage = "Description can't exceed 300 characters.")]
-        public string Description { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Description is required.")]
+        [StringLength(500, ErrorMessage = "Description must be a maximum of 500 characters.")]
+        public string Description { get; set; }
 
-        [Range(0.01, 1000, ErrorMessage = "Price must be between $0.01 and $1000.")]
+        [Range(0.01, 10000, ErrorMessage = "Price must be between 0.01 and 10,000.")]
         public decimal Price { get; set; }
 
-        [Url(ErrorMessage = "Invalid URL format.")]
+        [Required(ErrorMessage = "Menu ID is required.")]
         public int MenuId { get; set; }
-        public string ImageUrl { get; set; } = string.Empty; // Added
+
+        public string ImageUrl { get; set; }
     }
 }
