@@ -9,14 +9,36 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using Serilog;
+using CorrelationId.DependencyInjection;
+using CorrelationId;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure Serilog
+Log.Logger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .Enrich.WithMachineName()
+    .Enrich.WithThreadId()
+    .Enrich.WithProcessId()
+    .WriteTo.Console()
+    .WriteTo.File("logs/grubpix-log-.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
+
+// Register Correlation ID service
+builder.Services.AddDefaultCorrelationId();
+
+// Middleware to Generate Correlation ID
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 // Dependency Injection
 builder.Services.AddDefaultAWSOptions(builder.Configuration.GetAWSOptions());
 builder.Services.AddAWSService<IAmazonS3>();
 builder.Services.AddCoreApplicationServices();
 builder.Services.AddCoreInfrastructureServices();
+
 
 // CORS Configuration
 builder.Services.AddCors(options =>
@@ -94,6 +116,12 @@ var app = builder.Build();
 // Exception Handling Middleware
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
+// Ensure middleware is used correctly
+app.UseCorrelationId();
+
+// Use Serilog Request Logging
+app.UseSerilogRequestLogging();
+
 // HTTP Request Pipeline
 if (app.Environment.IsDevelopment())
 {
@@ -105,6 +133,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+// Use Response Caching and Security Middleware
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseResponseCaching();

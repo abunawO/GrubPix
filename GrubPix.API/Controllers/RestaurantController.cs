@@ -13,10 +13,12 @@ namespace GrubPix.API.Controllers
     public class RestaurantController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ILogger<AuthController> _logger;
 
-        public RestaurantController(IMediator mediator)
+        public RestaurantController(IMediator mediator, ILogger<AuthController> logger)
         {
             _mediator = mediator;
+            _logger = logger;
         }
 
         // Get All Restaurants
@@ -41,10 +43,15 @@ namespace GrubPix.API.Controllers
         [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Client, NoStore = false)]
         public async Task<IActionResult> GetRestaurantById(int id)
         {
+            _logger.LogInformation("Fetching restaurant with ID {RestaurantId}", id);
+
             var query = new GetRestaurantByIdQuery(id);
             var result = await _mediator.Send(query);
             if (result == null)
+            {
+                _logger.LogWarning("Restaurant with ID {RestaurantId} not found", id);
                 return NotFound();
+            }
 
             return Ok(result);
         }
@@ -54,8 +61,12 @@ namespace GrubPix.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateRestaurant([FromForm] CreateRestaurantDto restaurantDto, IFormFile imageFile)
         {
+            _logger.LogInformation("Creating restaurant: {RestaurantName}", restaurantDto.Name);
+
             var command = new CreateRestaurantCommand(restaurantDto, imageFile);
             var result = await _mediator.Send(command);
+
+            _logger.LogInformation("Restaurant {RestaurantName} created successfully with ID {RestaurantId}", restaurantDto.Name, result.Id);
             return CreatedAtAction(nameof(GetRestaurantById), new { id = result.Id }, result);
         }
 
@@ -65,11 +76,16 @@ namespace GrubPix.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateRestaurant(int id, [FromForm] CreateRestaurantDto restaurantDto, IFormFile imageFile)
         {
+            _logger.LogWarning("Updating restaurant with ID {RestaurantId}", id);
+
             var command = new UpdateRestaurantCommand(id, restaurantDto, imageFile);
             var result = await _mediator.Send(command);
 
             if (result == null)
+            {
+                _logger.LogError("Failed to Update restaurant with ID {RestaurantId}", id);
                 return NotFound();
+            }
 
             return Ok(result);
         }
@@ -79,12 +95,18 @@ namespace GrubPix.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRestaurant(int id)
         {
+            _logger.LogWarning("Deleting restaurant with ID {RestaurantId}", id);
+
             var command = new DeleteRestaurantCommand(id);
             var result = await _mediator.Send(command);
 
             if (!result)
+            {
+                _logger.LogError("Failed to delete restaurant with ID {RestaurantId}", id);
                 return NotFound();
+            }
 
+            _logger.LogInformation("Restaurant {RestaurantId} deleted successfully", id);
             return NoContent();
         }
     }

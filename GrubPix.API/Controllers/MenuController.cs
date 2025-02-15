@@ -12,10 +12,12 @@ namespace GrubPix.API.Controllers
     public class MenuController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ILogger<MenuController> _logger;
 
-        public MenuController(IMediator mediator)
+        public MenuController(IMediator mediator, ILogger<MenuController> logger)
         {
             _mediator = mediator;
+            _logger = logger;
         }
 
         // Get All Menus
@@ -34,8 +36,11 @@ namespace GrubPix.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateMenu([FromBody] CreateMenuDto menuDto)
         {
+            _logger.LogInformation("Creating menu: {MenuName} for Restaurant ID {RestaurantId}", menuDto.Name, menuDto.RestaurantId);
+
             var command = new CreateMenuCommand(menuDto);
             var result = await _mediator.Send(command);
+            _logger.LogInformation("Menu {MenuName} created successfully with ID {MenuId}", menuDto.Name, result.Id);
             return CreatedAtAction(nameof(GetMenuById), new { id = result.Id }, result);
         }
 
@@ -45,10 +50,14 @@ namespace GrubPix.API.Controllers
         [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Client, NoStore = false)]
         public async Task<IActionResult> GetMenuById(int id)
         {
+            _logger.LogInformation("Fetching menu with ID {MenuId}", id);
             var query = new GetMenuByIdQuery(id);
             var result = await _mediator.Send(query);
             if (result == null)
+            {
+                _logger.LogWarning("Menu with ID {MenuId} not found", id);
                 return NotFound();
+            }
 
             return Ok(result);
         }
@@ -58,11 +67,15 @@ namespace GrubPix.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateMenu(int id, [FromBody] CreateMenuDto menuDto)
         {
+            _logger.LogWarning("Updating menu with ID {MenuId}", id);
             var command = new UpdateMenuCommand(id, menuDto);
             var result = await _mediator.Send(command);
 
             if (result == null)
+            {
+                _logger.LogError("Failed to Update menu with ID {MenuId}", id);
                 return NotFound();
+            }
 
             return Ok(result);
         }
@@ -72,12 +85,17 @@ namespace GrubPix.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMenu(int id)
         {
+            _logger.LogWarning("Deleting menu with ID {MenuId}", id);
             var command = new DeleteMenuCommand(id);
             var result = await _mediator.Send(command);
 
             if (!result)
+            {
+                _logger.LogError("Failed to delete menu with ID {MenuId}", id);
                 return NotFound();
+            }
 
+            _logger.LogInformation("Menu {MenuId} deleted successfully", id);
             return NoContent();
         }
     }

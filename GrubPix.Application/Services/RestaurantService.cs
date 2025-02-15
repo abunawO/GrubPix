@@ -93,6 +93,8 @@ public class RestaurantService : IRestaurantService
     {
         try
         {
+            _logger.LogInformation("Processing restaurant creation: {RestaurantName}", restaurantDto.Name);
+
             var restaurant = new Restaurant
             {
                 Name = restaurantDto.Name,
@@ -107,6 +109,8 @@ public class RestaurantService : IRestaurantService
             }
 
             await _restaurantRepository.AddAsync(restaurant);
+
+            _logger.LogInformation("Restaurant {RestaurantName} created successfully", restaurant.Name);
 
             return new RestaurantDto
             {
@@ -129,7 +133,11 @@ public class RestaurantService : IRestaurantService
     public async Task<RestaurantDto> UpdateRestaurantAsync(int id, CreateRestaurantDto restaurantDto, IFormFile imageFile)
     {
         var existingRestaurant = await _restaurantRepository.GetByIdAsync(id);
-        if (existingRestaurant == null) throw new NotFoundException($"Restaurant with ID {id} not found.");
+        if (existingRestaurant == null)
+        {
+            _logger.LogInformation("Restaurant Update failed: {RestaurantName}", restaurantDto.Name);
+            throw new NotFoundException($"Restaurant with ID {id} not found.");
+        }
 
         existingRestaurant.Name = restaurantDto.Name;
         existingRestaurant.Address = restaurantDto.Address;

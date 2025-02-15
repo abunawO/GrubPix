@@ -6,6 +6,7 @@ using GrubPix.Domain.Entities;
 using GrubPix.Domain.Interfaces.Repositories;
 using BCrypt.Net;
 using GrubPix.Application.Interfaces.Services;
+using Microsoft.Extensions.Logging;
 
 namespace GrubPix.Application.Services
 {
@@ -14,12 +15,14 @@ namespace GrubPix.Application.Services
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
         private readonly IJwtService _jwtService;
+        private readonly ILogger<UserService> _logger;
 
-        public UserService(IUserRepository userRepository, IMapper mapper, IJwtService jwtService)
+        public UserService(IUserRepository userRepository, IMapper mapper, IJwtService jwtService, ILogger<UserService> logger)
         {
             _userRepository = userRepository;
             _mapper = mapper;
             _jwtService = jwtService;
+            _logger = logger;
         }
 
         public string HashPassword(string password)
@@ -53,6 +56,8 @@ namespace GrubPix.Application.Services
 
         public async Task<UserDto> UpdateUserAsync(int id, UpdateUserDto dto)
         {
+            _logger.LogInformation("Updating user with email: {Email}", dto.Email);
+
             var existingUser = await _userRepository.GetByEmailAsync(dto.Email);
             if (existingUser == null) throw new NotFoundException($"User with email {dto.Email} not found.");
 
@@ -68,6 +73,9 @@ namespace GrubPix.Application.Services
 
         public async Task<UserDto?> AuthenticateAsync(LoginDto dto)
         {
+
+            _logger.LogInformation("Authenticating user with email: {Email}", dto.Email);
+
             var user = await _userRepository.GetByEmailAsync(dto.Email);
 
             // Ensure only RestaurantOwners or Admins can log in
@@ -91,6 +99,8 @@ namespace GrubPix.Application.Services
 
         public async Task<UserDto> RegisterAsync(RegisterDto dto)
         {
+            _logger.LogInformation("Registering new user with email: {Email}", dto.Email);
+
             if (await _userRepository.GetByEmailAsync(dto.Email) != null)
                 throw new Exception("Email already in use");
 
@@ -103,6 +113,8 @@ namespace GrubPix.Application.Services
             };
 
             var createdUser = await _userRepository.AddAsync(user);
+
+            _logger.LogInformation("User {Email} registered successfully", dto.Email);
             return _mapper.Map<UserDto>(createdUser);
         }
     }

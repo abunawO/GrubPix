@@ -1,0 +1,29 @@
+2025-02-15 13:37:10.703 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-15 13:37:10.841 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-15 13:37:10.844 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-15 13:37:10.844 -05:00 [INF] Hosting environment: Development
+2025-02-15 13:37:10.844 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-15 13:37:51.878 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus - null null
+2025-02-15 13:37:51.892 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-15 13:37:51.916 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-15 13:37:52.026 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/15/2025 03:36:26', Current time (UTC): '02/15/2025 18:37:52'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-15 13:37:52.038 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/15/2025 03:36:26', Current time (UTC): '02/15/2025 18:37:52'.
+2025-02-15 13:37:52.044 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-15 13:37:52.066 -05:00 [INF] Route matched with {action = "GetAllMenus", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenus() on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-15 13:37:52.792 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-15 13:37:53.553 -05:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+2025-02-15 13:37:53.666 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+2025-02-15 13:37:53.704 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[GrubPix.Application.DTO.MenuDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-15 13:37:53.791 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API) in 1720.2263ms
+2025-02-15 13:37:53.792 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-15 13:37:53.796 -05:00 [INF] HTTP GET /api/menus responded 200 in 1899.1188 ms
+2025-02-15 13:37:53.807 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus - 200 null application/json; charset=utf-8 1931.8692ms
