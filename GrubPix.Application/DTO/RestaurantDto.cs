@@ -22,5 +22,6 @@ namespace GrubPix.Application.DTO
 
         [Url(ErrorMessage = "Invalid URL format.")]
         public string ImageUrl { get; set; } = string.Empty; // Added
+        public int OwnerId { get; set; }
     }
 }

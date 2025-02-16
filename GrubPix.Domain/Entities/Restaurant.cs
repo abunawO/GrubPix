@@ -11,5 +11,8 @@ namespace GrubPix.Domain.Entities
         public string Description { get; set; } = string.Empty;
         public List<Menu> Menus { get; set; } = new List<Menu>();
         public string ImageUrl { get; set; } = string.Empty;// New property for menu item image
+
+        public int OwnerId { get; set; }
+        public User Owner { get; set; } // Navigation property
     }
 }

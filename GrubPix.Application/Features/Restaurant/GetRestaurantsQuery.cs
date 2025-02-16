@@ -14,13 +14,16 @@ namespace GrubPix.Application.Features.Restaurant
         public int Page { get; }
         public int PageSize { get; }
 
-        public GetRestaurantsQuery(string? name, string? sortBy, bool descending, int page, int pageSize)
+        public int UserId { get; }
+
+        public GetRestaurantsQuery(string? name, string? sortBy, bool descending, int page, int pageSize, int userId)
         {
             Name = name;
             SortBy = sortBy;
             Descending = descending;
             Page = page;
             PageSize = pageSize;
+            UserId = userId;
         }
     }
 
@@ -38,9 +41,8 @@ namespace GrubPix.Application.Features.Restaurant
 
         public async Task<List<RestaurantDto>> Handle(GetRestaurantsQuery request, CancellationToken cancellationToken)
         {
-            var restaurants = await _restaurantService.GetAllRestaurantsAsync(
-                request.Name, request.SortBy, request.Descending, request.Page, request.PageSize
-            );
+            var restaurants = await _restaurantService.GetRestaurantsByUserIdAsync(
+                request.Name, request.SortBy, request.Descending, request.Page, request.PageSize, request.UserId);
             return restaurants.ToList();
         }
     }

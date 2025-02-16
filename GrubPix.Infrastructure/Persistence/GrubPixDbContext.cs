@@ -29,6 +29,13 @@ namespace GrubPix.Infrastructure.Persistence
                 .WithOne(mi => mi.Menu)
                 .HasForeignKey(mi => mi.MenuId)
                 .OnDelete(DeleteBehavior.Cascade); // Ensure this line exists
+
+            // User - Restaurant Relationship (One-to-Many)
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Restaurants) // A User can have many Restaurants
+                .WithOne(r => r.Owner) // A Restaurant belongs to one User
+                .HasForeignKey(r => r.OwnerId) // Foreign key in the Restaurant entity
+                .OnDelete(DeleteBehavior.Cascade); // Cascade delete if User is deleted
         }
     }
 }

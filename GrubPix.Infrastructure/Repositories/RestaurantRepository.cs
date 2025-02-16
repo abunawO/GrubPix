@@ -14,9 +14,10 @@ namespace GrubPix.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<List<Restaurant>> GetAllAsync(string? name, string? sortBy, bool descending, int page, int pageSize)
+        public async Task<List<Restaurant>> GetByUserIdAsync(string? name, string? sortBy, bool descending, int page, int pageSize, int userId)
         {
             var query = _context.Restaurants
+                .Where(r => r.OwnerId == userId)
                 .Include(r => r.Menus)
                 .ThenInclude(m => m.MenuItems)
                 .AsQueryable();
@@ -68,6 +69,14 @@ namespace GrubPix.Infrastructure.Repositories
                 .Include(r => r.Menus)
                     .ThenInclude(m => m.MenuItems)  // Ensure MenuItems are eagerly loaded
                 .FirstOrDefaultAsync(r => r.Id == id);
+        }
+
+        // Get all restaurants owned by a user
+        public async Task<List<Restaurant>> GetByOwnerIdAsync(int ownerId)
+        {
+            return await _context.Restaurants
+                                .Where(r => r.OwnerId == ownerId)
+                                .ToListAsync();
         }
 
         public async Task<Restaurant> AddAsync(Restaurant restaurant)

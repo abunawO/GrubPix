@@ -25,14 +25,16 @@ namespace GrubPix.API.Controllers
         [AllowAnonymous]
         [HttpGet]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client, NoStore = false)]
-        public async Task<IActionResult> GetAllRestaurants(
+        public async Task<IActionResult> GetMyRestaurants(
             [FromQuery] string? name,
             [FromQuery] string? sortBy,
             [FromQuery] bool descending = false,
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10)
         {
-            var query = new GetRestaurantsQuery(name, sortBy, descending, page, pageSize);
+            // Get the authenticated user's ID from the claims
+            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            var query = new GetRestaurantsQuery(name, sortBy, descending, page, pageSize, userId);
             var result = await _mediator.Send(query);
             return Ok(result);
         }
@@ -62,6 +64,9 @@ namespace GrubPix.API.Controllers
         public async Task<IActionResult> CreateRestaurant([FromForm] CreateRestaurantDto restaurantDto, IFormFile imageFile)
         {
             _logger.LogInformation("Creating restaurant: {RestaurantName}", restaurantDto.Name);
+
+            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value); // Extract user ID from JWT
+            restaurantDto.OwnerId = userId; //Enforce that the user creating the restaurant is the owner
 
             var command = new CreateRestaurantCommand(restaurantDto, imageFile);
             var result = await _mediator.Send(command);

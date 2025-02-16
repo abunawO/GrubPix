@@ -19,30 +19,33 @@ namespace GrubPix.Application.Services
         private readonly IMenuRepository _menuRepository;
         private readonly IMenuItemRepository _menuItemRepository;
         private readonly ILogger<RestaurantService> _logger;
+        private readonly IUserRepository _userRepository;
 
         public RestaurantService(
             IRestaurantRepository restaurantRepository,
             IImageStorageService imageStorageService,
             IMenuRepository menuRepository,
             IMenuItemRepository menuItemRepository,
-            ILogger<RestaurantService> logger)
+            ILogger<RestaurantService> logger, IUserRepository userRepository)
         {
             _restaurantRepository = restaurantRepository;
             _imageStorageService = imageStorageService;
             _menuRepository = menuRepository;
             _menuItemRepository = menuItemRepository;
             _logger = logger;
+            _userRepository = userRepository;
         }
 
         /// <summary>
         /// Get all restaurants with optional sorting and pagination.
         /// </summary>
-        public async Task<IEnumerable<RestaurantDto>> GetAllRestaurantsAsync(string? name, string? sortBy, bool descending, int page, int pageSize)
+        public async Task<IEnumerable<RestaurantDto>> GetRestaurantsByUserIdAsync(string? name, string? sortBy, bool descending, int page, int pageSize, int userId)
         {
-            var restaurants = await _restaurantRepository.GetAllAsync(name, sortBy, descending, page, pageSize);
+            var restaurants = await _restaurantRepository.GetByUserIdAsync(name, sortBy, descending, page, pageSize, userId);
 
             return restaurants.Select(r => new RestaurantDto
             {
+                OwnerId = userId,
                 Id = r.Id,
                 Name = r.Name,
                 Address = r.Address,
@@ -112,11 +115,17 @@ namespace GrubPix.Application.Services
         {
             try
             {
+                var user = await _userRepository.GetByIdAsync(restaurantDto.OwnerId);
+
+                if (user == null)
+                    throw new NotFoundException("User not found");
+
                 var restaurant = new Restaurant
                 {
                     Name = restaurantDto.Name,
                     Address = restaurantDto.Address,
-                    Description = restaurantDto.Description
+                    Description = restaurantDto.Description,
+                    OwnerId = restaurantDto.OwnerId
                 };
 
                 if (imageFile != null)
@@ -133,7 +142,8 @@ namespace GrubPix.Application.Services
                     Name = restaurant.Name,
                     Address = restaurant.Address,
                     ImageUrl = restaurant.ImageUrl,
-                    Description = restaurant.Description
+                    Description = restaurant.Description,
+                    OwnerId = restaurant.OwnerId
                 };
             }
             catch (Exception ex)

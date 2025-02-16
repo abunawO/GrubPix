@@ -23,5 +23,8 @@ namespace GrubPix.Domain.Entities
 
         [Required]
         public string Role { get; set; } = "RestaurantOwner";  // Default role is "User"
+
+        // New relationship: A user can own multiple restaurants
+        public List<Restaurant> Restaurants { get; set; } = new();
     }
 }
