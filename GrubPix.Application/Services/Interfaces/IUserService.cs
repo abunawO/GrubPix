@@ -7,7 +7,7 @@ namespace GrubPix.Application.Services.Interfaces
     {
         Task<UserDto?> GetByUsernameAsync(string username);
         Task<UserDto?> GetByEmailAsync(string email);
-        Task<UserDto> CreateUserAsync(CreateUserDto dto);
+
         Task<UserDto> UpdateUserAsync(int id, UpdateUserDto dto);
         Task<bool> DeleteUserAsync(int id);
         Task<UserDto?> AuthenticateAsync(LoginDto dto);

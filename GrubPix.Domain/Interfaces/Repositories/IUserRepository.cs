@@ -9,5 +9,7 @@ namespace GrubPix.Domain.Interfaces.Repositories
         Task<User> AddAsync(User user);
         Task<User> UpdateAsync(User user);
         Task<bool> DeleteAsync(int id);
+        Task<User?> GetByIdAsync(int id);
+        Task<User> CreateUserAsync(User user);
     }
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrubPix.Domain", "GrubPix.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrubPix.Infrastructure", "GrubPix.Infrastructure\GrubPix.Infrastructure.csproj", "{7299236A-0941-4517-91EF-66D85B048427}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrubPix.Tests", "GrubPix.Tests\GrubPix.Tests.csproj", "{0FE1AEDD-8E94-44A0-8698-AD5D267D4A59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{7299236A-0941-4517-91EF-66D85B048427}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7299236A-0941-4517-91EF-66D85B048427}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7299236A-0941-4517-91EF-66D85B048427}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FE1AEDD-8E94-44A0-8698-AD5D267D4A59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FE1AEDD-8E94-44A0-8698-AD5D267D4A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FE1AEDD-8E94-44A0-8698-AD5D267D4A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FE1AEDD-8E94-44A0-8698-AD5D267D4A59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,7 @@
+2025-02-16 08:45:46.028 -05:00 [INF] Application is shutting down...
+2025-02-16 08:46:03.341 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-16 08:46:03.491 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-16 08:46:03.494 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-16 08:46:03.494 -05:00 [INF] Hosting environment: Development
+2025-02-16 08:46:03.494 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-16 08:46:04.974 -05:00 [INF] Application is shutting down...

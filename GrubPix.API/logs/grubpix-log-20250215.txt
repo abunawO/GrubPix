@@ -27,3 +27,39 @@ FROM "MenuItems" AS m
 2025-02-15 13:37:53.792 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
 2025-02-15 13:37:53.796 -05:00 [INF] HTTP GET /api/menus responded 200 in 1899.1188 ms
 2025-02-15 13:37:53.807 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus - 200 null application/json; charset=utf-8 1931.8692ms
+2025-02-15 16:51:33.010 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-15 16:51:33.123 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-15 16:51:33.125 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-15 16:51:33.126 -05:00 [INF] Hosting environment: Development
+2025-02-15 16:51:33.126 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-15 16:51:34.918 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-02-15 16:51:34.929 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-15 16:51:35.046 -05:00 [INF] HTTP GET /index.html responded 200 in 111.6290 ms
+2025-02-15 16:51:35.051 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 134.3288ms
+2025-02-15 16:51:35.072 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-02-15 16:51:35.074 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-15 16:51:35.076 -05:00 [INF] HTTP GET /index.js responded 200 in 1.5977 ms
+2025-02-15 16:51:35.077 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 4.8771ms
+2025-02-15 16:51:35.214 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-15 16:51:35.215 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-15 16:51:35.369 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 153.7317 ms
+2025-02-15 16:51:35.369 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 154.6524ms
+2025-02-15 16:51:46.152 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus - null null
+2025-02-15 16:51:46.152 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-15 16:51:46.153 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-15 16:51:46.173 -05:00 [INF] No cached response available for this request.
+2025-02-15 16:51:46.196 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-15 16:51:46.217 -05:00 [INF] Route matched with {action = "GetAllMenus", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenus() on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-15 16:51:46.886 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-15 16:51:47.402 -05:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+2025-02-15 16:51:47.508 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+2025-02-15 16:51:47.548 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[GrubPix.Application.DTO.MenuDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-15 16:51:47.580 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API) in 1358.8372ms
+2025-02-15 16:51:47.581 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-15 16:51:47.582 -05:00 [INF] The response could not be cached for this request.
+2025-02-15 16:51:47.583 -05:00 [INF] HTTP GET /api/menus responded 200 in 1430.8541 ms
+2025-02-15 16:51:47.590 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus - 200 null application/json; charset=utf-8 1437.8207ms
