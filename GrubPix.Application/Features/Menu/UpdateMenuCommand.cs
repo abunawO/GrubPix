@@ -9,9 +9,9 @@ namespace GrubPix.Application.Features.Menu
     public class UpdateMenuCommand : IRequest<MenuDto>
     {
         public int Id { get; set; }
-        public CreateMenuDto MenuDto { get; set; }
+        public UpdateMenuDto MenuDto { get; set; }
 
-        public UpdateMenuCommand(int id, CreateMenuDto menuDto)
+        public UpdateMenuCommand(int id, UpdateMenuDto menuDto)
         {
             Id = id;
             MenuDto = menuDto;

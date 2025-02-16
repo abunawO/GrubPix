@@ -53,6 +53,12 @@ namespace GrubPix.Application.Mappings
 
             // Mapping for User
             CreateMap<User, UserDto>();
+
+            // Mapping for updating entities
+            CreateMap<UpdateRestaurantDto, Restaurant>();
+            CreateMap<UpdateMenuDto, Menu>();
+            CreateMap<UpdateMenuItemDto, MenuItem>();
+            CreateMap<UpdateUserDto, User>();
         }
     }
 }

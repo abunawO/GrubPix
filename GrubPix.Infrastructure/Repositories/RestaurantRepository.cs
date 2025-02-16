@@ -77,13 +77,14 @@ namespace GrubPix.Infrastructure.Repositories
             return restaurant; // Return the newly created restaurant
         }
 
-        public async Task UpdateAsync(Restaurant restaurant)
+        public async Task<Restaurant> UpdateAsync(Restaurant restaurant)
         {
             _context.Restaurants.Update(restaurant);
             await _context.SaveChangesAsync();
+            return restaurant; // Returning the updated restaurant
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
             var restaurant = await _context.Restaurants
                 .Include(r => r.Menus)
@@ -101,6 +102,11 @@ namespace GrubPix.Infrastructure.Repositories
                 _context.Restaurants.Remove(restaurant);
 
                 await _context.SaveChangesAsync();
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

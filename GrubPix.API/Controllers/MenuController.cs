@@ -65,7 +65,7 @@ namespace GrubPix.API.Controllers
         // Update Menu
         [Authorize(Roles = "Admin,RestaurantOwner")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateMenu(int id, [FromBody] CreateMenuDto menuDto)
+        public async Task<IActionResult> UpdateMenu(int id, [FromBody] UpdateMenuDto menuDto)
         {
             _logger.LogWarning("Updating menu with ID {MenuId}", id);
             var command = new UpdateMenuCommand(id, menuDto);

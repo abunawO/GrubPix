@@ -10,7 +10,7 @@ namespace GrubPix.Domain.Interfaces.Repositories
         Task<Restaurant> GetByIdAsync(int id);
         Task<Restaurant> AddAsync(Restaurant restaurant);
 
-        Task UpdateAsync(Restaurant restaurant);
-        Task DeleteAsync(int id);
+        Task<Restaurant> UpdateAsync(Restaurant restaurant);
+        Task<bool> DeleteAsync(int id);
     }
 }

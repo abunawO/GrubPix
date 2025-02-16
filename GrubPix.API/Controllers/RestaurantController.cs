@@ -74,7 +74,7 @@ namespace GrubPix.API.Controllers
         // Update Restaurant
         [Authorize(Roles = "Admin,RestaurantOwner")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateRestaurant(int id, [FromForm] CreateRestaurantDto restaurantDto, IFormFile imageFile)
+        public async Task<IActionResult> UpdateRestaurant(int id, [FromForm] UpdateRestaurantDto restaurantDto, IFormFile imageFile)
         {
             _logger.LogWarning("Updating restaurant with ID {RestaurantId}", id);
 

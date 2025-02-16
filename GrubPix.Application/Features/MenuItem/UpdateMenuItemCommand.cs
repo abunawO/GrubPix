@@ -8,10 +8,10 @@ namespace GrubPix.Application.Features.MenuItem
     public class UpdateMenuItemCommand : IRequest<MenuItemDto>
     {
         public int Id { get; }
-        public CreateMenuItemDto MenuItemDto { get; }
+        public UpdateMenuItemDto MenuItemDto { get; }
         public IFormFile ImageFile { get; }
 
-        public UpdateMenuItemCommand(int id, CreateMenuItemDto menuItemDto, IFormFile imageFile)
+        public UpdateMenuItemCommand(int id, UpdateMenuItemDto menuItemDto, IFormFile imageFile)
         {
             Id = id;
             MenuItemDto = menuItemDto;

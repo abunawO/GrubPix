@@ -10,10 +10,10 @@ namespace GrubPix.Application.Features.Restaurant
     public class UpdateRestaurantCommand : IRequest<RestaurantDto>
     {
         public int Id { get; set; }
-        public CreateRestaurantDto RestaurantDto { get; set; }
+        public UpdateRestaurantDto RestaurantDto { get; set; }
         public IFormFile ImageFile { get; set; }
 
-        public UpdateRestaurantCommand(int id, CreateRestaurantDto restaurantDto, IFormFile imageFile)
+        public UpdateRestaurantCommand(int id, UpdateRestaurantDto restaurantDto, IFormFile imageFile)
         {
             Id = id;
             RestaurantDto = restaurantDto;

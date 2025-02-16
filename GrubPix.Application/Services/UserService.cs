@@ -109,11 +109,11 @@ namespace GrubPix.Application.Services
         {
             _logger.LogInformation("Updating user with email: {Email}", dto.Email);
 
-            var existingUser = await _userRepository.GetByEmailAsync(dto.Email);
+            var existingUser = await _userRepository.GetByIdAsync(id);
             if (existingUser == null)
             {
-                _logger.LogError("User with email {Email} not found.", dto.Email);
-                throw new NotFoundException($"User with email {dto.Email} not found.");
+                _logger.LogError("User with id {id} not found.", id);
+                throw new NotFoundException($"User not found.");
             }
 
             _mapper.Map(dto, existingUser);

@@ -9,7 +9,7 @@ namespace GrubPix.Application.Services.Interfaces
         Task<IEnumerable<MenuDto>> GetMenusAsync();
         Task<MenuDto> GetMenuByIdAsync(int id);
         Task<MenuDto> CreateMenuAsync(CreateMenuDto menuDto);
-        Task<MenuDto> UpdateMenuAsync(int id, CreateMenuDto menuDto); // Added for updating a menu
+        Task<MenuDto> UpdateMenuAsync(int id, UpdateMenuDto menuDto); // Added for updating a menu
         Task<bool> DeleteMenuAsync(int id); // Added for deleting a menu
     }
 }

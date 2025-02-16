@@ -64,7 +64,7 @@ namespace GrubPix.API.Controllers
         // PUT: api/MenuItem/{id}
         [Authorize(Roles = "Admin,RestaurantOwner")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateMenuItem(int id, [FromForm] CreateMenuItemDto menuItemDto, IFormFile imageFile)
+        public async Task<IActionResult> UpdateMenuItem(int id, [FromForm] UpdateMenuItemDto menuItemDto, IFormFile imageFile)
         {
             _logger.LogInformation("Updating menu item: {ItemName} for Menu ID {MenuId}", menuItemDto.Name, menuItemDto.MenuId);
             var command = new UpdateMenuItemCommand(id, menuItemDto, imageFile);
