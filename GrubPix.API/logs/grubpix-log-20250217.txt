@@ -1,0 +1,45 @@
+2025-02-17 09:04:22.084 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-02-17 09:04:22.087 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-17 09:04:22.087 -05:00 [INF] HTTP GET /index.html responded 200 in 0.2796 ms
+2025-02-17 09:04:22.087 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 3.2272ms
+2025-02-17 09:04:22.412 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger-ui.css - null null
+2025-02-17 09:04:22.412 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-17 09:04:22.434 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.css - null null
+2025-02-17 09:04:22.434 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-17 09:04:22.434 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger-ui-standalone-preset.js - null null
+2025-02-17 09:04:22.434 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger-ui-bundle.js - null null
+2025-02-17 09:04:22.435 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-17 09:04:22.435 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-17 09:04:22.440 -05:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2025-02-17 09:04:22.441 -05:00 [INF] HTTP GET /index.css responded 200 in 6.4563 ms
+2025-02-17 09:04:22.441 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.css - 200 202 text/css 7.078ms
+2025-02-17 09:04:22.451 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-02-17 09:04:22.452 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-17 09:04:22.452 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-02-17 09:04:22.452 -05:00 [INF] HTTP GET /swagger-ui.css responded 200 in 40.0479 ms
+2025-02-17 09:04:22.453 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger-ui.css - 200 152035 text/css 40.6303ms
+2025-02-17 09:04:22.453 -05:00 [INF] HTTP GET /index.js responded 200 in 0.5783 ms
+2025-02-17 09:04:22.453 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 1.8725ms
+2025-02-17 09:04:22.453 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-02-17 09:04:22.454 -05:00 [INF] HTTP GET /swagger-ui-standalone-preset.js responded 200 in 19.2568 ms
+2025-02-17 09:04:22.455 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger-ui-standalone-preset.js - 200 230007 text/javascript 20.3602ms
+2025-02-17 09:04:22.531 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-02-17 09:04:22.531 -05:00 [INF] HTTP GET /swagger-ui-bundle.js responded 200 in 96.1725 ms
+2025-02-17 09:04:22.534 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger-ui-bundle.js - 200 1426050 text/javascript 97.0146ms
+2025-02-17 09:04:24.189 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-17 09:04:24.189 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-17 09:04:24.201 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/favicon-32x32.png - null null
+2025-02-17 09:04:24.201 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-17 09:04:24.201 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-02-17 09:04:24.202 -05:00 [INF] HTTP GET /favicon-32x32.png responded 200 in 0.3605 ms
+2025-02-17 09:04:24.202 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/favicon-32x32.png - 200 628 image/png 0.8638ms
+2025-02-17 09:04:24.202 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 13.0393 ms
+2025-02-17 09:04:24.202 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.8392ms
+2025-02-17 09:04:37.403 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/Restaurant/1 - null null
+2025-02-17 09:04:37.403 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-17 09:04:37.412 -05:00 [INF] No cached response available for this request.
+2025-02-17 09:04:37.413 -05:00 [INF] The response could not be cached for this request.
+2025-02-17 09:04:37.413 -05:00 [INF] HTTP GET /api/Restaurant/1 responded 404 in 9.9311 ms
+2025-02-17 09:04:37.414 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/Restaurant/1 - 404 0 null 10.9946ms
+2025-02-17 09:04:37.416 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5068/api/Restaurant/1, Response status code: 404
+2025-02-17 09:37:46.566 -05:00 [INF] Application is shutting down...

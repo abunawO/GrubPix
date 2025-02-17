@@ -1,17 +1,18 @@
-using Microsoft.AspNetCore.Http.Features;
-using Microsoft.EntityFrameworkCore;
-using GrubPix.Infrastructure.Persistence;
-using Amazon.S3;
-using GrubPix.API.Configuration;
-using GrubPix.API.Middleware;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using Serilog;
+using GrubPix.Infrastructure;
 using CorrelationId.DependencyInjection;
-using CorrelationId;
+using Amazon.S3;
+using GrubPix.API.Configuration;
+using GrubPix.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http.Features;
+using GrubPix.API.Middleware;
+using CorrelationId; // Adjust if needed
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,7 @@ Log.Logger = new LoggerConfiguration()
     .Enrich.WithThreadId()
     .Enrich.WithProcessId()
     .WriteTo.Console()
-    .WriteTo.File("logs/grubpix-log-.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.File("logs/grubpix-log.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 builder.Host.UseSerilog();
@@ -38,7 +39,6 @@ builder.Services.AddDefaultAWSOptions(builder.Configuration.GetAWSOptions());
 builder.Services.AddAWSService<IAmazonS3>();
 builder.Services.AddCoreApplicationServices();
 builder.Services.AddCoreInfrastructureServices();
-
 
 // CORS Configuration
 builder.Services.AddCors(options =>
@@ -70,6 +70,7 @@ builder.Services.Configure<FormOptions>(options =>
 // Controllers & Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerDocumentation(); // Ensure this method is defined in your project
 
 // Response Caching
@@ -83,7 +84,33 @@ builder.Services.AddHttpLogging(logging =>
     logging.ResponseBodyLogLimit = 4096;
 });
 
-// JWT Configuration
+// -------------------- REPLACED JWT CONFIGURATION WITH CLERK AUTH --------------------
+
+// // Load Clerk settings from appsettings.json
+// var clerkSettings = builder.Configuration.GetSection("Clerk");
+// var clerkIssuer = clerkSettings["Issuer"];
+// var clerkAudience = clerkSettings["Audience"];
+
+// // Configure Clerk Authentication
+// builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//     .AddJwtBearer(options =>
+//     {
+//         options.Authority = clerkIssuer;
+//         options.Audience = clerkAudience;
+//         options.TokenValidationParameters = new TokenValidationParameters
+//         {
+//             ValidateIssuer = true,
+//             ValidIssuer = clerkIssuer,
+//             ValidateAudience = true,
+//             ValidAudience = clerkAudience,
+//             ValidateLifetime = true,
+//             ValidateIssuerSigningKey = true
+//         };
+//     });
+
+builder.Services.AddAuthorization();
+
+// -------------------- COMMENTED OUT OLD JWT AUTHENTICATION --------------------
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Secret"]);
 
@@ -109,7 +136,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddAuthorization();
+// -------------------- END OF OLD JWT CONFIGURATION --------------------
 
 var app = builder.Build();
 
@@ -138,6 +165,8 @@ app.UseHttpsRedirection();
 app.UseRouting();
 app.UseResponseCaching();
 app.UseCors("AllowAll");
+
+// Enable Clerk Authentication
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -148,6 +177,7 @@ app.Use(async (context, next) =>
     await next();
 });
 
+// Map Controllers
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();

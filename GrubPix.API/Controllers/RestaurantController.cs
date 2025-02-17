@@ -21,7 +21,7 @@ namespace GrubPix.API.Controllers
             _logger = logger;
         }
 
-        // Get All Restaurants
+        // Get All Restaurants associated to a user
         [AllowAnonymous]
         [HttpGet]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client, NoStore = false)]
