@@ -70,6 +70,36 @@ namespace GrubPix.Application.Services
             });
         }
 
+        public async Task<IEnumerable<RestaurantDto>> GetRestaurantsAsync(string? name, string? sortBy, bool descending, int page, int pageSize)
+        {
+            var restaurants = await _restaurantRepository.GetAllAsync(name, sortBy, descending, page, pageSize);
+
+            return restaurants.Select(r => new RestaurantDto
+            {
+                Id = r.Id,
+                Name = r.Name,
+                Address = r.Address,
+                ImageUrl = r.ImageUrl,
+                Description = r.Description,
+                Menus = r.Menus.Select(m => new MenuDto
+                {
+                    Id = m.Id,
+                    Name = m.Name,
+                    Description = m.Description,
+                    RestaurantId = m.RestaurantId,
+                    Items = m.MenuItems.Select(item => new MenuItemDto
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        Description = item.Description,
+                        Price = item.Price,
+                        MenuId = item.MenuId,
+                        ImageUrl = item.ImageUrl
+                    }).ToList()
+                }).ToList()
+            });
+        }
+
         /// <summary>
         /// Get a single restaurant by ID.
         /// </summary>

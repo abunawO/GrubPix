@@ -11,6 +11,8 @@ namespace GrubPix.Infrastructure.Persistence
         public DbSet<Menu> Menus { get; set; }
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<FavoriteMenuItem> FavoriteMenuItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,6 +38,18 @@ namespace GrubPix.Infrastructure.Persistence
                 .WithOne(r => r.Owner) // A Restaurant belongs to one User
                 .HasForeignKey(r => r.OwnerId) // Foreign key in the Restaurant entity
                 .OnDelete(DeleteBehavior.Cascade); // Cascade delete if User is deleted
+
+            // Define relationships
+            modelBuilder.Entity<FavoriteMenuItem>()
+                .HasOne(f => f.Customer)
+                .WithMany(c => c.FavoriteMenuItems)
+                .HasForeignKey(f => f.CustomerId);
+
+            modelBuilder.Entity<FavoriteMenuItem>()
+                .HasOne(f => f.MenuItem)
+                .WithMany()
+                .HasForeignKey(f => f.MenuItemId);
+
         }
     }
 }

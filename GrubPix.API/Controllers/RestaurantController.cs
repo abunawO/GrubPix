@@ -25,16 +25,23 @@ namespace GrubPix.API.Controllers
         [AllowAnonymous]
         [HttpGet]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client, NoStore = false)]
-        public async Task<IActionResult> GetMyRestaurants(
+        public async Task<IActionResult> GetRestaurants(
             [FromQuery] string? name,
             [FromQuery] string? sortBy,
             [FromQuery] bool descending = false,
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10)
         {
-            // Get the authenticated user's ID from the claims
-            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            var query = new GetRestaurantsQuery(name, sortBy, descending, page, pageSize, userId);
+            // Get the authenticated user's ID and Role from claims
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var roleClaim = User.FindFirst(ClaimTypes.Role)?.Value;
+
+            int? userId = string.IsNullOrEmpty(userIdClaim) ? null : int.Parse(userIdClaim);
+            string role = roleClaim ?? "";
+
+            _logger.LogInformation("Fetching restaurants with user id {userId} and role {role}", userId, role);
+
+            var query = new GetRestaurantsQuery(name, sortBy, descending, page, pageSize, userId, role);
             var result = await _mediator.Send(query);
             return Ok(result);
         }

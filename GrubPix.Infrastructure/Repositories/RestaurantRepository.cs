@@ -61,6 +61,49 @@ namespace GrubPix.Infrastructure.Repositories
             return await query.ToListAsync();
         }
 
+        public async Task<List<Restaurant>> GetAllAsync(string? name, string? sortBy, bool descending, int page, int pageSize)
+        {
+            var query = _context.Restaurants
+                .Include(r => r.Menus)
+                .ThenInclude(m => m.MenuItems)
+                .AsQueryable();
+
+            // Filtering by name
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                query = query.Where(r => r.Name.Contains(name));
+            }
+
+            // Sorting
+            if (!string.IsNullOrWhiteSpace(sortBy))
+            {
+                var property = typeof(Restaurant).GetProperty(sortBy);
+                if (property != null)
+                {
+                    query = descending
+                        ? query.OrderByDescending(r => EF.Property<object>(r, sortBy))
+                        : query.OrderBy(r => EF.Property<object>(r, sortBy));
+                }
+            }
+
+            // Ensure pageSize is always greater than 0
+            if (pageSize <= 0) pageSize = 10; // Default to 10 if invalid
+
+            // Ensure page is at least 1
+            if (page < 1) page = 1;
+
+            // Get total records count
+            var totalRecords = await query.CountAsync();
+
+            // Ensure the page is within range
+            if ((page - 1) * pageSize >= totalRecords)
+                return new List<Restaurant>(); // Return an empty list if the page is out of range
+
+            // Apply pagination
+            query = query.Skip((page - 1) * pageSize).Take(pageSize);
+
+            return await query.ToListAsync();
+        }
 
 
         public async Task<Restaurant> GetByIdAsync(int id)

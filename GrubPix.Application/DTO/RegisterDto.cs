@@ -17,7 +17,7 @@ namespace GrubPix.Application.DTO
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Role is required.")]
-        [RegularExpression("^(Admin|RestaurantOwner)$", ErrorMessage = "Invalid role. Allowed values: Admin, RestaurantOwner.")]
+        [RegularExpression("^(Admin|RestaurantOwner|Customer)$", ErrorMessage = "Invalid role. Allowed values: Admin, RestaurantOwner.")]
         public string Role { get; set; }
     }
 }

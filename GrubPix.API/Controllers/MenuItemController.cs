@@ -51,6 +51,8 @@ namespace GrubPix.API.Controllers
         }
 
         // POST: api/MenuItem
+        // PUT: api/MenuItem/{id}
+        [Authorize(Roles = "Admin,RestaurantOwner")]
         [HttpPost]
         public async Task<IActionResult> CreateMenuItem([FromForm] CreateMenuItemDto menuItemDto, IFormFile imageFile)
         {

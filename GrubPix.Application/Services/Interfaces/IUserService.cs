@@ -5,13 +5,13 @@ namespace GrubPix.Application.Services.Interfaces
 {
     public interface IUserService
     {
-        Task<UserDto?> GetByUsernameAsync(string username);
-        Task<UserDto?> GetByEmailAsync(string email);
+        Task<BaseUserDto?> GetByUsernameAsync(string username);
+        Task<BaseUserDto?> GetByEmailAsync(string email);
 
-        Task<UserDto> UpdateUserAsync(int id, UpdateUserDto dto);
+        Task<BaseUserDto> UpdateUserAsync(int id, UpdateUserDto dto);
         Task<bool> DeleteUserAsync(int id);
-        Task<UserDto?> AuthenticateAsync(LoginDto dto);
-        Task<UserDto> RegisterAsync(RegisterDto dto);
+        Task<BaseUserDto?> AuthenticateAsync(LoginDto dto);
+        Task<BaseUserDto> RegisterAsync(RegisterDto dto);
 
         // Add Hashing & Verification methods
         string HashPassword(string password);

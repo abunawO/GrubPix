@@ -1,6 +1,7 @@
 using AutoMapper;
 using GrubPix.Domain.Entities;   // Your domain models
-using GrubPix.Application.DTO;   // DTOs you'll map to
+using GrubPix.Application.DTO;
+using GrubPix.Application.DTOs;   // DTOs you'll map to
 
 namespace GrubPix.Application.Mappings
 {
@@ -59,6 +60,16 @@ namespace GrubPix.Application.Mappings
             CreateMap<UpdateMenuDto, Menu>();
             CreateMap<UpdateMenuItemDto, MenuItem>();
             CreateMap<UpdateUserDto, User>();
+
+            // Map Customer -> CustomerDto
+            CreateMap<Customer, CustomerDto>();
+
+            // Map FavoriteMenuItem -> FavoriteMenuItemDto
+            CreateMap<FavoriteMenuItem, FavoriteMenuItemDto>()
+                .ForMember(dest => dest.MenuItemName, opt => opt.MapFrom(src => src.MenuItem.Name));
+
+            // Map AddFavoriteRequest -> FavoriteMenuItem (for creation)
+            CreateMap<AddFavoriteRequest, FavoriteMenuItem>();
         }
     }
 }

@@ -10,6 +10,7 @@ using GrubPix.Application.Features.Restaurant;
 using GrubPix.Application.Features.MenuItem;
 using Amazon.S3;
 using GrubPix.Application.Interfaces.Services;
+using GrubPix.Application.Interfaces;
 
 namespace GrubPix.API.Configuration
 {
@@ -26,6 +27,7 @@ namespace GrubPix.API.Configuration
             services.AddScoped<IImageStorageService, S3Service>();
             services.AddScoped<IMenuItemService, MenuItemService>();
             services.AddScoped<IJwtService, JwtService>();
+            services.AddScoped<IUserService, UserService>();
 
             // AutoMapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -49,7 +51,8 @@ namespace GrubPix.API.Configuration
             services.AddScoped<IMenuItemRepository, MenuItemRepository>();
             services.AddScoped<IRestaurantRepository, RestaurantRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+
 
             // Database Context
             services.AddScoped<GrubPixDbContext>();
