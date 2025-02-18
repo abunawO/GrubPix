@@ -23,6 +23,7 @@ namespace GrubPix.Infrastructure.Repositories
         {
             return await _context.Customers
                 .Include(c => c.FavoriteMenuItems)
+                .ThenInclude(fm => fm.MenuItem) // Ensure MenuItem is included
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
 

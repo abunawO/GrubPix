@@ -4,6 +4,8 @@ using GrubPix.Application.DTO;
 using GrubPix.Application.Interfaces.Services;
 using System.Threading.Tasks;
 using GrubPix.Application.Services.Interfaces;
+using MediatR;
+using GrubPix.Application.Features.User;
 
 namespace GrubPix.API.Controllers
 {
@@ -12,27 +14,25 @@ namespace GrubPix.API.Controllers
     [Route("api/users")]
     public class UserController : ControllerBase
     {
-        private readonly IUserService _userService;
+        private readonly IMediator _mediator;
 
-        public UserController(IUserService userService)
+        public UserController(IMediator mediator)
         {
-            _userService = userService;
+            _mediator = mediator;
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserDto dto)
         {
-            var updatedUser = await _userService.UpdateUserAsync(id, dto);
-            return Ok(updatedUser);
+            var result = await _mediator.Send(new UpdateUserCommand(id, dto));
+            return result ? Ok("User updated successfully.") : BadRequest("User update failed.");
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
-            var result = await _userService.DeleteUserAsync(id);
-            if (result)
-                return NoContent();
-            return NotFound();
+            var result = await _mediator.Send(new DeleteUserCommand(id));
+            return result ? NoContent() : NotFound("User not found.");
         }
     }
 }

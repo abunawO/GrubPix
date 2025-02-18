@@ -60,6 +60,7 @@ namespace GrubPix.Application.Mappings
             CreateMap<UpdateMenuDto, Menu>();
             CreateMap<UpdateMenuItemDto, MenuItem>();
             CreateMap<UpdateUserDto, User>();
+            CreateMap<UpdateCustomerDto, Customer>();
 
             // Map Customer -> CustomerDto
             CreateMap<Customer, CustomerDto>();
