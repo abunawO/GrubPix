@@ -1,7 +1,8 @@
 using AutoMapper;
 using GrubPix.Domain.Entities;   // Your domain models
 using GrubPix.Application.DTO;
-using GrubPix.Application.DTOs;   // DTOs you'll map to
+using GrubPix.Application.DTOs;
+using GrubPix.Application.Features.User;   // DTOs you'll map to
 
 namespace GrubPix.Application.Mappings
 {
@@ -10,67 +11,44 @@ namespace GrubPix.Application.Mappings
         public MappingProfile()
         {
             // Mapping for Menus
-            CreateMap<CreateMenuDto, Menu>()
-                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description));
-
-            CreateMap<Menu, CreateMenuDto>()
-                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description));
-
-            CreateMap<Menu, MenuDto>()
-                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
-                .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.MenuItems)); // Ensure MenuItems are mapped
-
-            CreateMap<MenuDto, Menu>()
-                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
-                .ForMember(dest => dest.MenuItems, opt => opt.MapFrom(src => src.Items)); // Reverse mapping
-
-            // Mapping for Restaurants with ImageUrl
-            CreateMap<CreateRestaurantDto, Restaurant>()
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl));
-
-            CreateMap<Restaurant, CreateRestaurantDto>()
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl));
-
-            CreateMap<Restaurant, RestaurantDto>()
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl))
-                .ForMember(dest => dest.Menus, opt => opt.MapFrom(src => src.Menus)); // Ensure Menus are mapped
-
-            CreateMap<RestaurantDto, Restaurant>()
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl))
-                .ForMember(dest => dest.Menus, opt => opt.MapFrom(src => src.Menus)); // Reverse mapping
-
-            // Mapping for MenuItems with ImageUrl
-            CreateMap<MenuItemDto, MenuItem>()
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl));
-
-            CreateMap<MenuItem, MenuItemDto>()
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl));
-
-            CreateMap<CreateMenuItemDto, MenuItem>()
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl));
-
-            CreateMap<MenuItem, CreateMenuItemDto>()
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl));
-
-            // Mapping for User
-            CreateMap<User, UserDto>();
-
-            // Mapping for updating entities
-            CreateMap<UpdateRestaurantDto, Restaurant>();
+            CreateMap<CreateMenuDto, Menu>();
+            CreateMap<Menu, MenuDto>();
             CreateMap<UpdateMenuDto, Menu>();
+
+            // Mapping for Restaurants
+            CreateMap<CreateRestaurantDto, Restaurant>();
+            CreateMap<Restaurant, RestaurantDto>();
+            CreateMap<UpdateRestaurantDto, Restaurant>();
+
+            // Mapping for Menu Items
+            CreateMap<CreateMenuItemDto, MenuItem>();
+            CreateMap<MenuItem, MenuItemDto>();
             CreateMap<UpdateMenuItemDto, MenuItem>();
+
+            // Mapping for Users
+            CreateMap<User, UserDto>();
+            CreateMap<CreateUserDto, User>();
             CreateMap<UpdateUserDto, User>();
+
+            // Mapping for Customers
+            CreateMap<Customer, CustomerDto>();
             CreateMap<UpdateCustomerDto, Customer>();
 
             // Map Customer -> CustomerDto
             CreateMap<Customer, CustomerDto>();
+            CreateMap<CustomerDto, UserDto>();
 
-            // Map FavoriteMenuItem -> FavoriteMenuItemDto
+            // Mapping for Favorites
             CreateMap<FavoriteMenuItem, FavoriteMenuItemDto>()
                 .ForMember(dest => dest.MenuItemName, opt => opt.MapFrom(src => src.MenuItem.Name));
 
-            // Map AddFavoriteRequest -> FavoriteMenuItem (for creation)
             CreateMap<AddFavoriteRequest, FavoriteMenuItem>();
+
+            // Mapping for Authentication
+            CreateMap<RegisterCommand, User>()
+                .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => BCrypt.Net.BCrypt.HashPassword(src.Password)));
+
+            CreateMap<LoginCommand, UserDto>();
         }
     }
 }

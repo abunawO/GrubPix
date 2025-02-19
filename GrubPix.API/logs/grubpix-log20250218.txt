@@ -2357,3 +2357,378 @@ ORDER BY r0."Id", s."Id"
 2025-02-18 15:49:34.189 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
 2025-02-18 15:49:34.191 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 8155.7031 ms
 2025-02-18 15:49:34.200 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 8178.9648ms
+2025-02-18 16:41:13.686 -05:00 [INF] Application is shutting down...
+2025-02-18 16:56:44.300 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-18 16:56:44.426 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-18 16:56:44.428 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-18 16:56:44.429 -05:00 [INF] Hosting environment: Development
+2025-02-18 16:56:44.429 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-18 16:56:47.737 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-18 16:56:47.747 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 16:56:47.764 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-18 16:56:47.843 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/18/2025 21:00:59', Current time (UTC): '02/18/2025 21:56:47'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-18 16:56:47.855 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/18/2025 21:00:59', Current time (UTC): '02/18/2025 21:56:47'.
+2025-02-18 16:56:47.859 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 16:56:47.881 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-18 16:56:47.891 -05:00 [INF] Fetching restaurants with user id null and role 
+2025-02-18 16:56:48.016 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-18 16:56:55.082 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-18 16:56:55.545 -05:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+2025-02-18 16:56:55.614 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-18 16:56:55.615 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-18 16:56:55.707 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-18 16:56:55.752 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_1='10', @__p_0='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."ImageUrl", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    LIMIT @__p_1 OFFSET @__p_0
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."ImageUrl", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-18 16:56:55.838 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-18 16:56:55.902 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 8018.5659ms
+2025-02-18 16:56:55.903 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 16:56:55.906 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 8156.0017 ms
+2025-02-18 16:56:55.915 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 8178.5809ms
+2025-02-18 16:57:15.032 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/profile - null null
+2025-02-18 16:57:15.033 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 16:57:15.036 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/18/2025 21:00:59', Current time (UTC): '02/18/2025 21:57:15'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-18 16:57:15.037 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/18/2025 21:00:59', Current time (UTC): '02/18/2025 21:57:15'.
+2025-02-18 16:57:15.041 -05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Customer)
+2025-02-18 16:57:15.045 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-02-18 16:57:15.045 -05:00 [INF] HTTP GET /api/customers/profile responded 401 in 12.4209 ms
+2025-02-18 16:57:15.046 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/profile - 401 0 null 13.6632ms
+2025-02-18 16:57:21.764 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-02-18 16:57:21.764 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 16:57:21.830 -05:00 [INF] HTTP GET /index.html responded 200 in 65.7539 ms
+2025-02-18 16:57:21.830 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 66.578ms
+2025-02-18 16:57:21.853 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-02-18 16:57:21.854 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 16:57:21.861 -05:00 [INF] HTTP GET /index.js responded 200 in 6.8644 ms
+2025-02-18 16:57:21.862 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 8.7658ms
+2025-02-18 16:57:22.447 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-18 16:57:22.447 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 16:57:22.578 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 131.1201 ms
+2025-02-18 16:57:22.579 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 131.8728ms
+2025-02-18 16:57:46.591 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 59
+2025-02-18 16:57:46.591 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 16:57:46.592 -05:00 [INF] CORS policy execution successful.
+2025-02-18 16:57:46.594 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-18 16:57:46.598 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-18 16:57:46.619 -05:00 [INF] Login attempt for user@example.com
+2025-02-18 16:57:46.623 -05:00 [INF] Authenticating user with email: user@example.com
+2025-02-18 16:57:46.656 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='user@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-18 16:57:46.970 -05:00 [INF] User user@example.com authenticated successfully
+2025-02-18 16:57:46.984 -05:00 [INF] User user@example.com logged in successfully
+2025-02-18 16:57:46.985 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.DTO.UserDto'.
+2025-02-18 16:57:46.986 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 387.4729ms
+2025-02-18 16:57:46.986 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-18 16:57:46.987 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 395.2066 ms
+2025-02-18 16:57:46.987 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 396.0689ms
+2025-02-18 16:58:13.640 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-18 16:58:13.640 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 16:58:13.650 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 16:58:13.650 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-18 16:58:13.651 -05:00 [INF] Fetching restaurants with user id 6 and role RestaurantOwner
+2025-02-18 16:58:13.717 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-18 16:58:13.718 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-18 16:58:13.718 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-18 16:58:13.724 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-18 16:58:13.744 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='6', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."ImageUrl", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."ImageUrl", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-18 16:58:13.751 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-18 16:58:13.751 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 100.6792ms
+2025-02-18 16:58:13.751 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 16:58:13.752 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 111.1594 ms
+2025-02-18 16:58:13.752 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 111.872ms
+2025-02-18 16:59:15.636 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryDj1340ncqiqqQtNy 133881
+2025-02-18 16:59:15.636 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 16:59:15.636 -05:00 [INF] CORS policy execution successful.
+2025-02-18 16:59:15.639 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-02-18 16:59:15.647 -05:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-18 16:59:15.674 -05:00 [INF] Creating restaurant: suya resto
+2025-02-18 16:59:15.692 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-18 16:59:16.393 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='348 ball street' (Nullable = false), @p1='best grilled meat' (Nullable = false), @p2='a2fa2809-a64c-4c28-8746-2f3443015e36' (Nullable = false), @p3='suya resto' (Nullable = false), @p4='6'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Restaurants" ("Address", "Description", "ImageUrl", "Name", "OwnerId")
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING "Id";
+2025-02-18 16:59:16.414 -05:00 [INF] Restaurant suya resto created successfully
+2025-02-18 16:59:16.414 -05:00 [INF] Restaurant suya resto created successfully with ID 14
+2025-02-18 16:59:16.416 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.DTO.RestaurantDto'.
+2025-02-18 16:59:16.433 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 785.1951ms
+2025-02-18 16:59:16.433 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-02-18 16:59:16.433 -05:00 [INF] HTTP POST /api/restaurants responded 201 in 796.9036 ms
+2025-02-18 16:59:16.434 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 201 null application/json; charset=utf-8 798.2747ms
+2025-02-18 16:59:30.431 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-18 16:59:30.432 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 16:59:30.432 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 16:59:30.432 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-18 16:59:30.433 -05:00 [INF] Fetching restaurants with user id 6 and role RestaurantOwner
+2025-02-18 16:59:30.443 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-18 16:59:30.445 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='6', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."ImageUrl", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."ImageUrl", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-18 16:59:30.445 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-18 16:59:30.446 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 13.1396ms
+2025-02-18 16:59:30.446 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 16:59:30.446 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 14.0404 ms
+2025-02-18 16:59:30.446 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 14.5361ms
+2025-02-18 17:00:51.071 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-18 17:00:51.071 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 17:00:51.072 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 17:00:51.072 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-18 17:00:51.072 -05:00 [INF] Fetching restaurants with user id 6 and role RestaurantOwner
+2025-02-18 17:00:51.074 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-18 17:00:51.075 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='6', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."ImageUrl", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."ImageUrl", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-18 17:00:51.076 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-18 17:00:51.076 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 4.1001ms
+2025-02-18 17:00:51.076 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 17:00:51.076 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 4.9760 ms
+2025-02-18 17:00:51.076 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 5.4638ms
+2025-02-18 17:01:19.401 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/menus - application/json 75
+2025-02-18 17:01:19.401 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 17:01:19.402 -05:00 [INF] CORS policy execution successful.
+2025-02-18 17:01:19.402 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-02-18 17:01:19.406 -05:00 [INF] Route matched with {action = "CreateMenu", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateMenu(GrubPix.Application.DTO.CreateMenuDto) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-18 17:01:19.412 -05:00 [INF] Creating menu: Dinner for Restaurant ID 12
+2025-02-18 17:01:19.421 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='good stuff' (Nullable = false), @p1='Dinner' (Nullable = false), @p2='12'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Menus" ("Description", "Name", "RestaurantId")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+2025-02-18 17:01:19.424 -05:00 [INF] Menu Dinner created successfully with ID 11
+2025-02-18 17:01:19.424 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.DTO.MenuDto'.
+2025-02-18 17:01:19.425 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API) in 18.5678ms
+2025-02-18 17:01:19.425 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-02-18 17:01:19.425 -05:00 [INF] HTTP POST /api/menus responded 201 in 23.3574 ms
+2025-02-18 17:01:19.425 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/menus - 201 null application/json; charset=utf-8 23.8618ms
+2025-02-18 17:02:49.429 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-18 17:02:49.430 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 17:02:49.430 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 17:02:49.430 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-18 17:02:49.430 -05:00 [INF] Fetching restaurants with user id 6 and role RestaurantOwner
+2025-02-18 17:02:49.460 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-18 17:02:49.465 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='6', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."ImageUrl", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."ImageUrl", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-18 17:02:49.466 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-18 17:02:49.466 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 36.119ms
+2025-02-18 17:02:49.467 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 17:02:49.467 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 37.0877 ms
+2025-02-18 17:02:49.467 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 37.7002ms
+2025-02-18 17:03:17.583 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/menus - application/json 72
+2025-02-18 17:03:17.584 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 17:03:17.584 -05:00 [INF] CORS policy execution successful.
+2025-02-18 17:03:17.584 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-02-18 17:03:17.584 -05:00 [INF] Route matched with {action = "CreateMenu", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateMenu(GrubPix.Application.DTO.CreateMenuDto) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-18 17:03:17.585 -05:00 [INF] Creating menu: Desert for Restaurant ID 14
+2025-02-18 17:03:17.589 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='get fat' (Nullable = false), @p1='Desert' (Nullable = false), @p2='14'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Menus" ("Description", "Name", "RestaurantId")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+2025-02-18 17:03:17.590 -05:00 [INF] Menu Desert created successfully with ID 12
+2025-02-18 17:03:17.590 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.DTO.MenuDto'.
+2025-02-18 17:03:17.591 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API) in 6.1221ms
+2025-02-18 17:03:17.591 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-02-18 17:03:17.591 -05:00 [INF] HTTP POST /api/menus responded 201 in 7.0483 ms
+2025-02-18 17:03:17.591 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/menus - 201 null application/json; charset=utf-8 7.6668ms
+2025-02-18 17:04:48.435 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-18 17:04:48.435 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 17:04:48.436 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 17:04:48.436 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-18 17:04:48.436 -05:00 [INF] Fetching restaurants with user id 6 and role RestaurantOwner
+2025-02-18 17:04:48.462 -05:00 [INF] Executed DbCommand (25ms) [Parameters=[@__userId_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-18 17:04:48.464 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='6', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."ImageUrl", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."ImageUrl", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-18 17:04:48.465 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-18 17:04:48.465 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 29.315ms
+2025-02-18 17:04:48.465 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 17:04:48.465 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 30.1247 ms
+2025-02-18 17:04:48.466 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 30.7772ms
+2025-02-18 17:05:37.392 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/MenuItem - multipart/form-data; boundary=----WebKitFormBoundaryUrdbkApkk395B0bH 174084
+2025-02-18 17:05:37.392 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 17:05:37.392 -05:00 [INF] CORS policy execution successful.
+2025-02-18 17:05:37.393 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API)'
+2025-02-18 17:05:37.420 -05:00 [INF] Route matched with {action = "CreateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateMenuItem(GrubPix.Application.DTO.CreateMenuItemDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-18 17:05:37.426 -05:00 [INF] Creating menu item: burnt meat for Menu ID 11
+2025-02-18 17:05:38.285 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='extra grilled stake' (Nullable = false), @p1='6bdea28a-43f9-4e59-a358-fd50e157be7b' (Nullable = false), @p2='11', @p3='burnt meat' (Nullable = false), @p4='10000'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "MenuItems" ("Description", "ImageUrl", "MenuId", "Name", "Price")
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING "Id";
+2025-02-18 17:05:38.290 -05:00 [INF] Menu item burnt meat created successfully with ID 22
+2025-02-18 17:05:38.291 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.DTO.MenuItemDto'.
+2025-02-18 17:05:38.291 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API) in 871.1657ms
+2025-02-18 17:05:38.291 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API)'
+2025-02-18 17:05:38.291 -05:00 [INF] HTTP POST /api/MenuItem responded 201 in 898.7974 ms
+2025-02-18 17:05:38.292 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/MenuItem - 201 null application/json; charset=utf-8 899.8308ms
+2025-02-18 17:06:51.854 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/MenuItem - multipart/form-data; boundary=----WebKitFormBoundaryRTTAV0kgRt1gSvBa 71184
+2025-02-18 17:06:51.854 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 17:06:51.854 -05:00 [INF] CORS policy execution successful.
+2025-02-18 17:06:51.855 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API)'
+2025-02-18 17:06:51.855 -05:00 [INF] Route matched with {action = "CreateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateMenuItem(GrubPix.Application.DTO.CreateMenuItemDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-18 17:06:51.857 -05:00 [INF] Creating menu item: dark chocolate cake for Menu ID 12
+2025-02-18 17:06:52.758 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='dripped in choco' (Nullable = false), @p1='95b4e974-a8b5-4526-b9f0-3da697f113d7' (Nullable = false), @p2='12', @p3='dark chocolate cake' (Nullable = false), @p4='10.99'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "MenuItems" ("Description", "ImageUrl", "MenuId", "Name", "Price")
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING "Id";
+2025-02-18 17:06:52.759 -05:00 [INF] Menu item dark chocolate cake created successfully with ID 23
+2025-02-18 17:06:52.759 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.DTO.MenuItemDto'.
+2025-02-18 17:06:52.759 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API) in 903.8507ms
+2025-02-18 17:06:52.759 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API)'
+2025-02-18 17:06:52.759 -05:00 [INF] HTTP POST /api/MenuItem responded 201 in 905.1081 ms
+2025-02-18 17:06:52.761 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/MenuItem - 201 null application/json; charset=utf-8 907.1511ms
+2025-02-18 17:07:03.298 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-18 17:07:03.298 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 17:07:03.299 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 17:07:03.299 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-18 17:07:03.299 -05:00 [INF] Fetching restaurants with user id 6 and role RestaurantOwner
+2025-02-18 17:07:03.302 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-18 17:07:03.303 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='6', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."ImageUrl", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."ImageUrl", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-18 17:07:03.304 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-18 17:07:03.304 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 5.1484ms
+2025-02-18 17:07:03.305 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 17:07:03.305 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 6.0939 ms
+2025-02-18 17:07:03.305 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 6.7523ms
+2025-02-18 17:12:21.591 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-18 17:12:21.591 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-18 17:12:21.592 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 17:12:21.592 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-18 17:12:21.592 -05:00 [INF] Fetching restaurants with user id 6 and role RestaurantOwner
+2025-02-18 17:12:21.599 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-18 17:12:21.602 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='6', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."ImageUrl", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."ImageUrl", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-18 17:12:21.603 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-18 17:12:21.603 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 10.7246ms
+2025-02-18 17:12:21.603 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-18 17:12:21.603 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 11.5163 ms
+2025-02-18 17:12:21.603 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 12.01ms
