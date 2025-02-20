@@ -1734,3 +1734,1292 @@ ORDER BY r0."Id", s."Id"
 2025-02-20 14:22:43.930 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
 2025-02-20 14:22:43.938 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 259.9484 ms
 2025-02-20 14:22:43.938 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 260.9144ms
+2025-02-20 15:59:04.910 -05:00 [INF] Application is shutting down...
+2025-02-20 15:59:17.009 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 15:59:17.138 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 15:59:17.140 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 15:59:17.141 -05:00 [INF] Hosting environment: Development
+2025-02-20 15:59:17.141 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 15:59:23.478 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-20 15:59:23.488 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 15:59:23.505 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 15:59:23.585 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 20:59:23'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-20 15:59:23.597 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 20:59:23'.
+2025-02-20 15:59:23.601 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-20 15:59:23.624 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-20 15:59:23.635 -05:00 [INF] Fetching restaurants with user ID null and role 
+2025-02-20 15:59:23.770 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-20 15:59:30.930 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 15:59:31.444 -05:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+2025-02-20 15:59:31.648 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-20 15:59:31.650 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-20 15:59:31.792 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-20 15:59:31.866 -05:00 [INF] Executed DbCommand (19ms) [Parameters=[@__p_1='10', @__p_0='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."ImageUrl", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    LIMIT @__p_1 OFFSET @__p_0
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."ImageUrl", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-20 15:59:32.000 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 15:59:32.094 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 8467.2955ms
+2025-02-20 15:59:32.095 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-20 15:59:32.099 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 8607.7272 ms
+2025-02-20 15:59:32.107 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 8631.0191ms
+2025-02-20 16:00:54.086 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem - null null
+2025-02-20 16:00:54.087 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:00:54.090 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:00:54'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-20 16:00:54.114 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:00:54'.
+2025-02-20 16:00:54.116 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-20 16:00:54.121 -05:00 [INF] Route matched with {action = "GetAllMenuItems", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenuItems() on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:00:54.122 -05:00 [INF] Fetching all menu items.
+2025-02-20 16:00:54.148 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+2025-02-20 16:00:54.149 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:00:54.170 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API) in 48.8791ms
+2025-02-20 16:00:54.170 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-20 16:00:54.171 -05:00 [INF] HTTP GET /api/MenuItem responded 200 in 83.7115 ms
+2025-02-20 16:00:54.171 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem - 200 null application/json; charset=utf-8 85.2901ms
+2025-02-20 16:02:56.600 -05:00 [INF] Application is shutting down...
+2025-02-20 16:03:04.229 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 16:03:04.353 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 16:03:04.355 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 16:03:04.356 -05:00 [INF] Hosting environment: Development
+2025-02-20 16:03:04.356 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 16:03:18.881 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus/20 - null null
+2025-02-20 16:03:18.891 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:03:18.909 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 16:03:18.988 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:03:18'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-20 16:03:18.999 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:03:18'.
+2025-02-20 16:03:19.004 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetMenuById (GrubPix.API)'
+2025-02-20 16:03:19.025 -05:00 [INF] Route matched with {action = "GetMenuById", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMenuById(Int32) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:03:19.032 -05:00 [INF] Fetching menu with ID 20
+2025-02-20 16:03:19.639 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 16:03:20.223 -05:00 [INF] Executed DbCommand (51ms) [Parameters=[@__p_0='20'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:03:20.258 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetMenuById (GrubPix.API) in 1229.9601ms
+2025-02-20 16:03:20.259 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetMenuById (GrubPix.API)'
+2025-02-20 16:03:20.265 -05:00 [ERR] HTTP GET /api/menus/20 responded 500 in 1370.6259 ms
+GrubPix.Application.Exceptions.NotFoundException: Menu with ID 20 not found.
+   at GrubPix.Application.Services.MenuService.GetMenuByIdAsync(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuService.cs:line 65
+   at GrubPix.Application.Features.Menu.GetMenuByIdQueryHandler.Handle(GetMenuByIdQuery request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Menu/GetMenuByIdQuery.cs:line 36
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.MenuController.GetMenuById(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/MenuController.cs:line 55
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Program.<>c.<<<Main>$>b__0_7>d.MoveNext() in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Program.cs:line 177
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2025-02-20 16:03:20.274 -05:00 [ERR] An unhandled exception occurred.
+GrubPix.Application.Exceptions.NotFoundException: Menu with ID 20 not found.
+   at GrubPix.Application.Services.MenuService.GetMenuByIdAsync(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuService.cs:line 65
+   at GrubPix.Application.Features.Menu.GetMenuByIdQueryHandler.Handle(GetMenuByIdQuery request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Menu/GetMenuByIdQuery.cs:line 36
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.MenuController.GetMenuById(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/MenuController.cs:line 55
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Program.<>c.<<<Main>$>b__0_7>d.MoveNext() in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Program.cs:line 177
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at CorrelationId.CorrelationIdMiddleware.Invoke(HttpContext context, ICorrelationContextFactory correlationContextFactory)
+   at GrubPix.API.Middleware.ExceptionHandlingMiddleware.Invoke(HttpContext context) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Middleware/ExceptionHandlingMiddleware.cs:line 26
+2025-02-20 16:03:20.341 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus/20 - 404 null application/json 1461.1529ms
+2025-02-20 16:04:14.955 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem/20 - null null
+2025-02-20 16:04:14.956 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:04:14.959 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:04:14'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-20 16:04:14.960 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:04:14'.
+2025-02-20 16:04:14.961 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API)'
+2025-02-20 16:04:14.965 -05:00 [INF] Route matched with {action = "GetMenuItemById", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMenuItemById(Int32) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:04:14.967 -05:00 [INF] Fetching menu item with ID 20
+2025-02-20 16:04:14.996 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-20 16:04:21.703 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='20'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:04:21.766 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 16:04:21.791 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API) in 6825.7586ms
+2025-02-20 16:04:21.792 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API)'
+2025-02-20 16:04:21.792 -05:00 [INF] HTTP GET /api/MenuItem/20 responded 200 in 6835.9832 ms
+2025-02-20 16:04:21.792 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem/20 - 200 null application/json; charset=utf-8 6838.1504ms
+2025-02-20 16:05:01.755 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem/200 - null null
+2025-02-20 16:05:01.756 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:05:01.759 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:05:01'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-20 16:05:01.765 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:05:01'.
+2025-02-20 16:05:01.766 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API)'
+2025-02-20 16:05:01.767 -05:00 [INF] Route matched with {action = "GetMenuItemById", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMenuItemById(Int32) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:05:01.767 -05:00 [INF] Fetching menu item with ID 200
+2025-02-20 16:05:01.834 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='200'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:05:01.835 -05:00 [WRN] Menu item with ID 200 not found.
+2025-02-20 16:05:01.866 -05:00 [ERR] An error occurred while fetching menu item with ID 200
+GrubPix.Application.Exceptions.NotFoundException: Menu item with ID 200 not found.
+   at GrubPix.Application.Services.MenuItemService.GetMenuItemByIdAsync(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuItemService.cs:line 67
+   at GrubPix.Application.Features.MenuItem.GetMenuItemByIdQueryHandler.Handle(GetMenuItemByIdQuery request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/MenuItem/GetMenuItemByIdQuery.cs:line 28
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.MenuItemController.GetMenuItemById(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/MenuItemController.cs:line 55
+2025-02-20 16:05:01.868 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:05:01.871 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API) in 104.2731ms
+2025-02-20 16:05:01.871 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API)'
+2025-02-20 16:05:01.871 -05:00 [ERR] HTTP GET /api/MenuItem/200 responded 500 in 115.6426 ms
+2025-02-20 16:05:01.872 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem/200 - 500 null application/json; charset=utf-8 116.2946ms
+2025-02-20 16:06:08.470 -05:00 [INF] Application is shutting down...
+2025-02-20 16:06:14.487 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 16:06:14.712 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 16:06:14.716 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 16:06:14.717 -05:00 [INF] Hosting environment: Development
+2025-02-20 16:06:14.717 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 16:06:23.006 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/profile - null null
+2025-02-20 16:06:23.016 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:06:23.034 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 16:06:23.112 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:06:23'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-20 16:06:23.124 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:06:23'.
+2025-02-20 16:06:23.129 -05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Customer)
+2025-02-20 16:06:23.133 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-02-20 16:06:23.134 -05:00 [INF] HTTP GET /api/customers/profile responded 401 in 115.4138 ms
+2025-02-20 16:06:23.141 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/profile - 401 0 null 136.4464ms
+2025-02-20 16:07:04.615 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-20 16:07:04.616 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:07:04.621 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:07:04'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-20 16:07:04.622 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:07:04'.
+2025-02-20 16:07:04.626 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-20 16:07:04.647 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-20 16:07:04.658 -05:00 [INF] Fetching restaurants with user ID null and role 
+2025-02-20 16:07:04.784 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-20 16:07:11.865 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 16:07:12.318 -05:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+2025-02-20 16:07:12.382 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-20 16:07:12.383 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-20 16:07:12.481 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-20 16:07:12.534 -05:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_1='10', @__p_0='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."ImageUrl", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    LIMIT @__p_1 OFFSET @__p_0
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."ImageUrl", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-20 16:07:12.632 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:07:12.715 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 8064.9713ms
+2025-02-20 16:07:12.716 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-20 16:07:12.718 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 8101.1631 ms
+2025-02-20 16:07:12.724 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 8109.0226ms
+2025-02-20 16:07:45.094 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/MenuItem - multipart/form-data; boundary=----WebKitFormBoundary41nRpLHKaFYAhgwq 174067
+2025-02-20 16:07:45.094 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:07:45.096 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:07:45.097 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:07:45'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-20 16:07:45.098 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:07:45'.
+2025-02-20 16:07:45.099 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|RestaurantOwner)
+2025-02-20 16:07:45.100 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-02-20 16:07:45.100 -05:00 [INF] HTTP POST /api/MenuItem responded 401 in 5.7323 ms
+2025-02-20 16:07:45.101 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/MenuItem - 401 0 null 6.9739ms
+2025-02-20 16:07:52.931 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 59
+2025-02-20 16:07:52.931 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:07:52.932 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:07:52.932 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:07:52'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-20 16:07:52.933 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 20:00:20', Current time (UTC): '02/20/2025 21:07:52'.
+2025-02-20 16:07:52.933 -05:00 [INF] Executing endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 16:07:52.937 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller AuthController (GrubPix.API).
+2025-02-20 16:07:52.961 -05:00 [INF] Login attempt for user@example.com
+2025-02-20 16:07:52.965 -05:00 [INF] Authenticating user with email: user@example.com
+2025-02-20 16:07:52.998 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='user@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 16:07:53.326 -05:00 [INF] User user@example.com authenticated successfully
+2025-02-20 16:07:53.344 -05:00 [INF] User user@example.com logged in successfully
+2025-02-20 16:07:53.344 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 16:07:53.347 -05:00 [INF] Executed action AuthController.Login (GrubPix.API) in 409.4107ms
+2025-02-20 16:07:53.347 -05:00 [INF] Executed endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 16:07:53.347 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 415.6636 ms
+2025-02-20 16:07:53.347 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 416.2918ms
+2025-02-20 16:08:20.850 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/MenuItem - multipart/form-data; boundary=----WebKitFormBoundaryunJh5TPxAzza9Rk7 174067
+2025-02-20 16:08:20.850 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:08:20.850 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:08:20.860 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API)'
+2025-02-20 16:08:20.867 -05:00 [INF] Route matched with {action = "CreateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateMenuItem(GrubPix.Application.DTO.CreateMenuItemDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:08:20.895 -05:00 [INF] Creating menu item: string for Menu ID 10
+2025-02-20 16:08:22.112 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='string' (Nullable = false), @p1='654bafeb-65ee-459a-83d6-bec2fee918e0' (Nullable = false), @p2='10', @p3='string' (Nullable = false), @p4='10000'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "MenuItems" ("Description", "ImageUrl", "MenuId", "Name", "Price")
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING "Id";
+2025-02-20 16:08:22.138 -05:00 [INF] Menu item string created successfully with ID 25
+2025-02-20 16:08:22.139 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 16:08:22.152 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API) in 1285.353ms
+2025-02-20 16:08:22.152 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API)'
+2025-02-20 16:08:22.152 -05:00 [INF] HTTP POST /api/MenuItem responded 201 in 1302.1590 ms
+2025-02-20 16:08:22.153 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/MenuItem - 201 null application/json; charset=utf-8 1303.4578ms
+2025-02-20 16:10:04.626 -05:00 [INF] Application is shutting down...
+2025-02-20 16:10:11.016 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 16:10:11.152 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 16:10:11.155 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 16:10:11.155 -05:00 [INF] Hosting environment: Development
+2025-02-20 16:10:11.155 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 16:10:38.207 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - multipart/form-data; boundary=----WebKitFormBoundarydqpGo16rT0mWppZ2 174066
+2025-02-20 16:10:38.218 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:10:38.234 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 16:10:38.251 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:10:38.325 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:10:38.348 -05:00 [INF] Route matched with {action = "UpdateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenuItem(Int32, GrubPix.Application.DTO.UpdateMenuItemDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:10:38.389 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-20 16:10:38.469 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API) in 118.3197ms
+2025-02-20 16:10:38.472 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:10:38.476 -05:00 [INF] HTTP PUT /api/MenuItem/25 responded 400 in 254.3333 ms
+2025-02-20 16:10:38.482 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - 400 null application/problem+json; charset=utf-8 275.7248ms
+2025-02-20 16:10:51.442 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - multipart/form-data; boundary=----WebKitFormBoundarySA4B7NmIgcJ3OC1s 174066
+2025-02-20 16:10:51.443 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:10:51.444 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:10:51.447 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:10:51.448 -05:00 [INF] Route matched with {action = "UpdateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenuItem(Int32, GrubPix.Application.DTO.UpdateMenuItemDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:10:51.451 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-20 16:10:51.451 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API) in 3.7024ms
+2025-02-20 16:10:51.452 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:10:51.452 -05:00 [INF] HTTP PUT /api/MenuItem/25 responded 400 in 8.8658 ms
+2025-02-20 16:10:51.453 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - 400 null application/problem+json; charset=utf-8 11.3101ms
+2025-02-20 16:11:06.970 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - multipart/form-data; boundary=----WebKitFormBoundaryI3RSesjXYVTvInZp 173965
+2025-02-20 16:11:06.970 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:11:06.971 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:11:06.974 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:11:06.974 -05:00 [INF] Route matched with {action = "UpdateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenuItem(Int32, GrubPix.Application.DTO.UpdateMenuItemDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:11:06.977 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-20 16:11:06.977 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API) in 2.4311ms
+2025-02-20 16:11:06.977 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:11:06.977 -05:00 [INF] HTTP PUT /api/MenuItem/25 responded 400 in 6.9095 ms
+2025-02-20 16:11:06.978 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - 400 null application/problem+json; charset=utf-8 8.2215ms
+2025-02-20 16:12:01.420 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - multipart/form-data; boundary=----WebKitFormBoundaryoyGc8tS9UQXsM6KH 628
+2025-02-20 16:12:01.421 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:12:01.421 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:12:01.421 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:12:01.422 -05:00 [INF] Route matched with {action = "UpdateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenuItem(Int32, GrubPix.Application.DTO.UpdateMenuItemDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:12:01.423 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-20 16:12:01.423 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API) in 1.4943ms
+2025-02-20 16:12:01.423 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:12:01.424 -05:00 [INF] HTTP PUT /api/MenuItem/25 responded 400 in 2.9589 ms
+2025-02-20 16:12:01.424 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - 400 null application/problem+json; charset=utf-8 3.6991ms
+2025-02-20 16:12:17.222 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - multipart/form-data; boundary=----WebKitFormBoundaryQq5vZscTsQNO2I2j 174061
+2025-02-20 16:12:17.222 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:12:17.222 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:12:17.223 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:12:17.223 -05:00 [INF] Route matched with {action = "UpdateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenuItem(Int32, GrubPix.Application.DTO.UpdateMenuItemDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:12:17.225 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-20 16:12:17.225 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API) in 2.0225ms
+2025-02-20 16:12:17.225 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:12:17.225 -05:00 [INF] HTTP PUT /api/MenuItem/25 responded 400 in 3.1036 ms
+2025-02-20 16:12:17.226 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - 400 null application/problem+json; charset=utf-8 4.4303ms
+2025-02-20 16:13:28.396 -05:00 [INF] Application is shutting down...
+2025-02-20 16:13:33.884 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 16:13:33.985 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 16:13:33.988 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 16:13:33.988 -05:00 [INF] Hosting environment: Development
+2025-02-20 16:13:33.988 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 16:13:39.167 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - multipart/form-data; boundary=----WebKitFormBoundaryLEp9AuNw5Pr57l2W 174061
+2025-02-20 16:13:39.178 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:13:39.193 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 16:13:39.210 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:13:39.371 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:13:39.401 -05:00 [INF] Route matched with {action = "UpdateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenuItem(Int32, GrubPix.Application.DTO.UpdateMenuItemDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:13:39.447 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-20 16:13:39.528 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API) in 124.428ms
+2025-02-20 16:13:39.531 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:13:39.534 -05:00 [INF] HTTP PUT /api/MenuItem/25 responded 400 in 353.1938 ms
+2025-02-20 16:13:39.539 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - 400 null application/problem+json; charset=utf-8 373.746ms
+2025-02-20 16:14:25.740 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-02-20 16:14:25.741 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:14:25.812 -05:00 [INF] HTTP GET /index.html responded 200 in 70.3839 ms
+2025-02-20 16:14:25.812 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 72.6905ms
+2025-02-20 16:14:25.843 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-02-20 16:14:25.843 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:14:25.847 -05:00 [INF] HTTP GET /index.js responded 200 in 3.5605 ms
+2025-02-20 16:14:25.848 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 4.7707ms
+2025-02-20 16:14:26.007 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-20 16:14:26.007 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:14:26.167 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 159.6330 ms
+2025-02-20 16:14:26.167 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 160.674ms
+2025-02-20 16:14:37.771 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 59
+2025-02-20 16:14:37.771 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:14:37.773 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:14:37.774 -05:00 [INF] Executing endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 16:14:37.779 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller AuthController (GrubPix.API).
+2025-02-20 16:14:37.796 -05:00 [INF] Login attempt for user@example.com
+2025-02-20 16:14:38.013 -05:00 [INF] Authenticating user with email: user@example.com
+2025-02-20 16:14:38.472 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 16:14:39.050 -05:00 [INF] Executed DbCommand (54ms) [Parameters=[@__email_0='user@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 16:14:39.442 -05:00 [INF] User user@example.com authenticated successfully
+2025-02-20 16:14:39.459 -05:00 [INF] User user@example.com logged in successfully
+2025-02-20 16:14:39.461 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 16:14:39.471 -05:00 [INF] Executed action AuthController.Login (GrubPix.API) in 1691.8229ms
+2025-02-20 16:14:39.471 -05:00 [INF] Executed endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 16:14:39.472 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 1700.4138 ms
+2025-02-20 16:14:39.478 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 1707.3928ms
+2025-02-20 16:15:22.853 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - multipart/form-data; boundary=----WebKitFormBoundaryMvnLarzYpsfNPaYN 174067
+2025-02-20 16:15:22.853 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:15:22.854 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:15:22.857 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:15:22.866 -05:00 [INF] Route matched with {action = "UpdateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenuItem(Int32, GrubPix.Application.DTO.UpdateMenuItemDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:15:22.869 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-20 16:15:22.869 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API) in 3.6205ms
+2025-02-20 16:15:22.870 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:15:22.870 -05:00 [INF] HTTP PUT /api/MenuItem/25 responded 400 in 16.5422 ms
+2025-02-20 16:15:22.871 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - 400 null application/problem+json; charset=utf-8 18.0545ms
+2025-02-20 16:18:02.363 -05:00 [INF] Application is shutting down...
+2025-02-20 16:18:07.823 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 16:18:07.956 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 16:18:07.960 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 16:18:07.961 -05:00 [INF] Hosting environment: Development
+2025-02-20 16:18:07.961 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 16:18:12.152 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - multipart/form-data; boundary=----WebKitFormBoundaryEsABciCxxg1zN2A8 174067
+2025-02-20 16:18:12.166 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:18:12.186 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 16:18:12.210 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:18:12.300 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:18:12.330 -05:00 [INF] Route matched with {action = "UpdateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenuItem(Int32, GrubPix.Application.DTO.UpdateMenuItemDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:18:12.369 -05:00 [INF] Updating menu item: string for Menu ID 10
+2025-02-20 16:18:12.519 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-20 16:18:19.533 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 16:18:20.135 -05:00 [INF] Executed DbCommand (51ms) [Parameters=[@__p_0='25'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:18:20.923 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[@p5='25', @p0='string' (Nullable = false), @p1='dd20a528-bb98-4302-9ae9-fae87e72cc04' (Nullable = false), @p2='10', @p3='string' (Nullable = false), @p4='10000'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "MenuItems" SET "Description" = @p0, "ImageUrl" = @p1, "MenuId" = @p2, "Name" = @p3, "Price" = @p4
+WHERE "Id" = @p5;
+2025-02-20 16:18:20.932 -05:00 [INF] Menu item 25 updated successfully
+2025-02-20 16:18:20.937 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 16:18:21.014 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API) in 8681.2726ms
+2025-02-20 16:18:21.015 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-20 16:18:21.019 -05:00 [INF] HTTP PUT /api/MenuItem/25 responded 200 in 8849.1526 ms
+2025-02-20 16:18:21.029 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/MenuItem/25 - 200 null application/json; charset=utf-8 8878.3269ms
+2025-02-20 16:21:48.536 -05:00 [INF] Application is shutting down...
+2025-02-20 16:21:54.007 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 16:21:54.127 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 16:21:54.130 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 16:21:54.130 -05:00 [INF] Hosting environment: Development
+2025-02-20 16:21:54.130 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 16:22:02.441 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5068/api/MenuItem/55 - null null
+2025-02-20 16:22:02.451 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:22:02.466 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 16:22:02.482 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:22:02.557 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.DeleteMenuItem (GrubPix.API)'
+2025-02-20 16:22:02.577 -05:00 [INF] Route matched with {action = "DeleteMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteMenuItem(Int32) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:22:02.583 -05:00 [WRN] Deleting menu item with ID 55
+2025-02-20 16:22:02.708 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-20 16:22:09.680 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 16:22:10.204 -05:00 [INF] Executed DbCommand (45ms) [Parameters=[@__p_0='55'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:22:10.222 -05:00 [WRN] Attempted to delete non-existent menu item with ID 55.
+2025-02-20 16:22:10.232 -05:00 [ERR] An error occurred while deleting menu item with ID 55
+GrubPix.Application.Exceptions.NotFoundException: Menu item with ID 55 not found.
+   at GrubPix.Application.Services.MenuItemService.DeleteMenuItemAsync(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuItemService.cs:line 163
+   at GrubPix.Application.Features.MenuItem.DeleteMenuItemCommandHandler.Handle(DeleteMenuItemCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/MenuItem/DeleteMenuItemCommand.cs:line 27
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.MenuItemController.DeleteMenuItem(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/MenuItemController.cs:line 130
+2025-02-20 16:22:10.242 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:22:10.306 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.DeleteMenuItem (GrubPix.API) in 7726.595ms
+2025-02-20 16:22:10.307 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.DeleteMenuItem (GrubPix.API)'
+2025-02-20 16:22:10.310 -05:00 [ERR] HTTP DELETE /api/MenuItem/55 responded 500 in 7855.8613 ms
+2025-02-20 16:22:10.318 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5068/api/MenuItem/55 - 500 null application/json; charset=utf-8 7878.4263ms
+2025-02-20 16:22:22.215 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5068/api/MenuItem/10 - null null
+2025-02-20 16:22:22.215 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:22:22.233 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:22:22.236 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.DeleteMenuItem (GrubPix.API)'
+2025-02-20 16:22:22.236 -05:00 [INF] Route matched with {action = "DeleteMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteMenuItem(Int32) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:22:22.237 -05:00 [WRN] Deleting menu item with ID 10
+2025-02-20 16:22:22.259 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='10'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:22:22.259 -05:00 [WRN] Attempted to delete non-existent menu item with ID 10.
+2025-02-20 16:22:22.260 -05:00 [ERR] An error occurred while deleting menu item with ID 10
+GrubPix.Application.Exceptions.NotFoundException: Menu item with ID 10 not found.
+   at GrubPix.Application.Services.MenuItemService.DeleteMenuItemAsync(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuItemService.cs:line 163
+   at GrubPix.Application.Features.MenuItem.DeleteMenuItemCommandHandler.Handle(DeleteMenuItemCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/MenuItem/DeleteMenuItemCommand.cs:line 27
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.MenuItemController.DeleteMenuItem(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/MenuItemController.cs:line 130
+2025-02-20 16:22:22.261 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:22:22.261 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.DeleteMenuItem (GrubPix.API) in 24.9494ms
+2025-02-20 16:22:22.262 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.DeleteMenuItem (GrubPix.API)'
+2025-02-20 16:22:22.262 -05:00 [ERR] HTTP DELETE /api/MenuItem/10 responded 500 in 46.2921 ms
+2025-02-20 16:22:22.262 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5068/api/MenuItem/10 - 500 null application/json; charset=utf-8 47.829ms
+2025-02-20 16:22:45.680 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5068/api/MenuItem/25 - null null
+2025-02-20 16:22:45.680 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:22:45.681 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:22:45.699 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.DeleteMenuItem (GrubPix.API)'
+2025-02-20 16:22:45.699 -05:00 [INF] Route matched with {action = "DeleteMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteMenuItem(Int32) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-20 16:22:45.700 -05:00 [WRN] Deleting menu item with ID 25
+2025-02-20 16:22:45.763 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='25'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:22:46.238 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='25'], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "MenuItems"
+WHERE "Id" = @p0;
+2025-02-20 16:22:46.247 -05:00 [INF] Menu item 25 deleted successfully
+2025-02-20 16:22:46.250 -05:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-02-20 16:22:46.250 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.DeleteMenuItem (GrubPix.API) in 550.1096ms
+2025-02-20 16:22:46.250 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.DeleteMenuItem (GrubPix.API)'
+2025-02-20 16:22:46.250 -05:00 [INF] HTTP DELETE /api/MenuItem/25 responded 204 in 569.5704 ms
+2025-02-20 16:22:46.250 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5068/api/MenuItem/25 - 204 null null 570.2771ms
+2025-02-20 16:27:13.518 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus - null null
+2025-02-20 16:27:13.518 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:27:13.522 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-20 16:27:13.526 -05:00 [INF] Route matched with {action = "GetAllMenus", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenus() on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:27:13.676 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+2025-02-20 16:27:13.697 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+2025-02-20 16:27:13.712 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[GrubPix.Application.DTO.MenuDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 16:27:13.729 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API) in 187.612ms
+2025-02-20 16:27:13.729 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-20 16:27:13.729 -05:00 [INF] HTTP GET /api/menus responded 200 in 210.5641 ms
+2025-02-20 16:27:13.741 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus - 200 null application/json; charset=utf-8 223.5211ms
+2025-02-20 16:29:21.050 -05:00 [INF] Application is shutting down...
+2025-02-20 16:29:29.733 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 16:29:29.843 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 16:29:29.846 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 16:29:29.846 -05:00 [INF] Hosting environment: Development
+2025-02-20 16:29:29.846 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 16:29:36.438 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus - null null
+2025-02-20 16:29:36.448 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:29:36.467 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 16:29:36.554 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-20 16:29:36.573 -05:00 [INF] Route matched with {action = "GetAllMenus", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenus() on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:29:36.575 -05:00 [INF] Fetching all menus...
+2025-02-20 16:29:37.185 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 16:29:37.644 -05:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+2025-02-20 16:29:37.737 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+2025-02-20 16:29:37.775 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:29:37.859 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API) in 1283.6951ms
+2025-02-20 16:29:37.860 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-20 16:29:37.863 -05:00 [INF] HTTP GET /api/menus responded 200 in 1411.7981 ms
+2025-02-20 16:29:37.871 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus - 200 null application/json; charset=utf-8 1434.7391ms
+2025-02-20 16:31:00.244 -05:00 [INF] Application is shutting down...
+2025-02-20 16:31:05.417 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 16:31:05.533 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 16:31:05.536 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 16:31:05.537 -05:00 [INF] Hosting environment: Development
+2025-02-20 16:31:05.537 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 16:31:28.887 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus/19 - null null
+2025-02-20 16:31:28.897 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:31:28.915 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 16:31:29.001 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetMenuById (GrubPix.API)'
+2025-02-20 16:31:29.020 -05:00 [INF] Route matched with {action = "GetMenuById", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMenuById(Int32) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:31:29.026 -05:00 [INF] Fetching menu with ID 19
+2025-02-20 16:31:29.609 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 16:31:30.165 -05:00 [INF] Executed DbCommand (51ms) [Parameters=[@__p_0='19'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:31:30.198 -05:00 [ERR] An error occurred while fetching menu with ID 19
+GrubPix.Application.Exceptions.NotFoundException: Menu with ID 19 not found.
+   at GrubPix.Application.Services.MenuService.GetMenuByIdAsync(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuService.cs:line 65
+   at GrubPix.Application.Features.Menu.GetMenuByIdQueryHandler.Handle(GetMenuByIdQuery request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Menu/GetMenuByIdQuery.cs:line 36
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.MenuController.GetMenuById(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/MenuController.cs:line 68
+2025-02-20 16:31:30.216 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:31:30.285 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetMenuById (GrubPix.API) in 1261.8377ms
+2025-02-20 16:31:30.286 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetMenuById (GrubPix.API)'
+2025-02-20 16:31:30.290 -05:00 [ERR] HTTP GET /api/menus/19 responded 500 in 1389.3758 ms
+2025-02-20 16:31:30.299 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus/19 - 500 null application/json; charset=utf-8 1413.137ms
+2025-02-20 16:31:36.397 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus/10 - null null
+2025-02-20 16:31:36.398 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:31:36.402 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetMenuById (GrubPix.API)'
+2025-02-20 16:31:36.402 -05:00 [INF] Route matched with {action = "GetMenuById", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMenuById(Int32) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:31:36.403 -05:00 [INF] Fetching menu with ID 10
+2025-02-20 16:31:36.424 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='10'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:31:36.483 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+2025-02-20 16:31:36.516 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:31:36.533 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetMenuById (GrubPix.API) in 131.1188ms
+2025-02-20 16:31:36.534 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetMenuById (GrubPix.API)'
+2025-02-20 16:31:36.534 -05:00 [INF] HTTP GET /api/menus/10 responded 200 in 136.3636 ms
+2025-02-20 16:31:36.535 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus/10 - 200 null application/json; charset=utf-8 138.2023ms
+2025-02-20 16:32:46.725 -05:00 [INF] Application is shutting down...
+2025-02-20 16:32:52.817 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 16:32:52.948 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 16:32:52.950 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 16:32:52.951 -05:00 [INF] Hosting environment: Development
+2025-02-20 16:32:52.951 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 16:33:28.974 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/menus - application/json 72
+2025-02-20 16:33:28.987 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:33:29.002 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 16:33:29.019 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:33:29.101 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-02-20 16:33:29.121 -05:00 [INF] Route matched with {action = "CreateMenu", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateMenu(GrubPix.Application.DTO.CreateMenuDto) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:33:29.192 -05:00 [INF] Creating menu: string for Restaurant ID 123
+2025-02-20 16:33:29.701 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 16:33:30.207 -05:00 [ERR] Failed executing DbCommand (55ms) [Parameters=[@p0='string' (Nullable = false), @p1='string' (Nullable = false), @p2='123'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Menus" ("Description", "Name", "RestaurantId")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+2025-02-20 16:33:30.241 -05:00 [ERR] An exception occurred in the database while saving changes for context type 'GrubPix.Infrastructure.Persistence.GrubPixDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23503: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Menus
+    ConstraintName: FK_Menus_Restaurants_RestaurantId
+    File: ri_triggers.c
+    Line: 2539
+    Routine: ri_ReportViolation
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23503: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Menus
+    ConstraintName: FK_Menus_Restaurants_RestaurantId
+    File: ri_triggers.c
+    Line: 2539
+    Routine: ri_ReportViolation
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-02-20 16:33:30.249 -05:00 [ERR] An error occurred while creating the menu.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23503: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Menus
+    ConstraintName: FK_Menus_Restaurants_RestaurantId
+    File: ri_triggers.c
+    Line: 2539
+    Routine: ri_ReportViolation
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at GrubPix.Infrastructure.Repositories.MenuRepository.AddAsync(Menu menu) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Infrastructure/Repositories/MenuRepository.cs:line 31
+   at GrubPix.Application.Services.MenuService.CreateMenuAsync(CreateMenuDto menuDto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuService.cs:line 105
+2025-02-20 16:33:30.270 -05:00 [ERR] An error occurred while creating the menu.
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the menu. Please try again later.
+   at GrubPix.Application.Services.MenuService.CreateMenuAsync(CreateMenuDto menuDto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuService.cs:line 119
+   at GrubPix.Application.Features.Menu.CreateMenuCommandHandler.Handle(CreateMenuCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Menu/CreateMenuCommand.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.MenuController.CreateMenu(CreateMenuDto menuDto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/MenuController.cs:line 55
+2025-02-20 16:33:30.278 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:33:30.311 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API) in 1186.6228ms
+2025-02-20 16:33:30.312 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-02-20 16:33:30.315 -05:00 [ERR] HTTP POST /api/menus responded 500 in 1325.6299 ms
+2025-02-20 16:33:30.324 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/menus - 500 null application/json; charset=utf-8 1351.1729ms
+2025-02-20 16:35:04.852 -05:00 [INF] Application is shutting down...
+2025-02-20 16:35:10.040 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 16:35:10.161 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 16:35:10.163 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 16:35:10.164 -05:00 [INF] Hosting environment: Development
+2025-02-20 16:35:10.164 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 16:35:12.396 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/menus - application/json 72
+2025-02-20 16:35:12.407 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:35:12.422 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 16:35:12.440 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:35:12.555 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-02-20 16:35:12.575 -05:00 [INF] Route matched with {action = "CreateMenu", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateMenu(GrubPix.Application.DTO.CreateMenuDto) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:35:12.647 -05:00 [INF] Creating menu: string for Restaurant ID 123
+2025-02-20 16:35:13.143 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 16:35:13.588 -05:00 [ERR] Failed executing DbCommand (53ms) [Parameters=[@p0='string' (Nullable = false), @p1='string' (Nullable = false), @p2='123'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Menus" ("Description", "Name", "RestaurantId")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+2025-02-20 16:35:13.618 -05:00 [ERR] An exception occurred in the database while saving changes for context type 'GrubPix.Infrastructure.Persistence.GrubPixDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23503: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Menus
+    ConstraintName: FK_Menus_Restaurants_RestaurantId
+    File: ri_triggers.c
+    Line: 2539
+    Routine: ri_ReportViolation
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23503: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Menus
+    ConstraintName: FK_Menus_Restaurants_RestaurantId
+    File: ri_triggers.c
+    Line: 2539
+    Routine: ri_ReportViolation
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-02-20 16:35:13.625 -05:00 [ERR] An error occurred while creating the menu.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23503: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Menus
+    ConstraintName: FK_Menus_Restaurants_RestaurantId
+    File: ri_triggers.c
+    Line: 2539
+    Routine: ri_ReportViolation
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at GrubPix.Infrastructure.Repositories.MenuRepository.AddAsync(Menu menu) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Infrastructure/Repositories/MenuRepository.cs:line 31
+   at GrubPix.Application.Services.MenuService.CreateMenuAsync(CreateMenuDto menuDto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuService.cs:line 105
+2025-02-20 16:35:13.643 -05:00 [ERR] An error occurred while creating the menu.
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while saving the entity changes. See the inner exception for details.
+   at GrubPix.Application.Services.MenuService.CreateMenuAsync(CreateMenuDto menuDto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuService.cs:line 119
+   at GrubPix.Application.Features.Menu.CreateMenuCommandHandler.Handle(CreateMenuCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Menu/CreateMenuCommand.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.MenuController.CreateMenu(CreateMenuDto menuDto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/MenuController.cs:line 55
+2025-02-20 16:35:13.651 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:35:13.685 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API) in 1106.1907ms
+2025-02-20 16:35:13.686 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-02-20 16:35:13.690 -05:00 [ERR] HTTP POST /api/menus responded 500 in 1278.9798 ms
+2025-02-20 16:35:13.698 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/menus - 500 null application/json; charset=utf-8 1303.4639ms
+2025-02-20 16:36:21.366 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-20 16:36:21.367 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:36:21.374 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-20 16:36:21.379 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-20 16:36:21.386 -05:00 [INF] Fetching restaurants with user ID 6 and role RestaurantOwner
+2025-02-20 16:36:21.417 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-20 16:36:28.424 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[@__userId_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-20 16:36:28.456 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-20 16:36:28.457 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-20 16:36:28.546 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-20 16:36:28.577 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='6', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."ImageUrl", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."ImageUrl", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-20 16:36:28.644 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:36:28.659 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 7279.4816ms
+2025-02-20 16:36:28.659 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-20 16:36:28.660 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 7292.0626 ms
+2025-02-20 16:36:28.660 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 7293.9564ms
+2025-02-20 16:37:13.111 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/menus - application/json 71
+2025-02-20 16:37:13.113 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:37:13.114 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:37:13.119 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-02-20 16:37:13.141 -05:00 [INF] Route matched with {action = "CreateMenu", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateMenu(GrubPix.Application.DTO.CreateMenuDto) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:37:13.142 -05:00 [INF] Creating menu: lunchy for Restaurant ID 10
+2025-02-20 16:37:13.173 -05:00 [ERR] Failed executing DbCommand (16ms) [Parameters=[@p0='string' (Nullable = false), @p1='lunchy' (Nullable = false), @p2='10'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Menus" ("Description", "Name", "RestaurantId")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+2025-02-20 16:37:13.195 -05:00 [ERR] An exception occurred in the database while saving changes for context type 'GrubPix.Infrastructure.Persistence.GrubPixDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23503: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Menus
+    ConstraintName: FK_Menus_Restaurants_RestaurantId
+    File: ri_triggers.c
+    Line: 2539
+    Routine: ri_ReportViolation
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23503: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Menus
+    ConstraintName: FK_Menus_Restaurants_RestaurantId
+    File: ri_triggers.c
+    Line: 2539
+    Routine: ri_ReportViolation
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-02-20 16:37:13.200 -05:00 [ERR] An error occurred while creating the menu.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23503: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: insert or update on table "Menus" violates foreign key constraint "FK_Menus_Restaurants_RestaurantId"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Menus
+    ConstraintName: FK_Menus_Restaurants_RestaurantId
+    File: ri_triggers.c
+    Line: 2539
+    Routine: ri_ReportViolation
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at GrubPix.Infrastructure.Repositories.MenuRepository.AddAsync(Menu menu) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Infrastructure/Repositories/MenuRepository.cs:line 31
+   at GrubPix.Application.Services.MenuService.CreateMenuAsync(CreateMenuDto menuDto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuService.cs:line 105
+2025-02-20 16:37:13.204 -05:00 [ERR] An error occurred while creating the menu.
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while saving the entity changes. See the inner exception for details.
+   at GrubPix.Application.Services.MenuService.CreateMenuAsync(CreateMenuDto menuDto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuService.cs:line 119
+   at GrubPix.Application.Features.Menu.CreateMenuCommandHandler.Handle(CreateMenuCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Menu/CreateMenuCommand.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.MenuController.CreateMenu(CreateMenuDto menuDto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/MenuController.cs:line 55
+2025-02-20 16:37:13.242 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:37:13.243 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API) in 101.0605ms
+2025-02-20 16:37:13.243 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-02-20 16:37:13.243 -05:00 [ERR] HTTP POST /api/menus responded 500 in 130.2053 ms
+2025-02-20 16:37:13.243 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/menus - 500 null application/json; charset=utf-8 131.7377ms
+2025-02-20 16:43:20.950 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-20 16:43:20.950 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:43:20.986 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-20 16:43:20.986 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-20 16:43:20.986 -05:00 [INF] Fetching restaurants with user ID 6 and role RestaurantOwner
+2025-02-20 16:43:21.017 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-20 16:43:21.019 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='6', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."ImageUrl", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."ImageUrl", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-20 16:43:21.037 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:43:21.037 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 51.3517ms
+2025-02-20 16:43:21.038 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-20 16:43:21.038 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 87.4972 ms
+2025-02-20 16:43:21.038 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 88.4595ms
+2025-02-20 16:43:43.121 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/menus - application/json 71
+2025-02-20 16:43:43.121 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:43:43.121 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:43:43.122 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-02-20 16:43:43.135 -05:00 [INF] Route matched with {action = "CreateMenu", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateMenu(GrubPix.Application.DTO.CreateMenuDto) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:43:43.135 -05:00 [INF] Creating menu: lunchy for Restaurant ID 11
+2025-02-20 16:43:43.143 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='string' (Nullable = false), @p1='lunchy' (Nullable = false), @p2='11'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Menus" ("Description", "Name", "RestaurantId")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+2025-02-20 16:43:43.162 -05:00 [INF] Menu lunchy created successfully with ID 17
+2025-02-20 16:43:43.162 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:43:43.175 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API) in 40.3485ms
+2025-02-20 16:43:43.175 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-02-20 16:43:43.185 -05:00 [INF] HTTP POST /api/menus responded 201 in 63.6854 ms
+2025-02-20 16:43:43.185 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/menus - 201 null application/json; charset=utf-8 64.3799ms
+2025-02-20 16:44:52.630 -05:00 [INF] Application is shutting down...
+2025-02-20 16:44:58.394 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 16:44:58.519 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 16:44:58.522 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 16:44:58.522 -05:00 [INF] Hosting environment: Development
+2025-02-20 16:44:58.522 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 16:46:04.310 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/menus/17 - application/json 59
+2025-02-20 16:46:04.320 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:46:04.336 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 16:46:04.352 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:46:04.426 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.UpdateMenu (GrubPix.API)'
+2025-02-20 16:46:04.446 -05:00 [INF] Route matched with {action = "UpdateMenu", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenu(Int32, GrubPix.Application.DTO.UpdateMenuDto) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:46:04.511 -05:00 [INF] Updating menu with ID 17
+2025-02-20 16:46:04.989 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 16:46:05.553 -05:00 [INF] Executed DbCommand (48ms) [Parameters=[@__p_0='17'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:46:05.689 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p3='17', @p0='yummy yummy' (Nullable = false), @p1='Lunch yummy' (Nullable = false), @p2='11'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Menus" SET "Description" = @p0, "Name" = @p1, "RestaurantId" = @p2
+WHERE "Id" = @p3;
+2025-02-20 16:46:05.699 -05:00 [INF] Menu 17 updated successfully
+2025-02-20 16:46:05.705 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:46:05.750 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.UpdateMenu (GrubPix.API) in 1300.689ms
+2025-02-20 16:46:05.751 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.UpdateMenu (GrubPix.API)'
+2025-02-20 16:46:05.755 -05:00 [INF] HTTP PUT /api/menus/17 responded 200 in 1431.2889 ms
+2025-02-20 16:46:05.764 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/menus/17 - 200 null application/json; charset=utf-8 1455.9284ms
+2025-02-20 16:46:17.627 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/menus/177 - application/json 59
+2025-02-20 16:46:17.628 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:46:17.630 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:46:17.633 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.UpdateMenu (GrubPix.API)'
+2025-02-20 16:46:17.634 -05:00 [INF] Route matched with {action = "UpdateMenu", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenu(Int32, GrubPix.Application.DTO.UpdateMenuDto) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:46:17.635 -05:00 [INF] Updating menu with ID 177
+2025-02-20 16:46:17.664 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='177'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:46:17.675 -05:00 [ERR] An error occurred while updating menu with ID 177
+GrubPix.Application.Exceptions.NotFoundException: Menu with ID 177 not found.
+   at GrubPix.Application.Services.MenuService.UpdateMenuAsync(Int32 id, UpdateMenuDto menuDto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuService.cs:line 134
+   at GrubPix.Application.Features.Menu.UpdateMenuCommandHandler.Handle(UpdateMenuCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Menu/UpdateMenuCommand.cs:line 32
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.MenuController.UpdateMenu(Int32 id, UpdateMenuDto menuDto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/MenuController.cs:line 101
+2025-02-20 16:46:17.688 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:46:17.689 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.UpdateMenu (GrubPix.API) in 54.7652ms
+2025-02-20 16:46:17.689 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.UpdateMenu (GrubPix.API)'
+2025-02-20 16:46:17.689 -05:00 [ERR] HTTP PUT /api/menus/177 responded 500 in 60.6847 ms
+2025-02-20 16:46:17.690 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/menus/177 - 500 null application/json; charset=utf-8 62.1558ms
+2025-02-20 16:47:26.622 -05:00 [INF] Application is shutting down...
+2025-02-20 16:47:31.996 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 16:47:32.119 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 16:47:32.122 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 16:47:32.123 -05:00 [INF] Hosting environment: Development
+2025-02-20 16:47:32.123 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 16:47:41.945 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/menus/17 - application/json 59
+2025-02-20 16:47:41.956 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:47:41.971 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 16:47:41.988 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:47:42.062 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.UpdateMenu (GrubPix.API)'
+2025-02-20 16:47:42.081 -05:00 [INF] Route matched with {action = "UpdateMenu", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenu(Int32, GrubPix.Application.DTO.UpdateMenuDto) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:47:42.147 -05:00 [INF] Updating menu with ID 17
+2025-02-20 16:47:42.682 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 16:47:43.290 -05:00 [INF] Executed DbCommand (49ms) [Parameters=[@__p_0='17'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:47:43.439 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p3='17', @p0='yummy yummy' (Nullable = false), @p1='Lunch yummy' (Nullable = false), @p2='11'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Menus" SET "Description" = @p0, "Name" = @p1, "RestaurantId" = @p2
+WHERE "Id" = @p3;
+2025-02-20 16:47:43.449 -05:00 [INF] Menu 17 updated successfully
+2025-02-20 16:47:43.456 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:47:43.501 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.UpdateMenu (GrubPix.API) in 1417.1049ms
+2025-02-20 16:47:43.502 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.UpdateMenu (GrubPix.API)'
+2025-02-20 16:47:43.506 -05:00 [INF] HTTP PUT /api/menus/17 responded 200 in 1546.7941 ms
+2025-02-20 16:47:43.515 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/menus/17 - 200 null application/json; charset=utf-8 1571.5843ms
+2025-02-20 16:47:53.564 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5068/api/menus/45 - null null
+2025-02-20 16:47:53.565 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:47:53.606 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:47:53.609 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.DeleteMenu (GrubPix.API)'
+2025-02-20 16:47:53.613 -05:00 [INF] Route matched with {action = "DeleteMenu", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteMenu(Int32) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:47:53.615 -05:00 [WRN] Deleting menu with ID 45
+2025-02-20 16:47:53.644 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='45'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:47:53.655 -05:00 [ERR] An error occurred while deleting menu with ID 45
+GrubPix.Application.Exceptions.NotFoundException: Menu with ID 45 not found.
+   at GrubPix.Application.Services.MenuService.DeleteMenuAsync(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/MenuService.cs:line 169
+   at GrubPix.Application.Features.Menu.DeleteMenuCommandHandler.Handle(DeleteMenuCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Menu/DeleteMenuCommand.cs:line 27
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.MenuController.DeleteMenu(Int32 id) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/MenuController.cs:line 129
+2025-02-20 16:47:53.666 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 16:47:53.667 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.DeleteMenu (GrubPix.API) in 53.9546ms
+2025-02-20 16:47:53.668 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.DeleteMenu (GrubPix.API)'
+2025-02-20 16:47:53.668 -05:00 [ERR] HTTP DELETE /api/menus/45 responded 500 in 102.8075 ms
+2025-02-20 16:47:53.668 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5068/api/menus/45 - 500 null application/json; charset=utf-8 104.1582ms
+2025-02-20 16:47:59.697 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5068/api/menus/17 - null null
+2025-02-20 16:47:59.698 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 16:47:59.699 -05:00 [INF] CORS policy execution successful.
+2025-02-20 16:47:59.702 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.DeleteMenu (GrubPix.API)'
+2025-02-20 16:47:59.702 -05:00 [INF] Route matched with {action = "DeleteMenu", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteMenu(Int32) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-20 16:47:59.703 -05:00 [WRN] Deleting menu with ID 17
+2025-02-20 16:47:59.765 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='17'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-20 16:47:59.865 -05:00 [INF] Executed DbCommand (13ms) [Parameters=[@__id_0='17'], CommandType='"Text"', CommandTimeout='30']
+SELECT m1."Id", m1."Description", m1."Name", m1."RestaurantId", m0."Id", m0."Description", m0."ImageUrl", m0."MenuId", m0."Name", m0."Price"
+FROM (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+    FROM "Menus" AS m
+    WHERE m."Id" = @__id_0
+    LIMIT 1
+) AS m1
+LEFT JOIN "MenuItems" AS m0 ON m1."Id" = m0."MenuId"
+ORDER BY m1."Id"
+2025-02-20 16:47:59.881 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='17'], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Menus"
+WHERE "Id" = @p0;
+2025-02-20 16:47:59.885 -05:00 [INF] Menu 17 deleted successfully
+2025-02-20 16:47:59.887 -05:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-02-20 16:47:59.888 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.DeleteMenu (GrubPix.API) in 185.3996ms
+2025-02-20 16:47:59.888 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.DeleteMenu (GrubPix.API)'
+2025-02-20 16:47:59.888 -05:00 [INF] HTTP DELETE /api/menus/17 responded 204 in 189.8928 ms
+2025-02-20 16:47:59.888 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5068/api/menus/17 - 204 null null 190.7821ms
+2025-02-20 16:50:42.026 -05:00 [INF] Application is shutting down...

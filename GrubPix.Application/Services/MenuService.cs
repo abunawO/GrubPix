@@ -116,7 +116,7 @@ namespace GrubPix.Application.Services
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while creating the menu.");
-                throw new InternalServerErrorException("An error occurred while creating the menu. Please try again later.");
+                throw new InternalServerErrorException(ex.Message);
             }
         }
 

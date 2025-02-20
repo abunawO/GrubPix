@@ -13,8 +13,6 @@ namespace GrubPix.Application.DTO
 
         [Range(0.01, 10000, ErrorMessage = "Price must be greater than 0 and less than 10,000.")]
         public decimal Price { get; set; }
-
-        [Url(ErrorMessage = "Invalid image URL format.")]
         public string ImageUrl { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Menu ID is required.")]
