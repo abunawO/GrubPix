@@ -28,6 +28,7 @@ namespace GrubPix.API.Configuration
             services.AddScoped<IMenuItemService, MenuItemService>();
             services.AddScoped<IJwtService, JwtService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICustomerService, CustomerService>();
 
             // AutoMapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

@@ -1,3 +1,4 @@
+using GrubPix.Application.Services.Interfaces;
 using GrubPix.Domain.Interfaces.Repositories;
 using MediatR;
 
@@ -14,20 +15,16 @@ namespace GrubPix.Application.Features.User
 
         public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, bool>
         {
-            private readonly IUserRepository _userRepository;
+            private readonly IUserService _userService;
 
-            public DeleteUserCommandHandler(IUserRepository userRepository)
+            public DeleteUserCommandHandler(IUserService userService)
             {
-                _userRepository = userRepository;
+                _userService = userService;
             }
 
             public async Task<bool> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
             {
-                var user = await _userRepository.GetByIdAsync(request.Id);
-                if (user == null)
-                    return false; // User not found
-
-                return await _userRepository.DeleteAsync(request.Id);
+                return await _userService.DeleteUserAsync(request.Id);
             }
         }
     }

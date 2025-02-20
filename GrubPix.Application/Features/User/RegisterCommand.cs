@@ -10,12 +10,14 @@ namespace GrubPix.Application.Features.User
         public string Username { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string Role { get; set; }
 
-        public RegisterCommand(string username, string email, string password)
+        public RegisterCommand(string username, string email, string password, string role)
         {
             Username = username;
             Email = email;
             Password = password;
+            Role = role ?? "Customer";
         }
 
         public class RegisterCommandHandler : IRequestHandler<RegisterCommand, UserDto>
@@ -35,7 +37,8 @@ namespace GrubPix.Application.Features.User
                 {
                     Username = request.Username,
                     Email = request.Email,
-                    Password = request.Password
+                    Password = request.Password,
+                    Role = request.Role ?? "Customer"
                 };
 
                 var baseUserDto = await _userService.RegisterAsync(registerDto);

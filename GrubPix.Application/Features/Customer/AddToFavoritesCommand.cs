@@ -1,4 +1,5 @@
 using GrubPix.Application.Interfaces;
+using GrubPix.Application.Interfaces.Services;
 using GrubPix.Domain.Entities;
 using MediatR;
 
@@ -18,28 +19,16 @@ namespace GrubPix.Application.Features.Customer
 
         public class AddToFavoritesHandler : IRequestHandler<AddToFavoritesCommand, bool>
         {
-            private readonly ICustomerRepository _customerRepository;
+            private readonly ICustomerService _customerService;
 
-            public AddToFavoritesHandler(ICustomerRepository customerRepository)
+            public AddToFavoritesHandler(ICustomerService customerService)
             {
-                _customerRepository = customerRepository;
+                _customerService = customerService;
             }
 
             public async Task<bool> Handle(AddToFavoritesCommand request, CancellationToken cancellationToken)
             {
-                var customer = await _customerRepository.GetCustomerByIdAsync(request.CustomerId);
-                if (customer == null) return false;
-
-                var favoriteItem = new FavoriteMenuItem
-                {
-                    CustomerId = request.CustomerId,
-                    MenuItemId = request.MenuItemId
-                };
-
-                customer.FavoriteMenuItems.Add(favoriteItem);
-                await _customerRepository.UpdateAsync(customer);
-
-                return true;
+                return await _customerService.AddFavoriteAsync(request.CustomerId, request.MenuItemId);
             }
         }
 

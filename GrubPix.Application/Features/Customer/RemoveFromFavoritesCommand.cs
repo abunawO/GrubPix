@@ -1,4 +1,5 @@
 using GrubPix.Application.Interfaces;
+using GrubPix.Application.Interfaces.Services;
 using MediatR;
 
 namespace GrubPix.Application.Features.Customer
@@ -16,32 +17,18 @@ namespace GrubPix.Application.Features.Customer
 
         public class RemoveFromFavoritesHandler : IRequestHandler<RemoveFromFavoritesCommand, bool>
         {
-            private readonly ICustomerRepository _customerRepository;
+            private readonly ICustomerService _customerService;
 
-            public RemoveFromFavoritesHandler(ICustomerRepository customerRepository)
+            public RemoveFromFavoritesHandler(ICustomerService customerService)
             {
-                _customerRepository = customerRepository;
+                _customerService = customerService;
             }
 
             public async Task<bool> Handle(RemoveFromFavoritesCommand request, CancellationToken cancellationToken)
             {
-                var customer = await _customerRepository.GetCustomerByIdAsync(request.CustomerId);
-                if (customer == null)
-                {
-                    return false; // Customer not found
-                }
-
-                var favoriteItem = customer.FavoriteMenuItems.FirstOrDefault(fm => fm.MenuItemId == request.MenuItemId);
-                if (favoriteItem == null)
-                {
-                    return false; // Menu item is not in favorites
-                }
-
-                customer.FavoriteMenuItems.Remove(favoriteItem);
-                await _customerRepository.UpdateAsync(customer);
-
-                return true; // Successfully removed
+                return await _customerService.RemoveFavoriteAsync(request.CustomerId, request.MenuItemId);
             }
         }
+
     }
 }

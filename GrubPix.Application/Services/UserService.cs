@@ -145,6 +145,14 @@ namespace GrubPix.Application.Services
             var existingUser = await _userRepository.GetByIdAsync(id);
             if (existingUser != null)
             {
+                // If email is being changed, ensure it's not already taken
+                if (!existingUser.Email.Equals(dto.Email, StringComparison.OrdinalIgnoreCase) &&
+                    await _userRepository.GetByEmailAsync(dto.Email) != null)
+                {
+                    _logger.LogWarning("Attempted to update duplicate email: {Email}", dto.Email);
+                    throw new Exception("Email is already in use by another account.");
+                }
+
                 _mapper.Map(dto, existingUser);
                 var updatedUser = await _userRepository.UpdateAsync(existingUser);
 
@@ -156,6 +164,14 @@ namespace GrubPix.Application.Services
             var existingCustomer = await _customerRepository.GetCustomerByIdAsync(id);
             if (existingCustomer != null)
             {
+                // If email is being changed, ensure it's not already taken
+                if (!existingCustomer.Email.Equals(dto.Email, StringComparison.OrdinalIgnoreCase) &&
+                    await _userRepository.GetByEmailAsync(dto.Email) != null)
+                {
+                    _logger.LogWarning("Attempted to update duplicate email: {Email}", dto.Email);
+                    throw new Exception("Email is already in use by another account.");
+                }
+
                 _mapper.Map(dto, existingCustomer);
                 var updatedCustomer = await _customerRepository.UpdateAsync(existingCustomer);
 
@@ -166,6 +182,7 @@ namespace GrubPix.Application.Services
             _logger.LogError("User or Customer with ID {Id} not found.", id);
             throw new NotFoundException($"User or Customer with ID {id} not found.");
         }
+
 
 
         /// <summary>

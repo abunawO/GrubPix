@@ -1,6 +1,8 @@
 using MediatR;
 using GrubPix.Application.DTOs;
 using GrubPix.Application.Interfaces;
+using GrubPix.Application.Interfaces.Services;
+using GrubPix.Application.Exceptions;
 
 namespace GrubPix.Application.Features.Customer
 {
@@ -15,17 +17,17 @@ namespace GrubPix.Application.Features.Customer
 
         public class GetCustomerProfileHandler : IRequestHandler<GetCustomerProfileQuery, CustomerDto>
         {
-            private readonly ICustomerRepository _customerRepository;
+            private readonly ICustomerService _customerService;
 
-            public GetCustomerProfileHandler(ICustomerRepository customerRepository)
+            public GetCustomerProfileHandler(ICustomerService customerService)
             {
-                _customerRepository = customerRepository;
+                _customerService = customerService;
             }
 
             public async Task<CustomerDto> Handle(GetCustomerProfileQuery request, CancellationToken cancellationToken)
             {
-                var customer = await _customerRepository.GetCustomerByIdAsync(request.CustomerId);
-                return customer != null ? new CustomerDto { Id = customer.Id, Email = customer.Email, Username = customer.Username } : null;
+                var customer = await _customerService.GetCustomerByIdAsync(request.CustomerId);
+                return customer ?? throw new NotFoundException($"Customer with ID {request.CustomerId} not found.");
             }
         }
     }

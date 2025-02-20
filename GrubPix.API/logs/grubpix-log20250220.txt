@@ -1,0 +1,1454 @@
+2025-02-20 08:41:18.663 -05:00 [INF] Application is shutting down...
+2025-02-20 08:41:26.337 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 08:41:26.469 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 08:41:26.472 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 08:41:26.473 -05:00 [INF] Hosting environment: Development
+2025-02-20 08:41:26.473 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 08:41:41.923 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-02-20 08:41:41.933 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 08:41:42.037 -05:00 [INF] HTTP GET /index.html responded 200 in 99.7666 ms
+2025-02-20 08:41:42.042 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 119.8108ms
+2025-02-20 08:41:42.077 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-02-20 08:41:42.079 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 08:41:42.081 -05:00 [INF] HTTP GET /index.js responded 200 in 2.0197 ms
+2025-02-20 08:41:42.082 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 6.0672ms
+2025-02-20 08:41:42.225 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-20 08:41:42.225 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 08:41:42.377 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 152.1275 ms
+2025-02-20 08:41:42.378 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 153.0003ms
+2025-02-20 08:43:14.622 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 111
+2025-02-20 08:43:14.622 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 08:43:14.624 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 08:43:14.642 -05:00 [INF] CORS policy execution successful.
+2025-02-20 08:43:14.663 -05:00 [INF] Executing endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-20 08:43:14.683 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller AuthController (GrubPix.API).
+2025-02-20 08:43:14.720 -05:00 [INF] Register attempt for user@example.com
+2025-02-20 08:43:14.938 -05:00 [INF] Registering new user with email: user@example.com
+2025-02-20 08:43:15.395 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 08:43:15.973 -05:00 [INF] Executed DbCommand (54ms) [Parameters=[@__email_0='user@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 08:43:16.046 -05:00 [WRN] Attempted to register duplicate email: user@example.com
+2025-02-20 08:43:16.057 -05:00 [ERR] Registration failed for user@example.com
+System.Exception: Email already in use
+   at GrubPix.Application.Services.UserService.RegisterAsync(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/UserService.cs:line 101
+   at GrubPix.Application.Features.User.RegisterCommand.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/RegisterCommand.cs:line 44
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at AuthController.Register(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/AuthController.cs:line 28
+2025-02-20 08:43:16.074 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 08:43:16.093 -05:00 [INF] Executed action AuthController.Register (GrubPix.API) in 1406.3976ms
+2025-02-20 08:43:16.093 -05:00 [INF] Executed endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-20 08:43:16.095 -05:00 [INF] HTTP POST /api/auth/register responded 400 in 1472.8529 ms
+2025-02-20 08:43:16.102 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 400 null application/json; charset=utf-8 1480.339ms
+2025-02-20 08:55:41.862 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 112
+2025-02-20 08:55:41.863 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 08:55:41.865 -05:00 [INF] CORS policy execution successful.
+2025-02-20 08:55:41.866 -05:00 [INF] Executing endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-20 08:55:41.866 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller AuthController (GrubPix.API).
+2025-02-20 08:55:41.868 -05:00 [INF] Register attempt for user6@example.com
+2025-02-20 08:55:41.871 -05:00 [INF] Registering new user with email: user6@example.com
+2025-02-20 08:55:41.894 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='user6@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 08:55:42.265 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='user6@example.com' (Nullable = false), @p1='$2a$11$HMp5PrBo/7PDZqtBioD3su9AXnZJWgov06xQFwKHK6rz7uyk20cci' (Nullable = false), @p2='Customer' (Nullable = false), @p3='Amir Dadovic' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Customers" ("Email", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-02-20 08:55:42.282 -05:00 [INF] Customer user6@example.com registered successfully
+2025-02-20 08:55:42.291 -05:00 [INF] User user6@example.com registered successfully
+2025-02-20 08:55:42.292 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 08:55:42.309 -05:00 [INF] Executed action AuthController.Register (GrubPix.API) in 441.9611ms
+2025-02-20 08:55:42.309 -05:00 [INF] Executed endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-20 08:55:42.309 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 445.9313 ms
+2025-02-20 08:55:42.309 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 447.165ms
+2025-02-20 08:59:57.891 -05:00 [INF] Application is shutting down...
+2025-02-20 09:00:09.079 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 09:00:09.196 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 09:00:09.199 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 09:00:09.199 -05:00 [INF] Hosting environment: Development
+2025-02-20 09:00:09.199 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 09:00:17.532 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 60
+2025-02-20 09:00:17.542 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:00:17.558 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 09:00:17.576 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:00:17.598 -05:00 [INF] Executing endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 09:00:17.619 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller AuthController (GrubPix.API).
+2025-02-20 09:00:17.686 -05:00 [INF] Login attempt for user6@example.com
+2025-02-20 09:00:17.916 -05:00 [INF] Authenticating user with email: user6@example.com
+2025-02-20 09:00:18.339 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 09:00:18.863 -05:00 [INF] Executed DbCommand (50ms) [Parameters=[@__email_0='user6@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 09:00:18.896 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='user6@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-20 09:00:19.264 -05:00 [INF] Customer user6@example.com authenticated successfully
+2025-02-20 09:00:19.298 -05:00 [INF] User user6@example.com logged in successfully
+2025-02-20 09:00:19.304 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 09:00:19.340 -05:00 [INF] Executed action AuthController.Login (GrubPix.API) in 1718.043ms
+2025-02-20 09:00:19.341 -05:00 [INF] Executed endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 09:00:19.345 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 1799.3936 ms
+2025-02-20 09:00:19.354 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 1824.0147ms
+2025-02-20 09:01:01.571 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/profile - null null
+2025-02-20 09:01:01.572 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:01:01.630 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API)'
+2025-02-20 09:01:01.633 -05:00 [INF] Route matched with {action = "GetProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfile() on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 09:01:01.754 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='2'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 09:01:01.761 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.DTOs.CustomerDto'.
+2025-02-20 09:01:01.762 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API) in 128.7954ms
+2025-02-20 09:01:01.762 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API)'
+2025-02-20 09:01:01.763 -05:00 [INF] HTTP GET /api/customers/profile responded 200 in 190.8411 ms
+2025-02-20 09:01:01.764 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/profile - 200 null application/json; charset=utf-8 192.9685ms
+2025-02-20 09:01:50.049 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/2 - application/json 100
+2025-02-20 09:01:50.050 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:01:50.052 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:01:50.056 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:01:50.060 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:01:50.065 -05:00 [INF] Update request received for User ID 2
+2025-02-20 09:01:50.146 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='2'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 09:01:50.150 -05:00 [WRN] Update failed for User ID 2
+2025-02-20 09:01:50.150 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:01:50.152 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 92.181ms
+2025-02-20 09:01:50.152 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:01:50.152 -05:00 [INF] HTTP PUT /api/users/2 responded 400 in 101.7256 ms
+2025-02-20 09:01:50.152 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/2 - 400 null application/json; charset=utf-8 103.2019ms
+2025-02-20 09:02:01.176 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/2 - application/json 101
+2025-02-20 09:02:01.177 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:02:01.177 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:02:01.179 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:02:01.180 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:02:01.181 -05:00 [INF] Update request received for User ID 2
+2025-02-20 09:02:01.186 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='2'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 09:02:01.187 -05:00 [WRN] Update failed for User ID 2
+2025-02-20 09:02:01.187 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:02:01.188 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 7.589ms
+2025-02-20 09:02:01.188 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:02:01.188 -05:00 [INF] HTTP PUT /api/users/2 responded 400 in 11.2716 ms
+2025-02-20 09:02:01.188 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/2 - 400 null application/json; charset=utf-8 11.9127ms
+2025-02-20 09:04:16.086 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/customers/profile - application/json 100
+2025-02-20 09:04:16.087 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:04:16.088 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:04:16.089 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 09:04:16.122 -05:00 [INF] Route matched with {action = "UpdateProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateProfile(GrubPix.Application.DTO.UpdateCustomerDto) on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 09:04:16.131 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='2'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 09:04:16.202 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='2', @p0='Amir the dragon dadovic' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Customers" SET "Username" = @p0
+WHERE "Id" = @p1;
+2025-02-20 09:04:16.211 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-02-20 09:04:16.212 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API) in 89.2022ms
+2025-02-20 09:04:16.212 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 09:04:16.212 -05:00 [INF] HTTP PUT /api/customers/profile responded 200 in 124.5762 ms
+2025-02-20 09:04:16.212 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/customers/profile - 200 null text/plain; charset=utf-8 126.002ms
+2025-02-20 09:04:35.238 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/customers/profile - application/json 99
+2025-02-20 09:04:35.239 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:04:35.239 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:04:35.239 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 09:04:35.239 -05:00 [INF] Route matched with {action = "UpdateProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateProfile(GrubPix.Application.DTO.UpdateCustomerDto) on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 09:04:35.243 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='2'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 09:04:35.246 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='2', @p0='user@example.com' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Customers" SET "Email" = @p0
+WHERE "Id" = @p1;
+2025-02-20 09:04:35.246 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-02-20 09:04:35.246 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API) in 6.8734ms
+2025-02-20 09:04:35.247 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 09:04:35.247 -05:00 [INF] HTTP PUT /api/customers/profile responded 200 in 8.0344 ms
+2025-02-20 09:04:35.247 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/customers/profile - 200 null text/plain; charset=utf-8 8.7359ms
+2025-02-20 09:04:47.227 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/customers/profile - application/json 100
+2025-02-20 09:04:47.227 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:04:47.227 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:04:47.228 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 09:04:47.228 -05:00 [INF] Route matched with {action = "UpdateProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateProfile(GrubPix.Application.DTO.UpdateCustomerDto) on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 09:04:47.233 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='2'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 09:04:47.234 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='2', @p0='user6@example.com' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Customers" SET "Email" = @p0
+WHERE "Id" = @p1;
+2025-02-20 09:04:47.235 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-02-20 09:04:47.235 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API) in 7.0432ms
+2025-02-20 09:04:47.235 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 09:04:47.235 -05:00 [INF] HTTP PUT /api/customers/profile responded 200 in 7.8964 ms
+2025-02-20 09:04:47.235 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/customers/profile - 200 null text/plain; charset=utf-8 8.3849ms
+2025-02-20 09:05:26.713 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 59
+2025-02-20 09:05:26.713 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:05:26.714 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:05:26.714 -05:00 [INF] Executing endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 09:05:26.714 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller AuthController (GrubPix.API).
+2025-02-20 09:05:26.715 -05:00 [INF] Login attempt for user@example.com
+2025-02-20 09:05:26.716 -05:00 [INF] Authenticating user with email: user@example.com
+2025-02-20 09:05:26.724 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='user@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 09:05:27.016 -05:00 [INF] User user@example.com authenticated successfully
+2025-02-20 09:05:27.019 -05:00 [INF] User user@example.com logged in successfully
+2025-02-20 09:05:27.020 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 09:05:27.020 -05:00 [INF] Executed action AuthController.Login (GrubPix.API) in 305.7433ms
+2025-02-20 09:05:27.020 -05:00 [INF] Executed endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 09:05:27.020 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 307.0546 ms
+2025-02-20 09:05:27.020 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 307.5397ms
+2025-02-20 09:06:19.403 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/6 - application/json 98
+2025-02-20 09:06:19.403 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:06:19.404 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:06:19.404 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:06:19.404 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:06:19.405 -05:00 [INF] Update request received for User ID 6
+2025-02-20 09:06:19.409 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 09:06:19.419 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='6', @p0='Ose The Weapon Abunaw' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "Username" = @p0
+WHERE "Id" = @p1;
+2025-02-20 09:06:19.419 -05:00 [INF] User 6 updated successfully
+2025-02-20 09:06:19.420 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:06:19.421 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 16.4607ms
+2025-02-20 09:06:19.421 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:06:19.421 -05:00 [INF] HTTP PUT /api/users/6 responded 200 in 17.7893 ms
+2025-02-20 09:06:19.422 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/6 - 200 null application/json; charset=utf-8 18.4689ms
+2025-02-20 09:19:41.963 -05:00 [INF] Application is shutting down...
+2025-02-20 09:19:53.982 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 09:19:54.121 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 09:19:54.124 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 09:19:54.124 -05:00 [INF] Hosting environment: Development
+2025-02-20 09:19:54.125 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 09:20:07.074 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/6 - application/json 98
+2025-02-20 09:20:07.087 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:20:07.104 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 09:20:07.126 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:20:07.209 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:20:07.237 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:20:07.316 -05:00 [INF] Update request received for User ID 6
+2025-02-20 09:20:07.581 -05:00 [INF] Updating user with email: user@example.com
+2025-02-20 09:20:08.003 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 09:20:08.633 -05:00 [INF] Executed DbCommand (51ms) [Parameters=[@__p_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 09:20:08.731 -05:00 [INF] User user@example.com updated successfully
+2025-02-20 09:20:08.735 -05:00 [INF] User 6 updated successfully
+2025-02-20 09:20:08.741 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:20:08.777 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 1536.3199ms
+2025-02-20 09:20:08.779 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:20:08.783 -05:00 [INF] HTTP PUT /api/users/6 responded 200 in 1692.2469 ms
+2025-02-20 09:20:08.792 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/6 - 200 null application/json; charset=utf-8 1720.4911ms
+2025-02-20 09:20:19.340 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/6 - application/json 99
+2025-02-20 09:20:19.340 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:20:19.343 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:20:19.346 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:20:19.347 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:20:19.348 -05:00 [INF] Update request received for User ID 6
+2025-02-20 09:20:19.351 -05:00 [INF] Updating user with email: user2@example.com
+2025-02-20 09:20:19.370 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 09:20:19.419 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p1='6', @p0='user2@example.com' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "Email" = @p0
+WHERE "Id" = @p1;
+2025-02-20 09:20:19.427 -05:00 [INF] User user2@example.com updated successfully
+2025-02-20 09:20:19.427 -05:00 [INF] User 6 updated successfully
+2025-02-20 09:20:19.427 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:20:19.428 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 80.9425ms
+2025-02-20 09:20:19.428 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:20:19.428 -05:00 [INF] HTTP PUT /api/users/6 responded 200 in 87.5871 ms
+2025-02-20 09:20:19.429 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/6 - 200 null application/json; charset=utf-8 89.5682ms
+2025-02-20 09:21:33.549 -05:00 [INF] Application is shutting down...
+2025-02-20 09:21:40.815 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 09:21:40.931 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 09:21:40.933 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 09:21:40.934 -05:00 [INF] Hosting environment: Development
+2025-02-20 09:21:40.934 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 09:21:44.765 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/6 - application/json 99
+2025-02-20 09:21:44.776 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:21:44.791 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 09:21:44.808 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:21:44.880 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:21:44.901 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:21:44.969 -05:00 [INF] Update request received for User ID 6
+2025-02-20 09:21:45.183 -05:00 [INF] Updating user with email: user2@example.com
+2025-02-20 09:21:45.596 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 09:21:46.116 -05:00 [INF] Executed DbCommand (50ms) [Parameters=[@__email_0='user2@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 09:21:46.188 -05:00 [WRN] Attempted to update duplicate email: user2@example.com
+2025-02-20 09:21:46.198 -05:00 [ERR] Error updating user 6
+System.Exception: Email already in use
+   at GrubPix.Application.Services.UserService.UpdateUserAsync(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/UserService.cs:line 147
+   at GrubPix.Application.Features.User.UpdateUserCommand.UpdateUserCommandHandler.Handle(UpdateUserCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/UpdateUserCommand.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.UserController.UpdateUser(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/UserController.cs:line 34
+2025-02-20 09:21:46.216 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:21:46.248 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 1343.7378ms
+2025-02-20 09:21:46.250 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:21:46.254 -05:00 [ERR] HTTP PUT /api/users/6 responded 500 in 1474.6987 ms
+2025-02-20 09:21:46.262 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/6 - 500 null application/json; charset=utf-8 1498.8285ms
+2025-02-20 09:21:58.524 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/6 - application/json 98
+2025-02-20 09:21:58.525 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:21:58.527 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:21:58.530 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:21:58.530 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:21:58.532 -05:00 [INF] Update request received for User ID 6
+2025-02-20 09:21:58.534 -05:00 [INF] Updating user with email: user@example.com
+2025-02-20 09:21:58.553 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='user@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 09:21:58.577 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 09:21:58.652 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p1='6', @p0='user@example.com' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "Email" = @p0
+WHERE "Id" = @p1;
+2025-02-20 09:21:58.661 -05:00 [INF] User user@example.com updated successfully
+2025-02-20 09:21:58.664 -05:00 [INF] User 6 updated successfully
+2025-02-20 09:21:58.664 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:21:58.666 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 135.8445ms
+2025-02-20 09:21:58.666 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:21:58.667 -05:00 [INF] HTTP PUT /api/users/6 responded 200 in 141.4812 ms
+2025-02-20 09:21:58.667 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/6 - 200 null application/json; charset=utf-8 143.1323ms
+2025-02-20 09:22:38.338 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/6 - application/json 99
+2025-02-20 09:22:38.338 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:22:38.339 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:22:38.344 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:22:38.344 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:22:38.344 -05:00 [INF] Update request received for User ID 6
+2025-02-20 09:22:38.352 -05:00 [INF] Updating user with email: user2@example.com
+2025-02-20 09:22:38.411 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='user2@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 09:22:38.411 -05:00 [WRN] Attempted to update duplicate email: user2@example.com
+2025-02-20 09:22:38.412 -05:00 [ERR] Error updating user 6
+System.Exception: Email already in use
+   at GrubPix.Application.Services.UserService.UpdateUserAsync(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/UserService.cs:line 147
+   at GrubPix.Application.Features.User.UpdateUserCommand.UpdateUserCommandHandler.Handle(UpdateUserCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/UpdateUserCommand.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.UserController.UpdateUser(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/UserController.cs:line 34
+2025-02-20 09:22:38.413 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:22:38.413 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 68.9024ms
+2025-02-20 09:22:38.413 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:22:38.413 -05:00 [ERR] HTTP PUT /api/users/6 responded 500 in 75.1004 ms
+2025-02-20 09:22:38.413 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/6 - 500 null application/json; charset=utf-8 75.7743ms
+2025-02-20 09:23:44.474 -05:00 [INF] Application is shutting down...
+2025-02-20 09:23:50.110 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 09:23:50.228 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 09:23:50.232 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 09:23:50.232 -05:00 [INF] Hosting environment: Development
+2025-02-20 09:23:50.232 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 09:23:52.186 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/6 - application/json 99
+2025-02-20 09:23:52.197 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:23:52.212 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 09:23:52.229 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:23:52.302 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:23:52.323 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:23:52.391 -05:00 [INF] Update request received for User ID 6
+2025-02-20 09:23:52.596 -05:00 [INF] Updating user with email: user2@example.com
+2025-02-20 09:23:53.007 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 09:23:53.580 -05:00 [INF] Executed DbCommand (52ms) [Parameters=[@__email_0='user2@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 09:23:53.651 -05:00 [WRN] Attempted to update duplicate email: user2@example.com
+2025-02-20 09:23:53.662 -05:00 [ERR] Error updating user 6
+System.Exception: Email already in use
+   at GrubPix.Application.Services.UserService.UpdateUserAsync(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/UserService.cs:line 147
+   at GrubPix.Application.Features.User.UpdateUserCommand.UpdateUserCommandHandler.Handle(UpdateUserCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/UpdateUserCommand.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.UserController.UpdateUser(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/UserController.cs:line 34
+2025-02-20 09:23:53.680 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:23:53.713 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 1385.7293ms
+2025-02-20 09:23:53.714 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:23:53.718 -05:00 [ERR] HTTP PUT /api/users/6 responded 500 in 1517.4380 ms
+2025-02-20 09:23:53.726 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/6 - 500 null application/json; charset=utf-8 1541.9509ms
+2025-02-20 09:24:03.784 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/6 - application/json 98
+2025-02-20 09:24:03.785 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:24:03.787 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:24:03.790 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:24:03.790 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:24:03.792 -05:00 [INF] Update request received for User ID 6
+2025-02-20 09:24:03.794 -05:00 [INF] Updating user with email: user@example.com
+2025-02-20 09:24:03.814 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='user@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 09:24:03.815 -05:00 [WRN] Attempted to update duplicate email: user@example.com
+2025-02-20 09:24:03.816 -05:00 [ERR] Error updating user 6
+System.Exception: Email already in use
+   at GrubPix.Application.Services.UserService.UpdateUserAsync(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/UserService.cs:line 147
+   at GrubPix.Application.Features.User.UpdateUserCommand.UpdateUserCommandHandler.Handle(UpdateUserCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/UpdateUserCommand.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.UserController.UpdateUser(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/UserController.cs:line 34
+2025-02-20 09:24:03.817 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:24:03.818 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 27.2842ms
+2025-02-20 09:24:03.818 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:24:03.818 -05:00 [ERR] HTTP PUT /api/users/6 responded 500 in 33.2914 ms
+2025-02-20 09:24:03.819 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/6 - 500 null application/json; charset=utf-8 35.3245ms
+2025-02-20 09:29:38.452 -05:00 [INF] Application is shutting down...
+2025-02-20 09:29:44.588 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 09:29:44.718 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 09:29:44.722 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 09:29:44.722 -05:00 [INF] Hosting environment: Development
+2025-02-20 09:29:44.723 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 09:29:59.757 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/6 - application/json 98
+2025-02-20 09:29:59.768 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:29:59.783 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 09:29:59.800 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:29:59.874 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:29:59.895 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:29:59.962 -05:00 [INF] Update request received for User ID 6
+2025-02-20 09:30:00.189 -05:00 [INF] Updating user with email: user@example.com
+2025-02-20 09:30:00.607 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 09:30:01.203 -05:00 [INF] Executed DbCommand (52ms) [Parameters=[@__p_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 09:30:01.306 -05:00 [INF] User user@example.com updated successfully
+2025-02-20 09:30:01.310 -05:00 [INF] User 6 updated successfully
+2025-02-20 09:30:01.316 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:30:01.349 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 1450.9253ms
+2025-02-20 09:30:01.350 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:30:01.354 -05:00 [INF] HTTP PUT /api/users/6 responded 200 in 1582.0251 ms
+2025-02-20 09:30:01.363 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/6 - 200 null application/json; charset=utf-8 1607.2588ms
+2025-02-20 09:30:07.369 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/6 - application/json 99
+2025-02-20 09:30:07.369 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:30:07.426 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:30:07.428 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:30:07.429 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:30:07.431 -05:00 [INF] Update request received for User ID 6
+2025-02-20 09:30:07.433 -05:00 [INF] Updating user with email: user2@example.com
+2025-02-20 09:30:07.462 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 09:30:07.478 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='user2@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 09:30:07.479 -05:00 [WRN] Attempted to update duplicate email: user2@example.com
+2025-02-20 09:30:07.487 -05:00 [ERR] Error updating user 6
+System.Exception: Email is already in use by another account.
+   at GrubPix.Application.Services.UserService.UpdateUserAsync(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/UserService.cs:line 153
+   at GrubPix.Application.Features.User.UpdateUserCommand.UpdateUserCommandHandler.Handle(UpdateUserCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/UpdateUserCommand.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.UserController.UpdateUser(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/UserController.cs:line 34
+2025-02-20 09:30:07.498 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:30:07.501 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 71.8673ms
+2025-02-20 09:30:07.501 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 09:30:07.501 -05:00 [ERR] HTTP PUT /api/users/6 responded 500 in 131.6126 ms
+2025-02-20 09:30:07.502 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/6 - 500 null application/json; charset=utf-8 133.4795ms
+2025-02-20 09:36:19.387 -05:00 [INF] Application is shutting down...
+2025-02-20 09:36:26.522 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 09:36:26.643 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 09:36:26.646 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 09:36:26.646 -05:00 [INF] Hosting environment: Development
+2025-02-20 09:36:26.646 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 09:37:01.283 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5068/api/users/7 - null null
+2025-02-20 09:37:01.293 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:37:01.308 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 09:37:01.324 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:37:01.399 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.DeleteUser (GrubPix.API)'
+2025-02-20 09:37:01.419 -05:00 [INF] Route matched with {action = "DeleteUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteUser(Int32) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:37:01.426 -05:00 [INF] Delete request received for User ID 7
+2025-02-20 09:37:02.036 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 09:37:02.649 -05:00 [INF] Executed DbCommand (53ms) [Parameters=[@__p_0='7'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 09:37:02.808 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='7'], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Users"
+WHERE "Id" = @p0;
+2025-02-20 09:37:02.818 -05:00 [INF] User with ID 7 deleted successfully
+2025-02-20 09:37:02.820 -05:00 [INF] User 7 deleted successfully
+2025-02-20 09:37:02.827 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:37:02.899 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.DeleteUser (GrubPix.API) in 1475.9966ms
+2025-02-20 09:37:02.900 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.DeleteUser (GrubPix.API)'
+2025-02-20 09:37:02.904 -05:00 [INF] HTTP DELETE /api/users/7 responded 200 in 1607.0327 ms
+2025-02-20 09:37:02.913 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5068/api/users/7 - 200 null application/json; charset=utf-8 1630.8039ms
+2025-02-20 09:37:54.422 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5068/api/users/2 - null null
+2025-02-20 09:37:54.422 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 09:37:54.447 -05:00 [INF] CORS policy execution successful.
+2025-02-20 09:37:54.478 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.DeleteUser (GrubPix.API)'
+2025-02-20 09:37:54.481 -05:00 [INF] Route matched with {action = "DeleteUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteUser(Int32) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 09:37:54.482 -05:00 [INF] Delete request received for User ID 2
+2025-02-20 09:37:54.504 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='2'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 09:37:54.613 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='2'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 09:37:54.655 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='2'], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Customers"
+WHERE "Id" = @p0;
+2025-02-20 09:37:54.655 -05:00 [INF] Customer with ID 2 deleted successfully
+2025-02-20 09:37:54.656 -05:00 [INF] User 2 deleted successfully
+2025-02-20 09:37:54.676 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 09:37:54.677 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.DeleteUser (GrubPix.API) in 195.2144ms
+2025-02-20 09:37:54.677 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.DeleteUser (GrubPix.API)'
+2025-02-20 09:37:54.678 -05:00 [INF] HTTP DELETE /api/users/2 responded 200 in 255.2965 ms
+2025-02-20 09:37:54.678 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5068/api/users/2 - 200 null application/json; charset=utf-8 256.8316ms
+2025-02-20 10:11:20.683 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/1 - application/json 90
+2025-02-20 10:11:20.685 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 10:11:20.687 -05:00 [INF] CORS policy execution successful.
+2025-02-20 10:11:20.691 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 15:05:27', Current time (UTC): '02/20/2025 15:11:20'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-20 10:11:20.703 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/20/2025 15:05:27', Current time (UTC): '02/20/2025 15:11:20'.
+2025-02-20 10:11:20.704 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-02-20 10:11:20.708 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-02-20 10:11:20.708 -05:00 [INF] HTTP PUT /api/users/1 responded 401 in 22.6232 ms
+2025-02-20 10:11:20.708 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/1 - 401 0 null 24.8895ms
+2025-02-20 10:11:53.794 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 60
+2025-02-20 10:11:53.794 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 10:11:53.794 -05:00 [INF] CORS policy execution successful.
+2025-02-20 10:11:53.795 -05:00 [INF] Executing endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 10:11:53.800 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller AuthController (GrubPix.API).
+2025-02-20 10:11:53.825 -05:00 [INF] Login attempt for user3@example.com
+2025-02-20 10:11:53.837 -05:00 [INF] Authenticating user with email: user3@example.com
+2025-02-20 10:11:53.905 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='user3@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 10:11:53.914 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='user3@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-20 10:11:54.236 -05:00 [INF] Customer user3@example.com authenticated successfully
+2025-02-20 10:11:54.273 -05:00 [INF] User user3@example.com logged in successfully
+2025-02-20 10:11:54.273 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 10:11:54.279 -05:00 [INF] Executed action AuthController.Login (GrubPix.API) in 479.2401ms
+2025-02-20 10:11:54.280 -05:00 [INF] Executed endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 10:11:54.280 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 485.5328 ms
+2025-02-20 10:11:54.280 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 486.3688ms
+2025-02-20 10:12:18.504 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/1 - application/json 90
+2025-02-20 10:12:18.504 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 10:12:18.505 -05:00 [INF] CORS policy execution successful.
+2025-02-20 10:12:18.505 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 10:12:18.510 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 10:12:18.588 -05:00 [INF] Update request received for User ID 1
+2025-02-20 10:12:18.591 -05:00 [INF] Updating user with email: user2@example.com
+2025-02-20 10:12:18.593 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 10:12:18.596 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 10:12:18.633 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='user2@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 10:12:18.644 -05:00 [ERR] Error updating user 1
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+UpdateUserDto -> Customer
+GrubPix.Application.DTO.UpdateUserDto -> GrubPix.Domain.Entities.Customer
+   at lambda_method336(Closure, UpdateUserDto, Customer, ResolutionContext)
+   at GrubPix.Application.Services.UserService.UpdateUserAsync(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/UserService.cs:line 175
+   at GrubPix.Application.Features.User.UpdateUserCommand.UpdateUserCommandHandler.Handle(UpdateUserCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/UpdateUserCommand.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.UserController.UpdateUser(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/UserController.cs:line 34
+2025-02-20 10:12:18.652 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 10:12:18.655 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 144.8428ms
+2025-02-20 10:12:18.655 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 10:12:18.655 -05:00 [ERR] HTTP PUT /api/users/1 responded 500 in 151.0529 ms
+2025-02-20 10:12:18.656 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/1 - 500 null application/json; charset=utf-8 151.6624ms
+2025-02-20 10:12:56.458 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/customers/profile - application/json 87
+2025-02-20 10:12:56.458 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 10:12:56.459 -05:00 [INF] CORS policy execution successful.
+2025-02-20 10:12:56.461 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 10:12:56.464 -05:00 [INF] Route matched with {action = "UpdateProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateProfile(GrubPix.Application.DTO.UpdateCustomerDto) on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 10:12:56.471 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 10:12:56.494 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p2='1', @p0='user6@example.com' (Nullable = false), @p1='Samantha D' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Customers" SET "Email" = @p0, "Username" = @p1
+WHERE "Id" = @p2;
+2025-02-20 10:12:56.495 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-02-20 10:12:56.495 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API) in 31.4589ms
+2025-02-20 10:12:56.496 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 10:12:56.496 -05:00 [INF] HTTP PUT /api/customers/profile responded 200 in 37.2708 ms
+2025-02-20 10:12:56.496 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/customers/profile - 200 null text/plain; charset=utf-8 37.768ms
+2025-02-20 10:13:15.173 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/customers/profile - application/json 87
+2025-02-20 10:13:15.174 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 10:13:15.174 -05:00 [INF] CORS policy execution successful.
+2025-02-20 10:13:15.175 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 10:13:15.175 -05:00 [INF] Route matched with {action = "UpdateProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateProfile(GrubPix.Application.DTO.UpdateCustomerDto) on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 10:13:15.179 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 10:13:15.181 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='1', @p0='user3@example.com' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Customers" SET "Email" = @p0
+WHERE "Id" = @p1;
+2025-02-20 10:13:15.181 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-02-20 10:13:15.182 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API) in 6.4792ms
+2025-02-20 10:13:15.182 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 10:13:15.182 -05:00 [INF] HTTP PUT /api/customers/profile responded 200 in 8.3975 ms
+2025-02-20 10:13:15.182 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/customers/profile - 200 null text/plain; charset=utf-8 9.0037ms
+2025-02-20 10:13:23.078 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/customers/profile - application/json 86
+2025-02-20 10:13:23.078 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 10:13:23.079 -05:00 [INF] CORS policy execution successful.
+2025-02-20 10:13:23.079 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 10:13:23.079 -05:00 [INF] Route matched with {action = "UpdateProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateProfile(GrubPix.Application.DTO.UpdateCustomerDto) on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 10:13:23.084 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 10:13:23.086 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='1', @p0='user@example.com' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Customers" SET "Email" = @p0
+WHERE "Id" = @p1;
+2025-02-20 10:13:23.086 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-02-20 10:13:23.086 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API) in 7.1036ms
+2025-02-20 10:13:23.086 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 10:13:23.087 -05:00 [INF] HTTP PUT /api/customers/profile responded 200 in 8.0837 ms
+2025-02-20 10:13:23.087 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/customers/profile - 200 null text/plain; charset=utf-8 8.5771ms
+2025-02-20 10:13:44.258 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/customers/profile - application/json 87
+2025-02-20 10:13:44.258 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 10:13:44.258 -05:00 [INF] CORS policy execution successful.
+2025-02-20 10:13:44.259 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 10:13:44.259 -05:00 [INF] Route matched with {action = "UpdateProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateProfile(GrubPix.Application.DTO.UpdateCustomerDto) on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 10:13:44.261 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 10:13:44.263 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='1', @p0='user3@example.com' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Customers" SET "Email" = @p0
+WHERE "Id" = @p1;
+2025-02-20 10:13:44.264 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-02-20 10:13:44.264 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API) in 4.8414ms
+2025-02-20 10:13:44.264 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 10:13:44.264 -05:00 [INF] HTTP PUT /api/customers/profile responded 200 in 5.9242 ms
+2025-02-20 10:13:44.265 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/customers/profile - 200 null text/plain; charset=utf-8 6.4766ms
+2025-02-20 11:09:04.079 -05:00 [INF] Application is shutting down...
+2025-02-20 11:09:21.601 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-20 11:09:21.729 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-20 11:09:21.731 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-20 11:09:21.732 -05:00 [INF] Hosting environment: Development
+2025-02-20 11:09:21.732 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-20 13:48:59.428 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-02-20 13:48:59.443 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:48:59.571 -05:00 [INF] HTTP GET /index.html responded 200 in 123.8531 ms
+2025-02-20 13:48:59.577 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 149.9436ms
+2025-02-20 13:48:59.599 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-02-20 13:48:59.600 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:48:59.604 -05:00 [INF] HTTP GET /index.js responded 200 in 3.5319 ms
+2025-02-20 13:48:59.605 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 7.3904ms
+2025-02-20 13:48:59.782 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-20 13:48:59.783 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:48:59.957 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 173.9285 ms
+2025-02-20 13:48:59.957 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 175.0681ms
+2025-02-20 13:49:34.524 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 107
+2025-02-20 13:49:34.525 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:49:34.526 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-20 13:49:34.547 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:49:34.574 -05:00 [INF] Executing endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-20 13:49:34.596 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller AuthController (GrubPix.API).
+2025-02-20 13:49:34.633 -05:00 [INF] Register attempt for user@example.com
+2025-02-20 13:49:34.881 -05:00 [INF] Registering new user with email: user@example.com
+2025-02-20 13:49:35.305 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-20 13:49:35.833 -05:00 [INF] Executed DbCommand (45ms) [Parameters=[@__email_0='user@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 13:49:35.901 -05:00 [WRN] Attempted to register duplicate email: user@example.com
+2025-02-20 13:49:35.911 -05:00 [ERR] Registration failed for user@example.com
+System.Exception: Email already in use
+   at GrubPix.Application.Services.UserService.RegisterAsync(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/UserService.cs:line 101
+   at GrubPix.Application.Features.User.RegisterCommand.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/RegisterCommand.cs:line 44
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at AuthController.Register(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/AuthController.cs:line 28
+2025-02-20 13:49:35.935 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:49:35.954 -05:00 [INF] Executed action AuthController.Register (GrubPix.API) in 1354.6476ms
+2025-02-20 13:49:35.955 -05:00 [INF] Executed endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-20 13:49:35.957 -05:00 [INF] HTTP POST /api/auth/register responded 400 in 1431.5908 ms
+2025-02-20 13:49:35.964 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 400 null application/json; charset=utf-8 1439.4188ms
+2025-02-20 13:50:25.331 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 109
+2025-02-20 13:50:25.331 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:50:25.334 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:50:25.336 -05:00 [INF] Executing endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-20 13:50:25.336 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller AuthController (GrubPix.API).
+2025-02-20 13:50:25.339 -05:00 [INF] Register attempt for dutton@example.com
+2025-02-20 13:50:25.341 -05:00 [INF] Registering new user with email: dutton@example.com
+2025-02-20 13:50:25.362 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='dutton@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 13:50:25.720 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='dutton@example.com' (Nullable = false), @p1='$2a$11$LX63V01Hl5KqP5tvYHC1zeYTq9MGdVzOyb9SPVscH6cAQ7KgNhKPi' (Nullable = false), @p2='Admin' (Nullable = false), @p3='John Dutton' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-02-20 13:50:25.740 -05:00 [INF] User dutton@example.com registered successfully
+2025-02-20 13:50:25.748 -05:00 [INF] User dutton@example.com registered successfully
+2025-02-20 13:50:25.749 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 13:50:25.771 -05:00 [INF] Executed action AuthController.Register (GrubPix.API) in 433.9725ms
+2025-02-20 13:50:25.771 -05:00 [INF] Executed endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-20 13:50:25.771 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 439.2961 ms
+2025-02-20 13:50:25.771 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 440.5016ms
+2025-02-20 13:51:24.594 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 61
+2025-02-20 13:51:24.594 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:51:24.595 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:51:24.598 -05:00 [INF] Executing endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 13:51:24.602 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller AuthController (GrubPix.API).
+2025-02-20 13:51:24.606 -05:00 [INF] Login attempt for dutton@example.com
+2025-02-20 13:51:24.610 -05:00 [INF] Authenticating user with email: dutton@example.com
+2025-02-20 13:51:24.667 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='dutton@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 13:51:24.820 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='dutton@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-20 13:51:24.821 -05:00 [WRN] Invalid credentials for email: dutton@example.com
+2025-02-20 13:51:24.822 -05:00 [WRN] Failed login attempt for dutton@example.com
+2025-02-20 13:51:24.823 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:51:24.823 -05:00 [INF] Executed action AuthController.Login (GrubPix.API) in 220.3866ms
+2025-02-20 13:51:24.823 -05:00 [INF] Executed endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 13:51:24.823 -05:00 [INF] HTTP POST /api/auth/login responded 401 in 228.7427 ms
+2025-02-20 13:51:24.824 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 401 null application/json; charset=utf-8 229.3601ms
+2025-02-20 13:51:34.383 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 61
+2025-02-20 13:51:34.383 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:51:34.384 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:51:34.384 -05:00 [INF] Executing endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 13:51:34.384 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller AuthController (GrubPix.API).
+2025-02-20 13:51:34.385 -05:00 [INF] Login attempt for dutton@example.com
+2025-02-20 13:51:34.386 -05:00 [INF] Authenticating user with email: dutton@example.com
+2025-02-20 13:51:34.388 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='dutton@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 13:51:34.526 -05:00 [INF] User dutton@example.com authenticated successfully
+2025-02-20 13:51:34.549 -05:00 [INF] User dutton@example.com logged in successfully
+2025-02-20 13:51:34.549 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 13:51:34.549 -05:00 [INF] Executed action AuthController.Login (GrubPix.API) in 164.8221ms
+2025-02-20 13:51:34.549 -05:00 [INF] Executed endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 13:51:34.549 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 165.9029 ms
+2025-02-20 13:51:34.550 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 166.6921ms
+2025-02-20 13:52:04.781 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/profile - null null
+2025-02-20 13:52:04.781 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:52:04.823 -05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Customer)
+2025-02-20 13:52:04.825 -05:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2025-02-20 13:52:04.825 -05:00 [INF] HTTP GET /api/customers/profile responded 403 in 44.3124 ms
+2025-02-20 13:52:04.825 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/profile - 403 0 null 44.8238ms
+2025-02-20 13:52:15.627 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/favorites - null null
+2025-02-20 13:52:15.628 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:52:15.646 -05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Customer)
+2025-02-20 13:52:15.646 -05:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2025-02-20 13:52:15.646 -05:00 [INF] HTTP GET /api/customers/favorites responded 403 in 18.6517 ms
+2025-02-20 13:52:15.647 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/favorites - 403 0 null 19.1937ms
+2025-02-20 13:53:04.479 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/12 - application/json 95
+2025-02-20 13:53:04.479 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:53:04.479 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:53:04.482 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 13:53:04.485 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 13:53:04.491 -05:00 [INF] Update request received for User ID 12
+2025-02-20 13:53:04.501 -05:00 [INF] Updating user with email: user@example.com
+2025-02-20 13:53:04.522 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='12'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 13:53:04.523 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='user@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 13:53:04.524 -05:00 [WRN] Attempted to update duplicate email: user@example.com
+2025-02-20 13:53:04.529 -05:00 [ERR] Error updating user 12
+System.Exception: Email is already in use by another account.
+   at GrubPix.Application.Services.UserService.UpdateUserAsync(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/UserService.cs:line 153
+   at GrubPix.Application.Features.User.UpdateUserCommand.UpdateUserCommandHandler.Handle(UpdateUserCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/UpdateUserCommand.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.UserController.UpdateUser(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/UserController.cs:line 34
+2025-02-20 13:53:04.530 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:53:04.530 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 44.2601ms
+2025-02-20 13:53:04.530 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 13:53:04.530 -05:00 [ERR] HTTP PUT /api/users/12 responded 500 in 50.8470 ms
+2025-02-20 13:53:04.530 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/12 - 500 null application/json; charset=utf-8 51.3435ms
+2025-02-20 13:53:33.484 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/12 - application/json 91
+2025-02-20 13:53:33.485 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:53:33.485 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:53:33.485 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 13:53:33.486 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 13:53:33.486 -05:00 [INF] Update request received for User ID 12
+2025-02-20 13:53:33.488 -05:00 [INF] Updating user with email: dutton@example.com
+2025-02-20 13:53:33.490 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='12'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 13:53:33.501 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='12', @p0='Jonny Dutton' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "Username" = @p0
+WHERE "Id" = @p1;
+2025-02-20 13:53:33.501 -05:00 [INF] User dutton@example.com updated successfully
+2025-02-20 13:53:33.502 -05:00 [INF] User 12 updated successfully
+2025-02-20 13:53:33.502 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:53:33.503 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 17.2584ms
+2025-02-20 13:53:33.503 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 13:53:33.503 -05:00 [INF] HTTP PUT /api/users/12 responded 200 in 18.4406 ms
+2025-02-20 13:53:33.503 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/12 - 200 null application/json; charset=utf-8 18.9147ms
+2025-02-20 13:54:04.384 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5068/api/users/12 - null null
+2025-02-20 13:54:04.384 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:54:04.384 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:54:04.385 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.DeleteUser (GrubPix.API)'
+2025-02-20 13:54:04.391 -05:00 [INF] Route matched with {action = "DeleteUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteUser(Int32) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 13:54:04.408 -05:00 [INF] Delete request received for User ID 12
+2025-02-20 13:54:04.413 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='12'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 13:54:04.426 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='12'], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Users"
+WHERE "Id" = @p0;
+2025-02-20 13:54:04.429 -05:00 [INF] User with ID 12 deleted successfully
+2025-02-20 13:54:04.430 -05:00 [INF] User 12 deleted successfully
+2025-02-20 13:54:04.430 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:54:04.430 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.DeleteUser (GrubPix.API) in 38.7414ms
+2025-02-20 13:54:04.430 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.DeleteUser (GrubPix.API)'
+2025-02-20 13:54:04.430 -05:00 [INF] HTTP DELETE /api/users/12 responded 200 in 45.9561 ms
+2025-02-20 13:54:04.430 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5068/api/users/12 - 200 null application/json; charset=utf-8 46.4293ms
+2025-02-20 13:54:36.071 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 112
+2025-02-20 13:54:36.071 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:54:36.071 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:54:36.071 -05:00 [INF] Executing endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-20 13:54:36.072 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller AuthController (GrubPix.API).
+2025-02-20 13:54:36.072 -05:00 [INF] Register attempt for dutton@example.com
+2025-02-20 13:54:36.077 -05:00 [INF] Registering new user with email: dutton@example.com
+2025-02-20 13:54:36.084 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='dutton@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 13:54:36.241 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='dutton@example.com' (Nullable = false), @p1='$2a$11$1Wet1.1rcTHqPVqtGgQ.IObLB4hqkZyt0FcvODOt2.7MGqLsLS9jC' (Nullable = false), @p2='Customer' (Nullable = false), @p3='John Dutton' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Customers" ("Email", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-02-20 13:54:36.243 -05:00 [INF] Customer dutton@example.com registered successfully
+2025-02-20 13:54:36.245 -05:00 [INF] User dutton@example.com registered successfully
+2025-02-20 13:54:36.246 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 13:54:36.246 -05:00 [INF] Executed action AuthController.Register (GrubPix.API) in 174.4991ms
+2025-02-20 13:54:36.246 -05:00 [INF] Executed endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-20 13:54:36.246 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 175.2919 ms
+2025-02-20 13:54:36.247 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 175.8141ms
+2025-02-20 13:54:52.953 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 62
+2025-02-20 13:54:52.954 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:54:52.954 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:54:52.954 -05:00 [INF] Executing endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 13:54:52.954 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller AuthController (GrubPix.API).
+2025-02-20 13:54:52.955 -05:00 [INF] Login attempt for dutton1@example.com
+2025-02-20 13:54:52.956 -05:00 [INF] Authenticating user with email: dutton1@example.com
+2025-02-20 13:54:52.957 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='dutton1@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 13:54:52.959 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='dutton1@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-20 13:54:52.959 -05:00 [WRN] Invalid credentials for email: dutton1@example.com
+2025-02-20 13:54:52.959 -05:00 [WRN] Failed login attempt for dutton1@example.com
+2025-02-20 13:54:52.960 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:54:52.960 -05:00 [INF] Executed action AuthController.Login (GrubPix.API) in 5.591ms
+2025-02-20 13:54:52.960 -05:00 [INF] Executed endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 13:54:52.960 -05:00 [INF] HTTP POST /api/auth/login responded 401 in 6.4087 ms
+2025-02-20 13:54:52.960 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 401 null application/json; charset=utf-8 6.956ms
+2025-02-20 13:55:03.536 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 61
+2025-02-20 13:55:03.536 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:55:03.536 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:55:03.537 -05:00 [INF] Executing endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 13:55:03.537 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller AuthController (GrubPix.API).
+2025-02-20 13:55:03.537 -05:00 [INF] Login attempt for dutton@example.com
+2025-02-20 13:55:03.538 -05:00 [INF] Authenticating user with email: dutton@example.com
+2025-02-20 13:55:03.539 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='dutton@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 13:55:03.541 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='dutton@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-20 13:55:03.678 -05:00 [INF] Customer dutton@example.com authenticated successfully
+2025-02-20 13:55:03.679 -05:00 [INF] User dutton@example.com logged in successfully
+2025-02-20 13:55:03.679 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 13:55:03.679 -05:00 [INF] Executed action AuthController.Login (GrubPix.API) in 142.1203ms
+2025-02-20 13:55:03.679 -05:00 [INF] Executed endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 13:55:03.679 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 143.0326 ms
+2025-02-20 13:55:03.680 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 143.7082ms
+2025-02-20 13:55:36.991 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/12 - application/json 91
+2025-02-20 13:55:36.991 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:55:36.991 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:55:36.992 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 13:55:36.992 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 13:55:36.992 -05:00 [INF] Update request received for User ID 12
+2025-02-20 13:55:36.993 -05:00 [INF] Updating user with email: dutton@example.com
+2025-02-20 13:55:36.995 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='12'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 13:55:37.093 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='12'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 13:55:37.093 -05:00 [ERR] User or Customer with ID 12 not found.
+2025-02-20 13:55:37.094 -05:00 [ERR] Error updating user 12
+GrubPix.Application.Exceptions.NotFoundException: User or Customer with ID 12 not found.
+   at GrubPix.Application.Services.UserService.UpdateUserAsync(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/UserService.cs:line 183
+   at GrubPix.Application.Features.User.UpdateUserCommand.UpdateUserCommandHandler.Handle(UpdateUserCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/UpdateUserCommand.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.UserController.UpdateUser(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/UserController.cs:line 34
+2025-02-20 13:55:37.095 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:55:37.095 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 103.2767ms
+2025-02-20 13:55:37.095 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 13:55:37.095 -05:00 [ERR] HTTP PUT /api/users/12 responded 500 in 104.1823 ms
+2025-02-20 13:55:37.096 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/12 - 500 null application/json; charset=utf-8 104.6712ms
+2025-02-20 13:55:58.016 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/users/3 - application/json 91
+2025-02-20 13:55:58.016 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:55:58.016 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:55:58.016 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 13:55:58.017 -05:00 [INF] Route matched with {action = "UpdateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(Int32, GrubPix.Application.DTO.UpdateUserDto) on controller GrubPix.API.Controllers.UserController (GrubPix.API).
+2025-02-20 13:55:58.017 -05:00 [INF] Update request received for User ID 3
+2025-02-20 13:55:58.017 -05:00 [INF] Updating user with email: dutton@example.com
+2025-02-20 13:55:58.019 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-20 13:55:58.022 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 13:55:58.031 -05:00 [ERR] Error updating user 3
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+UpdateUserDto -> Customer
+GrubPix.Application.DTO.UpdateUserDto -> GrubPix.Domain.Entities.Customer
+   at lambda_method300(Closure, UpdateUserDto, Customer, ResolutionContext)
+   at GrubPix.Application.Services.UserService.UpdateUserAsync(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/UserService.cs:line 175
+   at GrubPix.Application.Features.User.UpdateUserCommand.UpdateUserCommandHandler.Handle(UpdateUserCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/UpdateUserCommand.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.UserController.UpdateUser(Int32 id, UpdateUserDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/UserController.cs:line 34
+2025-02-20 13:55:58.034 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:55:58.035 -05:00 [INF] Executed action GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API) in 18.624ms
+2025-02-20 13:55:58.035 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.UserController.UpdateUser (GrubPix.API)'
+2025-02-20 13:55:58.036 -05:00 [ERR] HTTP PUT /api/users/3 responded 500 in 19.5425 ms
+2025-02-20 13:55:58.036 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/users/3 - 500 null application/json; charset=utf-8 20.0387ms
+2025-02-20 13:56:40.767 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/customers/profile - application/json 88
+2025-02-20 13:56:40.767 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:56:40.767 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:56:40.767 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 13:56:40.771 -05:00 [INF] Route matched with {action = "UpdateProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateProfile(GrubPix.Application.DTO.UpdateCustomerDto) on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 13:56:40.777 -05:00 [INF] Update request received for Customer ID: 3
+2025-02-20 13:56:40.780 -05:00 [INF] Updating customer with ID: 3
+2025-02-20 13:56:40.782 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 13:56:40.783 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__email_0='user@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-20 13:56:40.786 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p2='3', @p0='user@example.com' (Nullable = false), @p1='john Dutton' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Customers" SET "Email" = @p0, "Username" = @p1
+WHERE "Id" = @p2;
+2025-02-20 13:56:40.787 -05:00 [INF] Profile updated successfully for Customer ID: 3
+2025-02-20 13:56:40.787 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:56:40.787 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API) in 15.8874ms
+2025-02-20 13:56:40.787 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 13:56:40.787 -05:00 [INF] HTTP PUT /api/customers/profile responded 200 in 20.3085 ms
+2025-02-20 13:56:40.788 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/customers/profile - 200 null application/json; charset=utf-8 20.7913ms
+2025-02-20 13:57:13.694 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/customers/profile - application/json 90
+2025-02-20 13:57:13.694 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:57:13.694 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:57:13.695 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 13:57:13.695 -05:00 [INF] Route matched with {action = "UpdateProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateProfile(GrubPix.Application.DTO.UpdateCustomerDto) on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 13:57:13.696 -05:00 [INF] Update request received for Customer ID: 3
+2025-02-20 13:57:13.697 -05:00 [INF] Updating customer with ID: 3
+2025-02-20 13:57:13.699 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 13:57:13.726 -05:00 [INF] Executed DbCommand (25ms) [Parameters=[@__email_0='dutton@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-20 13:57:13.728 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='3', @p0='dutton@example.com' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Customers" SET "Email" = @p0
+WHERE "Id" = @p1;
+2025-02-20 13:57:13.728 -05:00 [INF] Profile updated successfully for Customer ID: 3
+2025-02-20 13:57:13.728 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:57:13.728 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API) in 32.9174ms
+2025-02-20 13:57:13.728 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.UpdateProfile (GrubPix.API)'
+2025-02-20 13:57:13.729 -05:00 [INF] HTTP PUT /api/customers/profile responded 200 in 34.1789 ms
+2025-02-20 13:57:13.729 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/customers/profile - 200 null application/json; charset=utf-8 34.6922ms
+2025-02-20 13:57:19.705 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/profile - null null
+2025-02-20 13:57:19.706 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:57:19.706 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API)'
+2025-02-20 13:57:19.709 -05:00 [INF] Route matched with {action = "GetProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfile() on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 13:57:19.710 -05:00 [INF] Fetching profile for Customer ID: 3
+2025-02-20 13:57:19.713 -05:00 [INF] Fetching customer with ID: 3
+2025-02-20 13:57:19.714 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 13:57:19.715 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTOs.CustomerDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 13:57:19.718 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API) in 8.6405ms
+2025-02-20 13:57:19.718 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API)'
+2025-02-20 13:57:19.718 -05:00 [INF] HTTP GET /api/customers/profile responded 200 in 12.2192 ms
+2025-02-20 13:57:19.718 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/profile - 200 null application/json; charset=utf-8 12.7366ms
+2025-02-20 13:57:30.005 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/favorites - null null
+2025-02-20 13:57:30.005 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:57:30.006 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API)'
+2025-02-20 13:57:30.009 -05:00 [INF] Route matched with {action = "GetFavorites", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFavorites() on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 13:57:30.032 -05:00 [INF] Fetching favorite items for Customer ID: 3
+2025-02-20 13:57:30.038 -05:00 [INF] Fetching favorite menu items for Customer ID: 3
+2025-02-20 13:57:30.053 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "FavoriteMenuItems" AS f
+INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+WHERE f."CustomerId" = @__customerId_0
+2025-02-20 13:57:30.057 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:57:30.066 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API) in 38.5208ms
+2025-02-20 13:57:30.066 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API)'
+2025-02-20 13:57:30.066 -05:00 [INF] HTTP GET /api/customers/favorites responded 200 in 60.8711 ms
+2025-02-20 13:57:30.066 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/favorites - 200 null application/json; charset=utf-8 61.4186ms
+2025-02-20 13:58:07.363 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/customers/favorites/20 - null 0
+2025-02-20 13:58:07.363 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:58:07.363 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:58:07.364 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.AddToFavorites (GrubPix.API)'
+2025-02-20 13:58:07.367 -05:00 [INF] Route matched with {action = "AddToFavorites", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToFavorites(Int32) on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 13:58:07.369 -05:00 [INF] Add to favorites request for Customer ID: 3, MenuItem ID: 20
+2025-02-20 13:58:07.371 -05:00 [INF] Adding favorite for Customer ID: 3, MenuItem ID: 20
+2025-02-20 13:58:07.384 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='3', @p1='20'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "FavoriteMenuItems" ("CustomerId", "MenuItemId")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2025-02-20 13:58:07.387 -05:00 [INF] Added to favorites for Customer ID: 3, MenuItem ID: 20
+2025-02-20 13:58:07.387 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:58:07.387 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.AddToFavorites (GrubPix.API) in 19.6193ms
+2025-02-20 13:58:07.387 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.AddToFavorites (GrubPix.API)'
+2025-02-20 13:58:07.387 -05:00 [INF] HTTP POST /api/customers/favorites/20 responded 200 in 24.2478 ms
+2025-02-20 13:58:07.388 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/customers/favorites/20 - 200 null application/json; charset=utf-8 24.7366ms
+2025-02-20 13:58:17.841 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/customers/favorites/22 - null 0
+2025-02-20 13:58:17.841 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:58:17.841 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:58:17.842 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.AddToFavorites (GrubPix.API)'
+2025-02-20 13:58:17.842 -05:00 [INF] Route matched with {action = "AddToFavorites", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToFavorites(Int32) on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 13:58:17.842 -05:00 [INF] Add to favorites request for Customer ID: 3, MenuItem ID: 22
+2025-02-20 13:58:17.843 -05:00 [INF] Adding favorite for Customer ID: 3, MenuItem ID: 22
+2025-02-20 13:58:17.846 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='3', @p1='22'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "FavoriteMenuItems" ("CustomerId", "MenuItemId")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2025-02-20 13:58:17.847 -05:00 [INF] Added to favorites for Customer ID: 3, MenuItem ID: 22
+2025-02-20 13:58:17.847 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:58:17.847 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.AddToFavorites (GrubPix.API) in 5.2869ms
+2025-02-20 13:58:17.848 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.AddToFavorites (GrubPix.API)'
+2025-02-20 13:58:17.848 -05:00 [INF] HTTP POST /api/customers/favorites/22 responded 200 in 6.2008 ms
+2025-02-20 13:58:17.848 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/customers/favorites/22 - 200 null application/json; charset=utf-8 6.7376ms
+2025-02-20 13:58:23.806 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/favorites - null null
+2025-02-20 13:58:23.807 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:58:23.807 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API)'
+2025-02-20 13:58:23.807 -05:00 [INF] Route matched with {action = "GetFavorites", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFavorites() on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 13:58:23.807 -05:00 [INF] Fetching favorite items for Customer ID: 3
+2025-02-20 13:58:23.808 -05:00 [INF] Fetching favorite menu items for Customer ID: 3
+2025-02-20 13:58:23.810 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "FavoriteMenuItems" AS f
+INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+WHERE f."CustomerId" = @__customerId_0
+2025-02-20 13:58:23.826 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:58:23.830 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API) in 22.3933ms
+2025-02-20 13:58:23.830 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API)'
+2025-02-20 13:58:23.830 -05:00 [INF] HTTP GET /api/customers/favorites responded 200 in 23.2669 ms
+2025-02-20 13:58:23.830 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/favorites - 200 null application/json; charset=utf-8 23.8747ms
+2025-02-20 13:58:52.177 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5068/api/customers/favorites/20 - null null
+2025-02-20 13:58:52.178 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:58:52.178 -05:00 [INF] CORS policy execution successful.
+2025-02-20 13:58:52.178 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.RemoveFromFavorites (GrubPix.API)'
+2025-02-20 13:58:52.181 -05:00 [INF] Route matched with {action = "RemoveFromFavorites", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RemoveFromFavorites(Int32) on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 13:58:52.206 -05:00 [INF] Remove from favorites request for Customer ID: 3, MenuItem ID: 20
+2025-02-20 13:58:52.209 -05:00 [INF] Removing favorite for Customer ID: 3, MenuItem ID: 20
+2025-02-20 13:58:52.220 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__customerId_0='3', @__menuItemId_1='20'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."CustomerId", f."MenuItemId"
+FROM "FavoriteMenuItems" AS f
+WHERE f."CustomerId" = @__customerId_0 AND f."MenuItemId" = @__menuItemId_1
+LIMIT 1
+2025-02-20 13:58:52.222 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='12'], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "FavoriteMenuItems"
+WHERE "Id" = @p0;
+2025-02-20 13:58:52.223 -05:00 [INF] Removed from favorites for Customer ID: 3, MenuItem ID: 20
+2025-02-20 13:58:52.223 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:58:52.223 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.RemoveFromFavorites (GrubPix.API) in 41.7404ms
+2025-02-20 13:58:52.223 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.RemoveFromFavorites (GrubPix.API)'
+2025-02-20 13:58:52.224 -05:00 [INF] HTTP DELETE /api/customers/favorites/20 responded 200 in 45.8808 ms
+2025-02-20 13:58:52.224 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5068/api/customers/favorites/20 - 200 null application/json; charset=utf-8 46.4308ms
+2025-02-20 13:58:56.842 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/favorites - null null
+2025-02-20 13:58:56.852 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:58:56.853 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API)'
+2025-02-20 13:58:56.872 -05:00 [INF] Route matched with {action = "GetFavorites", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFavorites() on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 13:58:56.872 -05:00 [INF] Fetching favorite items for Customer ID: 3
+2025-02-20 13:58:56.874 -05:00 [INF] Fetching favorite menu items for Customer ID: 3
+2025-02-20 13:58:56.893 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+FROM "FavoriteMenuItems" AS f
+INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+WHERE f."CustomerId" = @__customerId_0
+2025-02-20 13:58:56.894 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-20 13:58:56.894 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API) in 21.8141ms
+2025-02-20 13:58:56.894 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API)'
+2025-02-20 13:58:56.894 -05:00 [INF] HTTP GET /api/customers/favorites responded 200 in 41.4451 ms
+2025-02-20 13:58:56.895 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/favorites - 200 null application/json; charset=utf-8 52.272ms
+2025-02-20 13:59:11.258 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/profile - null null
+2025-02-20 13:59:11.258 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 13:59:11.259 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API)'
+2025-02-20 13:59:11.259 -05:00 [INF] Route matched with {action = "GetProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfile() on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-20 13:59:11.259 -05:00 [INF] Fetching profile for Customer ID: 3
+2025-02-20 13:59:11.260 -05:00 [INF] Fetching customer with ID: 3
+2025-02-20 13:59:11.262 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."ImageUrl", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."ImageUrl", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-20 13:59:11.271 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTOs.CustomerDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 13:59:11.271 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API) in 12.2893ms
+2025-02-20 13:59:11.271 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API)'
+2025-02-20 13:59:11.272 -05:00 [INF] HTTP GET /api/customers/profile responded 200 in 13.3367 ms
+2025-02-20 13:59:11.272 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/profile - 200 null application/json; charset=utf-8 14.0032ms
+2025-02-20 14:00:20.036 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 59
+2025-02-20 14:00:20.036 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 14:00:20.036 -05:00 [INF] CORS policy execution successful.
+2025-02-20 14:00:20.036 -05:00 [INF] Executing endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 14:00:20.036 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller AuthController (GrubPix.API).
+2025-02-20 14:00:20.037 -05:00 [INF] Login attempt for user@example.com
+2025-02-20 14:00:20.037 -05:00 [INF] Authenticating user with email: user@example.com
+2025-02-20 14:00:20.072 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='user@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-20 14:00:20.214 -05:00 [INF] User user@example.com authenticated successfully
+2025-02-20 14:00:20.215 -05:00 [INF] User user@example.com logged in successfully
+2025-02-20 14:00:20.215 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 14:00:20.215 -05:00 [INF] Executed action AuthController.Login (GrubPix.API) in 178.7475ms
+2025-02-20 14:00:20.215 -05:00 [INF] Executed endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-20 14:00:20.216 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 179.5004 ms
+2025-02-20 14:00:20.216 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 180.0787ms
+2025-02-20 14:00:44.868 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-20 14:00:44.869 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-20 14:00:44.869 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-20 14:00:44.874 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-20 14:00:44.880 -05:00 [INF] Fetching restaurants with user id 6 and role RestaurantOwner
+2025-02-20 14:00:44.913 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-20 14:00:51.534 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-20 14:00:51.539 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-20 14:00:51.540 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-20 14:00:51.549 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-20 14:00:51.571 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='6', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."ImageUrl", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."ImageUrl", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-20 14:00:51.598 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-20 14:00:51.602 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 6727.4155ms
+2025-02-20 14:00:51.602 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-20 14:00:51.602 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 6733.0484 ms
+2025-02-20 14:00:51.602 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 6733.4823ms

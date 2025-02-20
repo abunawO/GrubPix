@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using GrubPix.Application.DTOs;
 using GrubPix.Application.DTO;
 using GrubPix.Application.Interfaces;
+using GrubPix.Application.Interfaces.Services;
 
 namespace GrubPix.Application.Features.Customer
 {
@@ -17,27 +18,18 @@ namespace GrubPix.Application.Features.Customer
 
         public class GetCustomerFavoritesHandler : IRequestHandler<GetCustomerFavoritesQuery, List<MenuItemDto>>
         {
-            private readonly ICustomerRepository _customerRepository;
+            private readonly ICustomerService _customerService;
 
-            public GetCustomerFavoritesHandler(ICustomerRepository customerRepository)
+            public GetCustomerFavoritesHandler(ICustomerService customerService)
             {
-                _customerRepository = customerRepository;
+                _customerService = customerService;
             }
 
             public async Task<List<MenuItemDto>> Handle(GetCustomerFavoritesQuery request, CancellationToken cancellationToken)
             {
-                var customer = await _customerRepository.GetCustomerByIdAsync(request.CustomerId);
-                return customer?.FavoriteMenuItems
-                    .Select(fm => new MenuItemDto
-                    {
-                        Id = fm.MenuItem.Id,
-                        Name = fm.MenuItem.Name,
-                        Description = fm.MenuItem.Description,
-                        Price = fm.MenuItem.Price,
-                        MenuId = fm.MenuItem.MenuId,
-                        ImageUrl = fm.MenuItem.ImageUrl
-                    }).ToList();
+                return await _customerService.GetFavoriteMenuItemsAsync(request.CustomerId);
             }
         }
+
     }
 }
