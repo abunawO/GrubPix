@@ -14,12 +14,16 @@ public class MenuItemRepository : IMenuItemRepository
 
     public async Task<IEnumerable<MenuItem>> GetAllAsync()
     {
-        return await _context.MenuItems.ToListAsync();
+        return await _context.MenuItems
+            .Include(m => m.Images) // Ensure images are included
+            .ToListAsync();
     }
 
     public async Task<MenuItem> GetByIdAsync(int id)
     {
-        return await _context.MenuItems.FindAsync(id);
+        return await _context.MenuItems
+            .Include(m => m.Images) // Ensure images are included
+            .FirstOrDefaultAsync(m => m.Id == id);
     }
 
     public async Task AddAsync(MenuItem menuItem)

@@ -23,7 +23,7 @@ namespace GrubPix.Infrastructure.Repositories
         {
             return await _context.Customers
                 .Include(c => c.FavoriteMenuItems)
-                .ThenInclude(fm => fm.MenuItem) // Ensure MenuItem is included
+                .ThenInclude(fm => fm.MenuItem)
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
 
@@ -66,7 +66,18 @@ namespace GrubPix.Infrastructure.Repositories
         {
             return await _context.FavoriteMenuItems
                 .Where(f => f.CustomerId == customerId)
-                .Select(f => f.MenuItem)
+                .Select(f => new MenuItem
+                {
+                    Id = f.MenuItem.Id,
+                    Name = f.MenuItem.Name,
+                    Description = f.MenuItem.Description,
+                    Price = f.MenuItem.Price,
+                    Images = f.MenuItem.Images.Select(img => new MenuItemImage
+                    {
+                        Id = img.Id,
+                        ImageUrl = img.ImageUrl
+                    }).ToList()
+                })
                 .ToListAsync();
         }
 
@@ -90,9 +101,9 @@ namespace GrubPix.Infrastructure.Repositories
             return true;
         }
 
-        public Task<Customer> GetCustomerByUsernameAsync(string username)
+        public async Task<Customer> GetCustomerByUsernameAsync(string username)
         {
-            throw new NotImplementedException();
+            return await _context.Customers.FirstOrDefaultAsync(c => c.Username == username);
         }
 
         public async Task<Customer?> GetByUsernameAsync(string username)

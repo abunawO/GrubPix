@@ -17,12 +17,18 @@ namespace GrubPix.Infrastructure.Repositories
 
         public async Task<IEnumerable<Menu>> GetAllAsync()
         {
-            return await _context.Menus.ToListAsync();
+            return await _context.Menus
+                .Include(m => m.MenuItems)
+                .ThenInclude(mi => mi.Images)
+                .ToListAsync();
         }
 
         public async Task<Menu?> GetByIdAsync(int id)
         {
-            return await _context.Menus.FindAsync(id);
+            return await _context.Menus
+                .Include(m => m.MenuItems)
+                .ThenInclude(mi => mi.Images)
+                .FirstOrDefaultAsync(m => m.Id == id);
         }
 
         public async Task<Menu> AddAsync(Menu menu)

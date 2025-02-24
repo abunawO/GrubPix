@@ -8,12 +8,12 @@ namespace GrubPix.Application.Features.MenuItem
     public class CreateMenuItemCommand : IRequest<MenuItemDto>
     {
         public CreateMenuItemDto MenuItemDto { get; }
-        public IFormFile ImageFile { get; }
+        public ICollection<IFormFile> ImageFiles { get; }
 
-        public CreateMenuItemCommand(CreateMenuItemDto menuItemDto, IFormFile imageFile)
+        public CreateMenuItemCommand(CreateMenuItemDto menuItemDto, ICollection<IFormFile> imageFiles)
         {
             MenuItemDto = menuItemDto;
-            ImageFile = imageFile;
+            ImageFiles = imageFiles;
         }
     }
 
@@ -28,7 +28,7 @@ namespace GrubPix.Application.Features.MenuItem
 
         public async Task<MenuItemDto> Handle(CreateMenuItemCommand request, CancellationToken cancellationToken)
         {
-            return await _menuItemService.CreateMenuItemAsync(request.MenuItemDto, request.ImageFile);
+            return await _menuItemService.CreateMenuItemAsync(request.MenuItemDto, request.ImageFiles);
         }
     }
 }

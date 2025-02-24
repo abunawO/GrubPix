@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using GrubPix.Application.DTO;
 using GrubPix.Application.Exceptions;
 using GrubPix.Application.Interfaces;
@@ -16,12 +17,14 @@ namespace GrubPix.Application.Services
         private readonly IMenuRepository _menuRepository;
         private readonly IMenuItemRepository _menuItemRepository;
         private readonly ILogger<MenuService> _logger;
+        private readonly IMapper _mapper;
 
-        public MenuService(IMenuRepository menuRepository, IMenuItemRepository menuItemRepository, ILogger<MenuService> logger)
+        public MenuService(IMenuRepository menuRepository, IMenuItemRepository menuItemRepository, ILogger<MenuService> logger, IMapper mapper)
         {
             _menuRepository = menuRepository;
             _menuItemRepository = menuItemRepository;
             _logger = logger;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -31,25 +34,9 @@ namespace GrubPix.Application.Services
         public async Task<IEnumerable<MenuDto>> GetMenusAsync()
         {
             var menus = await _menuRepository.GetAllAsync();
-            var menuItems = await _menuItemRepository.GetAllAsync();
+            //var menuItems = await _menuItemRepository.GetAllAsync();
 
-            return menus.Select(m => new MenuDto
-            {
-                Id = m.Id,
-                RestaurantId = m.RestaurantId,
-                Name = m.Name,
-                Description = m.Description,
-                Items = menuItems.Where(item => item.MenuId == m.Id)
-                                .Select(item => new MenuItemDto
-                                {
-                                    Id = item.Id,
-                                    Name = item.Name,
-                                    Description = item.Description,
-                                    Price = item.Price,
-                                    MenuId = item.MenuId,
-                                    ImageUrl = item.ImageUrl
-                                }).ToList()
-            });
+            return _mapper.Map<IEnumerable<MenuDto>>(menus);
         }
 
         /// <summary>
@@ -66,23 +53,7 @@ namespace GrubPix.Application.Services
 
             var menuItems = await _menuItemRepository.GetAllAsync();
 
-            return new MenuDto
-            {
-                Id = menu.Id,
-                RestaurantId = menu.RestaurantId,
-                Name = menu.Name,
-                Description = menu.Description,
-                Items = menuItems.Where(item => item.MenuId == menu.Id)
-                                 .Select(item => new MenuItemDto
-                                 {
-                                     Id = item.Id,
-                                     Name = item.Name,
-                                     Description = item.Description,
-                                     Price = item.Price,
-                                     MenuId = item.MenuId,
-                                     ImageUrl = item.ImageUrl
-                                 }).ToList()
-            };
+            return _mapper.Map<MenuDto>(menu);
         }
 
         /// <summary>
@@ -138,22 +109,7 @@ namespace GrubPix.Application.Services
 
             await _menuRepository.UpdateAsync(existingMenu);
 
-            return new MenuDto
-            {
-                Id = existingMenu.Id,
-                RestaurantId = existingMenu.RestaurantId,
-                Name = existingMenu.Name,
-                Description = existingMenu.Description,
-                Items = existingMenu.MenuItems.Select(item => new MenuItemDto
-                {
-                    Id = item.Id,
-                    Name = item.Name,
-                    Description = item.Description,
-                    Price = item.Price,
-                    MenuId = item.MenuId,
-                    ImageUrl = item.ImageUrl
-                }).ToList()
-            };
+            return _mapper.Map<MenuDto>(existingMenu);
         }
 
         /// <summary>

@@ -73,12 +73,12 @@ namespace GrubPix.API.Controllers
         // PUT: api/MenuItem/{id}
         [Authorize(Roles = "Admin,RestaurantOwner")]
         [HttpPost]
-        public async Task<IActionResult> CreateMenuItem([FromForm] CreateMenuItemDto menuItemDto, IFormFile imageFile)
+        public async Task<IActionResult> CreateMenuItem([FromForm] CreateMenuItemDto menuItemDto, [FromForm] List<IFormFile> imageFiles)
         {
             try
             {
                 _logger.LogInformation("Creating menu item: {ItemName} for Menu ID {MenuId}", menuItemDto.Name, menuItemDto.MenuId);
-                var command = new CreateMenuItemCommand(menuItemDto, imageFile);
+                var command = new CreateMenuItemCommand(menuItemDto, imageFiles);
                 var createdMenuItem = await _mediator.Send(command);
 
                 _logger.LogInformation("Menu item {ItemName} created successfully with ID {ItemId}", createdMenuItem.Name, createdMenuItem.Id);
@@ -94,12 +94,12 @@ namespace GrubPix.API.Controllers
         // PUT: api/MenuItem/{id}
         [Authorize(Roles = "Admin,RestaurantOwner")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateMenuItem(int id, [FromForm] UpdateMenuItemDto menuItemDto, IFormFile imageFile)
+        public async Task<IActionResult> UpdateMenuItem(int id, [FromForm] UpdateMenuItemDto menuItemDto, [FromForm] List<IFormFile> imageFiles)
         {
             try
             {
                 _logger.LogInformation("Updating menu item: {ItemName} for Menu ID {MenuId}", menuItemDto.Name, menuItemDto.MenuId);
-                var command = new UpdateMenuItemCommand(id, menuItemDto, imageFile);
+                var command = new UpdateMenuItemCommand(id, menuItemDto, imageFiles);
                 var updatedMenuItem = await _mediator.Send(command);
 
                 if (updatedMenuItem == null)

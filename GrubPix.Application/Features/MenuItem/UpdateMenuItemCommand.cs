@@ -9,13 +9,13 @@ namespace GrubPix.Application.Features.MenuItem
     {
         public int Id { get; }
         public UpdateMenuItemDto MenuItemDto { get; }
-        public IFormFile ImageFile { get; }
+        public ICollection<IFormFile> ImageFiles { get; }
 
-        public UpdateMenuItemCommand(int id, UpdateMenuItemDto menuItemDto, IFormFile imageFile)
+        public UpdateMenuItemCommand(int id, UpdateMenuItemDto menuItemDto, ICollection<IFormFile> imageFiles)
         {
             Id = id;
             MenuItemDto = menuItemDto;
-            ImageFile = imageFile;
+            ImageFiles = imageFiles;
         }
     }
 
@@ -30,7 +30,7 @@ namespace GrubPix.Application.Features.MenuItem
 
         public async Task<MenuItemDto> Handle(UpdateMenuItemCommand request, CancellationToken cancellationToken)
         {
-            return await _menuItemService.UpdateMenuItemAsync(request.Id, request.MenuItemDto, request.ImageFile);
+            return await _menuItemService.UpdateMenuItemAsync(request.Id, request.MenuItemDto, request.ImageFiles);
         }
     }
 }

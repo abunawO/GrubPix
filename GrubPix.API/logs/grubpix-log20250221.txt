@@ -1,0 +1,1010 @@
+2025-02-21 15:39:54.098 -05:00 [INF] Application is shutting down...
+2025-02-21 15:40:03.495 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-21 15:40:03.621 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-21 15:40:03.624 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-21 15:40:03.624 -05:00 [INF] Hosting environment: Development
+2025-02-21 15:40:03.624 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-21 15:40:09.330 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-02-21 15:40:09.340 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 15:40:09.456 -05:00 [INF] HTTP GET /index.html responded 200 in 111.9946 ms
+2025-02-21 15:40:09.460 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 131.1622ms
+2025-02-21 15:40:09.521 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-02-21 15:40:09.523 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 15:40:09.525 -05:00 [INF] HTTP GET /index.js responded 200 in 2.0113 ms
+2025-02-21 15:40:09.526 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 5.4317ms
+2025-02-21 15:40:10.137 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-21 15:40:10.138 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 15:40:10.280 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 140.9633 ms
+2025-02-21 15:40:10.280 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 142.625ms
+2025-02-21 15:40:22.552 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 59
+2025-02-21 15:40:22.553 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 15:40:22.554 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-21 15:40:22.571 -05:00 [INF] CORS policy execution successful.
+2025-02-21 15:40:22.600 -05:00 [INF] Executing endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-21 15:40:22.620 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller AuthController (GrubPix.API).
+2025-02-21 15:40:22.654 -05:00 [INF] Login attempt for user@example.com
+2025-02-21 15:40:22.884 -05:00 [INF] Authenticating user with email: user@example.com
+2025-02-21 15:40:23.321 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-21 15:40:23.902 -05:00 [INF] Executed DbCommand (64ms) [Parameters=[@__email_0='user@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-21 15:40:24.274 -05:00 [INF] User user@example.com authenticated successfully
+2025-02-21 15:40:24.306 -05:00 [INF] User user@example.com logged in successfully
+2025-02-21 15:40:24.312 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-21 15:40:24.333 -05:00 [INF] Executed action AuthController.Login (GrubPix.API) in 1710.0875ms
+2025-02-21 15:40:24.334 -05:00 [INF] Executed endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-21 15:40:24.336 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 1782.8886 ms
+2025-02-21 15:40:24.343 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 1790.7486ms
+2025-02-21 15:40:52.155 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus - null null
+2025-02-21 15:40:52.155 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 15:40:52.200 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-21 15:40:52.203 -05:00 [INF] Route matched with {action = "GetAllMenus", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenus() on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-21 15:40:52.204 -05:00 [INF] Fetching all menus...
+2025-02-21 15:40:52.240 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+2025-02-21 15:40:52.260 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+2025-02-21 15:40:52.292 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 15:40:52.309 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API) in 105.4237ms
+2025-02-21 15:40:52.309 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-21 15:40:52.309 -05:00 [INF] HTTP GET /api/menus responded 200 in 153.9152 ms
+2025-02-21 15:40:52.309 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus - 200 null application/json; charset=utf-8 154.7247ms
+2025-02-21 15:41:19.438 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem - null null
+2025-02-21 15:41:19.438 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 15:41:19.442 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 15:41:19.446 -05:00 [INF] Route matched with {action = "GetAllMenuItems", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenuItems() on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 15:41:19.448 -05:00 [INF] Fetching all menu items.
+2025-02-21 15:41:19.482 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-21 15:41:26.155 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+2025-02-21 15:41:26.157 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 15:41:26.158 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API) in 6712.1332ms
+2025-02-21 15:41:26.158 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 15:41:26.159 -05:00 [INF] HTTP GET /api/MenuItem responded 200 in 6720.4338 ms
+2025-02-21 15:41:26.159 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem - 200 null application/json; charset=utf-8 6721.0426ms
+2025-02-21 15:43:10.967 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/MenuItem/20 - multipart/form-data; boundary=----WebKitFormBoundarykibGqk4gfwEllpA0 174068
+2025-02-21 15:43:10.967 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 15:43:10.968 -05:00 [INF] CORS policy execution successful.
+2025-02-21 15:43:10.987 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-21 15:43:10.994 -05:00 [INF] Route matched with {action = "UpdateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenuItem(Int32, GrubPix.Application.DTO.UpdateMenuItemDto, System.Collections.Generic.List`1[Microsoft.AspNetCore.Http.IFormFile]) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 15:43:11.019 -05:00 [INF] Updating menu item: string for Menu ID 10
+2025-02-21 15:43:11.046 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='20'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-21 15:43:12.843 -05:00 [INF] Executed DbCommand (16ms) [Parameters=[@p0='f633bc94-c1a8-47c8-9256-ddd20c45cf72' (Nullable = false), @p1='20', @p6='20', @p2='string' (Nullable = false), @p3='10', @p4='string' (Nullable = false), @p5='10000'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "MenuItemImage" ("ImageUrl", "MenuItemId")
+VALUES (@p0, @p1)
+RETURNING "Id";
+UPDATE "MenuItems" SET "Description" = @p2, "MenuId" = @p3, "Name" = @p4, "Price" = @p5
+WHERE "Id" = @p6;
+2025-02-21 15:43:12.871 -05:00 [INF] Menu item 20 updated successfully
+2025-02-21 15:43:12.871 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-21 15:43:12.880 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API) in 1885.0224ms
+2025-02-21 15:43:12.880 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-21 15:43:12.880 -05:00 [ERR] HTTP PUT /api/MenuItem/20 responded 500 in 1912.8680 ms
+System.Text.Json.JsonException: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Data.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Id.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_SerializerCycleDetected(Int32 maxDepth)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Program.<>c.<<<Main>$>b__0_7>d.MoveNext() in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Program.cs:line 177
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2025-02-21 15:43:12.889 -05:00 [ERR] An unhandled exception occurred.
+System.Text.Json.JsonException: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Data.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Images.MenuItem.Id.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_SerializerCycleDetected(Int32 maxDepth)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Program.<>c.<<<Main>$>b__0_7>d.MoveNext() in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Program.cs:line 177
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at CorrelationId.CorrelationIdMiddleware.Invoke(HttpContext context, ICorrelationContextFactory correlationContextFactory)
+   at GrubPix.API.Middleware.ExceptionHandlingMiddleware.Invoke(HttpContext context) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Middleware/ExceptionHandlingMiddleware.cs:line 26
+2025-02-21 15:43:12.896 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/MenuItem/20 - 500 null application/json 1928.7152ms
+2025-02-21 15:49:55.163 -05:00 [INF] Application is shutting down...
+2025-02-21 15:52:18.607 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-21 15:52:18.723 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-21 15:52:18.725 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-21 15:52:18.726 -05:00 [INF] Hosting environment: Development
+2025-02-21 15:52:18.726 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-21 15:52:37.919 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus - null null
+2025-02-21 15:52:37.929 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 15:52:37.946 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-21 15:52:38.032 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-21 15:52:38.049 -05:00 [INF] Route matched with {action = "GetAllMenus", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenus() on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-21 15:52:38.051 -05:00 [INF] Fetching all menus...
+2025-02-21 15:52:38.699 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-21 15:52:39.153 -05:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+2025-02-21 15:52:39.248 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+2025-02-21 15:52:39.287 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 15:52:39.368 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API) in 1316.0534ms
+2025-02-21 15:52:39.368 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-21 15:52:39.372 -05:00 [INF] HTTP GET /api/menus responded 200 in 1439.9324 ms
+2025-02-21 15:52:39.380 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus - 200 null application/json; charset=utf-8 1462.2962ms
+2025-02-21 15:53:16.136 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/MenuItem/20 - multipart/form-data; boundary=----WebKitFormBoundaryv2TP4hpl4C85Snxa 174068
+2025-02-21 15:53:16.137 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 15:53:16.140 -05:00 [INF] CORS policy execution successful.
+2025-02-21 15:53:16.146 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-21 15:53:16.157 -05:00 [INF] Route matched with {action = "UpdateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenuItem(Int32, GrubPix.Application.DTO.UpdateMenuItemDto, System.Collections.Generic.List`1[Microsoft.AspNetCore.Http.IFormFile]) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 15:53:16.191 -05:00 [INF] Updating menu item: string for Menu ID 10
+2025-02-21 15:53:16.218 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-21 15:53:22.948 -05:00 [INF] Executed DbCommand (17ms) [Parameters=[@__p_0='20'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-21 15:53:24.846 -05:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='533f9e20-16a5-41b3-a156-1ce5d364b9c1' (Nullable = false), @p1='20', @p6='20', @p2='string' (Nullable = false), @p3='10', @p4='string' (Nullable = false), @p5='10000'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "MenuItemImage" ("ImageUrl", "MenuItemId")
+VALUES (@p0, @p1)
+RETURNING "Id";
+UPDATE "MenuItems" SET "Description" = @p2, "MenuId" = @p3, "Name" = @p4, "Price" = @p5
+WHERE "Id" = @p6;
+2025-02-21 15:53:24.872 -05:00 [INF] Menu item 20 updated successfully
+2025-02-21 15:53:24.873 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-21 15:53:24.877 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API) in 8720.0784ms
+2025-02-21 15:53:24.877 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.UpdateMenuItem (GrubPix.API)'
+2025-02-21 15:53:24.877 -05:00 [INF] HTTP PUT /api/MenuItem/20 responded 200 in 8739.8052 ms
+2025-02-21 15:53:24.879 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/MenuItem/20 - 200 null application/json; charset=utf-8 8742.4927ms
+2025-02-21 15:56:09.886 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-21 15:56:09.886 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 15:56:09.891 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 15:56:09.894 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-21 15:56:09.900 -05:00 [INF] Fetching restaurants with user ID 6 and role RestaurantOwner
+2025-02-21 15:56:09.995 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-21 15:56:10.004 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-21 15:56:10.005 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-21 15:56:10.102 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-21 15:56:10.125 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='6', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-21 15:56:10.163 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 15:56:10.167 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 272.16ms
+2025-02-21 15:56:10.167 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 15:56:10.191 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 304.0858 ms
+2025-02-21 15:56:10.191 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 305.0957ms
+2025-02-21 15:56:39.460 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem - null null
+2025-02-21 15:56:39.460 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 15:56:39.461 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 15:56:39.464 -05:00 [INF] Route matched with {action = "GetAllMenuItems", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenuItems() on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 15:56:39.491 -05:00 [INF] Fetching all menu items.
+2025-02-21 15:56:39.495 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+2025-02-21 15:56:39.496 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 15:56:39.498 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API) in 7.5796ms
+2025-02-21 15:56:39.498 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 15:56:39.498 -05:00 [INF] HTTP GET /api/MenuItem responded 200 in 37.6869 ms
+2025-02-21 15:56:39.499 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem - 200 null application/json; charset=utf-8 38.4159ms
+2025-02-21 15:58:06.889 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem/20 - null null
+2025-02-21 15:58:06.889 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 15:58:06.889 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API)'
+2025-02-21 15:58:06.917 -05:00 [INF] Route matched with {action = "GetMenuItemById", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMenuItemById(Int32) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 15:58:06.919 -05:00 [INF] Fetching menu item with ID 20
+2025-02-21 15:58:06.932 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='20'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+WHERE m."Id" = @__p_0
+LIMIT 1
+2025-02-21 15:58:06.942 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-21 15:58:06.943 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API) in 24.9048ms
+2025-02-21 15:58:06.943 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API)'
+2025-02-21 15:58:06.943 -05:00 [INF] HTTP GET /api/MenuItem/20 responded 200 in 53.7703 ms
+2025-02-21 15:58:06.943 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem/20 - 200 null application/json; charset=utf-8 54.3448ms
+2025-02-21 16:12:49.934 -05:00 [INF] Application is shutting down...
+2025-02-21 16:13:44.967 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-21 16:13:45.097 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-21 16:13:45.100 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-21 16:13:45.101 -05:00 [INF] Hosting environment: Development
+2025-02-21 16:13:45.101 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-21 16:14:02.230 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem/20 - null null
+2025-02-21 16:14:02.240 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 16:14:02.258 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-21 16:14:02.344 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API)'
+2025-02-21 16:14:02.362 -05:00 [INF] Route matched with {action = "GetMenuItemById", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMenuItemById(Int32) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 16:14:02.370 -05:00 [INF] Fetching menu item with ID 20
+2025-02-21 16:14:02.505 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-21 16:14:09.489 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-21 16:14:10.095 -05:00 [INF] Executed DbCommand (43ms) [Parameters=[@__id_0='20'], CommandType='"Text"', CommandTimeout='30']
+SELECT m1."Id", m1."Description", m1."MenuId", m1."Name", m1."Price", m0."Id", m0."ImageUrl", m0."MenuItemId"
+FROM (
+    SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+    FROM "MenuItems" AS m
+    WHERE m."Id" = @__id_0
+    LIMIT 1
+) AS m1
+LEFT JOIN "MenuItemImage" AS m0 ON m1."Id" = m0."MenuItemId"
+ORDER BY m1."Id"
+2025-02-21 16:14:10.190 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-21 16:14:10.273 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API) in 7907.7036ms
+2025-02-21 16:14:10.274 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API)'
+2025-02-21 16:14:10.278 -05:00 [INF] HTTP GET /api/MenuItem/20 responded 200 in 8034.5239 ms
+2025-02-21 16:14:10.287 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem/20 - 200 null application/json; charset=utf-8 8058.1582ms
+2025-02-21 16:14:40.640 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem - null null
+2025-02-21 16:14:40.641 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 16:14:40.645 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 16:14:40.649 -05:00 [INF] Route matched with {action = "GetAllMenuItems", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenuItems() on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 16:14:40.651 -05:00 [INF] Fetching all menu items.
+2025-02-21 16:14:40.679 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+2025-02-21 16:14:40.682 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 16:14:40.685 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API) in 35.7898ms
+2025-02-21 16:14:40.686 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 16:14:40.686 -05:00 [INF] HTTP GET /api/MenuItem responded 200 in 44.5990 ms
+2025-02-21 16:14:40.686 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem - 200 null application/json; charset=utf-8 46.3625ms
+2025-02-21 16:20:36.225 -05:00 [INF] Application is shutting down...
+2025-02-21 16:20:41.527 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-21 16:20:41.645 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-21 16:20:41.647 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-21 16:20:41.648 -05:00 [INF] Hosting environment: Development
+2025-02-21 16:20:41.648 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-21 16:20:45.078 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem - null null
+2025-02-21 16:20:45.088 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 16:20:45.105 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-21 16:20:45.188 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 16:20:45.202 -05:00 [INF] Route matched with {action = "GetAllMenuItems", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenuItems() on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 16:20:45.204 -05:00 [INF] Fetching all menu items.
+2025-02-21 16:20:45.323 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-21 16:20:52.298 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-21 16:20:52.875 -05:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price", m0."Id", m0."ImageUrl", m0."MenuItemId"
+FROM "MenuItems" AS m
+LEFT JOIN "MenuItemImage" AS m0 ON m."Id" = m0."MenuItemId"
+ORDER BY m."Id"
+2025-02-21 16:20:52.986 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 16:20:53.057 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API) in 7852.7049ms
+2025-02-21 16:20:53.058 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 16:20:53.061 -05:00 [INF] HTTP GET /api/MenuItem responded 200 in 7970.7578 ms
+2025-02-21 16:20:53.070 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem - 200 null application/json; charset=utf-8 7993.3622ms
+2025-02-21 16:21:33.688 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-21 16:21:33.689 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 16:21:33.693 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 16:21:33.701 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-21 16:21:33.711 -05:00 [INF] Fetching restaurants with user ID 6 and role RestaurantOwner
+2025-02-21 16:21:33.873 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-21 16:21:33.878 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-21 16:21:33.880 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-21 16:21:33.894 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-21 16:21:33.919 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='6', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-21 16:21:33.952 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 16:21:33.960 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 257.8652ms
+2025-02-21 16:21:33.960 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 16:21:33.961 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 271.6749 ms
+2025-02-21 16:21:33.961 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 273.7656ms
+2025-02-21 16:35:23.663 -05:00 [INF] Application is shutting down...
+2025-02-21 16:35:32.672 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-21 16:35:32.804 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-21 16:35:32.806 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-21 16:35:32.807 -05:00 [INF] Hosting environment: Development
+2025-02-21 16:35:32.807 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-21 16:35:36.507 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-21 16:35:36.516 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 16:35:36.534 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-21 16:35:36.620 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 16:35:36.639 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-21 16:35:36.650 -05:00 [INF] Fetching restaurants with user ID 6 and role RestaurantOwner
+2025-02-21 16:35:36.785 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-21 16:35:43.855 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-21 16:35:44.362 -05:00 [INF] Executed DbCommand (51ms) [Parameters=[@__userId_0='6'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-21 16:35:44.402 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-21 16:35:44.403 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-21 16:35:44.491 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-21 16:35:44.520 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='6', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-21 16:35:44.614 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 16:35:44.690 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 8048.3345ms
+2025-02-21 16:35:44.691 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 16:35:44.694 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 8174.6840 ms
+2025-02-21 16:35:44.702 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 8197.0743ms
+2025-02-21 16:37:13.284 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem - null null
+2025-02-21 16:37:13.310 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 16:37:13.332 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 16:37:13.336 -05:00 [INF] Route matched with {action = "GetAllMenuItems", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenuItems() on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 16:37:13.337 -05:00 [INF] Fetching all menu items.
+2025-02-21 16:37:13.364 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+2025-02-21 16:37:13.376 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 16:37:13.382 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API) in 45.6779ms
+2025-02-21 16:37:13.382 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 16:37:13.382 -05:00 [INF] HTTP GET /api/MenuItem responded 200 in 71.4312 ms
+2025-02-21 16:37:13.383 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem - 200 null application/json; charset=utf-8 98.5637ms
+2025-02-21 17:23:29.547 -05:00 [INF] Application is shutting down...
+2025-02-21 17:23:41.455 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-21 17:23:41.570 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-21 17:23:41.574 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-21 17:23:41.575 -05:00 [INF] Hosting environment: Development
+2025-02-21 17:23:41.575 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-21 17:23:45.325 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem - null null
+2025-02-21 17:23:45.335 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 17:23:45.354 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-21 17:23:45.438 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:23:45'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-21 17:23:45.451 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:23:45'.
+2025-02-21 17:23:45.456 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 17:23:45.474 -05:00 [INF] Route matched with {action = "GetAllMenuItems", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenuItems() on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 17:23:45.476 -05:00 [INF] Fetching all menu items.
+2025-02-21 17:23:45.636 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-21 17:23:52.770 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-21 17:23:53.253 -05:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+FROM "MenuItems" AS m
+2025-02-21 17:23:53.367 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 17:23:53.455 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API) in 7977.9139ms
+2025-02-21 17:23:53.456 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 17:23:53.460 -05:00 [INF] HTTP GET /api/MenuItem responded 200 in 8120.9286 ms
+2025-02-21 17:23:53.469 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem - 200 null application/json; charset=utf-8 8145.1657ms
+2025-02-21 17:24:09.476 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-21 17:24:09.476 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 17:24:09.557 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:24:09'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-21 17:24:09.557 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:24:09'.
+2025-02-21 17:24:09.559 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 17:24:09.570 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-21 17:24:09.591 -05:00 [INF] Fetching restaurants with user ID null and role 
+2025-02-21 17:24:09.696 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+2025-02-21 17:24:09.712 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-21 17:24:09.713 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-21 17:24:09.790 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-21 17:24:09.850 -05:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_1='10', @__p_0='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s."Id", s."Description", s."Name", s."RestaurantId", s."Id0", s."Description0", s."MenuId", s."Name0", s."Price"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    LIMIT @__p_1 OFFSET @__p_0
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id" AS "Id0", m0."Description" AS "Description0", m0."MenuId", m0."Name" AS "Name0", m0."Price"
+    FROM "Menus" AS m
+    LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+) AS s ON r0."Id" = s."RestaurantId"
+ORDER BY r0."Id", s."Id"
+2025-02-21 17:24:09.896 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 17:24:09.904 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 334.0298ms
+2025-02-21 17:24:09.904 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 17:24:09.904 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 427.8902 ms
+2025-02-21 17:24:09.905 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 429.5791ms
+2025-02-21 17:27:58.963 -05:00 [INF] Application is shutting down...
+2025-02-21 17:28:09.250 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-21 17:28:09.387 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-21 17:28:09.389 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-21 17:28:09.390 -05:00 [INF] Hosting environment: Development
+2025-02-21 17:28:09.390 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-21 17:28:20.397 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem - null null
+2025-02-21 17:28:20.413 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 17:28:20.432 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-21 17:28:20.516 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:28:20'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-21 17:28:20.529 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:28:20'.
+2025-02-21 17:28:20.533 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 17:28:20.551 -05:00 [INF] Route matched with {action = "GetAllMenuItems", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenuItems() on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 17:28:20.554 -05:00 [INF] Fetching all menu items.
+2025-02-21 17:28:20.721 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-21 17:28:27.843 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-21 17:28:28.463 -05:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price", m0."Id", m0."ImageUrl", m0."MenuItemId"
+FROM "MenuItems" AS m
+LEFT JOIN "MenuItemImage" AS m0 ON m."Id" = m0."MenuItemId"
+ORDER BY m."Id"
+2025-02-21 17:28:28.595 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 17:28:28.676 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API) in 8121.5958ms
+2025-02-21 17:28:28.677 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 17:28:28.680 -05:00 [INF] HTTP GET /api/MenuItem responded 200 in 8263.8045 ms
+2025-02-21 17:28:28.689 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem - 200 null application/json; charset=utf-8 8293.4629ms
+2025-02-21 17:34:34.349 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem/20 - null null
+2025-02-21 17:34:34.350 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 17:34:34.353 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:34:34'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-21 17:34:34.353 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:34:34'.
+2025-02-21 17:34:34.355 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API)'
+2025-02-21 17:34:34.363 -05:00 [INF] Route matched with {action = "GetMenuItemById", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMenuItemById(Int32) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 17:34:34.368 -05:00 [INF] Fetching menu item with ID 20
+2025-02-21 17:34:34.463 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[@__id_0='20'], CommandType='"Text"', CommandTimeout='30']
+SELECT m1."Id", m1."Description", m1."MenuId", m1."Name", m1."Price", m0."Id", m0."ImageUrl", m0."MenuItemId"
+FROM (
+    SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+    FROM "MenuItems" AS m
+    WHERE m."Id" = @__id_0
+    LIMIT 1
+) AS m1
+LEFT JOIN "MenuItemImage" AS m0 ON m1."Id" = m0."MenuItemId"
+ORDER BY m1."Id"
+2025-02-21 17:34:34.469 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-21 17:34:34.473 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API) in 110.0261ms
+2025-02-21 17:34:34.473 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API)'
+2025-02-21 17:34:34.473 -05:00 [INF] HTTP GET /api/MenuItem/20 responded 200 in 123.3256 ms
+2025-02-21 17:34:34.474 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem/20 - 200 null application/json; charset=utf-8 124.9677ms
+2025-02-21 17:34:41.089 -05:00 [INF] Application is shutting down...
+2025-02-21 17:34:49.314 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-21 17:34:49.437 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-21 17:34:49.440 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-21 17:34:49.440 -05:00 [INF] Hosting environment: Development
+2025-02-21 17:34:49.440 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-21 17:35:27.189 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-21 17:35:27.199 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 17:35:27.216 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-21 17:35:27.294 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:35:27'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-21 17:35:27.320 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:35:27'.
+2025-02-21 17:35:27.325 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 17:35:27.347 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-21 17:35:27.359 -05:00 [INF] Fetching restaurants with user ID null and role 
+2025-02-21 17:35:27.493 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-21 17:35:34.700 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-21 17:35:35.204 -05:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+2025-02-21 17:35:35.275 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-21 17:35:35.276 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-21 17:35:35.383 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-21 17:35:35.471 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_1='10', @__p_0='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s0."Id", s0."Description", s0."Name", s0."RestaurantId", s0."Id0", s0."Description0", s0."MenuId", s0."Name0", s0."Price", s0."Id00", s0."ImageUrl", s0."MenuItemId"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    LIMIT @__p_1 OFFSET @__p_0
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", s."Id" AS "Id0", s."Description" AS "Description0", s."MenuId", s."Name" AS "Name0", s."Price", s."Id0" AS "Id00", s."ImageUrl", s."MenuItemId"
+    FROM "Menus" AS m
+    LEFT JOIN (
+        SELECT m0."Id", m0."Description", m0."MenuId", m0."Name", m0."Price", m1."Id" AS "Id0", m1."ImageUrl", m1."MenuItemId"
+        FROM "MenuItems" AS m0
+        LEFT JOIN "MenuItemImage" AS m1 ON m0."Id" = m1."MenuItemId"
+    ) AS s ON m."Id" = s."MenuId"
+) AS s0 ON r0."Id" = s0."RestaurantId"
+ORDER BY r0."Id", s0."Id", s0."Id0"
+2025-02-21 17:35:35.586 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 17:35:35.671 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 8320.6185ms
+2025-02-21 17:35:35.672 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 17:35:35.676 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 8472.6630 ms
+2025-02-21 17:35:35.684 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 8496.5194ms
+2025-02-21 17:42:13.507 -05:00 [INF] Application is shutting down...
+2025-02-21 17:42:23.131 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-21 17:42:23.255 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-21 17:42:23.258 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-21 17:42:23.259 -05:00 [INF] Hosting environment: Development
+2025-02-21 17:42:23.259 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-21 17:42:27.307 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-21 17:42:27.318 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 17:42:27.336 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-21 17:42:27.414 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:42:27'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-21 17:42:27.426 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:42:27'.
+2025-02-21 17:42:27.431 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 17:42:27.453 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-21 17:42:27.464 -05:00 [INF] Fetching restaurants with user ID null and role 
+2025-02-21 17:42:27.595 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-21 17:42:34.678 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-21 17:42:35.213 -05:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+2025-02-21 17:42:35.285 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-21 17:42:35.287 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-21 17:42:35.392 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-21 17:42:35.457 -05:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_1='10', @__p_0='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s0."Id", s0."Description", s0."Name", s0."RestaurantId", s0."Id0", s0."Description0", s0."MenuId", s0."Name0", s0."Price", s0."Id00", s0."ImageUrl", s0."MenuItemId"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    LIMIT @__p_1 OFFSET @__p_0
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", s."Id" AS "Id0", s."Description" AS "Description0", s."MenuId", s."Name" AS "Name0", s."Price", s."Id0" AS "Id00", s."ImageUrl", s."MenuItemId"
+    FROM "Menus" AS m
+    LEFT JOIN (
+        SELECT m0."Id", m0."Description", m0."MenuId", m0."Name", m0."Price", m1."Id" AS "Id0", m1."ImageUrl", m1."MenuItemId"
+        FROM "MenuItems" AS m0
+        LEFT JOIN "MenuItemImage" AS m1 ON m0."Id" = m1."MenuItemId"
+    ) AS s ON m."Id" = s."MenuId"
+) AS s0 ON r0."Id" = s0."RestaurantId"
+ORDER BY r0."Id", s0."Id", s0."Id0"
+2025-02-21 17:42:35.574 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 17:42:35.650 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 8193.6044ms
+2025-02-21 17:42:35.651 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 17:42:35.654 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 8332.8376 ms
+2025-02-21 17:42:35.662 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 8355.684ms
+2025-02-21 17:43:28.924 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants/11 - null null
+2025-02-21 17:43:28.924 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 17:43:28.928 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:43:28'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-21 17:43:28.928 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:43:28'.
+2025-02-21 17:43:28.930 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurantById (GrubPix.API)'
+2025-02-21 17:43:28.933 -05:00 [INF] Route matched with {action = "GetRestaurantById", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurantById(Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-21 17:43:28.935 -05:00 [INF] Fetching restaurant with ID 11
+2025-02-21 17:43:28.969 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-21 17:43:29.008 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='11'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s0."Id", s0."Description", s0."Name", s0."RestaurantId", s0."Id0", s0."Description0", s0."MenuId", s0."Name0", s0."Price", s0."Id00", s0."ImageUrl", s0."MenuItemId"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", s."Id" AS "Id0", s."Description" AS "Description0", s."MenuId", s."Name" AS "Name0", s."Price", s."Id0" AS "Id00", s."ImageUrl", s."MenuItemId"
+    FROM "Menus" AS m
+    LEFT JOIN (
+        SELECT m0."Id", m0."Description", m0."MenuId", m0."Name", m0."Price", m1."Id" AS "Id0", m1."ImageUrl", m1."MenuItemId"
+        FROM "MenuItems" AS m0
+        LEFT JOIN "MenuItemImage" AS m1 ON m0."Id" = m1."MenuItemId"
+    ) AS s ON m."Id" = s."MenuId"
+) AS s0 ON r0."Id" = s0."RestaurantId"
+ORDER BY r0."Id", s0."Id", s0."Id0"
+2025-02-21 17:43:29.042 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-21 17:43:29.046 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurantById (GrubPix.API) in 112.0155ms
+2025-02-21 17:43:29.046 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurantById (GrubPix.API)'
+2025-02-21 17:43:29.076 -05:00 [INF] HTTP GET /api/restaurants/11 responded 200 in 151.2420 ms
+2025-02-21 17:43:29.076 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants/11 - 200 null application/json; charset=utf-8 152.6428ms
+2025-02-21 17:45:15.818 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus - null null
+2025-02-21 17:45:15.819 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 17:45:15.821 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:45:15'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-21 17:45:15.828 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:45:15'.
+2025-02-21 17:45:15.830 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-21 17:45:15.833 -05:00 [INF] Route matched with {action = "GetAllMenus", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenus() on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-21 17:45:15.834 -05:00 [INF] Fetching all menus...
+2025-02-21 17:45:15.907 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+2025-02-21 17:45:15.912 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 17:45:15.935 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API) in 101.4054ms
+2025-02-21 17:45:15.935 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-21 17:45:15.935 -05:00 [INF] HTTP GET /api/menus responded 200 in 116.4936 ms
+2025-02-21 17:45:15.935 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus - 200 null application/json; charset=utf-8 117.2476ms
+2025-02-21 17:45:59.904 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem - null null
+2025-02-21 17:45:59.905 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 17:45:59.905 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:45:59'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-21 17:45:59.930 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:45:59'.
+2025-02-21 17:45:59.930 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 17:45:59.933 -05:00 [INF] Route matched with {action = "GetAllMenuItems", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenuItems() on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 17:45:59.935 -05:00 [INF] Fetching all menu items.
+2025-02-21 17:45:59.959 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price", m0."Id", m0."ImageUrl", m0."MenuItemId"
+FROM "MenuItems" AS m
+LEFT JOIN "MenuItemImage" AS m0 ON m."Id" = m0."MenuItemId"
+ORDER BY m."Id"
+2025-02-21 17:45:59.986 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 17:45:59.988 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API) in 54.4708ms
+2025-02-21 17:45:59.988 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetAllMenuItems (GrubPix.API)'
+2025-02-21 17:45:59.988 -05:00 [INF] HTTP GET /api/MenuItem responded 200 in 83.6868 ms
+2025-02-21 17:45:59.989 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem - 200 null application/json; charset=utf-8 84.251ms
+2025-02-21 17:46:09.302 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/MenuItem/20 - null null
+2025-02-21 17:46:09.303 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 17:46:09.303 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:46:09'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-21 17:46:09.330 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:46:09'.
+2025-02-21 17:46:09.330 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API)'
+2025-02-21 17:46:09.333 -05:00 [INF] Route matched with {action = "GetMenuItemById", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMenuItemById(Int32) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-02-21 17:46:09.334 -05:00 [INF] Fetching menu item with ID 20
+2025-02-21 17:46:09.359 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='20'], CommandType='"Text"', CommandTimeout='30']
+SELECT m1."Id", m1."Description", m1."MenuId", m1."Name", m1."Price", m0."Id", m0."ImageUrl", m0."MenuItemId"
+FROM (
+    SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+    FROM "MenuItems" AS m
+    WHERE m."Id" = @__id_0
+    LIMIT 1
+) AS m1
+LEFT JOIN "MenuItemImage" AS m0 ON m1."Id" = m0."MenuItemId"
+ORDER BY m1."Id"
+2025-02-21 17:46:09.384 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-21 17:46:09.386 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API) in 52.1696ms
+2025-02-21 17:46:09.386 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.GetMenuItemById (GrubPix.API)'
+2025-02-21 17:46:09.386 -05:00 [INF] HTTP GET /api/MenuItem/20 responded 200 in 83.1413 ms
+2025-02-21 17:46:09.386 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/MenuItem/20 - 200 null application/json; charset=utf-8 83.6861ms
+2025-02-21 17:46:34.769 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants/11 - null null
+2025-02-21 17:46:34.769 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 17:46:34.770 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:46:34'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-21 17:46:34.780 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/21/2025 21:40:24', Current time (UTC): '02/21/2025 22:46:34'.
+2025-02-21 17:46:34.781 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurantById (GrubPix.API)'
+2025-02-21 17:46:34.781 -05:00 [INF] Route matched with {action = "GetRestaurantById", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurantById(Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-21 17:46:34.781 -05:00 [INF] Fetching restaurant with ID 11
+2025-02-21 17:46:34.786 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='11'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s0."Id", s0."Description", s0."Name", s0."RestaurantId", s0."Id0", s0."Description0", s0."MenuId", s0."Name0", s0."Price", s0."Id00", s0."ImageUrl", s0."MenuItemId"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", s."Id" AS "Id0", s."Description" AS "Description0", s."MenuId", s."Name" AS "Name0", s."Price", s."Id0" AS "Id00", s."ImageUrl", s."MenuItemId"
+    FROM "Menus" AS m
+    LEFT JOIN (
+        SELECT m0."Id", m0."Description", m0."MenuId", m0."Name", m0."Price", m1."Id" AS "Id0", m1."ImageUrl", m1."MenuItemId"
+        FROM "MenuItems" AS m0
+        LEFT JOIN "MenuItemImage" AS m1 ON m0."Id" = m1."MenuItemId"
+    ) AS s ON m."Id" = s."MenuId"
+) AS s0 ON r0."Id" = s0."RestaurantId"
+ORDER BY r0."Id", s0."Id", s0."Id0"
+2025-02-21 17:46:34.787 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-21 17:46:34.788 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurantById (GrubPix.API) in 6.737ms
+2025-02-21 17:46:34.788 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurantById (GrubPix.API)'
+2025-02-21 17:46:34.788 -05:00 [INF] HTTP GET /api/restaurants/11 responded 200 in 18.5032 ms
+2025-02-21 17:46:34.788 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants/11 - 200 null application/json; charset=utf-8 18.9971ms
+2025-02-21 20:36:39.178 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-21 20:36:39.179 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 20:36:39.309 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 129.5416 ms
+2025-02-21 20:36:39.309 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 130.991ms
+2025-02-21 20:40:48.745 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-21 20:40:48.745 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 20:40:48.753 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 7.9299 ms
+2025-02-21 20:40:48.754 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.7528ms
+2025-02-21 20:50:59.121 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus - null null
+2025-02-21 20:50:59.122 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 20:50:59.127 -05:00 [INF] No cached response available for this request.
+2025-02-21 20:50:59.128 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-21 20:50:59.146 -05:00 [INF] Route matched with {action = "GetAllMenus", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenus() on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-21 20:50:59.146 -05:00 [INF] Fetching all menus...
+2025-02-21 20:50:59.163 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+2025-02-21 20:50:59.165 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 20:50:59.198 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API) in 52.3427ms
+2025-02-21 20:50:59.198 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-21 20:50:59.199 -05:00 [INF] The response could not be cached for this request.
+2025-02-21 20:50:59.199 -05:00 [INF] HTTP GET /api/menus responded 200 in 76.8610 ms
+2025-02-21 20:50:59.199 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus - 200 null application/json; charset=utf-8 77.8434ms
+2025-02-21 20:51:21.215 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-21 20:51:21.215 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-21 20:51:21.216 -05:00 [INF] No cached response available for this request.
+2025-02-21 20:51:21.216 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 20:51:21.246 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-21 20:51:21.247 -05:00 [INF] Fetching restaurants with user ID null and role 
+2025-02-21 20:51:21.251 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+2025-02-21 20:51:21.254 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_1='10', @__p_0='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s0."Id", s0."Description", s0."Name", s0."RestaurantId", s0."Id0", s0."Description0", s0."MenuId", s0."Name0", s0."Price", s0."Id00", s0."ImageUrl", s0."MenuItemId"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    LIMIT @__p_1 OFFSET @__p_0
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", s."Id" AS "Id0", s."Description" AS "Description0", s."MenuId", s."Name" AS "Name0", s."Price", s."Id0" AS "Id00", s."ImageUrl", s."MenuItemId"
+    FROM "Menus" AS m
+    LEFT JOIN (
+        SELECT m0."Id", m0."Description", m0."MenuId", m0."Name", m0."Price", m1."Id" AS "Id0", m1."ImageUrl", m1."MenuItemId"
+        FROM "MenuItems" AS m0
+        LEFT JOIN "MenuItemImage" AS m1 ON m0."Id" = m1."MenuItemId"
+    ) AS s ON m."Id" = s."MenuId"
+) AS s0 ON r0."Id" = s0."RestaurantId"
+ORDER BY r0."Id", s0."Id", s0."Id0"
+2025-02-21 20:51:21.256 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-21 20:51:21.257 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 10.6837ms
+2025-02-21 20:51:21.257 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-21 20:51:21.257 -05:00 [INF] The response could not be cached for this request.
+2025-02-21 20:51:21.257 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 41.6781 ms
+2025-02-21 20:51:21.258 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 43.4527ms

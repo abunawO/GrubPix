@@ -32,6 +32,13 @@ namespace GrubPix.Infrastructure.Persistence
                 .HasForeignKey(mi => mi.MenuId)
                 .OnDelete(DeleteBehavior.Cascade); // Ensure this line exists
 
+            //MenuItem - MenuItemImages Relationship (One-to-Many) [NEWLY ADDED]
+            modelBuilder.Entity<MenuItem>()
+                .HasMany(mi => mi.Images)
+                .WithOne() // No navigation back to MenuItem to avoid cyclic dependency
+                .HasForeignKey(img => img.MenuItemId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             // User - Restaurant Relationship (One-to-Many)
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Restaurants) // A User can have many Restaurants

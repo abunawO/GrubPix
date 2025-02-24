@@ -12,7 +12,8 @@ namespace GrubPix.Application.Mappings
         {
             // Mapping for Menus
             CreateMap<CreateMenuDto, Menu>();
-            CreateMap<Menu, MenuDto>();
+            CreateMap<Menu, MenuDto>()
+                .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.MenuItems));
             CreateMap<UpdateMenuDto, Menu>();
 
             // Mapping for Restaurants
@@ -22,7 +23,9 @@ namespace GrubPix.Application.Mappings
 
             // Mapping for Menu Items
             CreateMap<CreateMenuItemDto, MenuItem>();
-            CreateMap<MenuItem, MenuItemDto>();
+            CreateMap<MenuItem, MenuItemDto>()
+                .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images));
+            CreateMap<MenuItemImage, MenuItemImageDto>();
             CreateMap<UpdateMenuItemDto, MenuItem>();
 
             // Mapping for Users

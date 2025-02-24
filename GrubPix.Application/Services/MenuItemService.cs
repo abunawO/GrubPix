@@ -9,6 +9,7 @@ using GrubPix.Domain.Entities;
 using GrubPix.Domain.Interfaces.Repositories;
 using GrubPix.Application.Exceptions;
 using GrubPix.Application.Services.Interfaces;
+using AutoMapper;
 
 namespace GrubPix.Application.Services
 {
@@ -20,6 +21,7 @@ namespace GrubPix.Application.Services
         private readonly IMenuItemRepository _menuItemRepository;
         private readonly IImageStorageService _imageStorageService;
         private readonly ILogger<MenuItemService> _logger;
+        private readonly IMapper _mapper;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MenuItemService"/> class.
@@ -27,11 +29,13 @@ namespace GrubPix.Application.Services
         public MenuItemService(
             IMenuItemRepository menuItemRepository,
             IImageStorageService imageStorageService,
-            ILogger<MenuItemService> logger)
+            ILogger<MenuItemService> logger,
+            IMapper mapper)
         {
             _menuItemRepository = menuItemRepository;
             _imageStorageService = imageStorageService;
             _logger = logger;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -41,15 +45,7 @@ namespace GrubPix.Application.Services
         public async Task<IEnumerable<MenuItemDto>> GetAllMenuItemsAsync()
         {
             var menuItems = await _menuItemRepository.GetAllAsync();
-            return menuItems.Select(item => new MenuItemDto
-            {
-                Id = item.Id,
-                Name = item.Name,
-                Description = item.Description,
-                Price = item.Price,
-                MenuId = item.MenuId,
-                ImageUrl = item.ImageUrl
-            }).ToList();
+            return _mapper.Map<IEnumerable<MenuItemDto>>(menuItems);
         }
 
         /// <summary>
@@ -67,15 +63,7 @@ namespace GrubPix.Application.Services
                 throw new NotFoundException($"Menu item with ID {id} not found.");
             }
 
-            return new MenuItemDto
-            {
-                Id = item.Id,
-                Name = item.Name,
-                Description = item.Description,
-                Price = item.Price,
-                MenuId = item.MenuId,
-                ImageUrl = item.ImageUrl
-            };
+            return _mapper.Map<MenuItemDto>(item);
         }
 
         /// <summary>
@@ -85,7 +73,7 @@ namespace GrubPix.Application.Services
         /// <param name="imageFile">The image file associated with the menu item.</param>
         /// <returns>A <see cref="MenuItemDto"/> object representing the newly created menu item.</returns>
         /// <exception cref="InternalServerErrorException">Thrown if an error occurs while creating the menu item.</exception>
-        public async Task<MenuItemDto> CreateMenuItemAsync(CreateMenuItemDto createMenuItemDto, IFormFile imageFile)
+        public async Task<MenuItemDto> CreateMenuItemAsync(CreateMenuItemDto createMenuItemDto, ICollection<IFormFile> imageFiles)
         {
             try
             {
@@ -94,13 +82,23 @@ namespace GrubPix.Application.Services
                     Name = createMenuItemDto.Name,
                     Description = createMenuItemDto.Description,
                     Price = createMenuItemDto.Price,
-                    MenuId = createMenuItemDto.MenuId
+                    MenuId = createMenuItemDto.MenuId,
+                    Images = new List<MenuItemImage>()
                 };
 
-                if (imageFile != null)
+                // Process multiple images
+                if (imageFiles != null && imageFiles.Count > 0)
                 {
-                    using var stream = imageFile.OpenReadStream();
-                    newItem.ImageUrl = await _imageStorageService.UploadImageAsync(stream);
+                    foreach (var file in imageFiles)
+                    {
+                        using var stream = file.OpenReadStream();
+                        var imageUrl = await _imageStorageService.UploadImageAsync(stream);
+
+                        newItem.Images.Add(new MenuItemImage
+                        {
+                            ImageUrl = imageUrl
+                        });
+                    }
                 }
 
                 await _menuItemRepository.AddAsync(newItem);
@@ -109,7 +107,7 @@ namespace GrubPix.Application.Services
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while creating the menu item.");
-                throw new InternalServerErrorException("An error occurred while creating the menu item. Please try again later.");
+                throw new InternalServerErrorException(ex.Message);
             }
         }
 
@@ -121,7 +119,7 @@ namespace GrubPix.Application.Services
         /// <param name="imageFile">The new image file associated with the menu item (optional).</param>
         /// <returns>A <see cref="MenuItemDto"/> object representing the updated menu item.</returns>
         /// <exception cref="NotFoundException">Thrown if the menu item with the specified ID is not found.</exception>
-        public async Task<MenuItemDto> UpdateMenuItemAsync(int id, UpdateMenuItemDto updateMenuItemDto, IFormFile imageFile)
+        public async Task<MenuItemDto> UpdateMenuItemAsync(int id, UpdateMenuItemDto updateMenuItemDto, ICollection<IFormFile> imageFiles)
         {
             var existingItem = await _menuItemRepository.GetByIdAsync(id);
             if (existingItem == null)
@@ -134,14 +132,19 @@ namespace GrubPix.Application.Services
             existingItem.Description = updateMenuItemDto.Description;
             existingItem.Price = updateMenuItemDto.Price;
 
-            if (imageFile != null)
+            // Process multiple images
+            if (imageFiles != null && imageFiles.Count > 0)
             {
-                using var stream = imageFile.OpenReadStream();
-                existingItem.ImageUrl = await _imageStorageService.UploadImageAsync(stream);
-            }
-            else
-            {
-                existingItem.ImageUrl = updateMenuItemDto.ImageUrl;
+                foreach (var file in imageFiles)
+                {
+                    using var stream = file.OpenReadStream();
+                    var imageUrl = await _imageStorageService.UploadImageAsync(stream);
+
+                    existingItem.Images.Add(new MenuItemImage
+                    {
+                        ImageUrl = imageUrl
+                    });
+                }
             }
 
             await _menuItemRepository.UpdateAsync(existingItem);
@@ -163,9 +166,23 @@ namespace GrubPix.Application.Services
                 throw new NotFoundException($"Menu item with ID {id} not found.");
             }
 
-            if (!string.IsNullOrEmpty(item.ImageUrl))
+            // Delete all associated images from storage
+            if (item.Images != null && item.Images.Any())
             {
-                await _imageStorageService.DeleteImageAsync(item.ImageUrl);
+                foreach (var image in item.Images)
+                {
+                    if (!string.IsNullOrEmpty(image.ImageUrl))
+                    {
+                        try
+                        {
+                            await _imageStorageService.DeleteImageAsync(image.ImageUrl);
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.LogError(ex, "Error deleting image {ImageUrl} for menu item {Id}.", image.ImageUrl, id);
+                        }
+                    }
+                }
             }
 
             await _menuItemRepository.DeleteAsync(item.Id);

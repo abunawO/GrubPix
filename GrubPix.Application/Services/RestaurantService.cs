@@ -1,3 +1,4 @@
+using AutoMapper;
 using GrubPix.Application.DTO;
 using GrubPix.Application.Exceptions;
 using GrubPix.Application.Interfaces.Services;
@@ -20,13 +21,15 @@ namespace GrubPix.Application.Services
         private readonly IMenuItemRepository _menuItemRepository;
         private readonly ILogger<RestaurantService> _logger;
         private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
 
         public RestaurantService(
             IRestaurantRepository restaurantRepository,
             IImageStorageService imageStorageService,
             IMenuRepository menuRepository,
             IMenuItemRepository menuItemRepository,
-            ILogger<RestaurantService> logger, IUserRepository userRepository)
+            ILogger<RestaurantService> logger, IUserRepository userRepository,
+            IMapper mapper)
         {
             _restaurantRepository = restaurantRepository;
             _imageStorageService = imageStorageService;
@@ -34,6 +37,7 @@ namespace GrubPix.Application.Services
             _menuItemRepository = menuItemRepository;
             _logger = logger;
             _userRepository = userRepository;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -43,61 +47,14 @@ namespace GrubPix.Application.Services
         {
             var restaurants = await _restaurantRepository.GetByUserIdAsync(name, sortBy, descending, page, pageSize, userId);
 
-            return restaurants.Select(r => new RestaurantDto
-            {
-                OwnerId = userId,
-                Id = r.Id,
-                Name = r.Name,
-                Address = r.Address,
-                ImageUrl = r.ImageUrl,
-                Description = r.Description,
-                Menus = r.Menus.Select(m => new MenuDto
-                {
-                    Id = m.Id,
-                    Name = m.Name,
-                    Description = m.Description,
-                    RestaurantId = m.RestaurantId,
-                    Items = m.MenuItems.Select(item => new MenuItemDto
-                    {
-                        Id = item.Id,
-                        Name = item.Name,
-                        Description = item.Description,
-                        Price = item.Price,
-                        MenuId = item.MenuId,
-                        ImageUrl = item.ImageUrl
-                    }).ToList()
-                }).ToList()
-            });
+            return _mapper.Map<IEnumerable<RestaurantDto>>(restaurants);
         }
 
         public async Task<IEnumerable<RestaurantDto>> GetRestaurantsAsync(string? name, string? sortBy, bool descending, int page, int pageSize)
         {
             var restaurants = await _restaurantRepository.GetAllAsync(name, sortBy, descending, page, pageSize);
 
-            return restaurants.Select(r => new RestaurantDto
-            {
-                Id = r.Id,
-                Name = r.Name,
-                Address = r.Address,
-                ImageUrl = r.ImageUrl,
-                Description = r.Description,
-                Menus = r.Menus.Select(m => new MenuDto
-                {
-                    Id = m.Id,
-                    Name = m.Name,
-                    Description = m.Description,
-                    RestaurantId = m.RestaurantId,
-                    Items = m.MenuItems.Select(item => new MenuItemDto
-                    {
-                        Id = item.Id,
-                        Name = item.Name,
-                        Description = item.Description,
-                        Price = item.Price,
-                        MenuId = item.MenuId,
-                        ImageUrl = item.ImageUrl
-                    }).ToList()
-                }).ToList()
-            });
+            return _mapper.Map<IEnumerable<RestaurantDto>>(restaurants);
         }
 
         /// <summary>
@@ -112,30 +69,7 @@ namespace GrubPix.Application.Services
                 throw new NotFoundException($"Restaurant with ID {id} not found.");
             }
 
-            return new RestaurantDto
-            {
-                Id = restaurant.Id,
-                Name = restaurant.Name,
-                Address = restaurant.Address,
-                ImageUrl = restaurant.ImageUrl,
-                Description = restaurant.Description,
-                Menus = restaurant.Menus.Select(m => new MenuDto
-                {
-                    Id = m.Id,
-                    Name = m.Name,
-                    Description = m.Description,
-                    RestaurantId = m.RestaurantId,
-                    Items = m.MenuItems.Select(item => new MenuItemDto
-                    {
-                        Id = item.Id,
-                        Name = item.Name,
-                        Description = item.Description,
-                        Price = item.Price,
-                        MenuId = item.MenuId,
-                        ImageUrl = item.ImageUrl
-                    }).ToList()
-                }).ToList()
-            };
+            return _mapper.Map<RestaurantDto>(restaurant);
         }
 
         /// <summary>

@@ -22,6 +22,6 @@ namespace GrubPix.Application.DTO
         [Required(ErrorMessage = "Menu ID is required.")]
         public int MenuId { get; set; }
 
-        public string ImageUrl { get; set; }
+        public ICollection<MenuItemImageDto> Images { get; set; } = new List<MenuItemImageDto>();
     }
 }

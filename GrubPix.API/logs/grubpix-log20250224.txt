@@ -1,0 +1,234 @@
+2025-02-24 08:39:31.812 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-02-24 08:39:31.832 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 08:39:31.934 -05:00 [INF] HTTP GET /index.html responded 200 in 102.0826 ms
+2025-02-24 08:39:31.935 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 123.1738ms
+2025-02-24 08:39:31.955 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-02-24 08:39:31.956 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 08:39:31.957 -05:00 [INF] HTTP GET /index.js responded 200 in 1.2255 ms
+2025-02-24 08:39:31.957 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 1.97ms
+2025-02-24 08:39:32.374 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-24 08:39:32.375 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 08:39:32.397 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 22.7848 ms
+2025-02-24 08:39:32.398 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.3972ms
+2025-02-24 08:40:38.439 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus - null null
+2025-02-24 08:40:38.440 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 08:40:38.441 -05:00 [INF] No cached response available for this request.
+2025-02-24 08:40:38.442 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-24 08:40:38.442 -05:00 [INF] Route matched with {action = "GetAllMenus", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenus() on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-24 08:40:38.443 -05:00 [INF] Fetching all menus...
+2025-02-24 08:40:38.462 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId"
+FROM "Menus" AS m
+2025-02-24 08:40:38.464 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 08:40:38.464 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API) in 22.1251ms
+2025-02-24 08:40:38.465 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-24 08:40:38.465 -05:00 [INF] The response could not be cached for this request.
+2025-02-24 08:40:38.465 -05:00 [INF] HTTP GET /api/menus responded 200 in 24.8791 ms
+2025-02-24 08:40:38.465 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus - 200 null application/json; charset=utf-8 25.7103ms
+2025-02-24 08:47:05.814 -05:00 [INF] Application is shutting down...
+2025-02-24 08:47:16.316 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 08:47:16.437 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 08:47:16.441 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 08:47:16.441 -05:00 [INF] Hosting environment: Development
+2025-02-24 08:47:16.442 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 08:47:18.985 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus - null null
+2025-02-24 08:47:18.995 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 08:47:19.013 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 08:47:19.031 -05:00 [INF] No cached response available for this request.
+2025-02-24 08:47:19.055 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-24 08:47:19.072 -05:00 [INF] Route matched with {action = "GetAllMenus", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenus() on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-24 08:47:19.074 -05:00 [INF] Fetching all menus...
+2025-02-24 08:47:19.657 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 08:47:20.272 -05:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId", m0."Id", m0."Description", m0."MenuId", m0."Name", m0."Price"
+FROM "Menus" AS m
+LEFT JOIN "MenuItems" AS m0 ON m."Id" = m0."MenuId"
+ORDER BY m."Id"
+2025-02-24 08:47:20.402 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 08:47:20.490 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API) in 1415.0779ms
+2025-02-24 08:47:20.490 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-24 08:47:20.491 -05:00 [INF] The response could not be cached for this request.
+2025-02-24 08:47:20.494 -05:00 [INF] HTTP GET /api/menus responded 200 in 1495.3719 ms
+2025-02-24 08:47:20.502 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus - 200 null application/json; charset=utf-8 1518.9397ms
+2025-02-24 08:48:22.299 -05:00 [INF] Application is shutting down...
+2025-02-24 08:48:29.107 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 08:48:29.209 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 08:48:29.213 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 08:48:29.213 -05:00 [INF] Hosting environment: Development
+2025-02-24 08:48:29.214 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 08:49:02.961 -05:00 [INF] Application is shutting down...
+2025-02-24 08:49:10.537 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 08:49:10.657 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 08:49:10.659 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 08:49:10.660 -05:00 [INF] Hosting environment: Development
+2025-02-24 08:49:10.660 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 08:49:23.147 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus - null null
+2025-02-24 08:49:23.157 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 08:49:23.176 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 08:49:23.195 -05:00 [INF] No cached response available for this request.
+2025-02-24 08:49:23.219 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-24 08:49:23.236 -05:00 [INF] Route matched with {action = "GetAllMenus", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenus() on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-24 08:49:23.238 -05:00 [INF] Fetching all menus...
+2025-02-24 08:49:23.881 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 08:49:24.326 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-24 08:49:24.515 -05:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId", s."Id", s."Description", s."MenuId", s."Name", s."Price", s."Id0", s."ImageUrl", s."MenuItemId"
+FROM "Menus" AS m
+LEFT JOIN (
+    SELECT m0."Id", m0."Description", m0."MenuId", m0."Name", m0."Price", m1."Id" AS "Id0", m1."ImageUrl", m1."MenuItemId"
+    FROM "MenuItems" AS m0
+    LEFT JOIN "MenuItemImage" AS m1 ON m0."Id" = m1."MenuItemId"
+) AS s ON m."Id" = s."MenuId"
+ORDER BY m."Id", s."Id"
+2025-02-24 08:49:24.661 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 08:49:24.743 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API) in 1504.0646ms
+2025-02-24 08:49:24.743 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-24 08:49:24.744 -05:00 [INF] The response could not be cached for this request.
+2025-02-24 08:49:24.747 -05:00 [INF] HTTP GET /api/menus responded 200 in 1586.8041 ms
+2025-02-24 08:49:24.755 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus - 200 null application/json; charset=utf-8 1609.8535ms
+2025-02-24 08:51:56.643 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 60
+2025-02-24 08:51:56.644 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 08:51:56.648 -05:00 [INF] CORS policy execution successful.
+2025-02-24 08:51:56.650 -05:00 [INF] Executing endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-24 08:51:56.683 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller AuthController (GrubPix.API).
+2025-02-24 08:51:56.716 -05:00 [INF] Login attempt for user3@example.com
+2025-02-24 08:51:56.721 -05:00 [INF] Authenticating user with email: user3@example.com
+2025-02-24 08:51:56.779 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[@__email_0='user3@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 08:51:56.791 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='user3@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-24 08:51:57.139 -05:00 [INF] Customer user3@example.com authenticated successfully
+2025-02-24 08:51:57.166 -05:00 [INF] User user3@example.com logged in successfully
+2025-02-24 08:51:57.167 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 08:51:57.169 -05:00 [INF] Executed action AuthController.Login (GrubPix.API) in 485.774ms
+2025-02-24 08:51:57.174 -05:00 [INF] Executed endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-24 08:51:57.174 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 530.3087 ms
+2025-02-24 08:51:57.175 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 532.3761ms
+2025-02-24 08:52:59.803 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/profile - null null
+2025-02-24 08:52:59.803 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 08:52:59.850 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API)'
+2025-02-24 08:52:59.853 -05:00 [INF] Route matched with {action = "GetProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfile() on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-24 08:52:59.855 -05:00 [INF] Fetching profile for Customer ID: 1
+2025-02-24 08:52:59.881 -05:00 [INF] Fetching customer with ID: 1
+2025-02-24 08:52:59.974 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."PasswordHash", c0."Role", c0."Username", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."PasswordHash", c."Role", c."Username"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-24 08:52:59.985 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTOs.CustomerDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 08:52:59.987 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API) in 133.9402ms
+2025-02-24 08:52:59.987 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API)'
+2025-02-24 08:52:59.987 -05:00 [INF] HTTP GET /api/customers/profile responded 200 in 184.5639 ms
+2025-02-24 08:52:59.988 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/profile - 200 null application/json; charset=utf-8 185.1162ms
+2025-02-24 08:53:11.617 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/favorites - null null
+2025-02-24 08:53:11.618 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 08:53:11.620 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API)'
+2025-02-24 08:53:11.627 -05:00 [INF] Route matched with {action = "GetFavorites", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFavorites() on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-24 08:53:11.628 -05:00 [INF] Fetching favorite items for Customer ID: 1
+2025-02-24 08:53:11.631 -05:00 [INF] Fetching favorite menu items for Customer ID: 1
+2025-02-24 08:53:11.641 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+FROM "FavoriteMenuItems" AS f
+INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+WHERE f."CustomerId" = @__customerId_0
+2025-02-24 08:53:11.682 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 08:53:11.683 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API) in 55.4446ms
+2025-02-24 08:53:11.683 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API)'
+2025-02-24 08:53:11.683 -05:00 [INF] HTTP GET /api/customers/favorites responded 200 in 65.6442 ms
+2025-02-24 08:53:11.684 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/favorites - 200 null application/json; charset=utf-8 66.2443ms
+2025-02-24 08:58:12.444 -05:00 [INF] Application is shutting down...
+2025-02-24 08:58:19.532 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 08:58:19.643 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 08:58:19.646 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 08:58:19.647 -05:00 [INF] Hosting environment: Development
+2025-02-24 08:58:19.647 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 08:58:20.953 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/favorites - null null
+2025-02-24 08:58:20.962 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 08:58:20.980 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 08:58:21.063 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API)'
+2025-02-24 08:58:21.078 -05:00 [INF] Route matched with {action = "GetFavorites", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFavorites() on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-24 08:58:21.082 -05:00 [INF] Fetching favorite items for Customer ID: 1
+2025-02-24 08:58:21.285 -05:00 [INF] Fetching favorite menu items for Customer ID: 1
+2025-02-24 08:58:21.700 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 08:58:22.339 -05:00 [INF] Executed DbCommand (54ms) [Parameters=[@__customerId_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Name", m."Description", m."Price", f."Id", m0."Id", m0."ImageUrl"
+FROM "FavoriteMenuItems" AS f
+INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+LEFT JOIN "MenuItemImage" AS m0 ON m."Id" = m0."MenuItemId"
+WHERE f."CustomerId" = @__customerId_0
+ORDER BY f."Id", m."Id"
+2025-02-24 08:58:22.395 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 08:58:22.482 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API) in 1400.7024ms
+2025-02-24 08:58:22.483 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API)'
+2025-02-24 08:58:22.486 -05:00 [INF] HTTP GET /api/customers/favorites responded 200 in 1520.6840 ms
+2025-02-24 08:58:22.495 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/favorites - 200 null application/json; charset=utf-8 1543.9192ms
+2025-02-24 08:58:33.758 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/menus - null null
+2025-02-24 08:58:33.759 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 08:58:33.763 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-24 08:58:33.767 -05:00 [INF] Route matched with {action = "GetAllMenus", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllMenus() on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-02-24 08:58:33.769 -05:00 [INF] Fetching all menus...
+2025-02-24 08:58:33.836 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-02-24 08:58:33.861 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Description", m."Name", m."RestaurantId", s."Id", s."Description", s."MenuId", s."Name", s."Price", s."Id0", s."ImageUrl", s."MenuItemId"
+FROM "Menus" AS m
+LEFT JOIN (
+    SELECT m0."Id", m0."Description", m0."MenuId", m0."Name", m0."Price", m1."Id" AS "Id0", m1."ImageUrl", m1."MenuItemId"
+    FROM "MenuItems" AS m0
+    LEFT JOIN "MenuItemImage" AS m1 ON m0."Id" = m1."MenuItemId"
+) AS s ON m."Id" = s."MenuId"
+ORDER BY m."Id", s."Id"
+2025-02-24 08:58:33.944 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 08:58:33.949 -05:00 [INF] Executed action GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API) in 181.6166ms
+2025-02-24 08:58:33.949 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.GetAllMenus (GrubPix.API)'
+2025-02-24 08:58:33.949 -05:00 [INF] HTTP GET /api/menus responded 200 in 190.6449 ms
+2025-02-24 08:58:33.950 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/menus - 200 null application/json; charset=utf-8 192.2851ms
+2025-02-24 08:59:06.077 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/customers/favorites/20 - null 0
+2025-02-24 08:59:06.078 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 08:59:06.080 -05:00 [INF] CORS policy execution successful.
+2025-02-24 08:59:06.084 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.AddToFavorites (GrubPix.API)'
+2025-02-24 08:59:06.091 -05:00 [INF] Route matched with {action = "AddToFavorites", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToFavorites(Int32) on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-24 08:59:06.097 -05:00 [INF] Add to favorites request for Customer ID: 1, MenuItem ID: 20
+2025-02-24 08:59:06.108 -05:00 [INF] Adding favorite for Customer ID: 1, MenuItem ID: 20
+2025-02-24 08:59:06.245 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='1', @p1='20'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "FavoriteMenuItems" ("CustomerId", "MenuItemId")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2025-02-24 08:59:06.267 -05:00 [INF] Added to favorites for Customer ID: 1, MenuItem ID: 20
+2025-02-24 08:59:06.267 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 08:59:06.269 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.AddToFavorites (GrubPix.API) in 177.641ms
+2025-02-24 08:59:06.269 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.AddToFavorites (GrubPix.API)'
+2025-02-24 08:59:06.269 -05:00 [INF] HTTP POST /api/customers/favorites/20 responded 200 in 190.9976 ms
+2025-02-24 08:59:06.269 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/customers/favorites/20 - 200 null application/json; charset=utf-8 191.9159ms
+2025-02-24 08:59:12.275 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/favorites - null null
+2025-02-24 08:59:12.275 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 08:59:12.276 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API)'
+2025-02-24 08:59:12.276 -05:00 [INF] Route matched with {action = "GetFavorites", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFavorites() on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-24 08:59:12.277 -05:00 [INF] Fetching favorite items for Customer ID: 1
+2025-02-24 08:59:12.278 -05:00 [INF] Fetching favorite menu items for Customer ID: 1
+2025-02-24 08:59:12.282 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Name", m."Description", m."Price", f."Id", m0."Id", m0."ImageUrl"
+FROM "FavoriteMenuItems" AS f
+INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+LEFT JOIN "MenuItemImage" AS m0 ON m."Id" = m0."MenuItemId"
+WHERE f."CustomerId" = @__customerId_0
+ORDER BY f."Id", m."Id"
+2025-02-24 08:59:12.284 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 08:59:12.284 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API) in 7.6363ms
+2025-02-24 08:59:12.284 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API)'
+2025-02-24 08:59:12.284 -05:00 [INF] HTTP GET /api/customers/favorites responded 200 in 8.7987 ms
+2025-02-24 08:59:12.285 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/favorites - 200 null application/json; charset=utf-8 9.3429ms

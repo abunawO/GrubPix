@@ -9,8 +9,8 @@ namespace GrubPix.Application.Services.Interfaces
     {
         Task<IEnumerable<MenuItemDto>> GetAllMenuItemsAsync();
         Task<MenuItemDto> GetMenuItemByIdAsync(int id);
-        Task<MenuItemDto> CreateMenuItemAsync(CreateMenuItemDto createMenuItemDto, IFormFile imageFile);
-        Task<MenuItemDto> UpdateMenuItemAsync(int id, UpdateMenuItemDto updateMenuItemDto, IFormFile imageFile);
+        Task<MenuItemDto> CreateMenuItemAsync(CreateMenuItemDto createMenuItemDto, ICollection<IFormFile> imageFiles);
+        Task<MenuItemDto> UpdateMenuItemAsync(int id, UpdateMenuItemDto updateMenuItemDto, ICollection<IFormFile> imageFiles);
         Task<bool> DeleteMenuItemAsync(int id);
     }
 }

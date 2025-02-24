@@ -20,6 +20,7 @@ namespace GrubPix.Infrastructure.Repositories
                 .Where(r => r.OwnerId == userId)
                 .Include(r => r.Menus)
                 .ThenInclude(m => m.MenuItems)
+                .ThenInclude(mi => mi.Images)
                 .AsQueryable();
 
             // Filtering
@@ -66,6 +67,7 @@ namespace GrubPix.Infrastructure.Repositories
             var query = _context.Restaurants
                 .Include(r => r.Menus)
                 .ThenInclude(m => m.MenuItems)
+                .ThenInclude(mi => mi.Images)
                 .AsQueryable();
 
             // Filtering by name
@@ -111,6 +113,7 @@ namespace GrubPix.Infrastructure.Repositories
             return await _context.Restaurants
                 .Include(r => r.Menus)
                     .ThenInclude(m => m.MenuItems)  // Ensure MenuItems are eagerly loaded
+                    .ThenInclude(mi => mi.Images)
                 .FirstOrDefaultAsync(r => r.Id == id);
         }
 

@@ -9,7 +9,8 @@ namespace GrubPix.Domain.Entities
 
         public int MenuId { get; set; }
         public Menu Menu { get; set; }  // Navigation property
-        public string ImageUrl { get; set; } = string.Empty; // New property for restaurant image
+        public ICollection<MenuItemImage> Images { get; set; } = new List<MenuItemImage>();
     }
+
 
 }
