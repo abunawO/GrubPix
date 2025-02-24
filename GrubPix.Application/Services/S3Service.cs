@@ -20,7 +20,7 @@ namespace GrubPix.Application.Services
 
         public async Task<string> UploadImageAsync(Stream imageStream)
         {
-            var fileName = Guid.NewGuid().ToString();
+            var fileName = Guid.NewGuid().ToString(); // Generate unique filename
 
             var request = new PutObjectRequest
             {
@@ -32,7 +32,12 @@ namespace GrubPix.Application.Services
 
             await _s3Client.PutObjectAsync(request);
 
-            return fileName;
+            return GetImageUrl(fileName); // Return full image URL
+        }
+
+        private string GetImageUrl(string fileName)
+        {
+            return $"https://{_bucketName}.s3.amazonaws.com/{fileName}";
         }
 
         public async Task<bool> DeleteImageAsync(string imageUrl)
