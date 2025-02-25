@@ -25,5 +25,7 @@ namespace GrubPix.Domain.Entities
         public string Role { get; set; }
         public bool IsVerified { get; set; } = false;
         public string? VerificationToken { get; set; }
+        public string? PasswordResetToken { get; set; }
+        public DateTime? ResetTokenExpiry { get; set; }
     }
 }

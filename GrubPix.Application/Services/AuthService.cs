@@ -1,7 +1,6 @@
 
 using AutoMapper;
 using GrubPix.Application.DTO;
-using GrubPix.Application.DTOs;
 using GrubPix.Application.Interfaces;
 using GrubPix.Application.Interfaces.Services;
 using GrubPix.Domain.Entities;
@@ -139,6 +138,84 @@ namespace GrubPix.Application.Services
             }
 
             throw new Exception("Invalid or expired verification token.");
+        }
+
+        public async Task<bool> ForgotPasswordAsync(string email)
+        {
+            _logger.LogInformation("ForgotPasswordAsync called for email: {Email}", email);
+
+            // Try finding the user by email
+            var user = await _userRepository.GetByEmailAsync(email);
+            var customer = await _customerRepository.GetCustomerByEmailAsync(email);
+
+            if (user == null && customer == null)
+            {
+                _logger.LogWarning("Password reset requested for non-existent email: {Email}", email);
+                return false; // Do not reveal if email exists
+            }
+
+            string resetToken = Guid.NewGuid().ToString(); // Generate token
+            DateTime expiry = DateTime.UtcNow.AddHours(1); // Token expires in 1 hour
+
+            if (user != null)
+            {
+                user.PasswordResetToken = resetToken;
+                user.ResetTokenExpiry = expiry;
+                await _userRepository.UpdateAsync(user);
+            }
+            else if (customer != null)
+            {
+                customer.PasswordResetToken = resetToken;
+                customer.ResetTokenExpiry = expiry;
+                await _customerRepository.UpdateAsync(customer);
+            }
+
+            // Generate reset link
+            var resetLink = $"https://grubpix.com/reset-password?token={resetToken}";
+            _logger.LogWarning("Password reset requested token: {token}", resetToken);
+
+            // Send password reset email
+            await _emailService.SendEmailAsync(email, "Password Reset Request",
+                $"Click <a href='{resetLink}'>here</a> to reset your password.");
+
+            _logger.LogInformation("Password reset email sent to {Email}", email);
+            return true;
+        }
+
+
+        public async Task<bool> ResetPasswordAsync(string token, string newPassword)
+        {
+            _logger.LogInformation("ResetPasswordAsync called for token: {Token}", token);
+
+            // Try finding the user or customer by reset token
+            var user = await _userRepository.GetByResetTokenAsync(token);
+            var customer = await _customerRepository.GetByResetTokenAsync(token);
+
+            if ((user == null || user.ResetTokenExpiry < DateTime.UtcNow) &&
+                (customer == null || customer.ResetTokenExpiry < DateTime.UtcNow))
+            {
+                _logger.LogWarning("Invalid or expired reset token used.");
+                return false;
+            }
+
+            if (user != null)
+            {
+                user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(newPassword);
+                user.PasswordResetToken = null;
+                user.ResetTokenExpiry = null;
+                await _userRepository.UpdateAsync(user);
+                _logger.LogInformation("Password reset successfully for user {Email}", user.Email);
+            }
+            else if (customer != null)
+            {
+                customer.PasswordHash = BCrypt.Net.BCrypt.HashPassword(newPassword);
+                customer.PasswordResetToken = null;
+                customer.ResetTokenExpiry = null;
+                await _customerRepository.UpdateAsync(customer);
+                _logger.LogInformation("Password reset successfully for customer {Email}", customer.Email);
+            }
+
+            return true;
         }
 
     }

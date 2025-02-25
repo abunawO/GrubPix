@@ -12,5 +12,6 @@ namespace GrubPix.Domain.Interfaces.Repositories
         Task<User?> GetByIdAsync(int id);
         Task<User> CreateUserAsync(User user);
         Task<User?> GetByVerificationTokenAsync(string token);
+        Task<User> GetByResetTokenAsync(string token);
     }
 }

@@ -1,8 +1,7 @@
 using MediatR;
-using GrubPix.Application.DTOs;
-using GrubPix.Application.Interfaces;
 using GrubPix.Application.Interfaces.Services;
 using GrubPix.Application.Exceptions;
+using GrubPix.Application.DTO;
 
 namespace GrubPix.Application.Features.Customer
 {

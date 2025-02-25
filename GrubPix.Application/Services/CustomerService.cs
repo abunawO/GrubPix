@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using GrubPix.Application.DTO;
-using GrubPix.Application.DTOs;
 using GrubPix.Application.Interfaces;
 using GrubPix.Application.Interfaces.Services;
 using GrubPix.Domain.Entities;

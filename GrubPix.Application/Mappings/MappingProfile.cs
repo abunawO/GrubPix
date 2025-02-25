@@ -1,7 +1,6 @@
 using AutoMapper;
 using GrubPix.Domain.Entities;   // Your domain models
 using GrubPix.Application.DTO;
-using GrubPix.Application.DTOs;
 using GrubPix.Application.Features.User;   // DTOs you'll map to
 
 namespace GrubPix.Application.Mappings

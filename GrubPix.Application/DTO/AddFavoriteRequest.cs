@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace GrubPix.Application.DTOs
+namespace GrubPix.Application.DTO
 {
     public class AddFavoriteRequest
     {

@@ -6,7 +6,6 @@ using MediatR;
 using GrubPix.Application.DTO;
 using GrubPix.Application.Features.Customer;
 using GrubPix.Application.Common;
-using GrubPix.Application.DTOs;
 
 namespace GrubPix.API.Controllers
 {

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GrubPix.Application.DTO;
-using GrubPix.Application.DTOs;
 
 namespace GrubPix.Application.Interfaces.Services
 {

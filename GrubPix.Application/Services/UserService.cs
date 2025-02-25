@@ -1,7 +1,6 @@
 using AutoMapper;
 using BCrypt.Net;
 using GrubPix.Application.DTO;
-using GrubPix.Application.DTOs;
 using GrubPix.Application.Exceptions;
 using GrubPix.Application.Interfaces;
 using GrubPix.Application.Interfaces.Services;

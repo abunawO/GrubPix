@@ -8,5 +8,7 @@ namespace GrubPix.Application.Interfaces.Services
         Task<BaseUserDto> RegisterAsync(RegisterDto dto);
         Task<BaseUserDto> AuthenticateAsync(LoginDto dto);
         Task<bool> VerifyEmailAsync(string token);
+        Task<bool> ForgotPasswordAsync(string email);
+        Task<bool> ResetPasswordAsync(string token, string newPassword);
     }
 }

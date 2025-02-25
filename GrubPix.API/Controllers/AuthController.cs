@@ -1,6 +1,7 @@
 using GrubPix.Application.Common;
 using GrubPix.Application.DTO;
 using GrubPix.Application.Exceptions;
+using GrubPix.Application.Features.Auth;
 using GrubPix.Application.Features.User;
 using GrubPix.Application.Services;
 using MediatR;
@@ -90,6 +91,46 @@ namespace GrubPix.API.Controllers
             {
                 return BadRequest(ApiResponse<object>.FailResponse(ex.Message));
             }
+        }
+
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto dto)
+        {
+            try
+            {
+                var result = await _mediator.Send(new ForgotPasswordCommand(dto.Email));
+                if (!result)
+                {
+                    return BadRequest(ApiResponse<object>.FailResponse("If your email exists, you will receive a reset link shortly."));
+                }
+                return Ok(ApiResponse<object>.SuccessResponse(null, "If your email exists, you will receive a reset link shortly."));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "forgot-password failed for {Email}", dto.Email);
+                return StatusCode(500, ApiResponse<object>.FailResponse(ex.Message));
+            }
+
+        }
+
+
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                if (!result)
+                    return BadRequest(ApiResponse<object>.FailResponse("Invalid or expired token."));
+
+                return Ok(ApiResponse<object>.SuccessResponse(null, "Password reset successful."));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "reset-password failed for {Email}", ex.Message);
+                return StatusCode(500, ApiResponse<object>.FailResponse(ex.Message));
+            }
+
         }
 
     }
