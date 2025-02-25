@@ -1345,3 +1345,9 @@ ORDER BY f."Id", m."Id"
 2025-02-25 12:04:06.111 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.GetFavorites (GrubPix.API)'
 2025-02-25 12:04:06.112 -05:00 [INF] HTTP GET /api/customers/favorites responded 200 in 16.1544 ms
 2025-02-25 12:04:06.113 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/favorites - 200 null application/json; charset=utf-8 17.9185ms
+2025-02-25 12:39:30.535 -05:00 [INF] Application is shutting down...
+2025-02-25 12:39:43.584 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-25 12:39:43.725 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-25 12:39:43.727 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 12:39:43.728 -05:00 [INF] Hosting environment: Development
+2025-02-25 12:39:43.728 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API

@@ -139,10 +139,4 @@ to test the API endpoints.
 
 ---
 
-## **🤝 Contributing**
-
-Contributions are welcome! Please fork the repository, create a new branch, and submit a pull request with your changes.
-
----
-
 **GrubPix – Because we eat with our eyes first!** 🍽️👀
