@@ -5,6 +5,7 @@ using GrubPix.Application.Exceptions;
 using GrubPix.Application.Interfaces;
 using GrubPix.Application.Interfaces.Services;
 using GrubPix.Application.Services.Interfaces;
+using GrubPix.Application.Utils;
 using GrubPix.Domain.Entities;
 using GrubPix.Domain.Interfaces.Repositories;
 using Microsoft.Extensions.Logging;
@@ -38,22 +39,6 @@ namespace GrubPix.Application.Services
         }
 
         /// <summary>
-        /// Create a hash password.
-        /// </summary>
-        public string HashPassword(string password)
-        {
-            return BCrypt.Net.BCrypt.HashPassword(password);
-        }
-
-        /// <summary>
-        /// Verifies a hash password.
-        /// </summary>
-        public bool VerifyPassword(string password, string hashedPassword)
-        {
-            return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
-        }
-
-        /// <summary>
         /// Authenticates a user and returns a JWT token.
         /// </summary>
         public async Task<BaseUserDto?> AuthenticateAsync(LoginDto dto)
@@ -62,7 +47,7 @@ namespace GrubPix.Application.Services
 
             // Try finding the user (Admin or RestaurantOwner)
             var user = await _userRepository.GetByEmailAsync(dto.Email);
-            if (user != null && BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
+            if (user != null && PasswordHelper.VerifyPassword(dto.Password, user.PasswordHash))
             {
                 _logger.LogInformation("User {Email} authenticated successfully", dto.Email);
 
@@ -74,7 +59,7 @@ namespace GrubPix.Application.Services
 
             // Try finding the customer if the user is not found
             var customer = await _customerRepository.GetCustomerByEmailAsync(dto.Email);
-            if (customer != null && BCrypt.Net.BCrypt.Verify(dto.Password, customer.PasswordHash))
+            if (customer != null && PasswordHelper.VerifyPassword(dto.Password, customer.PasswordHash))
             {
                 _logger.LogInformation("Customer {Email} authenticated successfully", dto.Email);
 
@@ -105,7 +90,7 @@ namespace GrubPix.Application.Services
             }
 
             string verificationToken = Guid.NewGuid().ToString(); // Generate email verification token
-            string passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+            string passwordHash = PasswordHelper.HashPassword(dto.Password);
 
             if (dto.Role == "Customer")
             {

@@ -7,6 +7,7 @@ using GrubPix.Domain.Entities;
 using GrubPix.Domain.Interfaces.Repositories;
 using Microsoft.Extensions.Logging;
 using GrubPix.Application.Exceptions;
+using GrubPix.Application.Utils;
 
 namespace GrubPix.Application.Services
 {
@@ -44,7 +45,7 @@ namespace GrubPix.Application.Services
                 throw new Exception("Email is already in use.");
 
             string verificationToken = Guid.NewGuid().ToString();
-            string passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+            string passwordHash = PasswordHelper.HashPassword(dto.Password);
 
             if (dto.Role == "Customer")
             {
@@ -89,7 +90,7 @@ namespace GrubPix.Application.Services
             _logger.LogInformation("Authenticating user with email: {Email}", dto.Email);
 
             var user = await _userRepository.GetByEmailAsync(dto.Email);
-            if (user != null && BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
+            if (user != null && PasswordHelper.VerifyPassword(dto.Password, user.PasswordHash))
             {
                 if (!user.IsVerified) throw new EmailNotVerifiedException();
 
@@ -100,7 +101,7 @@ namespace GrubPix.Application.Services
             }
 
             var customer = await _customerRepository.GetCustomerByEmailAsync(dto.Email);
-            if (customer != null && BCrypt.Net.BCrypt.Verify(dto.Password, customer.PasswordHash))
+            if (customer != null && PasswordHelper.VerifyPassword(dto.Password, customer.PasswordHash))
             {
                 if (!customer.IsVerified) throw new EmailNotVerifiedException();
 
@@ -200,7 +201,7 @@ namespace GrubPix.Application.Services
 
             if (user != null)
             {
-                user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(newPassword);
+                user.PasswordHash = PasswordHelper.HashPassword(newPassword);
                 user.PasswordResetToken = null;
                 user.ResetTokenExpiry = null;
                 await _userRepository.UpdateAsync(user);
@@ -208,7 +209,7 @@ namespace GrubPix.Application.Services
             }
             else if (customer != null)
             {
-                customer.PasswordHash = BCrypt.Net.BCrypt.HashPassword(newPassword);
+                customer.PasswordHash = PasswordHelper.HashPassword(newPassword);
                 customer.PasswordResetToken = null;
                 customer.ResetTokenExpiry = null;
                 await _customerRepository.UpdateAsync(customer);

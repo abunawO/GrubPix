@@ -1,7 +1,8 @@
 using AutoMapper;
 using GrubPix.Domain.Entities;   // Your domain models
 using GrubPix.Application.DTO;
-using GrubPix.Application.Features.User;   // DTOs you'll map to
+using GrubPix.Application.Features.User;
+using GrubPix.Application.Utils;   // DTOs you'll map to
 
 namespace GrubPix.Application.Mappings
 {
@@ -48,7 +49,7 @@ namespace GrubPix.Application.Mappings
 
             // Mapping for Authentication
             CreateMap<RegisterCommand, User>()
-                .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => BCrypt.Net.BCrypt.HashPassword(src.Password)));
+                .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => PasswordHelper.HashPassword(src.Password)));
 
             CreateMap<LoginCommand, UserDto>();
         }
