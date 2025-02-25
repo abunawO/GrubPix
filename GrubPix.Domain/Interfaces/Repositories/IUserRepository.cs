@@ -11,5 +11,6 @@ namespace GrubPix.Domain.Interfaces.Repositories
         Task<bool> DeleteAsync(int id);
         Task<User?> GetByIdAsync(int id);
         Task<User> CreateUserAsync(User user);
+        Task<User?> GetByVerificationTokenAsync(string token);
     }
 }

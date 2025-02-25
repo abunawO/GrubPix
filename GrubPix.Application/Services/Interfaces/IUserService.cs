@@ -10,11 +10,6 @@ namespace GrubPix.Application.Services.Interfaces
 
         Task<BaseUserDto> UpdateUserAsync(int id, UpdateUserDto dto);
         Task<bool> DeleteUserAsync(int id);
-        Task<BaseUserDto?> AuthenticateAsync(LoginDto dto);
-        Task<BaseUserDto> RegisterAsync(RegisterDto dto);
 
-        // Add Hashing & Verification methods
-        string HashPassword(string password);
-        bool VerifyPassword(string password, string hashedPassword);
     }
 }

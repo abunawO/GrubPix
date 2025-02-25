@@ -63,5 +63,10 @@ namespace GrubPix.Infrastructure.Repositories
             await _context.SaveChangesAsync();
             return true;
         }
+
+        public async Task<User?> GetByVerificationTokenAsync(string token)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.VerificationToken == token);
+        }
     }
 }

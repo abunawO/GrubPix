@@ -111,5 +111,10 @@ namespace GrubPix.Infrastructure.Repositories
             return await _context.Customers.FirstOrDefaultAsync(c => c.Username == username);
         }
 
+        public async Task<Customer?> GetByVerificationTokenAsync(string token)
+        {
+            return await _context.Customers.FirstOrDefaultAsync(c => c.VerificationToken == token);
+        }
+
     }
 }

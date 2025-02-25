@@ -373,3 +373,1041 @@ ORDER BY r0."Id", s0."Id", s0."Id0"
 2025-02-24 09:31:31.366 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
 2025-02-24 09:31:31.366 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 12.8301 ms
 2025-02-24 09:31:31.366 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 13.5449ms
+2025-02-24 09:42:43.613 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 110
+2025-02-24 09:42:43.614 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 09:42:43.614 -05:00 [INF] CORS policy execution successful.
+2025-02-24 09:42:43.615 -05:00 [INF] Executing endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-24 09:42:43.618 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller AuthController (GrubPix.API).
+2025-02-24 09:42:43.622 -05:00 [INF] Register attempt for user7@example.com
+2025-02-24 09:42:43.626 -05:00 [INF] Registering new user with email: user7@example.com
+2025-02-24 09:42:43.633 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='user7@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 09:42:43.927 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='user7@example.com' (Nullable = false), @p1='$2a$11$6Qih6Ls620AKonjHQc2l1ehMgnXUTle.u.YGdonSF9KtdbiNjzKFe' (Nullable = false), @p2='Admin' (Nullable = false), @p3='Richard Dixon' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-02-24 09:42:43.929 -05:00 [INF] User user7@example.com registered successfully
+2025-02-24 09:42:43.929 -05:00 [INF] User user7@example.com registered successfully
+2025-02-24 09:42:43.929 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 09:42:43.930 -05:00 [INF] Executed action AuthController.Register (GrubPix.API) in 311.7544ms
+2025-02-24 09:42:43.930 -05:00 [INF] Executed endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-24 09:42:43.930 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 316.5609 ms
+2025-02-24 09:42:43.931 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 317.2577ms
+2025-02-24 09:43:20.512 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 110
+2025-02-24 09:43:20.513 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 09:43:20.513 -05:00 [INF] CORS policy execution successful.
+2025-02-24 09:43:20.513 -05:00 [INF] Executing endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-24 09:43:20.513 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller AuthController (GrubPix.API).
+2025-02-24 09:43:20.514 -05:00 [INF] Register attempt for user7@example.com
+2025-02-24 09:43:20.515 -05:00 [INF] Registering new user with email: user7@example.com
+2025-02-24 09:43:20.516 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='user7@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 09:43:20.517 -05:00 [WRN] Attempted to register duplicate email: user7@example.com
+2025-02-24 09:43:20.525 -05:00 [ERR] Registration failed for user7@example.com
+System.Exception: Email already in use
+   at GrubPix.Application.Services.UserService.RegisterAsync(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/UserService.cs:line 101
+   at GrubPix.Application.Features.User.RegisterCommand.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/RegisterCommand.cs:line 44
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at AuthController.Register(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/AuthController.cs:line 28
+2025-02-24 09:43:20.531 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 09:43:20.533 -05:00 [INF] Executed action AuthController.Register (GrubPix.API) in 19.2307ms
+2025-02-24 09:43:20.533 -05:00 [INF] Executed endpoint 'AuthController.Register (GrubPix.API)'
+2025-02-24 09:43:20.533 -05:00 [INF] HTTP POST /api/auth/register responded 400 in 20.2371 ms
+2025-02-24 09:43:20.533 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 400 null application/json; charset=utf-8 20.7817ms
+2025-02-24 09:43:36.797 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 60
+2025-02-24 09:43:36.797 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 09:43:36.797 -05:00 [INF] CORS policy execution successful.
+2025-02-24 09:43:36.798 -05:00 [INF] Executing endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-24 09:43:36.798 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller AuthController (GrubPix.API).
+2025-02-24 09:43:36.798 -05:00 [INF] Login attempt for user7@example.com
+2025-02-24 09:43:36.799 -05:00 [INF] Authenticating user with email: user7@example.com
+2025-02-24 09:43:36.801 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='user7@example.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 09:43:36.937 -05:00 [INF] User user7@example.com authenticated successfully
+2025-02-24 09:43:36.937 -05:00 [INF] User user7@example.com logged in successfully
+2025-02-24 09:43:36.937 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 09:43:36.938 -05:00 [INF] Executed action AuthController.Login (GrubPix.API) in 139.7754ms
+2025-02-24 09:43:36.938 -05:00 [INF] Executed endpoint 'AuthController.Login (GrubPix.API)'
+2025-02-24 09:43:36.938 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 140.9457 ms
+2025-02-24 09:43:36.939 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 141.9566ms
+2025-02-24 11:23:18.020 -05:00 [INF] Application is shutting down...
+2025-02-24 12:08:21.408 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 12:08:21.550 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 12:08:21.553 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 12:08:21.553 -05:00 [INF] Hosting environment: Development
+2025-02-24 12:08:21.553 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 12:08:23.415 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-02-24 12:08:23.425 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 12:08:23.540 -05:00 [INF] HTTP GET /index.html responded 200 in 111.4501 ms
+2025-02-24 12:08:23.546 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 131.502ms
+2025-02-24 12:08:23.569 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-02-24 12:08:23.571 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 12:08:23.574 -05:00 [INF] HTTP GET /index.js responded 200 in 2.1222 ms
+2025-02-24 12:08:23.574 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 6.0433ms
+2025-02-24 12:08:23.754 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-24 12:08:23.754 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 12:08:23.906 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 151.9873 ms
+2025-02-24 12:08:23.907 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 153.0645ms
+2025-02-24 15:06:35.574 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 15:06:35.626 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 15:06:35.629 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 15:06:35.654 -05:00 [INF] CORS policy execution successful.
+2025-02-24 15:06:35.690 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 15:06:35.717 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 15:06:35.767 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 15:06:36.050 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 15:06:36.519 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 15:06:37.081 -05:00 [INF] Executed DbCommand (43ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 15:06:37.504 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='delorier.sj@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$OKQgqIl//BJNOr1PEao3SucngdCGPJiwsOrCtBTBoABd2EQsOMuYq' (Nullable = false), @p3='RestaurantOwner' (Nullable = false), @p4='Sam Delorier' (Nullable = false), @p5='367cd018-d456-4821-8d60-29711f55c701' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-24 15:06:37.528 -05:00 [INF] Sending verification email to delorier.sj@gmail.com
+2025-02-24 15:06:37.545 -05:00 [INF] Sending email to delorier.sj@gmail.com with subject: Verify Your Email - GrubPix
+2025-02-24 15:07:52.644 -05:00 [ERR] Failed to send email to delorier.sj@gmail.com with subject: Verify Your Email - GrubPix
+System.Net.Mail.SmtpException: Failure sending mail.
+ ---> System.Net.Sockets.SocketException (60): Operation timed out
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskToAsyncResult.End(IAsyncResult asyncResult)
+   at System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Mail.SmtpConnection.ConnectAndHandshakeAsyncResult.InitializeConnectionCallback(IAsyncResult result)
+--- End of stack trace from previous location ---
+   at System.Net.Mail.SmtpClient.ConnectCallback(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at GrubPix.Application.Services.EmailService.SendEmailAsync(String to, String subject, String body) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/EmailService.cs:line 60
+2025-02-24 15:07:52.659 -05:00 [INF] Verification email sent successfully to delorier.sj@gmail.com
+2025-02-24 15:07:52.670 -05:00 [INF] User delorier.sj@gmail.com registered successfully
+2025-02-24 15:07:52.676 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 15:07:52.713 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 76993.1587ms
+2025-02-24 15:07:52.714 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 15:07:52.716 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 77090.3582 ms
+2025-02-24 15:07:52.723 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 77149.7184ms
+2025-02-24 15:17:54.252 -05:00 [INF] Application is shutting down...
+2025-02-24 15:18:04.777 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 15:18:04.909 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 15:18:04.912 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 15:18:04.913 -05:00 [INF] Hosting environment: Development
+2025-02-24 15:18:04.913 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 15:18:25.368 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 15:18:25.379 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 15:18:25.394 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 15:18:25.411 -05:00 [INF] CORS policy execution successful.
+2025-02-24 15:18:25.436 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 15:18:25.458 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 15:18:25.529 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 15:18:25.767 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 15:18:26.218 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 15:18:26.809 -05:00 [INF] Executed DbCommand (51ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 15:18:27.279 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='delorier.sj@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$Ohg56LRFFSLsQx6gOF.DeeFmchAMErFkLSQDljnzfHyTlS8N5PjLu' (Nullable = false), @p3='RestaurantOwner' (Nullable = false), @p4='Sam Delorier' (Nullable = false), @p5='4d8249ee-9f3a-4f7c-baf2-9317af2a59f8' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-24 15:18:27.307 -05:00 [INF] Sending verification email to delorier.sj@gmail.com
+2025-02-24 15:18:27.311 -05:00 [INF] Sending email to delorier.sj@gmail.com with subject: Verify Your Email - GrubPix
+2025-02-24 15:19:15.005 -05:00 [INF] Application is shutting down...
+2025-02-24 15:19:42.319 -05:00 [ERR] Failed to send email to delorier.sj@gmail.com with subject: Verify Your Email - GrubPix
+System.Net.Mail.SmtpException: Failure sending mail.
+ ---> System.Net.Sockets.SocketException (60): Operation timed out
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskToAsyncResult.End(IAsyncResult asyncResult)
+   at System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Mail.SmtpConnection.ConnectAndHandshakeAsyncResult.InitializeConnectionCallback(IAsyncResult result)
+--- End of stack trace from previous location ---
+   at System.Net.Mail.SmtpClient.ConnectCallback(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at GrubPix.Application.Services.EmailService.SendEmailAsync(String to, String subject, String body) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/EmailService.cs:line 60
+2025-02-24 15:19:42.332 -05:00 [INF] Verification email sent successfully to delorier.sj@gmail.com
+2025-02-24 15:19:42.343 -05:00 [INF] User delorier.sj@gmail.com registered successfully
+2025-02-24 15:19:42.350 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 15:19:42.398 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 76938.2305ms
+2025-02-24 15:19:42.399 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 15:19:42.403 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 77021.4738 ms
+2025-02-24 15:19:42.411 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 77045.8677ms
+2025-02-24 15:20:14.289 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 15:20:14.396 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 15:20:14.398 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 15:20:14.399 -05:00 [INF] Hosting environment: Development
+2025-02-24 15:20:14.399 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 15:20:17.288 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 15:20:17.299 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 15:20:17.314 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 15:20:17.332 -05:00 [INF] CORS policy execution successful.
+2025-02-24 15:20:17.354 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 15:20:17.374 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 15:20:17.442 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 15:20:17.672 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 15:20:18.134 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 15:20:18.695 -05:00 [INF] Executed DbCommand (52ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 15:20:19.135 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='delorier.sj@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$9Pcl/R1Y6Ji4PNTMDP2le.AEPY06PPBGAJRhfvw2Q.xRj.g5IVlEa' (Nullable = false), @p3='RestaurantOwner' (Nullable = false), @p4='Sam Delorier' (Nullable = false), @p5='0cf6fab4-28d0-4b5f-aba0-bd6ccf5628e6' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-24 15:20:19.159 -05:00 [INF] Sending verification email to delorier.sj@gmail.com
+2025-02-24 15:20:19.162 -05:00 [INF] Sending email to delorier.sj@gmail.com with subject: Verify Your Email - GrubPix
+2025-02-24 15:20:19.669 -05:00 [ERR] Failed to send email to delorier.sj@gmail.com with subject: Verify Your Email - GrubPix
+System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Authentication Required. For more information, go to
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.EndSend(IAsyncResult result)
+   at System.Net.Mail.SendMailAsyncResult.SendMailFromCompleted(IAsyncResult result)
+--- End of stack trace from previous location ---
+   at System.Net.Mail.SendMailAsyncResult.End(IAsyncResult result)
+   at System.Net.Mail.SmtpClient.SendMailCallback(IAsyncResult result)
+--- End of stack trace from previous location ---
+   at GrubPix.Application.Services.EmailService.SendEmailAsync(String to, String subject, String body) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/EmailService.cs:line 60
+2025-02-24 15:20:19.681 -05:00 [INF] Verification email sent successfully to delorier.sj@gmail.com
+2025-02-24 15:20:19.692 -05:00 [INF] User delorier.sj@gmail.com registered successfully
+2025-02-24 15:20:19.699 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 15:20:19.748 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 2370.9469ms
+2025-02-24 15:20:19.749 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 15:20:19.753 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 2450.6654 ms
+2025-02-24 15:20:19.762 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 2475.9833ms
+2025-02-24 15:32:08.360 -05:00 [INF] Application is shutting down...
+2025-02-24 15:32:13.823 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 15:32:13.966 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 15:32:13.969 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 15:32:13.970 -05:00 [INF] Hosting environment: Development
+2025-02-24 15:32:13.970 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 15:33:49.714 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 15:33:49.726 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 15:33:49.741 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 15:33:49.758 -05:00 [INF] CORS policy execution successful.
+2025-02-24 15:33:49.783 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 15:33:49.803 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 15:33:49.869 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 15:33:50.104 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 15:33:50.553 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 15:33:51.087 -05:00 [INF] Executed DbCommand (47ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 15:33:51.528 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='delorier.sj@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$WvrKQB/WvQw.jc1hISy5vOwPIS4Gm5KnyukATKftSU8rClaO7M0.O' (Nullable = false), @p3='RestaurantOwner' (Nullable = false), @p4='Sam Delorier' (Nullable = false), @p5='c0de0096-e5a5-4c89-967b-cd175075cedf' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-24 15:33:51.554 -05:00 [INF] Sending verification email to delorier.sj@gmail.com
+2025-02-24 15:33:51.559 -05:00 [INF] Sending email to delorier.sj@gmail.com with subject: Verify Your Email - GrubPix
+2025-02-24 15:33:52.007 -05:00 [ERR] Failed to send email to delorier.sj@gmail.com with subject: Verify Your Email - GrubPix
+System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Authentication Required. For more information, go to
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.EndSend(IAsyncResult result)
+   at System.Net.Mail.SendMailAsyncResult.SendMailFromCompleted(IAsyncResult result)
+--- End of stack trace from previous location ---
+   at System.Net.Mail.SendMailAsyncResult.End(IAsyncResult result)
+   at System.Net.Mail.SmtpClient.SendMailCallback(IAsyncResult result)
+--- End of stack trace from previous location ---
+   at GrubPix.Application.Services.EmailService.SendEmailAsync(String to, String subject, String body) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/EmailService.cs:line 60
+2025-02-24 15:33:52.020 -05:00 [INF] Verification email sent successfully to delorier.sj@gmail.com
+2025-02-24 15:33:52.030 -05:00 [INF] User delorier.sj@gmail.com registered successfully
+2025-02-24 15:33:52.037 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 15:33:52.087 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 2281.3122ms
+2025-02-24 15:33:52.088 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 15:33:52.092 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 2362.9956 ms
+2025-02-24 15:33:52.101 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 2388.8134ms
+2025-02-24 15:49:47.887 -05:00 [INF] Application is shutting down...
+2025-02-24 15:50:07.764 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 15:50:07.945 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 15:50:07.947 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 15:50:07.948 -05:00 [INF] Hosting environment: Development
+2025-02-24 15:50:07.948 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 15:50:29.213 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 15:50:29.223 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 15:50:29.239 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 15:50:29.255 -05:00 [INF] CORS policy execution successful.
+2025-02-24 15:50:29.281 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 15:50:29.300 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 15:50:29.365 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 15:50:29.593 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 15:50:30.041 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 15:50:30.570 -05:00 [INF] Executed DbCommand (44ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 15:50:30.655 -05:00 [ERR] Registration failed for delorier.sj@gmail.com
+System.Exception: Email is already in use.
+   at GrubPix.Application.Services.AuthService.RegisterAsync(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 44
+   at GrubPix.Application.Features.User.RegisterCommand.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/RegisterCommand.cs:line 45
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.AuthController.Register(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/AuthController.cs:line 32
+2025-02-24 15:50:30.676 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 15:50:30.709 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 1405.6704ms
+2025-02-24 15:50:30.711 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 15:50:30.714 -05:00 [INF] HTTP POST /api/auth/register responded 400 in 1487.4659 ms
+2025-02-24 15:50:30.722 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 400 null application/json; charset=utf-8 1511.4062ms
+2025-02-24 15:51:06.332 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 15:51:06.333 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 15:51:06.335 -05:00 [INF] CORS policy execution successful.
+2025-02-24 15:51:06.337 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 15:51:06.337 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 15:51:06.338 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 15:51:06.340 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 15:51:06.360 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 15:51:06.736 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='delorier.sj@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$aVYg4nuBnlVmYK4JQKWNdukGPfi4yLLChxspBGT2kYGOZITT4QTwi' (Nullable = false), @p3='RestaurantOwner' (Nullable = false), @p4='Sam Delorier' (Nullable = false), @p5='ec64171d-4ae3-4229-bb10-bb65678caec1' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-24 15:51:06.758 -05:00 [INF] Sending verification email to delorier.sj@gmail.com
+2025-02-24 15:51:06.763 -05:00 [INF] Sending email to delorier.sj@gmail.com with subject: Verify Your Email - GrubPix
+2025-02-24 15:51:07.394 -05:00 [ERR] Failed to send email to delorier.sj@gmail.com with subject: Verify Your Email - GrubPix
+System.Net.Mail.SmtpException: Failure sending mail.
+ ---> System.IO.IOException: Unable to read data from the transport connection: The connection was closed.
+   at System.Net.Mail.SmtpReplyReaderFactory.ReadLinesAsyncResult.ProcessRead()
+   at System.Net.Mail.SmtpReplyReaderFactory.ReadLinesAsyncResult.Read()
+   at System.Net.Mail.CheckCommand.BeginSend(SmtpConnection conn, AsyncCallback callback, Object state)
+   at System.Net.Mail.SendMailAsyncResult.SendMailFrom()
+   at System.Net.Mail.SmtpTransport.BeginSendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, AsyncCallback callback, Object state)
+   at System.Net.Mail.SmtpClient.SendMailAsync(Object state)
+   at System.Net.Mail.SmtpClient.ConnectCallback(IAsyncResult result)
+   --- End of inner exception stack trace ---
+   at GrubPix.Application.Services.EmailService.SendEmailAsync(String to, String subject, String body) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/EmailService.cs:line 60
+2025-02-24 15:51:07.396 -05:00 [INF] Verification email sent successfully to delorier.sj@gmail.com
+2025-02-24 15:51:07.406 -05:00 [INF] User delorier.sj@gmail.com registered successfully
+2025-02-24 15:51:07.407 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 15:51:07.424 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 1087.4378ms
+2025-02-24 15:51:07.425 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 15:51:07.425 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 1091.6823 ms
+2025-02-24 15:51:07.425 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 1093.3287ms
+2025-02-24 16:03:43.680 -05:00 [INF] Application is shutting down...
+2025-02-24 16:15:30.062 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 16:15:30.217 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 16:15:30.220 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 16:15:30.220 -05:00 [INF] Hosting environment: Development
+2025-02-24 16:15:30.220 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 16:15:34.731 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 16:15:34.744 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 16:15:34.762 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 16:15:34.782 -05:00 [INF] CORS policy execution successful.
+2025-02-24 16:15:34.809 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 16:15:34.833 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 16:15:34.903 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 16:15:35.152 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 16:15:35.589 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 16:15:36.200 -05:00 [INF] Executed DbCommand (53ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 16:15:36.282 -05:00 [ERR] Registration failed for delorier.sj@gmail.com
+System.Exception: Email is already in use.
+   at GrubPix.Application.Services.AuthService.RegisterAsync(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 44
+   at GrubPix.Application.Features.User.RegisterCommand.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/RegisterCommand.cs:line 45
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.AuthController.Register(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/AuthController.cs:line 32
+2025-02-24 16:15:36.299 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 16:15:36.335 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 1498.3447ms
+2025-02-24 16:15:36.336 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 16:15:36.340 -05:00 [INF] HTTP POST /api/auth/register responded 400 in 1592.1381 ms
+2025-02-24 16:15:36.348 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 400 null application/json; charset=utf-8 1618.2751ms
+2025-02-24 16:16:21.081 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 16:16:21.082 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 16:16:21.084 -05:00 [INF] CORS policy execution successful.
+2025-02-24 16:16:21.085 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 16:16:21.086 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 16:16:21.087 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 16:16:21.090 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 16:16:21.109 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 16:16:21.484 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='delorier.sj@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$4EnIlU4Rd/Ue2keozItw/OZuZaXNyDaEqGwi40U1Nt2CDfaER0DGq' (Nullable = false), @p3='RestaurantOwner' (Nullable = false), @p4='Sam Delorier' (Nullable = false), @p5='2be78af4-8448-4303-b683-5f9c0b9853f8' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-24 16:16:21.507 -05:00 [INF] Sending verification email to delorier.sj@gmail.com
+2025-02-24 16:16:21.511 -05:00 [ERR] Failed to send verification email to delorier.sj@gmail.com
+System.ArgumentNullException: Value cannot be null. (Parameter 'apiKey')
+   at SendGrid.SendGridClientOptions.set_ApiKey(String value)
+   at SendGrid.SendGridClient.buildOptions(String apiKey, String host, Dictionary`2 requestHeaders, String version, String urlPath, Boolean httpErrorAsException)
+   at SendGrid.SendGridClient..ctor(String apiKey, String host, Dictionary`2 requestHeaders, String version, String urlPath)
+   at GrubPix.Application.Services.EmailService.SendEmailAsync(String to, String subject, String body) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/EmailService.cs:line 46
+   at GrubPix.Application.Services.EmailService.SendVerificationEmail(String email, String token) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/EmailService.cs:line 32
+2025-02-24 16:16:21.519 -05:00 [INF] User delorier.sj@gmail.com registered successfully
+2025-02-24 16:16:21.520 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 16:16:21.545 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 458.8935ms
+2025-02-24 16:16:21.545 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 16:16:21.545 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 463.3135 ms
+2025-02-24 16:16:21.546 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 465.2626ms
+2025-02-24 16:20:51.649 -05:00 [INF] Application is shutting down...
+2025-02-24 16:20:57.351 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 16:20:57.481 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 16:20:57.484 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 16:20:57.484 -05:00 [INF] Hosting environment: Development
+2025-02-24 16:20:57.484 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 16:21:16.492 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 16:21:16.504 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 16:21:16.519 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 16:21:16.535 -05:00 [INF] CORS policy execution successful.
+2025-02-24 16:21:16.560 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 16:21:16.580 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 16:21:16.650 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 16:21:16.891 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 16:21:17.338 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 16:21:17.955 -05:00 [INF] Executed DbCommand (53ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 16:21:18.461 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='delorier.sj@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$wLormyIxWpXoSuIMS2bbv.bsAyuh7DUbB/EKaOnCg/7sU/DiWx9Au' (Nullable = false), @p3='RestaurantOwner' (Nullable = false), @p4='Sam Delorier' (Nullable = false), @p5='bbbae624-81d5-4671-a291-ff53014b77e2' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-24 16:21:18.484 -05:00 [INF] Sending verification email to delorier.sj@gmail.com
+2025-02-24 16:21:18.485 -05:00 [INF] Using SendGrid API Key: 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
+2025-02-24 16:21:19.076 -05:00 [ERR] Failed to send verification email to delorier.sj@gmail.com
+System.Exception: Failed to send email. Status Code: Unauthorized
+   at GrubPix.Application.Services.EmailService.SendEmailAsync(String to, String subject, String body) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/EmailService.cs:line 56
+   at GrubPix.Application.Services.EmailService.SendVerificationEmail(String email, String token) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/EmailService.cs:line 32
+2025-02-24 16:21:19.099 -05:00 [INF] User delorier.sj@gmail.com registered successfully
+2025-02-24 16:21:19.106 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 16:21:19.154 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 2570.8075ms
+2025-02-24 16:21:19.155 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 16:21:19.159 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 2651.6959 ms
+2025-02-24 16:21:19.167 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 2676.6236ms
+2025-02-24 16:23:51.789 -05:00 [INF] Application is shutting down...
+2025-02-24 16:23:56.713 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 16:23:56.847 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 16:23:56.849 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 16:23:56.850 -05:00 [INF] Hosting environment: Development
+2025-02-24 16:23:56.850 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 16:24:11.388 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 16:24:11.400 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 16:24:11.414 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 16:24:11.431 -05:00 [INF] CORS policy execution successful.
+2025-02-24 16:24:11.452 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 16:24:11.473 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 16:24:11.540 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 16:24:11.749 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 16:24:12.205 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 16:24:12.750 -05:00 [INF] Executed DbCommand (52ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 16:24:13.192 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='delorier.sj@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$tUfP6fDIseKRQXVqvKPm1uUt6jHmI./X1NBtLj.UZ4oNUxzn4Amhe' (Nullable = false), @p3='RestaurantOwner' (Nullable = false), @p4='Sam Delorier' (Nullable = false), @p5='93ae2471-06ba-4fed-a68a-99b94bd7294d' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-24 16:24:13.219 -05:00 [INF] Sending verification email to delorier.sj@gmail.com
+2025-02-24 16:24:13.220 -05:00 [INF] Using SendGrid API Key: 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
+2025-02-24 16:24:13.673 -05:00 [ERR] Failed to send verification email to delorier.sj@gmail.com
+System.Exception: Failed to send email. Status Code: Unauthorized
+   at GrubPix.Application.Services.EmailService.SendEmailAsync(String to, String subject, String body) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/EmailService.cs:line 56
+   at GrubPix.Application.Services.EmailService.SendVerificationEmail(String email, String token) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/EmailService.cs:line 32
+2025-02-24 16:24:13.695 -05:00 [INF] User delorier.sj@gmail.com registered successfully
+2025-02-24 16:24:13.703 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 16:24:13.751 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 2275.148ms
+2025-02-24 16:24:13.752 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 16:24:13.756 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 2353.0259 ms
+2025-02-24 16:24:13.764 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 2377.7746ms
+2025-02-24 16:50:45.754 -05:00 [INF] Application is shutting down...
+2025-02-24 16:50:53.066 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 16:50:53.187 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 16:50:53.190 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 16:50:53.191 -05:00 [INF] Hosting environment: Development
+2025-02-24 16:50:53.191 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 16:50:58.014 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 16:50:58.025 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 16:50:58.040 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 16:50:58.056 -05:00 [INF] CORS policy execution successful.
+2025-02-24 16:50:58.077 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 16:50:58.097 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 16:50:58.164 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 16:50:58.397 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 16:50:58.835 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 16:50:59.450 -05:00 [INF] Executed DbCommand (54ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 16:50:59.542 -05:00 [ERR] Registration failed for delorier.sj@gmail.com
+System.Exception: Email is already in use.
+   at GrubPix.Application.Services.AuthService.RegisterAsync(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 44
+   at GrubPix.Application.Features.User.RegisterCommand.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/RegisterCommand.cs:line 45
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.AuthController.Register(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/AuthController.cs:line 32
+2025-02-24 16:50:59.561 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 16:50:59.595 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 1495.816ms
+2025-02-24 16:50:59.597 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 16:50:59.601 -05:00 [INF] HTTP POST /api/auth/register responded 400 in 1572.6732 ms
+2025-02-24 16:50:59.609 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 400 null application/json; charset=utf-8 1597.0494ms
+2025-02-24 16:51:19.488 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 16:51:19.488 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 16:51:19.491 -05:00 [INF] CORS policy execution successful.
+2025-02-24 16:51:19.492 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 16:51:19.492 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 16:51:19.494 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 16:51:19.496 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 16:51:19.518 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 16:51:19.920 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='delorier.sj@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$L4bnxfMIjbWQwRscSkgtPuBpJ9WLWQGoUFnvn1ydxIGKR43DSyZXW' (Nullable = false), @p3='RestaurantOwner' (Nullable = false), @p4='Sam Delorier' (Nullable = false), @p5='dbf9833b-0a9a-4f52-b717-10e61ac71faf' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-24 16:51:19.941 -05:00 [INF] Sending verification email to delorier.sj@gmail.com
+2025-02-24 16:51:19.942 -05:00 [INF] Using SendGrid API Key: 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
+2025-02-24 16:51:20.462 -05:00 [INF] Verification email sent successfully to delorier.sj@gmail.com
+2025-02-24 16:51:20.469 -05:00 [INF] User delorier.sj@gmail.com registered successfully
+2025-02-24 16:51:20.469 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 16:51:20.484 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 991.1692ms
+2025-02-24 16:51:20.484 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 16:51:20.484 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 995.8076 ms
+2025-02-24 16:51:20.485 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 997.9403ms
+2025-02-24 17:03:02.641 -05:00 [INF] Application is shutting down...
+2025-02-24 17:03:11.431 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 17:03:11.553 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 17:03:11.557 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 17:03:11.558 -05:00 [INF] Hosting environment: Development
+2025-02-24 17:03:11.558 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 17:03:16.248 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 17:03:16.263 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 17:03:16.277 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 17:03:16.295 -05:00 [INF] CORS policy execution successful.
+2025-02-24 17:03:16.316 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 17:03:16.337 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 17:03:16.405 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 17:03:16.634 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 17:03:17.084 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 17:03:17.608 -05:00 [INF] Executed DbCommand (48ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 17:03:18.040 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='delorier.sj@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$uCEL9yzyQzo25ejD.lC2VOxqD7y1BhjOlNO5ydALmPP2di4Y1Qsc2' (Nullable = false), @p3='RestaurantOwner' (Nullable = false), @p4='Sam Delorier' (Nullable = false), @p5='81063981-ec02-4631-9338-c571bbf3f900' (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-24 17:03:18.065 -05:00 [INF] Generated verification link: /verify?token=81063981-ec02-4631-9338-c571bbf3f900
+2025-02-24 17:03:18.065 -05:00 [INF] Sending verification email to delorier.sj@gmail.com
+2025-02-24 17:03:18.066 -05:00 [INF] Using SendGrid API Key: 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
+2025-02-24 17:03:18.846 -05:00 [INF] Verification email sent successfully to delorier.sj@gmail.com
+2025-02-24 17:03:18.855 -05:00 [INF] User delorier.sj@gmail.com registered successfully
+2025-02-24 17:03:18.860 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 17:03:18.907 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 2567.0895ms
+2025-02-24 17:03:18.909 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 17:03:18.912 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 2646.0499 ms
+2025-02-24 17:03:18.921 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 2674.2822ms
+2025-02-24 17:03:53.878 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/verify - application/json 53
+2025-02-24 17:03:53.879 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 17:03:53.881 -05:00 [INF] CORS policy execution successful.
+2025-02-24 17:03:53.882 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API)'
+2025-02-24 17:03:53.888 -05:00 [INF] Route matched with {action = "VerifyEmail", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyEmail(GrubPix.API.Controllers.VerifyRequest) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 17:03:53.924 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__token_0='81063981-ec02-4631-9338-c571bbf3f900'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."VerificationToken" = @__token_0
+LIMIT 1
+2025-02-24 17:03:53.949 -05:00 [ERR] Failed executing DbCommand (10ms) [Parameters=[@p2='23', @p0='True', @p1=NULL (Nullable = false)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "IsVerified" = @p0, "VerificationToken" = @p1
+WHERE "Id" = @p2;
+2025-02-24 17:03:53.972 -05:00 [ERR] An exception occurred in the database while saving changes for context type 'GrubPix.Infrastructure.Persistence.GrubPixDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "VerificationToken" of relation "Users" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "VerificationToken" of relation "Users" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Users
+    ColumnName: VerificationToken
+    File: execMain.c
+    Line: 1898
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "VerificationToken" of relation "Users" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "VerificationToken" of relation "Users" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Users
+    ColumnName: VerificationToken
+    File: execMain.c
+    Line: 1898
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-02-24 17:03:53.988 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 17:03:53.991 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API) in 102.9004ms
+2025-02-24 17:03:53.991 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API)'
+2025-02-24 17:03:53.991 -05:00 [INF] HTTP POST /api/auth/verify responded 400 in 111.7354 ms
+2025-02-24 17:03:53.992 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/verify - 400 null application/json; charset=utf-8 113.0896ms
+2025-02-24 20:35:05.360 -05:00 [INF] Application is shutting down...
+2025-02-24 20:35:17.720 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-24 20:35:17.852 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-24 20:35:17.855 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-24 20:35:17.856 -05:00 [INF] Hosting environment: Development
+2025-02-24 20:35:17.856 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-24 20:35:19.575 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 123
+2025-02-24 20:35:19.586 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 20:35:19.602 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-24 20:35:19.619 -05:00 [INF] CORS policy execution successful.
+2025-02-24 20:35:19.645 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 20:35:19.666 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 20:35:19.737 -05:00 [INF] Register attempt for delorier.sj@gmail.com
+2025-02-24 20:35:19.988 -05:00 [INF] Registering new user with email: delorier.sj@gmail.com
+2025-02-24 20:35:20.486 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-24 20:35:21.100 -05:00 [INF] Executed DbCommand (55ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 20:35:21.577 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='delorier.sj@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$MulkPuuummRTmasxXkID4.NxY1YUbPulEwo0BhDYdJSCGpNf4AKcm' (Nullable = false), @p3='RestaurantOwner' (Nullable = false), @p4='Sam Delorier' (Nullable = false), @p5='16b535fb-1191-47f1-99e1-4c17d8336a8e'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-24 20:35:21.604 -05:00 [INF] Generated verification link: /verify?token=16b535fb-1191-47f1-99e1-4c17d8336a8e
+2025-02-24 20:35:21.604 -05:00 [INF] Sending verification email to delorier.sj@gmail.com
+2025-02-24 20:35:21.605 -05:00 [INF] Using SendGrid API Key: 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
+2025-02-24 20:35:22.449 -05:00 [INF] Verification email sent successfully to delorier.sj@gmail.com
+2025-02-24 20:35:22.458 -05:00 [INF] User delorier.sj@gmail.com registered successfully
+2025-02-24 20:35:22.465 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 20:35:22.520 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 2850.3831ms
+2025-02-24 20:35:22.521 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 20:35:22.525 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 2935.3563 ms
+2025-02-24 20:35:22.534 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 2959.5987ms
+2025-02-24 20:35:50.901 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/verify - application/json 53
+2025-02-24 20:35:50.902 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 20:35:50.904 -05:00 [INF] CORS policy execution successful.
+2025-02-24 20:35:50.905 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API)'
+2025-02-24 20:35:50.910 -05:00 [INF] Route matched with {action = "VerifyEmail", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyEmail(GrubPix.API.Controllers.VerifyRequest) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 20:35:50.924 -05:00 [INF] VerifyEmailAsync user with token: 16b535fb-1191-47f1-99e1-4c17d8336a8e
+2025-02-24 20:35:50.954 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__token_0='16b535fb-1191-47f1-99e1-4c17d8336a8e'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."VerificationToken" = @__token_0
+LIMIT 1
+2025-02-24 20:35:50.976 -05:00 [ERR] Failed executing DbCommand (6ms) [Parameters=[@p2='24', @p0='True', @p1=NULL], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "IsVerified" = @p0, "VerificationToken" = @p1
+WHERE "Id" = @p2;
+2025-02-24 20:35:50.998 -05:00 [ERR] An exception occurred in the database while saving changes for context type 'GrubPix.Infrastructure.Persistence.GrubPixDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "VerificationToken" of relation "Users" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "VerificationToken" of relation "Users" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Users
+    ColumnName: VerificationToken
+    File: execMain.c
+    Line: 1898
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "VerificationToken" of relation "Users" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "VerificationToken" of relation "Users" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Users
+    ColumnName: VerificationToken
+    File: execMain.c
+    Line: 1898
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-02-24 20:35:51.016 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 20:35:51.018 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API) in 107.6897ms
+2025-02-24 20:35:51.018 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API)'
+2025-02-24 20:35:51.018 -05:00 [INF] HTTP POST /api/auth/verify responded 400 in 116.0543 ms
+2025-02-24 20:35:51.019 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/verify - 400 null application/json; charset=utf-8 117.6594ms
+2025-02-24 20:40:30.369 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/verify - application/json 53
+2025-02-24 20:40:30.369 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 20:40:30.370 -05:00 [INF] CORS policy execution successful.
+2025-02-24 20:40:30.372 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API)'
+2025-02-24 20:40:30.372 -05:00 [INF] Route matched with {action = "VerifyEmail", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyEmail(GrubPix.API.Controllers.VerifyRequest) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 20:40:30.375 -05:00 [INF] VerifyEmailAsync user with token: 16b535fb-1191-47f1-99e1-4c17d8336a8e
+2025-02-24 20:40:30.440 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__token_0='16b535fb-1191-47f1-99e1-4c17d8336a8e'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."VerificationToken" = @__token_0
+LIMIT 1
+2025-02-24 20:40:30.443 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p2='24', @p0='True', @p1=NULL], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "IsVerified" = @p0, "VerificationToken" = @p1
+WHERE "Id" = @p2;
+2025-02-24 20:40:30.444 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 20:40:30.453 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API) in 80.9089ms
+2025-02-24 20:40:30.453 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API)'
+2025-02-24 20:40:30.453 -05:00 [INF] HTTP POST /api/auth/verify responded 200 in 84.4535 ms
+2025-02-24 20:40:30.454 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/verify - 200 null application/json; charset=utf-8 85.111ms
+2025-02-24 20:41:33.379 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 64
+2025-02-24 20:41:33.379 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 20:41:33.380 -05:00 [INF] CORS policy execution successful.
+2025-02-24 20:41:33.380 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-24 20:41:33.385 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 20:41:33.389 -05:00 [INF] Login attempt for delorier.sj@gmail.com
+2025-02-24 20:41:33.392 -05:00 [INF] Authenticating user with email: delorier.sj@gmail.com
+2025-02-24 20:41:33.394 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='delorier.sj@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 20:41:33.698 -05:00 [INF] User delorier.sj@gmail.com logged in successfully
+2025-02-24 20:41:33.698 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 20:41:33.699 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 312.7758ms
+2025-02-24 20:41:33.699 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-24 20:41:33.699 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 319.2591 ms
+2025-02-24 20:41:33.699 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 319.9002ms
+2025-02-24 20:42:03.782 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-02-24 20:42:03.782 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 20:42:03.826 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-24 20:42:03.831 -05:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-02-24 20:42:03.840 -05:00 [INF] Fetching restaurants with user ID 24 and role RestaurantOwner
+2025-02-24 20:42:03.875 -05:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-02-24 20:42:10.517 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='24'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-02-24 20:42:10.526 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 20:42:10.534 -05:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 6702.8622ms
+2025-02-24 20:42:10.534 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-02-24 20:42:10.534 -05:00 [INF] HTTP GET /api/restaurants responded 200 in 6752.0170 ms
+2025-02-24 20:42:10.534 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 6752.6003ms
+2025-02-24 20:45:16.412 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 109
+2025-02-24 20:45:16.413 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 20:45:16.413 -05:00 [INF] CORS policy execution successful.
+2025-02-24 20:45:16.414 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 20:45:16.414 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 20:45:16.414 -05:00 [INF] Register attempt for lexi@gmail.com
+2025-02-24 20:45:16.416 -05:00 [INF] Registering new user with email: lexi@gmail.com
+2025-02-24 20:45:16.417 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='lexi@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 20:45:16.578 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='lexi@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$Bfyusn0ZXp4Rn1Wa4YPF6.DRq.DRqkCa.l59aGtSVrAI7QxYeH5pu' (Nullable = false), @p3='Customer' (Nullable = false), @p4='Alexis Jones' (Nullable = false), @p5='f8111c8f-f193-4e57-8a47-9b888492bcd8'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Customers" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-24 20:45:16.580 -05:00 [INF] Generated verification link: /verify?token=f8111c8f-f193-4e57-8a47-9b888492bcd8
+2025-02-24 20:45:16.580 -05:00 [INF] Sending verification email to lexi@gmail.com
+2025-02-24 20:45:16.580 -05:00 [INF] Using SendGrid API Key: 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
+2025-02-24 20:45:17.093 -05:00 [INF] Verification email sent successfully to lexi@gmail.com
+2025-02-24 20:45:17.096 -05:00 [INF] User lexi@gmail.com registered successfully
+2025-02-24 20:45:17.097 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 20:45:17.097 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 683.3328ms
+2025-02-24 20:45:17.097 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 20:45:17.098 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 684.6233 ms
+2025-02-24 20:45:17.098 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 685.9692ms
+2025-02-24 20:47:31.634 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/verify - application/json 53
+2025-02-24 20:47:31.634 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 20:47:31.634 -05:00 [INF] CORS policy execution successful.
+2025-02-24 20:47:31.635 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API)'
+2025-02-24 20:47:31.635 -05:00 [INF] Route matched with {action = "VerifyEmail", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyEmail(GrubPix.API.Controllers.VerifyRequest) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 20:47:31.640 -05:00 [INF] VerifyEmailAsync user with token: f8111c8f-f193-4e57-8a47-9b888492bcd8
+2025-02-24 20:47:31.648 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__token_0='f8111c8f-f193-4e57-8a47-9b888492bcd8'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."VerificationToken" = @__token_0
+LIMIT 1
+2025-02-24 20:47:31.657 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__token_0='f8111c8f-f193-4e57-8a47-9b888492bcd8'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."VerificationToken" = @__token_0
+LIMIT 1
+2025-02-24 20:47:31.660 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p2='4', @p0='True', @p1=NULL], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Customers" SET "IsVerified" = @p0, "VerificationToken" = @p1
+WHERE "Id" = @p2;
+2025-02-24 20:47:31.661 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-24 20:47:31.661 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API) in 25.8807ms
+2025-02-24 20:47:31.661 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API)'
+2025-02-24 20:47:31.661 -05:00 [INF] HTTP POST /api/auth/verify responded 200 in 26.9652 ms
+2025-02-24 20:47:31.661 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/verify - 200 null application/json; charset=utf-8 27.45ms
+2025-02-24 20:48:05.887 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 57
+2025-02-24 20:48:05.888 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 20:48:05.888 -05:00 [INF] CORS policy execution successful.
+2025-02-24 20:48:05.888 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-24 20:48:05.888 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 20:48:05.888 -05:00 [INF] Login attempt for lexi@gmail.com
+2025-02-24 20:48:05.890 -05:00 [INF] Authenticating user with email: lexi@gmail.com
+2025-02-24 20:48:05.892 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='lexi@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 20:48:05.901 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='lexi@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-24 20:48:06.041 -05:00 [INF] User lexi@gmail.com logged in successfully
+2025-02-24 20:48:06.041 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 20:48:06.042 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 153.3768ms
+2025-02-24 20:48:06.042 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-24 20:48:06.042 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 154.3279 ms
+2025-02-24 20:48:06.042 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 154.9512ms
+2025-02-24 20:48:34.862 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/customers/profile - null null
+2025-02-24 20:48:34.862 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 20:48:34.867 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API)'
+2025-02-24 20:48:34.870 -05:00 [INF] Route matched with {action = "GetProfile", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfile() on controller GrubPix.API.Controllers.CustomerController (GrubPix.API).
+2025-02-24 20:48:34.871 -05:00 [INF] Fetching profile for Customer ID: 4
+2025-02-24 20:48:34.874 -05:00 [INF] Fetching customer with ID: 4
+2025-02-24 20:48:34.966 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='4'], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Email", c0."IsVerified", c0."PasswordHash", c0."Role", c0."Username", c0."VerificationToken", s."Id", s."CustomerId", s."MenuItemId", s."Id0", s."Description", s."MenuId", s."Name", s."Price"
+FROM (
+    SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+    FROM "Customers" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN (
+    SELECT f."Id", f."CustomerId", f."MenuItemId", m."Id" AS "Id0", m."Description", m."MenuId", m."Name", m."Price"
+    FROM "FavoriteMenuItems" AS f
+    INNER JOIN "MenuItems" AS m ON f."MenuItemId" = m."Id"
+) AS s ON c0."Id" = s."CustomerId"
+ORDER BY c0."Id", s."Id"
+2025-02-24 20:48:34.973 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTOs.CustomerDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 20:48:34.975 -05:00 [INF] Executed action GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API) in 104.5381ms
+2025-02-24 20:48:34.975 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.CustomerController.GetProfile (GrubPix.API)'
+2025-02-24 20:48:34.975 -05:00 [INF] HTTP GET /api/customers/profile responded 200 in 112.7689 ms
+2025-02-24 20:48:34.975 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/customers/profile - 200 null application/json; charset=utf-8 113.2308ms
+2025-02-24 21:00:39.848 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 113
+2025-02-24 21:00:39.848 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 21:00:39.848 -05:00 [INF] CORS policy execution successful.
+2025-02-24 21:00:39.849 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 21:00:39.849 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 21:00:39.849 -05:00 [INF] Register attempt for jashaun@gmail.com
+2025-02-24 21:00:39.850 -05:00 [INF] Registering new user with email: jashaun@gmail.com
+2025-02-24 21:00:39.858 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='jashaun@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 21:00:39.997 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='jashaun@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$DJwU5nFVZ165shPLcqM52eBrZ3yqjsifV32wXLzxQj4qTBBfHUsK.' (Nullable = false), @p3='Customer' (Nullable = false), @p4='Jashaun Jones' (Nullable = false), @p5='b32ab58d-7d81-4789-99aa-09e523aedbe1'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Customers" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-24 21:00:39.997 -05:00 [INF] Generated verification link: /verify?token=b32ab58d-7d81-4789-99aa-09e523aedbe1
+2025-02-24 21:00:39.997 -05:00 [INF] Sending verification email to jashaun@gmail.com
+2025-02-24 21:00:39.997 -05:00 [INF] Using SendGrid API Key: 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
+2025-02-24 21:00:40.308 -05:00 [INF] Verification email sent successfully to jashaun@gmail.com
+2025-02-24 21:00:40.309 -05:00 [INF] User jashaun@gmail.com registered successfully
+2025-02-24 21:00:40.309 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.UserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-24 21:00:40.309 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 460.2446ms
+2025-02-24 21:00:40.310 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-24 21:00:40.310 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 461.5329 ms
+2025-02-24 21:00:40.310 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 462.1142ms
+2025-02-24 21:01:02.524 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 60
+2025-02-24 21:01:02.524 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-24 21:01:02.525 -05:00 [INF] CORS policy execution successful.
+2025-02-24 21:01:02.525 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-24 21:01:02.525 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-24 21:01:02.525 -05:00 [INF] Login attempt for jashaun@gmail.com
+2025-02-24 21:01:02.526 -05:00 [INF] Authenticating user with email: jashaun@gmail.com
+2025-02-24 21:01:02.527 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='jashaun@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-24 21:01:02.529 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='jashaun@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-24 21:01:02.671 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 145.5425ms
+2025-02-24 21:01:02.671 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-24 21:01:02.673 -05:00 [ERR] HTTP POST /api/auth/login responded 500 in 148.7300 ms
+System.Exception: Please verify your email before logging in.
+   at GrubPix.Application.Services.AuthService.AuthenticateAsync(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 104
+   at GrubPix.Application.Features.User.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/LoginCommand.cs:line 40
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.AuthController.Login(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/AuthController.cs:line 52
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Program.<>c.<<<Main>$>b__0_7>d.MoveNext() in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Program.cs:line 177
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2025-02-24 21:01:02.685 -05:00 [ERR] An unhandled exception occurred.
+System.Exception: Please verify your email before logging in.
+   at GrubPix.Application.Services.AuthService.AuthenticateAsync(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 104
+   at GrubPix.Application.Features.User.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/LoginCommand.cs:line 40
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.AuthController.Login(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/AuthController.cs:line 52
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Program.<>c.<<<Main>$>b__0_7>d.MoveNext() in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Program.cs:line 177
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at CorrelationId.CorrelationIdMiddleware.Invoke(HttpContext context, ICorrelationContextFactory correlationContextFactory)
+   at GrubPix.API.Middleware.ExceptionHandlingMiddleware.Invoke(HttpContext context) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Middleware/ExceptionHandlingMiddleware.cs:line 26
+2025-02-24 21:01:02.691 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 500 null application/json 166.6847ms

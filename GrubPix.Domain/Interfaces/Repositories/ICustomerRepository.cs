@@ -17,5 +17,6 @@ namespace GrubPix.Application.Interfaces
         Task<Customer> UpdateAsync(Customer customer);
         Task<bool> DeleteAsync(int id);
         Task<Customer> GetCustomerByUsernameAsync(string username);
+        Task<Customer?> GetByVerificationTokenAsync(string token);
     }
 }

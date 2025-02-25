@@ -2,6 +2,7 @@
 using GrubPix.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GrubPix.Infrastructure.Migrations
 {
     [DbContext(typeof(GrubPixDbContext))]
-    partial class GrubPixDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250224162535_AddEmailVerificationFields")]
+    partial class AddEmailVerificationFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,6 +54,7 @@ namespace GrubPix.Infrastructure.Migrations
                         .HasColumnType("character varying(50)");
 
                     b.Property<string>("VerificationToken")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -224,6 +228,7 @@ namespace GrubPix.Infrastructure.Migrations
                         .HasColumnType("character varying(50)");
 
                     b.Property<string>("VerificationToken")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");

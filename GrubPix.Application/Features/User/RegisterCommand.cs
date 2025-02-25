@@ -1,11 +1,12 @@
 using AutoMapper;
 using GrubPix.Application.DTO;
+using GrubPix.Application.Interfaces.Services;
 using GrubPix.Application.Services.Interfaces;
 using MediatR;
 
 namespace GrubPix.Application.Features.User
 {
-    public class RegisterCommand : IRequest<UserDto>
+    public class RegisterCommand : IRequest<BaseUserDto>
     {
         public string Username { get; set; }
         public string Email { get; set; }
@@ -20,18 +21,18 @@ namespace GrubPix.Application.Features.User
             Role = role ?? "Customer";
         }
 
-        public class RegisterCommandHandler : IRequestHandler<RegisterCommand, UserDto>
+        public class RegisterCommandHandler : IRequestHandler<RegisterCommand, BaseUserDto>
         {
-            private readonly IUserService _userService;
             private readonly IMapper _mapper;
+            private readonly IAuthService _authService;
 
-            public RegisterCommandHandler(IUserService userService, IMapper mapper)
+            public RegisterCommandHandler(IAuthService authService, IMapper mapper)
             {
-                _userService = userService;
+                _authService = authService;
                 _mapper = mapper;
             }
 
-            public async Task<UserDto> Handle(RegisterCommand request, CancellationToken cancellationToken)
+            public async Task<BaseUserDto> Handle(RegisterCommand request, CancellationToken cancellationToken)
             {
                 var registerDto = new RegisterDto
                 {
@@ -41,8 +42,8 @@ namespace GrubPix.Application.Features.User
                     Role = request.Role ?? "Customer"
                 };
 
-                var baseUserDto = await _userService.RegisterAsync(registerDto);
-                return _mapper.Map<UserDto>(baseUserDto);
+                var baseUserDto = await _authService.RegisterAsync(registerDto);
+                return baseUserDto;
             }
         }
     }

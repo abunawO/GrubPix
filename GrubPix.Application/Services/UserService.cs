@@ -20,19 +20,22 @@ namespace GrubPix.Application.Services
         private readonly IMapper _mapper;
         private readonly IJwtService _jwtService;
         private readonly ILogger<UserService> _logger;
+        private readonly IEmailService _emailService;
+
 
         public UserService(
             IUserRepository userRepository,
             ICustomerRepository customerRepository,
             IMapper mapper,
             IJwtService jwtService,
-            ILogger<UserService> logger)
+            ILogger<UserService> logger, IEmailService emailService)
         {
             _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
             _customerRepository = customerRepository ?? throw new ArgumentNullException(nameof(customerRepository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _jwtService = jwtService ?? throw new ArgumentNullException(nameof(jwtService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _emailService = emailService;
         }
 
         /// <summary>
@@ -95,44 +98,53 @@ namespace GrubPix.Application.Services
         {
             _logger.LogInformation("Registering new user with email: {Email}", dto.Email);
 
+            // Check if email is already in use
             if (await _userRepository.GetByEmailAsync(dto.Email) != null)
             {
                 _logger.LogWarning("Attempted to register duplicate email: {Email}", dto.Email);
-                throw new Exception("Email already in use");
+                throw new Exception("Email is already in use.");
             }
+
+            string verificationToken = Guid.NewGuid().ToString(); // Generate email verification token
+            string passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
 
             if (dto.Role == "Customer")
             {
-                // Creating a Customer instead of a User
                 var customer = new Customer
                 {
                     Username = dto.Username,
                     Email = dto.Email,
                     Role = dto.Role,
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
+                    PasswordHash = passwordHash,
+                    IsVerified = false, // New accounts require email verification
+                    VerificationToken = verificationToken
                 };
 
                 var createdCustomer = await _customerRepository.CreateCustomerAsync(customer);
+                await _emailService.SendVerificationEmail(createdCustomer.Email, createdCustomer.VerificationToken);
+
                 _logger.LogInformation("Customer {Email} registered successfully", dto.Email);
-                return _mapper.Map<CustomerDto>(createdCustomer); // Adjust DTO mapping for customers
+                return _mapper.Map<CustomerDto>(createdCustomer);
             }
             else
             {
-                // Creating an Admin or RestaurantOwner
                 var user = new User
                 {
                     Username = dto.Username,
                     Email = dto.Email,
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
-                    Role = dto.Role // "Admin" or "RestaurantOwner"
+                    PasswordHash = passwordHash,
+                    Role = dto.Role, // Either "Admin" or "RestaurantOwner"
+                    IsVerified = false, // New accounts require email verification
+                    VerificationToken = verificationToken
                 };
 
                 var createdUser = await _userRepository.AddAsync(user);
+                await _emailService.SendVerificationEmail(createdUser.Email, createdUser.VerificationToken);
+
                 _logger.LogInformation("User {Email} registered successfully", dto.Email);
                 return _mapper.Map<UserDto>(createdUser);
             }
         }
-
 
         /// <summary>
         /// Updates an existing user.

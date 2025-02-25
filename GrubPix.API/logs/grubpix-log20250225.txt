@@ -1,0 +1,452 @@
+2025-02-25 09:03:55.385 -05:00 [INF] Application is shutting down...
+2025-02-25 09:04:06.630 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-25 09:04:06.763 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-25 09:04:06.767 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 09:04:06.768 -05:00 [INF] Hosting environment: Development
+2025-02-25 09:04:06.768 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-25 09:04:13.962 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 60
+2025-02-25 09:04:13.975 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-25 09:04:13.991 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-25 09:04:14.014 -05:00 [INF] CORS policy execution successful.
+2025-02-25 09:04:14.088 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/25/2025 02:48:06', Current time (UTC): '02/25/2025 14:04:14'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-25 09:04:14.100 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/25/2025 02:48:06', Current time (UTC): '02/25/2025 14:04:14'.
+2025-02-25 09:04:14.104 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:04:14.132 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-25 09:04:14.206 -05:00 [INF] Login attempt for jashaun@gmail.com
+2025-02-25 09:04:14.477 -05:00 [INF] Authenticating user with email: jashaun@gmail.com
+2025-02-25 09:04:14.973 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-25 09:04:15.597 -05:00 [INF] Executed DbCommand (53ms) [Parameters=[@__email_0='jashaun@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:04:15.634 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__email_0='jashaun@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:04:15.997 -05:00 [ERR] Error occurred while authenticating user jashaun@gmail.com
+System.Exception: Please verify your email before logging in.
+   at GrubPix.Application.Services.AuthService.AuthenticateAsync(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 107
+2025-02-25 09:04:16.007 -05:00 [WRN] Failed login attempt for jashaun@gmail.com
+2025-02-25 09:04:16.011 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-25 09:04:16.048 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 1911.781ms
+2025-02-25 09:04:16.049 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:04:16.053 -05:00 [INF] HTTP POST /api/auth/login responded 401 in 2074.6411 ms
+2025-02-25 09:04:16.062 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 401 null application/json; charset=utf-8 2103.1899ms
+2025-02-25 09:24:04.449 -05:00 [INF] Application is shutting down...
+2025-02-25 09:24:12.330 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-25 09:24:12.453 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-25 09:24:12.455 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 09:24:12.456 -05:00 [INF] Hosting environment: Development
+2025-02-25 09:24:12.456 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-25 09:24:14.941 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 60
+2025-02-25 09:24:14.953 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-25 09:24:14.975 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-25 09:24:14.997 -05:00 [INF] CORS policy execution successful.
+2025-02-25 09:24:15.062 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/25/2025 02:48:06', Current time (UTC): '02/25/2025 14:24:15'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-25 09:24:15.075 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/25/2025 02:48:06', Current time (UTC): '02/25/2025 14:24:15'.
+2025-02-25 09:24:15.079 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:24:15.100 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-25 09:24:15.166 -05:00 [INF] Login attempt for jashaun@gmail.com
+2025-02-25 09:24:15.395 -05:00 [INF] Authenticating user with email: jashaun@gmail.com
+2025-02-25 09:24:15.874 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-25 09:24:16.528 -05:00 [INF] Executed DbCommand (67ms) [Parameters=[@__email_0='jashaun@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:24:16.566 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='jashaun@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:24:16.958 -05:00 [ERR] Error occurred while authenticating user jashaun@gmail.com
+System.Exception: Please verify your email before logging in.
+   at GrubPix.Application.Services.AuthService.AuthenticateAsync(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 108
+2025-02-25 09:24:16.970 -05:00 [WRN] Failed login attempt for jashaun@gmail.com
+2025-02-25 09:24:16.975 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-25 09:24:17.008 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 1905.4826ms
+2025-02-25 09:24:17.010 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:24:17.013 -05:00 [INF] HTTP POST /api/auth/login responded 401 in 2057.0793 ms
+2025-02-25 09:24:17.022 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 401 null application/json; charset=utf-8 2083.0964ms
+2025-02-25 09:39:22.149 -05:00 [INF] Application is shutting down...
+2025-02-25 09:39:45.079 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-25 09:39:45.209 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-25 09:39:45.211 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 09:39:45.212 -05:00 [INF] Hosting environment: Development
+2025-02-25 09:39:45.212 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-25 09:39:49.483 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 60
+2025-02-25 09:39:49.497 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-25 09:39:49.512 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-25 09:39:49.529 -05:00 [INF] CORS policy execution successful.
+2025-02-25 09:39:49.597 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/25/2025 02:48:06', Current time (UTC): '02/25/2025 14:39:49'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-25 09:39:49.610 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/25/2025 02:48:06', Current time (UTC): '02/25/2025 14:39:49'.
+2025-02-25 09:39:49.614 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:39:49.634 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-25 09:39:49.700 -05:00 [INF] Login attempt for jashaun@gmail.com
+2025-02-25 09:39:49.933 -05:00 [INF] Authenticating user with email: jashaun@gmail.com
+2025-02-25 09:39:50.396 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-25 09:39:51.004 -05:00 [INF] Executed DbCommand (53ms) [Parameters=[@__email_0='jashaun@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:39:51.039 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='jashaun@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:39:51.405 -05:00 [ERR] Error occurred while authenticating user jashaun@gmail.com
+GrubPix.Application.Exceptions.EmailNotVerifiedException: Please verify your email before logging in.
+   at GrubPix.Application.Services.AuthService.AuthenticateAsync(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 108
+2025-02-25 09:39:51.411 -05:00 [WRN] Failed login attempt for jashaun@gmail.com
+2025-02-25 09:39:51.414 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-25 09:39:51.446 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 1808.9002ms
+2025-02-25 09:39:51.448 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:39:51.452 -05:00 [INF] HTTP POST /api/auth/login responded 401 in 1951.1552 ms
+2025-02-25 09:39:51.463 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 401 null application/json; charset=utf-8 1982.5625ms
+2025-02-25 09:40:40.219 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 57
+2025-02-25 09:40:40.220 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-25 09:40:40.223 -05:00 [INF] CORS policy execution successful.
+2025-02-25 09:40:40.224 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/25/2025 02:48:06', Current time (UTC): '02/25/2025 14:40:40'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-25 09:40:40.225 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02/25/2025 02:48:06', Current time (UTC): '02/25/2025 14:40:40'.
+2025-02-25 09:40:40.225 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:40:40.226 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-25 09:40:40.227 -05:00 [INF] Login attempt for lexi@gmail.com
+2025-02-25 09:40:40.229 -05:00 [INF] Authenticating user with email: lexi@gmail.com
+2025-02-25 09:40:40.258 -05:00 [INF] Executed DbCommand (13ms) [Parameters=[@__email_0='lexi@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:40:40.260 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='lexi@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:40:40.588 -05:00 [INF] User lexi@gmail.com logged in successfully
+2025-02-25 09:40:40.589 -05:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.BaseUserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-25 09:40:40.596 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 370.4154ms
+2025-02-25 09:40:40.596 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:40:40.597 -05:00 [INF] HTTP POST /api/auth/login responded 200 in 376.1257 ms
+2025-02-25 09:40:40.597 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 378.2269ms
+2025-02-25 09:43:17.218 -05:00 [INF] Application is shutting down...
+2025-02-25 09:43:27.070 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-25 09:43:27.205 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-25 09:43:27.208 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 09:43:27.209 -05:00 [INF] Hosting environment: Development
+2025-02-25 09:43:27.209 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-25 09:43:42.633 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 116
+2025-02-25 09:43:42.646 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-25 09:43:42.663 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-25 09:43:42.679 -05:00 [INF] CORS policy execution successful.
+2025-02-25 09:43:42.703 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-25 09:43:42.724 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-25 09:43:42.792 -05:00 [INF] Register attempt for jashaun3@gmail.com
+2025-02-25 09:43:43.028 -05:00 [INF] Registering new user with email: jashaun3@gmail.com
+2025-02-25 09:43:43.467 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-25 09:43:44.071 -05:00 [INF] Executed DbCommand (74ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:43:44.517 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='jashaun3@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$fYbgLprBPMKCMoLOGyzXeuIBD/17eXW2dTCMaS3z0zX9cxQPuXNwa' (Nullable = false), @p3='Customer' (Nullable = false), @p4='Jashaun Jones 3' (Nullable = false), @p5='c74f19a4-c0aa-43e9-a7fb-a05b40062c56'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Customers" ("Email", "IsVerified", "PasswordHash", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-02-25 09:43:44.542 -05:00 [INF] Generated verification link: /verify?token=c74f19a4-c0aa-43e9-a7fb-a05b40062c56
+2025-02-25 09:43:44.543 -05:00 [INF] Sending verification email to jashaun3@gmail.com
+2025-02-25 09:43:44.544 -05:00 [INF] Using SendGrid API Key: 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
+2025-02-25 09:43:45.320 -05:00 [INF] Verification email sent successfully to jashaun3@gmail.com
+2025-02-25 09:43:45.326 -05:00 [INF] User jashaun3@gmail.com registered successfully
+2025-02-25 09:43:45.332 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.BaseUserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-25 09:43:45.376 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 2649.1212ms
+2025-02-25 09:43:45.378 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-02-25 09:43:45.381 -05:00 [INF] HTTP POST /api/auth/register responded 201 in 2732.0401 ms
+2025-02-25 09:43:45.389 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 2757.2264ms
+2025-02-25 09:44:25.115 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 61
+2025-02-25 09:44:25.116 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-25 09:44:25.118 -05:00 [INF] CORS policy execution successful.
+2025-02-25 09:44:25.120 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:44:25.127 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-25 09:44:25.208 -05:00 [INF] Login attempt for jashaun3@gmail.com
+2025-02-25 09:44:25.288 -05:00 [INF] Authenticating user with email: jashaun3@gmail.com
+2025-02-25 09:44:25.327 -05:00 [INF] Executed DbCommand (16ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:44:25.357 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:44:25.736 -05:00 [ERR] Error occurred while authenticating user jashaun3@gmail.com
+GrubPix.Application.Exceptions.EmailNotVerifiedException: Please verify your email before logging in.
+   at GrubPix.Application.Services.AuthService.AuthenticateAsync(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 108
+2025-02-25 09:44:25.749 -05:00 [WRN] Failed login attempt for jashaun3@gmail.com
+2025-02-25 09:44:25.749 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-25 09:44:25.752 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 624.3606ms
+2025-02-25 09:44:25.752 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:44:25.752 -05:00 [INF] HTTP POST /api/auth/login responded 401 in 635.7263 ms
+2025-02-25 09:44:25.752 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 401 null application/json; charset=utf-8 637.765ms
+2025-02-25 09:49:11.249 -05:00 [INF] Application is shutting down...
+2025-02-25 09:49:17.531 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-25 09:49:17.647 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-25 09:49:17.650 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 09:49:17.651 -05:00 [INF] Hosting environment: Development
+2025-02-25 09:49:17.651 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-25 09:49:20.023 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 61
+2025-02-25 09:49:20.035 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-25 09:49:20.050 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-25 09:49:20.067 -05:00 [INF] CORS policy execution successful.
+2025-02-25 09:49:20.089 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:49:20.109 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-25 09:49:20.171 -05:00 [INF] Login attempt for jashaun3@gmail.com
+2025-02-25 09:49:20.392 -05:00 [INF] Authenticating user with email: jashaun3@gmail.com
+2025-02-25 09:49:20.820 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-25 09:49:21.357 -05:00 [INF] Executed DbCommand (46ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:49:21.391 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:49:21.786 -05:00 [ERR] Error occurred while authenticating user jashaun3@gmail.com
+GrubPix.Application.Exceptions.EmailNotVerifiedException: Please verify your email before logging in.
+   at GrubPix.Application.Services.AuthService.AuthenticateAsync(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 108
+2025-02-25 09:49:21.799 -05:00 [ERR] Login attempt failed for jashaun3@gmail.com
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at GrubPix.API.Controllers.AuthController.Login(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/AuthController.cs:line 58
+2025-02-25 09:49:21.806 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-25 09:49:21.840 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 1728.2565ms
+2025-02-25 09:49:21.842 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:49:21.845 -05:00 [ERR] HTTP POST /api/auth/login responded 500 in 1807.3233 ms
+2025-02-25 09:49:21.854 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 500 null application/json; charset=utf-8 1832.452ms
+2025-02-25 09:50:01.902 -05:00 [INF] Application is shutting down...
+2025-02-25 09:50:07.335 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-25 09:50:07.445 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-25 09:50:07.447 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 09:50:07.447 -05:00 [INF] Hosting environment: Development
+2025-02-25 09:50:07.448 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-25 09:50:10.179 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 61
+2025-02-25 09:50:10.190 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-25 09:50:10.206 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-25 09:50:10.222 -05:00 [INF] CORS policy execution successful.
+2025-02-25 09:50:10.244 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:50:10.264 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-25 09:50:10.331 -05:00 [INF] Login attempt for jashaun3@gmail.com
+2025-02-25 09:50:10.555 -05:00 [INF] Authenticating user with email: jashaun3@gmail.com
+2025-02-25 09:50:10.984 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-25 09:50:11.480 -05:00 [INF] Executed DbCommand (45ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:50:11.512 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:50:11.895 -05:00 [ERR] Error occurred while authenticating user jashaun3@gmail.com
+GrubPix.Application.Exceptions.EmailNotVerifiedException: Please verify your email before logging in.
+   at GrubPix.Application.Services.AuthService.AuthenticateAsync(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 108
+2025-02-25 09:50:11.906 -05:00 [ERR] Login attempt failed for jashaun3@gmail.com
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at GrubPix.API.Controllers.AuthController.Login(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/AuthController.cs:line 58
+2025-02-25 09:50:11.913 -05:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-25 09:50:11.945 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 1677.8917ms
+2025-02-25 09:50:11.946 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:50:11.950 -05:00 [ERR] HTTP POST /api/auth/login responded 500 in 1756.8027 ms
+2025-02-25 09:50:11.959 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 500 null application/json; charset=utf-8 1781.721ms
+2025-02-25 09:50:28.738 -05:00 [INF] Application is shutting down...
+2025-02-25 09:50:33.531 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-25 09:50:33.636 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-25 09:50:33.639 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 09:50:33.639 -05:00 [INF] Hosting environment: Development
+2025-02-25 09:50:33.639 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-25 09:50:35.186 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 61
+2025-02-25 09:50:35.198 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-25 09:50:35.213 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-25 09:50:35.230 -05:00 [INF] CORS policy execution successful.
+2025-02-25 09:50:35.251 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:50:35.271 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-25 09:50:35.334 -05:00 [INF] Login attempt for jashaun3@gmail.com
+2025-02-25 09:50:35.537 -05:00 [INF] Authenticating user with email: jashaun3@gmail.com
+2025-02-25 09:50:35.970 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-25 09:50:36.513 -05:00 [INF] Executed DbCommand (48ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:50:36.545 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:50:36.917 -05:00 [ERR] Error occurred while authenticating user jashaun3@gmail.com
+GrubPix.Application.Exceptions.EmailNotVerifiedException: Please verify your email before logging in.
+   at GrubPix.Application.Services.AuthService.AuthenticateAsync(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 108
+2025-02-25 09:50:36.929 -05:00 [WRN] Failed login attempt for jashaun3@gmail.com
+2025-02-25 09:50:36.936 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-25 09:50:36.968 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 1694.3018ms
+2025-02-25 09:50:36.970 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:50:36.973 -05:00 [INF] HTTP POST /api/auth/login responded 401 in 1772.4246 ms
+2025-02-25 09:50:36.982 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 401 null application/json; charset=utf-8 1796.9051ms
+2025-02-25 09:54:30.868 -05:00 [INF] Application is shutting down...
+2025-02-25 09:54:40.138 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-25 09:54:40.272 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-25 09:54:40.274 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 09:54:40.275 -05:00 [INF] Hosting environment: Development
+2025-02-25 09:54:40.275 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-25 09:54:43.674 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 61
+2025-02-25 09:54:43.685 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-25 09:54:43.699 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-25 09:54:43.716 -05:00 [INF] CORS policy execution successful.
+2025-02-25 09:54:43.738 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:54:43.757 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-25 09:54:43.823 -05:00 [INF] Login attempt for jashaun3@gmail.com
+2025-02-25 09:54:44.044 -05:00 [INF] Authenticating user with email: jashaun3@gmail.com
+2025-02-25 09:54:44.498 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-25 09:54:45.034 -05:00 [INF] Executed DbCommand (45ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:54:45.066 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:54:45.414 -05:00 [ERR] Error occurred while authenticating user jashaun3@gmail.com
+GrubPix.Application.Exceptions.EmailNotVerifiedException: Please verify your email before logging in.
+   at GrubPix.Application.Services.AuthService.AuthenticateAsync(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 108
+2025-02-25 09:54:45.424 -05:00 [WRN] Failed login attempt for jashaun3@gmail.com
+2025-02-25 09:54:45.429 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-25 09:54:45.461 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 1700.3624ms
+2025-02-25 09:54:45.462 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:54:45.466 -05:00 [INF] HTTP POST /api/auth/login responded 401 in 1777.8398 ms
+2025-02-25 09:54:45.474 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 401 null application/json; charset=utf-8 1801.6538ms
+2025-02-25 09:55:18.107 -05:00 [INF] Application is shutting down...
+2025-02-25 09:55:26.083 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-25 09:55:26.199 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-25 09:55:26.201 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 09:55:26.202 -05:00 [INF] Hosting environment: Development
+2025-02-25 09:55:26.202 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-25 09:55:27.406 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 61
+2025-02-25 09:55:27.417 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-25 09:55:27.432 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-25 09:55:27.449 -05:00 [INF] CORS policy execution successful.
+2025-02-25 09:55:27.471 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:55:27.491 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-25 09:55:27.555 -05:00 [INF] Login attempt for jashaun3@gmail.com
+2025-02-25 09:55:27.752 -05:00 [INF] Authenticating user with email: jashaun3@gmail.com
+2025-02-25 09:55:28.207 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-25 09:55:28.738 -05:00 [INF] Executed DbCommand (44ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:55:28.770 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:55:29.138 -05:00 [ERR] Error occurred while authenticating user jashaun3@gmail.com
+GrubPix.Application.Exceptions.EmailNotVerifiedException: Please verify your email before logging in.
+   at GrubPix.Application.Services.AuthService.AuthenticateAsync(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 108
+2025-02-25 09:55:29.147 -05:00 [WRN] Failed login attempt for jashaun3@gmail.com
+2025-02-25 09:55:29.153 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-25 09:55:29.185 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 1691.0552ms
+2025-02-25 09:55:29.186 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:55:29.190 -05:00 [INF] HTTP POST /api/auth/login responded 401 in 1769.5392 ms
+2025-02-25 09:55:29.199 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 401 null application/json; charset=utf-8 1794.1278ms
+2025-02-25 09:55:47.091 -05:00 [INF] Application is shutting down...
+2025-02-25 09:55:59.780 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-25 09:55:59.887 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-25 09:55:59.889 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 09:55:59.889 -05:00 [INF] Hosting environment: Development
+2025-02-25 09:55:59.890 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-25 09:56:01.253 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 61
+2025-02-25 09:56:01.264 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-25 09:56:01.279 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-25 09:56:01.297 -05:00 [INF] CORS policy execution successful.
+2025-02-25 09:56:01.318 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:56:01.338 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-25 09:56:01.407 -05:00 [INF] Login attempt for jashaun3@gmail.com
+2025-02-25 09:56:01.613 -05:00 [INF] Authenticating user with email: jashaun3@gmail.com
+2025-02-25 09:56:02.044 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-25 09:56:02.585 -05:00 [INF] Executed DbCommand (53ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:56:02.621 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-25 09:56:02.984 -05:00 [ERR] Error occurred while authenticating user jashaun3@gmail.com
+GrubPix.Application.Exceptions.EmailNotVerifiedException: Please verify your email before logging in.
+   at GrubPix.Application.Services.AuthService.AuthenticateAsync(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 108
+2025-02-25 09:56:02.994 -05:00 [WRN] Failed login attempt for jashaun3@gmail.com
+2025-02-25 09:56:03.000 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-25 09:56:03.033 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 1690.9862ms
+2025-02-25 09:56:03.034 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 09:56:03.038 -05:00 [INF] HTTP POST /api/auth/login responded 401 in 1770.2530 ms
+2025-02-25 09:56:03.046 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 401 null application/json; charset=utf-8 1794.817ms
+2025-02-25 09:59:53.328 -05:00 [INF] Application is shutting down...
+2025-02-25 10:00:05.741 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-25 10:00:05.864 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-25 10:00:05.867 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 10:00:05.867 -05:00 [INF] Hosting environment: Development
+2025-02-25 10:00:05.868 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-25 10:00:08.862 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 61
+2025-02-25 10:00:08.873 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-25 10:00:08.888 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-02-25 10:00:08.905 -05:00 [INF] CORS policy execution successful.
+2025-02-25 10:00:08.929 -05:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 10:00:08.950 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-02-25 10:00:09.019 -05:00 [INF] Login attempt for jashaun3@gmail.com
+2025-02-25 10:00:09.248 -05:00 [INF] Authenticating user with email: jashaun3@gmail.com
+2025-02-25 10:00:09.704 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-02-25 10:00:10.271 -05:00 [INF] Executed DbCommand (49ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-02-25 10:00:10.308 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='jashaun3@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-02-25 10:00:10.676 -05:00 [WRN] Login attempt failed for jashaun3@gmail.com: Please verify your email before logging in.
+2025-02-25 10:00:10.682 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-25 10:00:10.715 -05:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 1761.6391ms
+2025-02-25 10:00:10.716 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-02-25 10:00:10.720 -05:00 [INF] HTTP POST /api/auth/login responded 401 in 1844.0661 ms
+2025-02-25 10:00:10.728 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 401 null application/json; charset=utf-8 1868.4045ms

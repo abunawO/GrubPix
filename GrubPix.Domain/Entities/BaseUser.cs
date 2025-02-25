@@ -23,5 +23,7 @@ namespace GrubPix.Domain.Entities
 
         [Required]
         public string Role { get; set; }
+        public bool IsVerified { get; set; } = false;
+        public string? VerificationToken { get; set; }
     }
 }
