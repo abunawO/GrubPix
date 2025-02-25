@@ -98,6 +98,8 @@ to test the API endpoints.
 - `POST /api/auth/register` - Register a new user
 - `POST /api/auth/login` - Authenticate and log in
 - `POST /api/auth/verify` - Verify authentication status
+- `POST /api/auth/forgot-password` - Initiates the password reset process
+- `POST /api/auth/reset-password` - Allows a user or customer to reset their password
 
 ### **👤 Customer**
 
