@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  grubpix-api:
+    build:
+      context: .
+      dockerfile: GrubPix.API/Dockerfile
+    ports:
+      - "5000:8080"
+      - "5001:443"
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=User ID=postgres;Password=92662022;Host=grubpix-db;Port=5432;Database=GrubPixDB;
+    depends_on:
+      - grubpix-db
+
+  grubpix-db:
+    image: postgres:15
+    container_name: grubpix-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 92662022
+      POSTGRES_DB: GrubPixDB
+    ports:
+      - "5432:5432"
+    volumes:
+      - grubpix_db_data:/var/lib/postgresql/data
+
+volumes:
+  grubpix_db_data:
