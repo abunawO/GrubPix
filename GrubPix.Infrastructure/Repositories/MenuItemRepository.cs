@@ -47,4 +47,14 @@ public class MenuItemRepository : IMenuItemRepository
             await _context.SaveChangesAsync();
         }
     }
+
+    public void RemoveImage(MenuItemImage image)
+    {
+        _context.MenuItemImages.Remove(image);
+    }
+
+    public async Task SaveChangesAsync()
+    {
+        await _context.SaveChangesAsync();
+    }
 }

@@ -13,6 +13,7 @@ namespace GrubPix.Infrastructure.Persistence
         public DbSet<User> Users { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<FavoriteMenuItem> FavoriteMenuItems { get; set; }
+        public DbSet<MenuItemImage> MenuItemImages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

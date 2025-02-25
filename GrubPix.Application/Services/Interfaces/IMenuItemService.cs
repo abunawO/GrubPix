@@ -1,3 +1,4 @@
+using GrubPix.Application.Common;
 using GrubPix.Application.DTO;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
@@ -12,5 +13,6 @@ namespace GrubPix.Application.Services.Interfaces
         Task<MenuItemDto> CreateMenuItemAsync(CreateMenuItemDto createMenuItemDto, ICollection<IFormFile> imageFiles);
         Task<MenuItemDto> UpdateMenuItemAsync(int id, UpdateMenuItemDto updateMenuItemDto, ICollection<IFormFile> imageFiles);
         Task<bool> DeleteMenuItemAsync(int id);
+        Task<ApiResponse<object>> DeleteMenuItemImageAsync(int menuItemId, int imageId);
     }
 }

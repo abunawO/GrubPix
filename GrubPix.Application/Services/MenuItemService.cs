@@ -10,6 +10,7 @@ using GrubPix.Domain.Interfaces.Repositories;
 using GrubPix.Application.Exceptions;
 using GrubPix.Application.Services.Interfaces;
 using AutoMapper;
+using GrubPix.Application.Common;
 
 namespace GrubPix.Application.Services
 {
@@ -188,5 +189,39 @@ namespace GrubPix.Application.Services
             await _menuItemRepository.DeleteAsync(item.Id);
             return true;
         }
+
+        public async Task<ApiResponse<object>> DeleteMenuItemImageAsync(int menuItemId, int imageId)
+        {
+            // Retrieve the menu item with its images
+            var menuItem = await _menuItemRepository.GetByIdAsync(menuItemId);
+
+            if (menuItem == null)
+            {
+                return ApiResponse<object>.FailResponse("Menu item not found.");
+            }
+
+            // Find the image in the menu item
+            var image = menuItem.Images.FirstOrDefault(i => i.Id == imageId);
+
+            if (image == null)
+            {
+                return ApiResponse<object>.FailResponse("Image not found.");
+            }
+
+            // Remove from database
+            _menuItemRepository.RemoveImage(image);
+
+            // Remove from S3
+            bool deletedFromS3 = await _imageStorageService.DeleteImageAsync(image.ImageUrl);
+            if (!deletedFromS3)
+            {
+                return ApiResponse<object>.FailResponse("Failed to delete image from storage.");
+            }
+
+            await _menuItemRepository.SaveChangesAsync();
+
+            return ApiResponse<object>.SuccessResponse(null, "Image deleted successfully.");
+        }
+
     }
 }

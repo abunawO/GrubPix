@@ -144,5 +144,29 @@ namespace GrubPix.API.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, ApiResponse<object>.FailResponse(ex.Message));
             }
         }
+
+        [Authorize(Roles = "Admin,RestaurantOwner")]
+        [HttpDelete("{menuItemId}/images/{imageId}")]
+        public async Task<IActionResult> DeleteMenuItemImage(int menuItemId, int imageId)
+        {
+            try
+            {
+                _logger.LogWarning("Deleting menu item image with ID {ItemId}", imageId);
+                var command = new DeleteMenuItemImageCommand(menuItemId, imageId);
+                var result = await _mediator.Send(command);
+
+                if (!result.Success)
+                    return BadRequest(result);  // Or Unauthorized(result) if permission issue
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError(ex, "An error occurred while deleting menu item image with ID {imageId}", imageId);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ApiResponse<object>.FailResponse(ex.Message));
+            }
+        }
+
     }
 }

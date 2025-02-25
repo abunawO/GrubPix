@@ -10,5 +10,7 @@ namespace GrubPix.Domain.Interfaces.Repositories
         Task AddAsync(MenuItem menuItem);
         Task UpdateAsync(MenuItem menuItem);
         Task DeleteAsync(int id);
+        void RemoveImage(MenuItemImage image);
+        Task SaveChangesAsync();
     }
 }
