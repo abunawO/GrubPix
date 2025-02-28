@@ -12,9 +12,26 @@ using GrubPix.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http.Features;
 using GrubPix.API.Middleware;
-using CorrelationId; // Adjust if needed
+using CorrelationId;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Load environment variables
+builder.Configuration["AppSettings:FrontendUrl"] = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "https://grubpix.com/";
+builder.Configuration["ConnectionStrings:DefaultConnection"] = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? "Host=localhost;Port=5432;Database=GrubPixDb;Username=postgres;Password=yourpassword";
+builder.Configuration["AWS:AccessKey"] = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY") ?? "";
+builder.Configuration["AWS:SecretKey"] = Environment.GetEnvironmentVariable("AWS_SECRET_KEY") ?? "";
+builder.Configuration["AWS:BucketName"] = Environment.GetEnvironmentVariable("AWS_BUCKET_NAME") ?? "";
+builder.Configuration["AWS:Region"] = Environment.GetEnvironmentVariable("AWS_REGION") ?? "";
+builder.Configuration["JwtSettings:Secret"] = Environment.GetEnvironmentVariable("JWT_SECRET") ?? "";
+builder.Configuration["JwtSettings:Issuer"] = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? "GrubPixAPI";
+builder.Configuration["JwtSettings:Audience"] = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? "GrubPixClients";
+builder.Configuration["JwtSettings:ExpiryMinutes"] = Environment.GetEnvironmentVariable("JWT_EXPIRY") ?? "60";
+builder.Configuration["Email:SmtpServer"] = Environment.GetEnvironmentVariable("EMAIL_SMTP_SERVER") ?? "";
+builder.Configuration["Email:Port"] = Environment.GetEnvironmentVariable("EMAIL_PORT") ?? "587";
+builder.Configuration["Email:Username"] = Environment.GetEnvironmentVariable("EMAIL_USERNAME") ?? "apikey";
+builder.Configuration["Email:Password"] = Environment.GetEnvironmentVariable("EMAIL_PASSWORD") ?? "";
+builder.Configuration["Email:From"] = Environment.GetEnvironmentVariable("EMAIL_FROM") ?? "grubpixservices@gmail.com";
 
 // Configure Serilog
 Log.Logger = new LoggerConfiguration()
