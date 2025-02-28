@@ -76,7 +76,7 @@ namespace GrubPix.Application.Services
                     VerificationToken = verificationToken
                 };
 
-                var createdUser = await _userRepository.AddAsync(user);
+                var createdUser = await _userRepository.CreateUserAsync(user);
                 await _emailService.SendVerificationEmail(createdUser.Email, createdUser.VerificationToken);
 
                 return _mapper.Map<UserDto>(createdUser);
