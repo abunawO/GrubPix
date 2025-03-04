@@ -16,3 +16,76 @@
 2025-02-28 16:04:34.533 -05:00 [INF] No correlation ID was found in the request headers
 2025-02-28 16:04:34.677 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 142.6804 ms
 2025-02-28 16:04:34.678 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 145.1939ms
+2025-02-28 16:55:22.859 -05:00 [INF] Application is shutting down...
+2025-02-28 17:32:52.247 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-28 17:32:52.383 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-28 17:32:52.386 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-28 17:32:52.386 -05:00 [INF] Hosting environment: Development
+2025-02-28 17:32:52.386 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-28 17:33:09.672 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-02-28 17:33:09.685 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-28 17:33:09.796 -05:00 [INF] HTTP GET /index.html responded 200 in 107.6633 ms
+2025-02-28 17:33:09.800 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 129.9709ms
+2025-02-28 17:33:09.820 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-02-28 17:33:09.821 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-28 17:33:09.824 -05:00 [INF] HTTP GET /index.js responded 200 in 2.0437 ms
+2025-02-28 17:33:09.825 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 5.7444ms
+2025-02-28 17:33:09.999 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-28 17:33:09.999 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-28 17:33:10.149 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 149.7521 ms
+2025-02-28 17:33:10.150 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 150.6024ms
+2025-02-28 17:34:00.464 -05:00 [INF] Application is shutting down...
+2025-02-28 17:34:08.496 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-28 17:34:08.623 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-28 17:34:08.626 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-28 17:34:08.627 -05:00 [INF] Hosting environment: Development
+2025-02-28 17:34:08.627 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-28 17:34:48.914 -05:00 [INF] Application is shutting down...
+2025-02-28 17:34:54.627 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-28 17:34:54.741 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-28 17:34:54.744 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-28 17:34:54.745 -05:00 [INF] Hosting environment: Development
+2025-02-28 17:34:54.745 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-28 17:37:11.658 -05:00 [INF] Application is shutting down...
+2025-02-28 17:40:11.915 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-28 17:40:12.026 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-28 17:40:12.029 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-28 17:40:12.029 -05:00 [INF] Hosting environment: Development
+2025-02-28 17:40:12.029 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-28 17:41:43.266 -05:00 [INF] Application is shutting down...
+2025-02-28 17:46:07.315 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-28 17:46:07.435 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-28 17:46:07.438 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-28 17:46:07.439 -05:00 [INF] Hosting environment: Development
+2025-02-28 17:46:07.439 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-28 17:54:31.658 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-02-28 17:54:31.669 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-28 17:54:31.779 -05:00 [INF] HTTP GET /index.html responded 200 in 106.7356 ms
+2025-02-28 17:54:31.782 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 125.007ms
+2025-02-28 17:54:31.800 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-02-28 17:54:31.801 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-28 17:54:31.803 -05:00 [INF] HTTP GET /index.js responded 200 in 2.0285 ms
+2025-02-28 17:54:31.804 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 4.6662ms
+2025-02-28 17:54:31.956 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-28 17:54:31.956 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-28 17:54:32.088 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 131.3794 ms
+2025-02-28 17:54:32.088 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 132.1144ms
+2025-02-28 18:01:16.024 -05:00 [INF] Application is shutting down...
+2025-02-28 18:01:28.840 -05:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-28 18:01:28.956 -05:00 [INF] Now listening on: http://localhost:5068
+2025-02-28 18:01:28.958 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-28 18:01:28.959 -05:00 [INF] Hosting environment: Development
+2025-02-28 18:01:28.959 -05:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-02-28 18:01:30.052 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-02-28 18:01:30.061 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-28 18:01:30.166 -05:00 [INF] HTTP GET /index.html responded 200 in 101.5441 ms
+2025-02-28 18:01:30.171 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 121.0588ms
+2025-02-28 18:01:30.188 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-02-28 18:01:30.190 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-28 18:01:30.193 -05:00 [INF] HTTP GET /index.js responded 200 in 2.5475 ms
+2025-02-28 18:01:30.193 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 5.7658ms
+2025-02-28 18:01:30.351 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-02-28 18:01:30.351 -05:00 [INF] No correlation ID was found in the request headers
+2025-02-28 18:01:30.487 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 135.8757 ms
+2025-02-28 18:01:30.488 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 137.059ms
+2025-02-28 18:05:24.633 -05:00 [INF] Application is shutting down...

@@ -85,7 +85,7 @@ docker-compose down
 
 Once the API is running, visit:
 
-[http://localhost:5068/index.html](http://localhost:5068/index.html)
+[http://localhost:5050/index.html](http://localhost:5050/index.html)
 
 to test the API endpoints.
 

@@ -5,27 +5,55 @@ services:
     build:
       context: .
       dockerfile: GrubPix.API/Dockerfile
+    env_file: .env
     ports:
-      - "5000:8080"
+      - "5050:8080"
       - "5001:443"
     environment:
       - ASPNETCORE_URLS=http://+:8080
-      - ConnectionStrings__DefaultConnection=User ID=postgres;Password=92662022;Host=grubpix-db;Port=5432;Database=GrubPixDB;
+      - DOTNET_RUNNING_IN_CONTAINER=true
+      - DB_CONNECTION_STRING=Host=grubpix-db;Port=5432;Database=GrubPixDb;Username=postgres;Password=${POSTGRES_PASSWORD}
     depends_on:
-      - grubpix-db
+      grubpix-db:
+        condition: service_healthy
+    networks:
+      - grubpix_network
+    restart: unless-stopped
 
   grubpix-db:
     image: postgres:15
     container_name: grubpix-db
     restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 92662022
-      POSTGRES_DB: GrubPixDB
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=GrubPixDb
     ports:
       - "5432:5432"
     volumes:
       - grubpix_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    networks:
+      - grubpix_network
+
+  migrations:
+    build:
+      context: .
+      dockerfile: GrubPix.API/Dockerfile
+    command: ["sh", "/app/entrypoint.sh"]
+    depends_on:
+      grubpix-db:
+        condition: service_healthy
+    networks:
+      - grubpix_network
+    restart: "no"
 
 volumes:
   grubpix_db_data:
+
+networks:
+  grubpix_network:

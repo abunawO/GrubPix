@@ -13,12 +13,24 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http.Features;
 using GrubPix.API.Middleware;
 using CorrelationId;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Detect if running inside a container
+var isDocker = Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true";
+var dbHost = isDocker ? "grubpix-db" : "localhost";
+
+// Load .env file only if running locally
+if (!isDocker)
+{
+    Env.Load();
+    Console.WriteLine("[INFO] .env file loaded for local development");
+}
+
 // Load environment variables
 builder.Configuration["AppSettings:FrontendUrl"] = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "https://grubpix.com/";
-builder.Configuration["ConnectionStrings:DefaultConnection"] = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? "Host=localhost;Port=5432;Database=GrubPixDb;Username=postgres;Password=yourpassword";
+builder.Configuration["ConnectionStrings:DefaultConnection"] = $"Host={dbHost};Port=5432;Database=GrubPixDb;Username=postgres;Password=92662022"; // Local fallback
 builder.Configuration["AWS:AccessKey"] = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY") ?? "";
 builder.Configuration["AWS:SecretKey"] = Environment.GetEnvironmentVariable("AWS_SECRET_KEY") ?? "";
 builder.Configuration["AWS:BucketName"] = Environment.GetEnvironmentVariable("AWS_BUCKET_NAME") ?? "";
@@ -32,6 +44,21 @@ builder.Configuration["Email:Port"] = Environment.GetEnvironmentVariable("EMAIL_
 builder.Configuration["Email:Username"] = Environment.GetEnvironmentVariable("EMAIL_USERNAME") ?? "apikey";
 builder.Configuration["Email:Password"] = Environment.GetEnvironmentVariable("EMAIL_PASSWORD") ?? "";
 builder.Configuration["Email:From"] = Environment.GetEnvironmentVariable("EMAIL_FROM") ?? "grubpixservices@gmail.com";
+
+// var jwtSecret = builder.Configuration["JwtSettings:Secret"];
+// var connectionstring = isDocker
+//     ? Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") // Docker environment
+//     : Env.GetString("DB_CONNECTION_STRING", "Host=localhost;Port=5432;Database=GrubPixDb;Username=postgres;Password=92662022");
+
+// if (string.IsNullOrEmpty(jwtSecret))
+// {
+//     Console.WriteLine("⚠️ Warning: JWT Secret is missing or empty!");
+// }
+// else
+// {
+//     Console.WriteLine("⚠️ Infor: JWT Secret is not missing or empty! " + jwtSecret);
+//     Console.WriteLine("⚠️ Infor: connectionstring is not missing or empty! " + connectionstring);
+// }
 
 // Configure Serilog
 Log.Logger = new LoggerConfiguration()
@@ -127,8 +154,9 @@ builder.Services.AddHttpLogging(logging =>
 
 builder.Services.AddAuthorization();
 
-// -------------------- COMMENTED OUT OLD JWT AUTHENTICATION --------------------
+// -------------------- JWT AUTHENTICATION --------------------
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+// Console.WriteLine($"Loaded JWT Secret: {jwtSettings}");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Secret"]);
 
 builder.Services.AddAuthentication(options =>
@@ -157,6 +185,13 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<GrubPixDbContext>();
+    dbContext.Database.Migrate();  // Applies any pending migrations
+    Console.WriteLine("[INFO] Database Migrations Applied.");
+}
+
 // Exception Handling Middleware
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
@@ -167,7 +202,7 @@ app.UseCorrelationId();
 app.UseSerilogRequestLogging();
 
 // HTTP Request Pipeline
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || true)
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
