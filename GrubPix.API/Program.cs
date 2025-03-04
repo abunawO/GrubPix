@@ -19,6 +19,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Detect if running inside a container
 var isDocker = Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true";
+var dbpassword = Environment.GetEnvironmentVariable("POSTGRES_PASSWORD");
 var dbHost = isDocker ? "grubpix-db" : "localhost";
 
 // Load .env file only if running locally
@@ -30,7 +31,7 @@ if (!isDocker)
 
 // Load environment variables
 builder.Configuration["AppSettings:FrontendUrl"] = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "https://grubpix.com/";
-builder.Configuration["ConnectionStrings:DefaultConnection"] = $"Host={dbHost};Port=5432;Database=GrubPixDb;Username=postgres;Password=92662022"; // Local fallback
+builder.Configuration["ConnectionStrings:DefaultConnection"] = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? $"Host={dbHost};Port=5432;Database=GrubPixDb;Username=postgres;Password={dbpassword}"; // Local fallback
 builder.Configuration["AWS:AccessKey"] = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY") ?? "";
 builder.Configuration["AWS:SecretKey"] = Environment.GetEnvironmentVariable("AWS_SECRET_KEY") ?? "";
 builder.Configuration["AWS:BucketName"] = Environment.GetEnvironmentVariable("AWS_BUCKET_NAME") ?? "";
@@ -48,7 +49,7 @@ builder.Configuration["Email:From"] = Environment.GetEnvironmentVariable("EMAIL_
 // var jwtSecret = builder.Configuration["JwtSettings:Secret"];
 // var connectionstring = isDocker
 //     ? Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") // Docker environment
-//     : Env.GetString("DB_CONNECTION_STRING", "Host=localhost;Port=5432;Database=GrubPixDb;Username=postgres;Password=92662022");
+//     : Env.GetString("DB_CONNECTION_STRING", "Host=localhost;Port=5432;Database=GrubPixDb;Username=postgres;Password=password");
 
 // if (string.IsNullOrEmpty(jwtSecret))
 // {
