@@ -30,7 +30,7 @@ if (!isDocker)
 }
 
 // Load environment variables
-builder.Configuration["AppSettings:FrontendUrl"] = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "https://grubpix.com/";
+builder.Configuration["AppSettings:FrontendUrl"] = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "http://localhost:5173";
 builder.Configuration["ConnectionStrings:DefaultConnection"] = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? $"Host={dbHost};Port=5432;Database=GrubPixDb;Username=postgres;Password={dbpassword}"; // Local fallback
 builder.Configuration["AWS:AccessKey"] = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY") ?? "";
 builder.Configuration["AWS:SecretKey"] = Environment.GetEnvironmentVariable("AWS_SECRET_KEY") ?? "";

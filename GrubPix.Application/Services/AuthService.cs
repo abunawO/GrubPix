@@ -40,15 +40,19 @@ namespace GrubPix.Application.Services
         public async Task<BaseUserDto> RegisterAsync(RegisterDto dto)
         {
             _logger.LogInformation("Registering new user with email: {Email}", dto.Email);
+            _logger.LogInformation("Registering new user with Role: {Email}", dto.Role);
 
-            if (await _userRepository.GetByEmailAsync(dto.Email) != null)
-                throw new Exception("Email is already in use.");
+            // if (await _userRepository.GetByEmailAsync(dto.Email) != null)
+            //     throw new Exception("Email is already in use.");
 
             string verificationToken = Guid.NewGuid().ToString();
             string passwordHash = PasswordHelper.HashPassword(dto.Password);
 
             if (dto.Role == "Customer")
             {
+                if (await _customerRepository.GetCustomerByEmailAsync(dto.Email) != null)
+                    throw new Exception("Email is already in use by another customer.");
+
                 var customer = new Customer
                 {
                     Username = dto.Username,
@@ -66,6 +70,9 @@ namespace GrubPix.Application.Services
             }
             else
             {
+                if (await _userRepository.GetByEmailAsync(dto.Email) != null)
+                    throw new Exception("Email is already in use by another restaurant owner.");
+
                 var user = new User
                 {
                     Username = dto.Username,
@@ -138,7 +145,7 @@ namespace GrubPix.Application.Services
                 return true;
             }
 
-            throw new Exception("Invalid or expired verification token.");
+            return false;
         }
 
         public async Task<bool> ForgotPasswordAsync(string email)

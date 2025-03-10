@@ -63,3 +63,4 @@ System.Exception: Email is already in use.
 2025-03-04 10:58:38.046 -05:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
 2025-03-04 10:58:38.048 -05:00 [INF] HTTP POST /api/auth/register responded 400 in 683.7053 ms
 2025-03-04 10:58:38.056 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 400 null application/json; charset=utf-8 692.1359ms
+2025-03-04 11:03:05.468 -05:00 [INF] Application is shutting down...

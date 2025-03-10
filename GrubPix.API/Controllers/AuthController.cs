@@ -84,13 +84,26 @@ namespace GrubPix.API.Controllers
             try
             {
                 bool result = await _mediator.Send(new VerifyEmailCommand(request.Token));
-                return result ? Ok(ApiResponse<object>.SuccessResponse("Email verified successfully!"))
-                            : BadRequest(ApiResponse<object>.FailResponse("Verification failed."));
+                return result
+                    ? Ok(ApiResponse<object>.SuccessResponse("Email verified successfully!"))
+                    : BadRequest(ApiResponse<object>.FailResponse("Invalid or expired token."));
             }
             catch (Exception ex)
             {
-                return BadRequest(ApiResponse<object>.FailResponse(ex.Message));
+                return StatusCode(500, ApiResponse<object>.FailResponse("An error occurred while verifying the email."));
             }
+        }
+
+        [HttpPost("resend-verification")]
+        public async Task<IActionResult> ResendVerificationEmail([FromBody] ResendVerificationRequest request)
+        {
+            _logger.LogError("ResendVerificationEmail for {Email}", request.Email);
+            var result = await _mediator.Send(new ResendVerificationEmailCommand(request.Email));
+
+            if (!result)
+                return BadRequest(ApiResponse<object>.FailResponse("Account not found or already verified."));
+
+            return Ok(ApiResponse<object>.SuccessResponse(null, "Verification email resent successfully."));
         }
 
         [HttpPost("forgot-password")]
