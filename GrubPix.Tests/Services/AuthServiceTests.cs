@@ -271,7 +271,9 @@ namespace GrubPix.Tests.Services
             _mockUserRepository.Setup(repo => repo.GetByVerificationTokenAsync(token)).ReturnsAsync((User)null);
             _mockCustomerRepository.Setup(repo => repo.GetByVerificationTokenAsync(token)).ReturnsAsync((Customer)null);
 
-            await Assert.ThrowsAsync<Exception>(() => _authService.VerifyEmailAsync(token));
+            var result = await _authService.VerifyEmailAsync(token);
+
+            Assert.False(result);
         }
 
         // ------------------- ForgotPasswordAsync Tests -------------------

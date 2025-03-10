@@ -25,6 +25,8 @@ namespace GrubPix.Application.Services
             {
                 string verificationLink = $"{_config["AppSettings:FrontendUrl"]}/verify?token={token}";
 
+                _logger.LogInformation("Generated verification link: {Link}", verificationLink);
+
                 string subject = "Verify Your Email - GrubPix";
                 string body = $@"
                 <!DOCTYPE html>
