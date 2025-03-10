@@ -90,7 +90,7 @@ namespace GrubPix.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, ApiResponse<object>.FailResponse("An error occurred while verifying the email."));
+                return StatusCode(500, ApiResponse<object>.FailResponse($"An error occurred while verifying the email. {ex.Message}"));
             }
         }
 
