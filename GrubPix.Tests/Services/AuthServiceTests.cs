@@ -12,6 +12,8 @@ using GrubPix.Domain.Entities;
 using GrubPix.Domain.Interfaces.Repositories;
 using GrubPix.Application.Interfaces.Services;
 using GrubPix.Application.Utils;
+using Microsoft.Extensions.Configuration;
+
 
 namespace GrubPix.Tests.Services
 {
@@ -23,6 +25,7 @@ namespace GrubPix.Tests.Services
         private readonly Mock<IEmailService> _mockEmailService;
         private readonly Mock<IMapper> _mockMapper;
         private readonly Mock<ILogger<AuthService>> _mockLogger;
+        private readonly Mock<IConfiguration> _mockConfig;
         private readonly AuthService _authService;
 
         public AuthServiceTests()
@@ -33,6 +36,7 @@ namespace GrubPix.Tests.Services
             _mockEmailService = new Mock<IEmailService>();
             _mockMapper = new Mock<IMapper>();
             _mockLogger = new Mock<ILogger<AuthService>>();
+            _mockConfig = new Mock<IConfiguration>();
 
             _authService = new AuthService(
                 _mockUserRepository.Object,
@@ -40,7 +44,8 @@ namespace GrubPix.Tests.Services
                 _mockJwtService.Object,
                 _mockEmailService.Object,
                 _mockMapper.Object,
-                _mockLogger.Object);
+                _mockLogger.Object,
+                _mockConfig.Object);
         }
 
         // ------------------- RegisterAsync Tests -------------------
