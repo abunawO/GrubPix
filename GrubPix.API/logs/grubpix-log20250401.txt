@@ -1,0 +1,1627 @@
+2025-04-01 11:13:49.535 -04:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-04-01 11:13:49.854 -04:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 11:13:50.070 -04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-04-01 11:13:50.077 -04:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 11:13:50.078 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-04-01 11:13:50.079 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 11:13:50.083 -04:00 [INF] No migrations were applied. The database is already up to date.
+2025-04-01 11:13:50.199 -04:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-04-01 11:13:50.282 -04:00 [INF] Now listening on: http://localhost:5068
+2025-04-01 11:13:50.284 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 11:13:50.284 -04:00 [INF] Hosting environment: Development
+2025-04-01 11:13:50.284 -04:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-04-01 11:14:19.328 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/ - null null
+2025-04-01 11:14:19.335 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:14:19.360 -04:00 [INF] HTTP GET / responded 301 in 20.0360 ms
+2025-04-01 11:14:19.367 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/ - 301 0 null 41.2222ms
+2025-04-01 11:14:19.371 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-04-01 11:14:19.371 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:14:19.460 -04:00 [INF] HTTP GET /index.html responded 200 in 89.0415 ms
+2025-04-01 11:14:19.461 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 90.336ms
+2025-04-01 11:14:19.493 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger-ui.css - null null
+2025-04-01 11:14:19.494 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.css - null null
+2025-04-01 11:14:19.495 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-04-01 11:14:19.495 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger-ui-standalone-preset.js - null null
+2025-04-01 11:14:19.495 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger-ui-bundle.js - null null
+2025-04-01 11:14:19.496 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:14:19.497 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:14:19.496 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:14:19.497 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:14:19.497 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:14:19.500 -04:00 [INF] HTTP GET /index.js responded 200 in 2.5903 ms
+2025-04-01 11:14:19.500 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 5.1109ms
+2025-04-01 11:14:19.512 -04:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2025-04-01 11:14:19.512 -04:00 [INF] HTTP GET /index.css responded 200 in 14.6971 ms
+2025-04-01 11:14:19.512 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.css - 200 202 text/css 18.6476ms
+2025-04-01 11:14:19.519 -04:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-04-01 11:14:19.519 -04:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-04-01 11:14:19.522 -04:00 [INF] HTTP GET /swagger-ui-standalone-preset.js responded 200 in 24.3311 ms
+2025-04-01 11:14:19.521 -04:00 [INF] HTTP GET /swagger-ui.css responded 200 in 24.4516 ms
+2025-04-01 11:14:19.523 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger-ui-standalone-preset.js - 200 230007 text/javascript 28.1649ms
+2025-04-01 11:14:19.523 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger-ui.css - 200 152035 text/css 30.1955ms
+2025-04-01 11:14:19.525 -04:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-04-01 11:14:19.525 -04:00 [INF] HTTP GET /swagger-ui-bundle.js responded 200 in 27.8744 ms
+2025-04-01 11:14:19.526 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger-ui-bundle.js - 200 1426050 text/javascript 30.3117ms
+2025-04-01 11:14:19.974 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-04-01 11:14:19.974 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:14:19.995 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/favicon-32x32.png - null null
+2025-04-01 11:14:19.995 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:14:19.996 -04:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-04-01 11:14:19.997 -04:00 [INF] HTTP GET /favicon-32x32.png responded 200 in 1.1099 ms
+2025-04-01 11:14:19.997 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/favicon-32x32.png - 200 628 image/png 2.1617ms
+2025-04-01 11:14:20.121 -04:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 146.2977 ms
+2025-04-01 11:14:20.121 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 147.0379ms
+2025-04-01 11:14:42.285 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 62
+2025-04-01 11:14:42.286 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:14:42.287 -04:00 [WRN] Failed to determine the https port for redirect.
+2025-04-01 11:14:42.305 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:14:42.334 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-04-01 11:14:42.353 -04:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-04-01 11:14:42.388 -04:00 [INF] Login attempt for abunawose@gmail.com
+2025-04-01 11:14:42.512 -04:00 [INF] Authenticating user with email: abunawose@gmail.com
+2025-04-01 11:14:42.838 -04:00 [INF] Executed DbCommand (18ms) [Parameters=[@__email_0='abunawose@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-04-01 11:14:43.218 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='abunawose@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."PasswordResetToken", c."ResetTokenExpiry", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-04-01 11:14:43.219 -04:00 [WRN] Invalid credentials for email: abunawose@gmail.com
+2025-04-01 11:14:43.227 -04:00 [ERR] Login attempt failed for abunawose@gmail.com
+System.Exception: Invalid email or password.
+   at GrubPix.Application.Services.AuthService.AuthenticateAsync(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 125
+   at GrubPix.Application.Features.User.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/LoginCommand.cs:line 40
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.AuthController.Login(LoginDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/AuthController.cs:line 57
+2025-04-01 11:14:43.265 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 11:14:43.283 -04:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 927.1398ms
+2025-04-01 11:14:43.283 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-04-01 11:14:43.285 -04:00 [ERR] HTTP POST /api/auth/login responded 500 in 998.1707 ms
+2025-04-01 11:14:43.288 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 500 null application/json; charset=utf-8 1003.0852ms
+2025-04-01 11:15:27.190 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 109
+2025-04-01 11:15:27.191 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:15:27.195 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:15:27.196 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-04-01 11:15:27.202 -04:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-04-01 11:15:27.206 -04:00 [INF] Register attempt for abunawose@gmail.com
+2025-04-01 11:15:27.213 -04:00 [INF] Registering new user with email: abunawose@gmail.com
+2025-04-01 11:15:27.213 -04:00 [INF] Registering new user with Role: Admin
+2025-04-01 11:15:27.537 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='abunawose@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-04-01 11:15:27.539 -04:00 [ERR] Registration failed for abunawose@gmail.com
+System.Exception: Email is already in use by another restaurant owner.
+   at GrubPix.Application.Services.AuthService.RegisterAsync(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/AuthService.cs:line 77
+   at GrubPix.Application.Features.User.RegisterCommand.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/User/RegisterCommand.cs:line 45
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.AuthController.Register(RegisterDto dto) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/AuthController.cs:line 34
+2025-04-01 11:15:27.541 -04:00 [INF] Executing BadRequestObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 11:15:27.541 -04:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 339.1551ms
+2025-04-01 11:15:27.541 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-04-01 11:15:27.541 -04:00 [INF] HTTP POST /api/auth/register responded 400 in 350.1330 ms
+2025-04-01 11:15:27.542 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 400 null application/json; charset=utf-8 351.6025ms
+2025-04-01 11:18:12.399 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/forgot-password - application/json 36
+2025-04-01 11:18:12.400 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:18:12.400 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:18:12.402 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.ForgotPassword (GrubPix.API)'
+2025-04-01 11:18:12.405 -04:00 [INF] Route matched with {action = "ForgotPassword", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(GrubPix.Application.DTO.ForgotPasswordDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-04-01 11:18:12.418 -04:00 [INF] ForgotPasswordAsync called for email: abunawose@gmail.com
+2025-04-01 11:18:12.420 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='abunawose@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-04-01 11:18:12.422 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[@__email_0='abunawose@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."PasswordResetToken", c."ResetTokenExpiry", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."Email" = @__email_0
+LIMIT 1
+2025-04-01 11:18:12.504 -04:00 [INF] Executed DbCommand (8ms) [Parameters=[@p2='30', @p0='944bbabf-87e6-4293-92ba-5443745fdbf4', @p1='2025-04-01T16:18:12.4222830Z' (Nullable = true) (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "PasswordResetToken" = @p0, "ResetTokenExpiry" = @p1
+WHERE "Id" = @p2;
+2025-04-01 11:18:12.514 -04:00 [INF] Sending password reset email to abunawose@gmail.com
+2025-04-01 11:18:12.514 -04:00 [WRN] Password reset requested token: 944bbabf-87e6-4293-92ba-5443745fdbf4
+2025-04-01 11:18:12.516 -04:00 [INF] Using SendGrid API Key: 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
+2025-04-01 11:18:13.065 -04:00 [INF] Password reset email sent to abunawose@gmail.com
+2025-04-01 11:18:13.068 -04:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 11:18:13.068 -04:00 [INF] Executed action GrubPix.API.Controllers.AuthController.ForgotPassword (GrubPix.API) in 662.4076ms
+2025-04-01 11:18:13.068 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.ForgotPassword (GrubPix.API)'
+2025-04-01 11:18:13.068 -04:00 [INF] HTTP POST /api/auth/forgot-password responded 200 in 668.1659 ms
+2025-04-01 11:18:13.069 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/forgot-password - 200 null application/json; charset=utf-8 669.4986ms
+2025-04-01 11:18:47.877 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/reset-password - application/json 82
+2025-04-01 11:18:47.878 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:18:47.878 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:18:47.878 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.ResetPassword (GrubPix.API)'
+2025-04-01 11:18:47.883 -04:00 [INF] Route matched with {action = "ResetPassword", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ResetPassword(GrubPix.Application.Features.Auth.ResetPasswordCommand) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-04-01 11:18:47.899 -04:00 [INF] ResetPasswordAsync called for token: 944bbabf-87e6-4293-92ba-5443745fdbf4
+2025-04-01 11:18:47.916 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__token_0='944bbabf-87e6-4293-92ba-5443745fdbf4'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."PasswordResetToken" = @__token_0
+LIMIT 1
+2025-04-01 11:18:47.926 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__token_0='944bbabf-87e6-4293-92ba-5443745fdbf4'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Email", c."IsVerified", c."PasswordHash", c."PasswordResetToken", c."ResetTokenExpiry", c."Role", c."Username", c."VerificationToken"
+FROM "Customers" AS c
+WHERE c."PasswordResetToken" = @__token_0
+LIMIT 1
+2025-04-01 11:18:48.055 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@p3='30', @p0='$2a$11$Mmtsl1gcyKyOfCeGs..6ru9ZgDYnfR2ZESmQtR4xhjSpunUfThblG' (Nullable = false), @p1=NULL, @p2=NULL (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "PasswordHash" = @p0, "PasswordResetToken" = @p1, "ResetTokenExpiry" = @p2
+WHERE "Id" = @p3;
+2025-04-01 11:18:48.056 -04:00 [INF] Password reset successfully for user abunawose@gmail.com
+2025-04-01 11:18:48.057 -04:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 11:18:48.057 -04:00 [INF] Executed action GrubPix.API.Controllers.AuthController.ResetPassword (GrubPix.API) in 173.4864ms
+2025-04-01 11:18:48.057 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.ResetPassword (GrubPix.API)'
+2025-04-01 11:18:48.057 -04:00 [INF] HTTP POST /api/auth/reset-password responded 200 in 179.0996 ms
+2025-04-01 11:18:48.057 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/reset-password - 200 null application/json; charset=utf-8 179.9021ms
+2025-04-01 11:18:57.302 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 62
+2025-04-01 11:18:57.303 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:18:57.303 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:18:57.303 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-04-01 11:18:57.303 -04:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-04-01 11:18:57.304 -04:00 [INF] Login attempt for abunawose@gmail.com
+2025-04-01 11:18:57.305 -04:00 [INF] Authenticating user with email: abunawose@gmail.com
+2025-04-01 11:18:57.320 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='abunawose@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-04-01 11:18:57.450 -04:00 [WRN] Login attempt failed for abunawose@gmail.com: Please verify your email before logging in.
+2025-04-01 11:18:57.450 -04:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 11:18:57.451 -04:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 147.186ms
+2025-04-01 11:18:57.451 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-04-01 11:18:57.451 -04:00 [INF] HTTP POST /api/auth/login responded 401 in 148.2060 ms
+2025-04-01 11:18:57.451 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 401 null application/json; charset=utf-8 148.7292ms
+2025-04-01 11:20:57.589 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-04-01 11:20:57.589 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:20:57.589 -04:00 [INF] HTTP GET /index.html responded 200 in 0.2462 ms
+2025-04-01 11:20:57.589 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 0.774ms
+2025-04-01 11:20:57.617 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-04-01 11:20:57.617 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:20:57.617 -04:00 [INF] HTTP GET /index.js responded 200 in 0.4171 ms
+2025-04-01 11:20:57.618 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 1.2215ms
+2025-04-01 11:20:58.009 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-04-01 11:20:58.009 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:20:58.025 -04:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 15.0395 ms
+2025-04-01 11:20:58.025 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 15.7912ms
+2025-04-01 11:21:46.927 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/register - application/json 109
+2025-04-01 11:21:46.927 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:21:46.927 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:21:46.927 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-04-01 11:21:46.927 -04:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(GrubPix.Application.DTO.RegisterDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-04-01 11:21:46.928 -04:00 [INF] Register attempt for abunawose@gmail.com
+2025-04-01 11:21:46.929 -04:00 [INF] Registering new user with email: abunawose@gmail.com
+2025-04-01 11:21:46.929 -04:00 [INF] Registering new user with Role: Admin
+2025-04-01 11:21:47.071 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='abunawose@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-04-01 11:21:47.105 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='abunawose@gmail.com' (Nullable = false), @p1='False', @p2='$2a$11$zu5CjXHO3Ro5L4mAu4O4d..IO8VWLELQuZx.86Auub3.Im0lbrb5S' (Nullable = false), @p3=NULL, @p4=NULL (DbType = DateTime), @p5='Admin' (Nullable = false), @p6='Ose Abunaw' (Nullable = false), @p7='ed9dff3f-3712-4e85-82f8-19ae9daded70'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "IsVerified", "PasswordHash", "PasswordResetToken", "ResetTokenExpiry", "Role", "Username", "VerificationToken")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+RETURNING "Id";
+2025-04-01 11:21:47.119 -04:00 [INF] Generated verification link: https://grubpix.com//verify?token=ed9dff3f-3712-4e85-82f8-19ae9daded70
+2025-04-01 11:21:47.119 -04:00 [INF] Sending verification email to abunawose@gmail.com
+2025-04-01 11:21:47.119 -04:00 [INF] Using SendGrid API Key: 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
+2025-04-01 11:21:47.829 -04:00 [INF] Verification email sent successfully to abunawose@gmail.com
+2025-04-01 11:21:47.836 -04:00 [INF] User abunawose@gmail.com registered successfully
+2025-04-01 11:21:47.836 -04:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.BaseUserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-01 11:21:47.854 -04:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Register (GrubPix.API) in 926.5077ms
+2025-04-01 11:21:47.854 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Register (GrubPix.API)'
+2025-04-01 11:21:47.854 -04:00 [INF] HTTP POST /api/auth/register responded 201 in 927.3221 ms
+2025-04-01 11:21:47.855 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/register - 201 null application/json; charset=utf-8 927.8573ms
+2025-04-01 11:22:05.052 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/verify - application/json 53
+2025-04-01 11:22:05.053 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:22:05.053 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:22:05.053 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API)'
+2025-04-01 11:22:05.057 -04:00 [INF] Route matched with {action = "VerifyEmail", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyEmail(GrubPix.API.Controllers.VerifyRequest) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-04-01 11:22:05.062 -04:00 [INF] VerifyEmailAsync user with token: ed9dff3f-3712-4e85-82f8-19ae9daded70
+2025-04-01 11:22:05.072 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__token_0='ed9dff3f-3712-4e85-82f8-19ae9daded70'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."VerificationToken" = @__token_0
+LIMIT 1
+2025-04-01 11:22:05.074 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@p2='31', @p0='True', @p1=NULL], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "IsVerified" = @p0, "VerificationToken" = @p1
+WHERE "Id" = @p2;
+2025-04-01 11:22:05.075 -04:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 11:22:05.082 -04:00 [INF] Executed action GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API) in 24.6088ms
+2025-04-01 11:22:05.098 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.VerifyEmail (GrubPix.API)'
+2025-04-01 11:22:05.098 -04:00 [INF] HTTP POST /api/auth/verify responded 200 in 45.3544 ms
+2025-04-01 11:22:05.098 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/verify - 200 null application/json; charset=utf-8 45.8832ms
+2025-04-01 11:22:29.998 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 62
+2025-04-01 11:22:29.998 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:22:29.999 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:22:29.999 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-04-01 11:22:29.999 -04:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-04-01 11:22:29.999 -04:00 [INF] Login attempt for abunawose@gmail.com
+2025-04-01 11:22:30.005 -04:00 [INF] Authenticating user with email: abunawose@gmail.com
+2025-04-01 11:22:30.007 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='abunawose@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-04-01 11:22:30.174 -04:00 [INF] User abunawose@gmail.com logged in successfully
+2025-04-01 11:22:30.174 -04:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.BaseUserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-01 11:22:30.175 -04:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 175.6464ms
+2025-04-01 11:22:30.175 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-04-01 11:22:30.175 -04:00 [INF] HTTP POST /api/auth/login responded 200 in 176.2834 ms
+2025-04-01 11:22:30.175 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 176.7572ms
+2025-04-01 11:22:53.494 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-04-01 11:22:53.494 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:22:53.537 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-04-01 11:22:53.541 -04:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 11:22:53.547 -04:00 [INF] Fetching restaurants with user ID 31 and role Admin
+2025-04-01 11:22:53.581 -04:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-04-01 11:22:53.667 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-04-01 11:22:53.677 -04:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 11:22:53.684 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 142.5822ms
+2025-04-01 11:22:53.684 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-04-01 11:22:53.684 -04:00 [INF] HTTP GET /api/restaurants responded 200 in 189.5359 ms
+2025-04-01 11:22:53.684 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 190.1531ms
+2025-04-01 11:24:04.094 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryKBxxszOg9YtMcAlU 133635
+2025-04-01 11:24:04.094 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:24:04.094 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:24:04.100 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 11:24:04.107 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 11:24:04.128 -04:00 [INF] Creating restaurant: Asian Foods
+2025-04-01 11:24:04.152 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 11:24:04.527 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.S3.AmazonS3Exception: Access Denied
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 33
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 11:24:04.531 -04:00 [ERR] Error creating restaurant Asian Foods
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 11:24:04.532 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 11:24:04.533 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 425.1409ms
+2025-04-01 11:24:04.533 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 11:24:04.533 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 438.4652 ms
+2025-04-01 11:24:04.534 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 439.6108ms
+2025-04-01 11:33:26.982 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundary3m5L0npkZsAAiM0S 133635
+2025-04-01 11:33:26.982 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:33:26.982 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:33:26.997 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 11:33:26.998 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 11:33:27.000 -04:00 [INF] Creating restaurant: Asian Foods
+2025-04-01 11:33:27.012 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 11:33:27.222 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.S3.AmazonS3Exception: Access Denied
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 33
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 11:33:27.224 -04:00 [ERR] Error creating restaurant Asian Foods
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 11:33:27.225 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 11:33:27.225 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 227.2986ms
+2025-04-01 11:33:27.225 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 11:33:27.225 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 243.0847 ms
+2025-04-01 11:33:27.226 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 244.2662ms
+2025-04-01 11:33:31.362 -04:00 [INF] Application is shutting down...
+2025-04-01 11:33:39.364 -04:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-04-01 11:33:39.617 -04:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 11:33:39.834 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-04-01 11:33:39.840 -04:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 11:33:39.841 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-04-01 11:33:39.841 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 11:33:39.845 -04:00 [INF] No migrations were applied. The database is already up to date.
+2025-04-01 11:33:39.920 -04:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-04-01 11:33:39.968 -04:00 [INF] Now listening on: http://localhost:5068
+2025-04-01 11:33:39.970 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 11:33:39.971 -04:00 [INF] Hosting environment: Development
+2025-04-01 11:33:39.971 -04:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-04-01 11:33:45.028 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryyBxEq8GjD78DZBv1 133635
+2025-04-01 11:33:45.035 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:33:45.050 -04:00 [WRN] Failed to determine the https port for redirect.
+2025-04-01 11:33:45.067 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:33:45.140 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 11:33:45.161 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 11:33:45.194 -04:00 [INF] Creating restaurant: Asian Foods
+2025-04-01 11:33:45.231 -04:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-04-01 11:33:45.634 -04:00 [INF] Executed DbCommand (13ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 11:33:46.045 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.S3.AmazonS3Exception: Access Denied
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 33
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 11:33:46.059 -04:00 [ERR] Error creating restaurant Asian Foods
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 11:33:46.067 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 11:33:46.133 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 968.6441ms
+2025-04-01 11:33:46.134 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 11:33:46.138 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 1099.5995 ms
+2025-04-01 11:33:46.145 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 1119.1486ms
+2025-04-01 11:47:42.203 -04:00 [INF] Application is shutting down...
+2025-04-01 11:47:50.354 -04:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-04-01 11:47:50.778 -04:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 11:47:51.006 -04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-04-01 11:47:51.015 -04:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 11:47:51.016 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-04-01 11:47:51.017 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 11:47:51.021 -04:00 [INF] No migrations were applied. The database is already up to date.
+2025-04-01 11:47:51.109 -04:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-04-01 11:47:51.165 -04:00 [INF] Now listening on: http://localhost:5068
+2025-04-01 11:47:51.167 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 11:47:51.167 -04:00 [INF] Hosting environment: Development
+2025-04-01 11:47:51.167 -04:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-04-01 11:47:59.742 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryfAxY0bO7TEKb1OqS 133635
+2025-04-01 11:47:59.749 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:47:59.764 -04:00 [WRN] Failed to determine the https port for redirect.
+2025-04-01 11:47:59.781 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:47:59.857 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 11:47:59.881 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 11:47:59.917 -04:00 [INF] Creating restaurant: Asian Foods
+2025-04-01 11:47:59.954 -04:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-04-01 11:48:00.376 -04:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 11:48:00.839 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.S3.AmazonS3Exception: Access Denied
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 35
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 11:48:00.853 -04:00 [ERR] Error creating restaurant Asian Foods
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 11:48:00.861 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 11:48:00.931 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 1046.1918ms
+2025-04-01 11:48:00.932 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 11:48:00.936 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 1183.4502 ms
+2025-04-01 11:48:00.943 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 1202.4741ms
+2025-04-01 11:51:58.495 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryltggt838DwuV2Evm 133635
+2025-04-01 11:51:58.496 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:51:58.498 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:51:58.501 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 11:51:58.501 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 11:51:58.504 -04:00 [INF] Creating restaurant: Asian Foods
+2025-04-01 11:51:58.559 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 11:51:58.770 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.S3.AmazonS3Exception: Access Denied
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 35
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 11:51:58.771 -04:00 [ERR] Error creating restaurant Asian Foods
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 11:51:58.773 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 11:51:58.773 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 271.933ms
+2025-04-01 11:51:58.773 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 11:51:58.773 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 277.3312 ms
+2025-04-01 11:51:58.775 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 279.3055ms
+2025-04-01 11:56:11.021 -04:00 [INF] Application is shutting down...
+2025-04-01 11:56:17.052 -04:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-04-01 11:56:17.342 -04:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 11:56:17.534 -04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-04-01 11:56:17.540 -04:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 11:56:17.541 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-04-01 11:56:17.542 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 11:56:17.546 -04:00 [INF] No migrations were applied. The database is already up to date.
+2025-04-01 11:56:17.625 -04:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-04-01 11:56:17.670 -04:00 [INF] Now listening on: http://localhost:5068
+2025-04-01 11:56:17.672 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 11:56:17.672 -04:00 [INF] Hosting environment: Development
+2025-04-01 11:56:17.672 -04:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-04-01 11:56:22.930 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryW0J3LZQAKi9Jevfd 133635
+2025-04-01 11:56:22.938 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 11:56:22.953 -04:00 [WRN] Failed to determine the https port for redirect.
+2025-04-01 11:56:22.970 -04:00 [INF] CORS policy execution successful.
+2025-04-01 11:56:23.044 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 11:56:23.071 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 11:56:23.107 -04:00 [INF] Creating restaurant: Asian Foods
+2025-04-01 11:56:23.144 -04:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-04-01 11:56:23.584 -04:00 [INF] Executed DbCommand (15ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 11:56:24.033 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.S3.AmazonS3Exception: Access Denied
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 35
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 11:56:24.045 -04:00 [ERR] Error creating restaurant Asian Foods
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 11:56:24.053 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 11:56:24.120 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 1045.7908ms
+2025-04-01 11:56:24.121 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 11:56:24.124 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 1183.2325 ms
+2025-04-01 11:56:24.131 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 1202.3021ms
+2025-04-01 12:16:36.196 -04:00 [INF] Application is shutting down...
+2025-04-01 12:16:55.765 -04:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-04-01 12:16:56.077 -04:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:16:56.296 -04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-04-01 12:16:56.302 -04:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 12:16:56.303 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-04-01 12:16:56.304 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:16:56.308 -04:00 [INF] No migrations were applied. The database is already up to date.
+2025-04-01 12:16:56.392 -04:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-04-01 12:16:56.448 -04:00 [INF] Now listening on: http://localhost:5068
+2025-04-01 12:16:56.450 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 12:16:56.450 -04:00 [INF] Hosting environment: Development
+2025-04-01 12:16:56.450 -04:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-04-01 12:17:00.628 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryDwNB7S3KWsztUffb 133635
+2025-04-01 12:17:00.635 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:17:00.650 -04:00 [WRN] Failed to determine the https port for redirect.
+2025-04-01 12:17:00.667 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:17:00.742 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:17:00.764 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 12:17:00.799 -04:00 [INF] Creating restaurant: Asian Foods
+2025-04-01 12:17:00.836 -04:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-04-01 12:17:01.255 -04:00 [INF] Executed DbCommand (13ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 12:17:01.702 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.S3.AmazonS3Exception: Access Denied
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 43
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 12:17:01.714 -04:00 [ERR] Error creating restaurant Asian Foods
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 12:17:01.722 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 12:17:01.791 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 1023.9943ms
+2025-04-01 12:17:01.793 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:17:01.797 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 1158.0185 ms
+2025-04-01 12:17:01.804 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 1176.5964ms
+2025-04-01 12:27:07.934 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryn8BG0vSakP9KMgBS 133635
+2025-04-01 12:27:07.935 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:27:07.983 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:27:07.986 -04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '04/01/2025 16:22:30', Current time (UTC): '04/01/2025 16:27:07'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-04-01 12:27:07.989 -04:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '04/01/2025 16:22:30', Current time (UTC): '04/01/2025 16:27:07'.
+2025-04-01 12:27:07.991 -04:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|RestaurantOwner)
+2025-04-01 12:27:07.996 -04:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-04-01 12:27:07.997 -04:00 [INF] HTTP POST /api/restaurants responded 401 in 53.5868 ms
+2025-04-01 12:27:07.997 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 401 0 null 63.3437ms
+2025-04-01 12:27:12.776 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundarymYnh2YyGOt1mHVgP 133635
+2025-04-01 12:27:12.776 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:27:12.777 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:27:12.779 -04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '04/01/2025 16:22:30', Current time (UTC): '04/01/2025 16:27:12'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-04-01 12:27:12.779 -04:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '04/01/2025 16:22:30', Current time (UTC): '04/01/2025 16:27:12'.
+2025-04-01 12:27:12.780 -04:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|RestaurantOwner)
+2025-04-01 12:27:12.781 -04:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-04-01 12:27:12.781 -04:00 [INF] HTTP POST /api/restaurants responded 401 in 4.6378 ms
+2025-04-01 12:27:12.781 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 401 0 null 5.3054ms
+2025-04-01 12:27:56.012 -04:00 [INF] Application is shutting down...
+2025-04-01 12:28:01.240 -04:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-04-01 12:28:01.494 -04:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:28:01.695 -04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-04-01 12:28:01.701 -04:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 12:28:01.702 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-04-01 12:28:01.703 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:28:01.707 -04:00 [INF] No migrations were applied. The database is already up to date.
+2025-04-01 12:28:01.792 -04:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-04-01 12:28:01.844 -04:00 [INF] Now listening on: http://localhost:5068
+2025-04-01 12:28:01.846 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 12:28:01.846 -04:00 [INF] Hosting environment: Development
+2025-04-01 12:28:01.846 -04:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-04-01 12:28:05.729 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryZX5O6Pn03GKg8PZt 133635
+2025-04-01 12:28:05.736 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:28:05.751 -04:00 [WRN] Failed to determine the https port for redirect.
+2025-04-01 12:28:05.766 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:28:05.825 -04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '04/01/2025 16:22:30', Current time (UTC): '04/01/2025 16:28:05'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-04-01 12:28:05.836 -04:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '04/01/2025 16:22:30', Current time (UTC): '04/01/2025 16:28:05'.
+2025-04-01 12:28:05.840 -04:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|RestaurantOwner)
+2025-04-01 12:28:05.844 -04:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-04-01 12:28:05.845 -04:00 [INF] HTTP POST /api/restaurants responded 401 in 106.3560 ms
+2025-04-01 12:28:05.850 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 401 0 null 121.9408ms
+2025-04-01 12:28:09.946 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.html - null null
+2025-04-01 12:28:09.947 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:28:10.036 -04:00 [INF] HTTP GET /index.html responded 200 in 89.2858 ms
+2025-04-01 12:28:10.037 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.html - 200 null text/html;charset=utf-8 90.8682ms
+2025-04-01 12:28:10.060 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/index.js - null null
+2025-04-01 12:28:10.060 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:28:10.065 -04:00 [INF] HTTP GET /index.js responded 200 in 4.9959 ms
+2025-04-01 12:28:10.066 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/index.js - 200 null application/javascript;charset=utf-8 6.2156ms
+2025-04-01 12:28:10.238 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2025-04-01 12:28:10.239 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:28:10.441 -04:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 202.2148 ms
+2025-04-01 12:28:10.442 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 203.3211ms
+2025-04-01 12:28:31.633 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/auth/login - application/json 62
+2025-04-01 12:28:31.633 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:28:31.635 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:28:31.639 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-04-01 12:28:31.659 -04:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(GrubPix.Application.DTO.LoginDto) on controller GrubPix.API.Controllers.AuthController (GrubPix.API).
+2025-04-01 12:28:31.692 -04:00 [INF] Login attempt for abunawose@gmail.com
+2025-04-01 12:28:31.807 -04:00 [INF] Authenticating user with email: abunawose@gmail.com
+2025-04-01 12:28:32.059 -04:00 [INF] Executed DbCommand (14ms) [Parameters=[@__email_0='abunawose@gmail.com'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-04-01 12:28:32.410 -04:00 [INF] User abunawose@gmail.com logged in successfully
+2025-04-01 12:28:32.413 -04:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.BaseUserDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-01 12:28:32.431 -04:00 [INF] Executed action GrubPix.API.Controllers.AuthController.Login (GrubPix.API) in 769.231ms
+2025-04-01 12:28:32.432 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.AuthController.Login (GrubPix.API)'
+2025-04-01 12:28:32.433 -04:00 [INF] HTTP POST /api/auth/login responded 200 in 800.0082 ms
+2025-04-01 12:28:32.438 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/auth/login - 200 null application/json; charset=utf-8 804.7892ms
+2025-04-01 12:29:46.610 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundary4nSGjHsooiq8DmZo 133639
+2025-04-01 12:29:46.611 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:29:46.611 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:29:46.638 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:29:46.647 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 12:29:46.671 -04:00 [INF] Creating restaurant: African Food
+2025-04-01 12:29:46.700 -04:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-04-01 12:29:46.808 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 12:29:47.214 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.S3.AmazonS3Exception: Access Denied
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 43
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 12:29:47.223 -04:00 [ERR] Error creating restaurant African Food
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 12:29:47.225 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 12:29:47.227 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 580.0764ms
+2025-04-01 12:29:47.227 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:29:47.228 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 616.9035 ms
+2025-04-01 12:29:47.229 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 618.9216ms
+2025-04-01 12:35:09.022 -04:00 [INF] Application is shutting down...
+2025-04-01 12:35:18.013 -04:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-04-01 12:35:18.274 -04:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:35:18.476 -04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-04-01 12:35:18.481 -04:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 12:35:18.482 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-04-01 12:35:18.483 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:35:18.487 -04:00 [INF] No migrations were applied. The database is already up to date.
+2025-04-01 12:35:18.565 -04:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-04-01 12:35:18.615 -04:00 [INF] Now listening on: http://localhost:5068
+2025-04-01 12:35:18.617 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 12:35:18.617 -04:00 [INF] Hosting environment: Development
+2025-04-01 12:35:18.617 -04:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-04-01 12:35:24.685 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryHptslvk2lxN2B8WS 133639
+2025-04-01 12:35:24.692 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:35:24.708 -04:00 [WRN] Failed to determine the https port for redirect.
+2025-04-01 12:35:24.731 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:35:24.806 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:35:24.829 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 12:35:24.863 -04:00 [INF] Creating restaurant: African Food
+2025-04-01 12:35:24.899 -04:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-04-01 12:35:25.330 -04:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 12:35:25.788 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.S3.AmazonS3Exception: Access Denied
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 43
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 12:35:25.800 -04:00 [ERR] Error creating restaurant African Food
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 12:35:25.808 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 12:35:25.875 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 1043.2244ms
+2025-04-01 12:35:25.876 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:35:25.880 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 1184.2260 ms
+2025-04-01 12:35:25.887 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 1203.6087ms
+2025-04-01 12:40:26.922 -04:00 [INF] Application is shutting down...
+2025-04-01 12:40:32.609 -04:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-04-01 12:40:32.862 -04:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:40:33.054 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-04-01 12:40:33.060 -04:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 12:40:33.061 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-04-01 12:40:33.061 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:40:33.065 -04:00 [INF] No migrations were applied. The database is already up to date.
+2025-04-01 12:40:33.138 -04:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-04-01 12:40:33.187 -04:00 [INF] Now listening on: http://localhost:5068
+2025-04-01 12:40:33.189 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 12:40:33.189 -04:00 [INF] Hosting environment: Development
+2025-04-01 12:40:33.190 -04:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-04-01 12:40:42.644 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryRBtQM1h5sWdkQpJd 133639
+2025-04-01 12:40:42.653 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:40:42.668 -04:00 [WRN] Failed to determine the https port for redirect.
+2025-04-01 12:40:42.686 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:40:42.764 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:40:42.790 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 12:40:42.825 -04:00 [INF] Creating restaurant: African Food
+2025-04-01 12:40:42.874 -04:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-04-01 12:40:43.330 -04:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 12:40:44.474 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.Runtime.AmazonServiceException: Unable to get IAM security credentials from EC2 Instance Metadata Service.
+   at Amazon.Runtime.DefaultInstanceProfileAWSCredentials.FetchCredentials()
+   at Amazon.Runtime.DefaultInstanceProfileAWSCredentials.GetCredentials()
+   at Amazon.Runtime.DefaultInstanceProfileAWSCredentials.GetCredentialsAsync()
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 43
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 12:40:44.488 -04:00 [ERR] Error creating restaurant African Food
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 12:40:44.496 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 12:40:44.562 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 1768.6357ms
+2025-04-01 12:40:44.563 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:40:44.566 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 1909.3652 ms
+2025-04-01 12:40:44.573 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 1930.4044ms
+2025-04-01 12:43:35.072 -04:00 [INF] Application is shutting down...
+2025-04-01 12:43:40.865 -04:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-04-01 12:43:41.116 -04:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:43:41.306 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-04-01 12:43:41.312 -04:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 12:43:41.313 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-04-01 12:43:41.313 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:43:41.317 -04:00 [INF] No migrations were applied. The database is already up to date.
+2025-04-01 12:43:41.387 -04:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-04-01 12:43:41.436 -04:00 [INF] Now listening on: http://localhost:5068
+2025-04-01 12:43:41.437 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 12:43:41.438 -04:00 [INF] Hosting environment: Development
+2025-04-01 12:43:41.438 -04:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-04-01 12:43:44.300 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryk3mlWNESSlqAVA1F 133639
+2025-04-01 12:43:44.307 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:43:44.322 -04:00 [WRN] Failed to determine the https port for redirect.
+2025-04-01 12:43:44.340 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:43:44.411 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:43:44.433 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 12:43:44.467 -04:00 [INF] Creating restaurant: African Food
+2025-04-01 12:43:44.503 -04:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-04-01 12:43:44.916 -04:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 12:43:45.412 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.S3.AmazonS3Exception: Access Denied
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 43
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 12:43:45.424 -04:00 [ERR] Error creating restaurant African Food
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 12:43:45.432 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 12:43:45.498 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 1062.8424ms
+2025-04-01 12:43:45.499 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:43:45.503 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 1192.1959 ms
+2025-04-01 12:43:45.509 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 1210.1352ms
+2025-04-01 12:47:41.244 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundary5hYAPMEphertAzY4 133639
+2025-04-01 12:47:41.245 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:47:41.247 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:47:41.251 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:47:41.252 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 12:47:41.294 -04:00 [INF] Creating restaurant: African Food
+2025-04-01 12:47:41.360 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 12:47:41.578 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.S3.AmazonS3Exception: Access Denied
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 43
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 12:47:41.581 -04:00 [ERR] Error creating restaurant African Food
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 12:47:41.582 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 12:47:41.583 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 330.4606ms
+2025-04-01 12:47:41.583 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:47:41.583 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 338.3839 ms
+2025-04-01 12:47:41.585 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 340.6544ms
+2025-04-01 12:47:45.462 -04:00 [INF] Application is shutting down...
+2025-04-01 12:47:54.376 -04:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-04-01 12:47:54.636 -04:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:47:54.835 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-04-01 12:47:54.840 -04:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 12:47:54.841 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-04-01 12:47:54.842 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:47:54.846 -04:00 [INF] No migrations were applied. The database is already up to date.
+2025-04-01 12:47:54.914 -04:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-04-01 12:47:54.960 -04:00 [INF] Now listening on: http://localhost:5068
+2025-04-01 12:47:54.962 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 12:47:54.963 -04:00 [INF] Hosting environment: Development
+2025-04-01 12:47:54.963 -04:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-04-01 12:48:03.463 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryQswvHBD3JqkNJpiB 133639
+2025-04-01 12:48:03.471 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:48:03.485 -04:00 [WRN] Failed to determine the https port for redirect.
+2025-04-01 12:48:03.502 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:48:03.575 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:48:03.596 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 12:48:03.631 -04:00 [INF] Creating restaurant: African Food
+2025-04-01 12:48:03.667 -04:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-04-01 12:48:04.061 -04:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 12:48:04.478 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.S3.AmazonS3Exception: Access Denied
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 43
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 12:48:04.490 -04:00 [ERR] Error creating restaurant African Food
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 12:48:04.498 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 12:48:04.563 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 964.7153ms
+2025-04-01 12:48:04.565 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:48:04.568 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 1093.6243 ms
+2025-04-01 12:48:04.574 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 1112.5613ms
+2025-04-01 12:48:39.852 -04:00 [INF] Application is shutting down...
+2025-04-01 12:48:46.441 -04:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-04-01 12:48:46.710 -04:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:48:46.920 -04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-04-01 12:48:46.929 -04:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 12:48:46.930 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-04-01 12:48:46.931 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:48:46.936 -04:00 [INF] No migrations were applied. The database is already up to date.
+2025-04-01 12:48:47.021 -04:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-04-01 12:48:47.078 -04:00 [INF] Now listening on: http://localhost:5068
+2025-04-01 12:48:47.080 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 12:48:47.080 -04:00 [INF] Hosting environment: Development
+2025-04-01 12:48:47.080 -04:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-04-01 12:48:51.575 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundarywwxSYToW6JePVK3B 133639
+2025-04-01 12:48:51.582 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:48:51.598 -04:00 [WRN] Failed to determine the https port for redirect.
+2025-04-01 12:48:51.616 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:48:51.689 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:48:51.712 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 12:48:51.746 -04:00 [INF] Creating restaurant: African Food
+2025-04-01 12:48:51.782 -04:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-04-01 12:48:52.236 -04:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 12:48:53.719 -04:00 [ERR] An error occurred while creating the restaurant.
+Amazon.S3.AmazonS3Exception: Access Denied
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at GrubPix.Application.Services.S3Service.UploadImageAsync(Stream imageStream) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/S3Service.cs:line 43
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 97
+2025-04-01 12:48:53.731 -04:00 [ERR] Error creating restaurant African Food
+GrubPix.Application.Exceptions.InternalServerErrorException: An error occurred while creating the restaurant. Please try again later.
+   at GrubPix.Application.Services.RestaurantService.CreateRestaurantAsync(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Services/RestaurantService.cs:line 116
+   at GrubPix.Application.Features.Restaurant.CreateRestaurantCommandHandler.Handle(CreateRestaurantCommand request, CancellationToken cancellationToken) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.Application/Features/Restaurant/CreateRestaurantCommand.cs:line 31
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at GrubPix.API.Controllers.RestaurantController.CreateRestaurant(CreateRestaurantDto restaurantDto, IFormFile imageFile) in /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API/Controllers/RestaurantController.cs:line 100
+2025-04-01 12:48:53.739 -04:00 [INF] Executing ObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 12:48:53.808 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 2093.4722ms
+2025-04-01 12:48:53.810 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:48:53.813 -04:00 [ERR] HTTP POST /api/restaurants responded 500 in 2227.5126 ms
+2025-04-01 12:48:53.821 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 500 null application/json; charset=utf-8 2246.7536ms
+2025-04-01 12:50:44.558 -04:00 [INF] Application is shutting down...
+2025-04-01 12:54:47.023 -04:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-04-01 12:54:47.295 -04:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:54:47.485 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-04-01 12:54:47.491 -04:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 12:54:47.492 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-04-01 12:54:47.493 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-04-01 12:54:47.496 -04:00 [INF] No migrations were applied. The database is already up to date.
+2025-04-01 12:54:47.569 -04:00 [INF] User profile is available. Using '/Users/oseabunaw/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-04-01 12:54:47.620 -04:00 [INF] Now listening on: http://localhost:5068
+2025-04-01 12:54:47.622 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 12:54:47.622 -04:00 [INF] Hosting environment: Development
+2025-04-01 12:54:47.622 -04:00 [INF] Content root path: /Users/oseabunaw/Desktop/Repos/GrubPixApp/GrubPix.API
+2025-04-01 12:55:13.425 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/restaurants - multipart/form-data; boundary=----WebKitFormBoundaryJAe5bYgpFoIo7oKa 133639
+2025-04-01 12:55:13.432 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:55:13.447 -04:00 [WRN] Failed to determine the https port for redirect.
+2025-04-01 12:55:13.464 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:55:13.538 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:55:13.560 -04:00 [INF] Route matched with {action = "CreateRestaurant", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRestaurant(GrubPix.Application.DTO.CreateRestaurantDto, Microsoft.AspNetCore.Http.IFormFile) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 12:55:13.595 -04:00 [INF] Creating restaurant: African Food
+2025-04-01 12:55:13.633 -04:00 [INF] Found credentials using the AWS SDK's default credential search
+2025-04-01 12:55:14.088 -04:00 [INF] Executed DbCommand (15ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsVerified", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpiry", u."Role", u."Username", u."VerificationToken"
+FROM "Users" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-04-01 12:55:14.986 -04:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='3360 wreenwood ct loganville ga' (Nullable = false), @p1='African Cuisine' (Nullable = false), @p2='https://grubpix-assets.s3.amazonaws.com/76a73d4c-dbc1-4617-bc14-fc50a151429b' (Nullable = false), @p3='African Food' (Nullable = false), @p4='31'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Restaurants" ("Address", "Description", "ImageUrl", "Name", "OwnerId")
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING "Id";
+2025-04-01 12:55:15.003 -04:00 [INF] Restaurant African Food created successfully
+2025-04-01 12:55:15.005 -04:00 [INF] Restaurant African Food created successfully with ID 17
+2025-04-01 12:55:15.011 -04:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-01 12:55:15.096 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API) in 1532.6028ms
+2025-04-01 12:55:15.097 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.CreateRestaurant (GrubPix.API)'
+2025-04-01 12:55:15.100 -04:00 [INF] HTTP POST /api/restaurants responded 201 in 1664.7756 ms
+2025-04-01 12:55:15.106 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/restaurants - 201 null application/json; charset=utf-8 1682.6929ms
+2025-04-01 12:57:00.066 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-04-01 12:57:00.067 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:57:00.076 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-04-01 12:57:00.081 -04:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 12:57:00.086 -04:00 [INF] Fetching restaurants with user ID 31 and role Admin
+2025-04-01 12:57:00.176 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-04-01 12:57:00.188 -04:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-04-01 12:57:00.189 -04:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-04-01 12:57:00.256 -04:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-04-01 12:57:00.291 -04:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='31', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s0."Id", s0."Description", s0."Name", s0."RestaurantId", s0."Id0", s0."Description0", s0."MenuId", s0."Name0", s0."Price", s0."Id00", s0."ImageUrl", s0."MenuItemId"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", s."Id" AS "Id0", s."Description" AS "Description0", s."MenuId", s."Name" AS "Name0", s."Price", s."Id0" AS "Id00", s."ImageUrl", s."MenuItemId"
+    FROM "Menus" AS m
+    LEFT JOIN (
+        SELECT m0."Id", m0."Description", m0."MenuId", m0."Name", m0."Price", m1."Id" AS "Id0", m1."ImageUrl", m1."MenuItemId"
+        FROM "MenuItems" AS m0
+        LEFT JOIN "MenuItemImages" AS m1 ON m0."Id" = m1."MenuItemId"
+    ) AS s ON m."Id" = s."MenuId"
+) AS s0 ON r0."Id" = s0."RestaurantId"
+ORDER BY r0."Id", s0."Id", s0."Id0"
+2025-04-01 12:57:00.310 -04:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 12:57:00.314 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 232.946ms
+2025-04-01 12:57:00.314 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-04-01 12:57:00.314 -04:00 [INF] HTTP GET /api/restaurants responded 200 in 246.7707 ms
+2025-04-01 12:57:00.315 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 248.4879ms
+2025-04-01 12:58:17.812 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/menus - application/json 74
+2025-04-01 12:58:17.812 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 12:58:17.813 -04:00 [INF] CORS policy execution successful.
+2025-04-01 12:58:17.817 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-04-01 12:58:17.820 -04:00 [INF] Route matched with {action = "CreateMenu", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateMenu(GrubPix.Application.DTO.CreateMenuDto) on controller GrubPix.API.Controllers.MenuController (GrubPix.API).
+2025-04-01 12:58:17.842 -04:00 [INF] Creating menu: Lunch for Restaurant ID 17
+2025-04-01 12:58:17.859 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='Lunch menu' (Nullable = false), @p1='Lunch' (Nullable = false), @p2='17'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Menus" ("Description", "Name", "RestaurantId")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+2025-04-01 12:58:17.862 -04:00 [INF] Menu Lunch created successfully with ID 19
+2025-04-01 12:58:17.862 -04:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 12:58:17.865 -04:00 [INF] Executed action GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API) in 45.0772ms
+2025-04-01 12:58:17.866 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuController.CreateMenu (GrubPix.API)'
+2025-04-01 12:58:17.866 -04:00 [INF] HTTP POST /api/menus responded 201 in 53.4001 ms
+2025-04-01 12:58:17.866 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/menus - 201 null application/json; charset=utf-8 54.0932ms
+2025-04-01 13:00:28.972 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/MenuItem - multipart/form-data; boundary=----WebKitFormBoundaryjbkZUbvjrYHyEG2U 174081
+2025-04-01 13:00:28.973 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 13:00:28.973 -04:00 [INF] CORS policy execution successful.
+2025-04-01 13:00:28.974 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API)'
+2025-04-01 13:00:29.014 -04:00 [INF] Route matched with {action = "CreateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateMenuItem(GrubPix.Application.DTO.CreateMenuItemDto, System.Collections.Generic.List`1[Microsoft.AspNetCore.Http.IFormFile]) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-04-01 13:00:29.026 -04:00 [INF] Creating menu item: Fries for Menu ID 19
+2025-04-01 13:00:30.351 -04:00 [INF] Executed DbCommand (10ms) [Parameters=[@p0='seasoned french fries' (Nullable = false), @p1='19', @p2='Fries' (Nullable = false), @p3='7.99'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "MenuItems" ("Description", "MenuId", "Name", "Price")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-04-01 13:00:30.358 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@p4='https://grubpix-assets.s3.amazonaws.com/8bf4676b-784f-44c2-ad66-acba37de6cda' (Nullable = false), @p5='31'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "MenuItemImages" ("ImageUrl", "MenuItemId")
+VALUES (@p4, @p5)
+RETURNING "Id";
+2025-04-01 13:00:30.386 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT m1."Id", m1."Description", m1."MenuId", m1."Name", m1."Price", m0."Id", m0."ImageUrl", m0."MenuItemId"
+FROM (
+    SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+    FROM "MenuItems" AS m
+    WHERE m."Id" = @__id_0
+    LIMIT 1
+) AS m1
+LEFT JOIN "MenuItemImages" AS m0 ON m1."Id" = m0."MenuItemId"
+ORDER BY m1."Id"
+2025-04-01 13:00:30.393 -04:00 [INF] Menu item Fries created successfully with ID 31
+2025-04-01 13:00:30.393 -04:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-01 13:00:30.399 -04:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API) in 1384.0208ms
+2025-04-01 13:00:30.399 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API)'
+2025-04-01 13:00:30.399 -04:00 [INF] HTTP POST /api/MenuItem responded 201 in 1426.2124 ms
+2025-04-01 13:00:30.400 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/MenuItem - 201 null application/json; charset=utf-8 1427.6544ms
+2025-04-01 13:01:41.963 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/MenuItem - multipart/form-data; boundary=----WebKitFormBoundarylDM1mIvUGAYUqgIM 71210
+2025-04-01 13:01:41.963 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 13:01:41.963 -04:00 [INF] CORS policy execution successful.
+2025-04-01 13:01:41.964 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API)'
+2025-04-01 13:01:41.964 -04:00 [INF] Route matched with {action = "CreateMenuItem", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateMenuItem(GrubPix.Application.DTO.CreateMenuItemDto, System.Collections.Generic.List`1[Microsoft.AspNetCore.Http.IFormFile]) on controller GrubPix.API.Controllers.MenuItemController (GrubPix.API).
+2025-04-01 13:01:41.966 -04:00 [INF] Creating menu item: Lemon-Herb-Marinated-Grilled-Chicken for Menu ID 19
+2025-04-01 13:01:42.573 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='Marinated-Grilled-Chicken' (Nullable = false), @p1='19', @p2='Lemon-Herb-Marinated-Grilled-Chicken' (Nullable = false), @p3='8.99'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "MenuItems" ("Description", "MenuId", "Name", "Price")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-04-01 13:01:42.574 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[@p4='https://grubpix-assets.s3.amazonaws.com/77bca328-8ef6-48f1-9fdc-fec196d34d93' (Nullable = false), @p5='32'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "MenuItemImages" ("ImageUrl", "MenuItemId")
+VALUES (@p4, @p5)
+RETURNING "Id";
+2025-04-01 13:01:42.580 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='32'], CommandType='"Text"', CommandTimeout='30']
+SELECT m1."Id", m1."Description", m1."MenuId", m1."Name", m1."Price", m0."Id", m0."ImageUrl", m0."MenuItemId"
+FROM (
+    SELECT m."Id", m."Description", m."MenuId", m."Name", m."Price"
+    FROM "MenuItems" AS m
+    WHERE m."Id" = @__id_0
+    LIMIT 1
+) AS m1
+LEFT JOIN "MenuItemImages" AS m0 ON m1."Id" = m0."MenuItemId"
+ORDER BY m1."Id"
+2025-04-01 13:01:42.580 -04:00 [INF] Menu item Lemon-Herb-Marinated-Grilled-Chicken created successfully with ID 32
+2025-04-01 13:01:42.581 -04:00 [INF] Executing CreatedAtActionResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[GrubPix.Application.DTO.MenuItemDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-01 13:01:42.581 -04:00 [INF] Executed action GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API) in 616.7074ms
+2025-04-01 13:01:42.581 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.MenuItemController.CreateMenuItem (GrubPix.API)'
+2025-04-01 13:01:42.581 -04:00 [INF] HTTP POST /api/MenuItem responded 201 in 618.0695 ms
+2025-04-01 13:01:42.582 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/MenuItem - 201 null application/json; charset=utf-8 619.838ms
+2025-04-01 13:01:54.550 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - null null
+2025-04-01 13:01:54.551 -04:00 [INF] No correlation ID was found in the request headers
+2025-04-01 13:01:54.552 -04:00 [INF] Executing endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-04-01 13:01:54.552 -04:00 [INF] Route matched with {action = "GetRestaurants", controller = "Restaurant"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRestaurants(System.String, System.String, Boolean, Int32, Int32) on controller GrubPix.API.Controllers.RestaurantController (GrubPix.API).
+2025-04-01 13:01:54.580 -04:00 [INF] Fetching restaurants with user ID 31 and role Admin
+2025-04-01 13:01:54.587 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Restaurants" AS r
+WHERE r."OwnerId" = @__userId_0
+2025-04-01 13:01:54.589 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='31', @__p_2='10', @__p_1='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT r0."Id", r0."Address", r0."Description", r0."ImageUrl", r0."Name", r0."OwnerId", s0."Id", s0."Description", s0."Name", s0."RestaurantId", s0."Id0", s0."Description0", s0."MenuId", s0."Name0", s0."Price", s0."Id00", s0."ImageUrl", s0."MenuItemId"
+FROM (
+    SELECT r."Id", r."Address", r."Description", r."ImageUrl", r."Name", r."OwnerId"
+    FROM "Restaurants" AS r
+    WHERE r."OwnerId" = @__userId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS r0
+LEFT JOIN (
+    SELECT m."Id", m."Description", m."Name", m."RestaurantId", s."Id" AS "Id0", s."Description" AS "Description0", s."MenuId", s."Name" AS "Name0", s."Price", s."Id0" AS "Id00", s."ImageUrl", s."MenuItemId"
+    FROM "Menus" AS m
+    LEFT JOIN (
+        SELECT m0."Id", m0."Description", m0."MenuId", m0."Name", m0."Price", m1."Id" AS "Id0", m1."ImageUrl", m1."MenuItemId"
+        FROM "MenuItems" AS m0
+        LEFT JOIN "MenuItemImages" AS m1 ON m0."Id" = m1."MenuItemId"
+    ) AS s ON m."Id" = s."MenuId"
+) AS s0 ON r0."Id" = s0."RestaurantId"
+ORDER BY r0."Id", s0."Id", s0."Id0"
+2025-04-01 13:01:54.602 -04:00 [INF] Executing OkObjectResult, writing value of type 'GrubPix.Application.Common.ApiResponse`1[[System.Collections.Generic.List`1[[GrubPix.Application.DTO.RestaurantDto, GrubPix.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-01 13:01:54.603 -04:00 [INF] Executed action GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API) in 50.7553ms
+2025-04-01 13:01:54.603 -04:00 [INF] Executed endpoint 'GrubPix.API.Controllers.RestaurantController.GetRestaurants (GrubPix.API)'
+2025-04-01 13:01:54.603 -04:00 [INF] HTTP GET /api/restaurants responded 200 in 52.0678 ms
+2025-04-01 13:01:54.603 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/restaurants?descending=false&page=1&pageSize=10 - 200 null application/json; charset=utf-8 52.753ms

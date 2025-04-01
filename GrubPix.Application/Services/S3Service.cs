@@ -16,23 +16,41 @@ namespace GrubPix.Application.Services
         {
             _s3Client = s3Client;
             _bucketName = configuration["AWS:BucketName"];
+
+            // Debugging: Print out the bucket name and region to ensure they're correct.
+            // Console.WriteLine($"Bucket Name: {_bucketName}");
+            // Console.WriteLine($"Region: {configuration["AWS:Region"]}");
+            // Console.WriteLine("AccessKey: " + configuration["AWS:AccessKey"]);
+            // Console.WriteLine("SecretKey: " + configuration["AWS:SecretKey"]);
         }
 
         public async Task<string> UploadImageAsync(Stream imageStream)
         {
-            var fileName = Guid.NewGuid().ToString(); // Generate unique filename
-
-            var request = new PutObjectRequest
+            try
             {
-                BucketName = _bucketName,
-                Key = fileName,
-                InputStream = imageStream,
-                AutoCloseStream = true
-            };
+                var fileName = Guid.NewGuid().ToString(); // Generate unique filename
 
-            await _s3Client.PutObjectAsync(request);
+                Console.WriteLine($"Uploading image to S3 with file name: {fileName}");
 
-            return GetImageUrl(fileName); // Return full image URL
+                var request = new PutObjectRequest
+                {
+                    BucketName = _bucketName,
+                    Key = fileName,
+                    InputStream = imageStream,
+                    AutoCloseStream = true,
+                };
+
+                await _s3Client.PutObjectAsync(request);
+                Console.WriteLine($"Successfully uploaded {fileName} to S3 bucket {_bucketName}");
+
+                return GetImageUrl(fileName); // Return full image URL
+            }
+            catch (AmazonS3Exception e)
+            {
+                Console.WriteLine($"Error during upload: {e.Message}");
+                Console.WriteLine($"Stack trace: {e.StackTrace}");
+                throw;
+            }
         }
 
         private string GetImageUrl(string fileName)

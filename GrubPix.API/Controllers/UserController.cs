@@ -22,6 +22,22 @@ namespace GrubPix.API.Controllers
             _logger = logger;
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            _logger.LogInformation("Fetching user details for ID {UserId}", id);
+
+            var user = await _mediator.Send(new GetUserByIdQuery(id));
+
+            if (user != null)
+            {
+                return Ok(ApiResponse<BaseUserDto>.SuccessResponse(user));
+            }
+
+            _logger.LogWarning("User with ID {UserId} not found", id);
+            return NotFound(ApiResponse<object>.FailResponse("User not found"));
+        }
+
         /// <summary>
         /// Updates a user by ID.
         /// </summary>

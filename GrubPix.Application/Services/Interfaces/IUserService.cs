@@ -10,6 +10,7 @@ namespace GrubPix.Application.Services.Interfaces
 
         Task<BaseUserDto> UpdateUserAsync(int id, UpdateUserDto dto);
         Task<bool> DeleteUserAsync(int id);
+        Task<BaseUserDto?> GetUserByIdAsync(int id);
 
     }
 }
